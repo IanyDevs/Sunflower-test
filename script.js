@@ -271,7 +271,13 @@ function initHeroSlider() {
     carouselImages.forEach((src, index) => {
         const slide = document.createElement('div');
         slide.className = `slide${index === 0 ? ' active' : ''}`;
-        slide.style.backgroundImage = `linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('${src}')`;
+        
+        // Load only the first image immediately. Other images will be lazy loaded.
+        if (index === 0) {
+            slide.style.backgroundImage = `linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('${src}')`;
+        } else {
+            slide.setAttribute('data-bg', src);
+        }
         
         // Custom vertical positioning to prevent heads/details from being cut off
         const filename = src.split('/').pop();
@@ -302,11 +308,33 @@ function initHeroSlider() {
     const slides = sliderContainer.querySelectorAll('.slide');
     if (slides.length <= 1) return;
 
+    // Helper to load a slide's background image on demand
+    function loadSlideImage(slideEl) {
+        if (!slideEl) return;
+        const bgSrc = slideEl.getAttribute('data-bg');
+        if (bgSrc) {
+            slideEl.style.backgroundImage = `linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('${bgSrc}')`;
+            slideEl.removeAttribute('data-bg');
+        }
+    }
+
+    // Preload the second slide after a short delay so it's ready for the first transition
+    setTimeout(() => {
+        if (slides[1]) loadSlideImage(slides[1]);
+    }, 1500);
+
     let currentSlide = 0;
     setInterval(() => {
         slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % slides.length;
+        
+        // Ensure active slide is loaded
+        loadSlideImage(slides[currentSlide]);
         slides[currentSlide].classList.add('active');
+        
+        // Preload the next slide in sequence so it's cached before the next transition
+        const nextSlideIdx = (currentSlide + 1) % slides.length;
+        loadSlideImage(slides[nextSlideIdx]);
     }, 4500);
 }
 
@@ -393,6 +421,12 @@ function initArtistModals() {
         const targetModal = document.getElementById(`modal-${artistName}`);
         if (!targetModal) return;
 
+        // Load Spotify iframe dynamically
+        const iframe = targetModal.querySelector('iframe[data-src]');
+        if (iframe && !iframe.src) {
+            iframe.src = iframe.getAttribute('data-src');
+        }
+
         // Deactivate any currently active modals just in case
         fullPages.forEach(p => p.classList.remove('active'));
 
@@ -407,7 +441,14 @@ function initArtistModals() {
 
     function closeModal() {
         overlay.classList.remove('active');
-        fullPages.forEach(p => p.classList.remove('active'));
+        fullPages.forEach(p => {
+            p.classList.remove('active');
+            // Unload Spotify iframe to free up memory and stop background execution
+            const iframe = p.querySelector('iframe[data-src]');
+            if (iframe) {
+                iframe.src = "";
+            }
+        });
         document.body.style.overflow = '';
         stopAllCustomAudioPlayers();
     }
