@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunflowers Group | Associazione Culturale</title>
+    <meta name="description" content="Sito ufficiale dell'Associazione Culturale Sunflowers Group. Promuoviamo arte, musica e creatività giovanile sul territorio.">
+    <link rel="stylesheet" href="style.css?v=30">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;900&family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/monument-extended" rel="stylesheet">
+    <script>
+        (function() {
+            if (sessionStorage.getItem('playTransitionOut') !== 'true') {
+                document.documentElement.classList.add('no-curtain');
+            }
+        })();
+    </script>
+</head>
+<body>
+    
+    <!-- CURTAIN TRANSITION -->
+    <div class="page-curtain">
+        <div class="curtain-content">
+            <img src="assets/logo_ass.png" alt="Logo Sunflowers Group" class="curtain-logo">
+            <div class="curtain-cursive-text" style="opacity: 0; clip-path: inset(-20px 100% -20px -20px);">Sunflowers Group</div>
+        </div>
+    </div>
+    
+    <!-- NAVBAR -->
+    <nav class="main-nav">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo_ass.png" alt="Logo Sunflowers Group">
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="index.html" class="active">L'Associazione</a>
+            <a href="gallery.html">Vibes Archive</a>
+            <a href="../index.html" class="nav-btn-fest">Sunflower Fest</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header" style="background-color: var(--c-yellow); border-bottom: 3px solid var(--text-black);">
+        <h1 class="page-title" style="color: var(--text-black);">SUNFLOWERS GROUP APS</h1>
+        <p class="page-subtitle" style="color: var(--text-black);">Associazione Culturale di Cava de' Tirreni</p>
+    </header>
+
+    <!-- Content Wrapper -->
+    <div class="full-width-wrapper bg-white">
+        
+        <main class="info-section">
+            
+            <!-- Association Block -->
+            <article class="info-block reveal-up" id="missione">
+                <div class="info-text">
+                    <div class="sticker badge-rect bg-peach" style="position: relative; transform: rotate(-2deg); margin-bottom: 2rem; display: inline-block;">
+                        CHI SIAMO
+                    </div>
+                    <h2 style="color: var(--c-red);">La Nostra Missione</h2>
+                    <p>L'<strong>Associazione Culturale Sunflowers Group</strong> nasce con la ferma convinzione che l'arte, la musica e la creatività debbano essere accessibili a tutti e fungere da motore di crescita sociale e culturale per il territorio di Cava de' Tirreni e dell'intera provincia.</p>
+                    <p>Ci impegniamo a creare spazi fisici e mentali in cui i giovani talenti possano incontrarsi, fare networking, esprimere le proprie potenzialità e trovare un pubblico pronto ad ascoltarli.</p>
+                </div>
+                <div class="info-image">
+                    <div class="sticker tape-strip" style="top: -15px; left: 50%; transform: translateX(-50%) rotate(3deg); z-index: 10;">
+                        Arte & Musica
+                    </div>
+                    <div class="torn-paper-large float-anim-1 interactive-photo" style="background-color: var(--c-green);">
+                        <div class="torn-paper-inner cover-image img-association" style="background-image: url('assets/logo_ass.png');"></div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Projects Block -->
+            <article class="info-block reverse reveal-up delay-1" style="padding-top: 2rem; padding-bottom: 4rem;" id="progetti">
+                <div class="info-text">
+                    <div class="sticker badge-rect bg-blue" style="position: relative; transform: rotate(2deg); margin-bottom: 2rem; display: inline-block; color: var(--text-black);">
+                        I NOSTRI PROGETTI
+                    </div>
+                    <h2 style="color: var(--c-yellow); text-shadow: 2px 2px 0px var(--text-black);">Cosa Facciamo</h2>
+                    <p>Non solo festival. L'associazione pianifica attività durante tutto l'anno per coinvolgere la comunità e sostenere l'arte indipendente:</p>
+                    <ul style="list-style: none; margin-top: 1rem; font-size: 1.1rem; font-weight: 700; line-height: 2;">
+                        <li> <strong>Sunflower Fest:</strong> Il nostro evento di punta estivo dedicato alla musica e alla creatività emergente.</li>
+                        <li> <strong>Workshop & Laboratori:</strong> Incontri formativi su musica, arti visive, produzione e organizzazione eventi.</li>
+                        <li> <strong>Riqualificazione Urbana:</strong> Progetti che uniscono arte pubblica e ripristino di aree cittadine.</li>
+                    </ul>
+                </div>
+                <div class="info-image">
+                    <div class="sticker tape-strip" style="bottom: -15px; left: 50%; transform: translateX(-50%) rotate(-4deg); z-index: 10;">
+                        Festival 2026
+                    </div>
+                    <div class="torn-paper-large shape-2 float-anim-2 interactive-photo" style="background-color: var(--c-blue);">
+                        <div class="torn-paper-inner cover-image img-vibes" style="background-image: url('../assets/slide3.png');"></div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Membership Card / Call to Action -->
+            <article class="reveal-up" style="width: 100%; display: flex; justify-content: center; margin-top: 2rem;">
+                <div class="contact-info-card" style="max-width: 800px; width: 100%; text-align: center;">
+                    <h3 style="font-family: 'Monument Extended', sans-serif; font-size: 1.8rem; margin-bottom: 1.5rem; text-transform: uppercase;">Unisciti alla nostra community</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem; font-weight: 700;">Vuoi dare una mano concreta all'organizzazione degli eventi, proporre nuove idee o semplicemente sostenere la nostra causa? Diventa un socio di Sunflowers Group!</p>
+                    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSexlqiySbiXjuskMPaoTKAL4eFnGVCigT198Jx8wdQ3EUx08g/viewform" target="_blank" class="brutalist-button bg-yellow" style="font-size: 1.1rem; text-decoration: none;">Diventa Volontario</a>
+                        <a href="../contatti.html" class="brutalist-button bg-white" style="font-size: 1.1rem; text-decoration: none;">Contattaci</a>
+                    </div>
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <!-- Wavy Divider at the top of the footer -->
+        <svg class="footer-wave-divider" viewBox="0 0 1000 100" preserveAspectRatio="none">
+            <path d="M0,0 C300,100 700,100 1000,0 L1000,100 L0,100 Z" fill="var(--c-yellow)"></path>
+            <path d="M0,0 C300,100 700,100 1000,0" fill="none" stroke="var(--text-black)" stroke-width="8"></path>
+        </svg>
+        
+        <div class="footer-container">
+            <!-- Left Column: Contacts -->
+            <div class="footer-col footer-contacts">
+                <h3>Contatti</h3>
+                <p class="association-name">Sunflowers Group</p>
+                <p>Via --------------------, -</p>
+                <p>----- Cava de' Tirreni (SA)</p>
+                <p><a href="mailto:----@-----------.---">----@-----------.---</a></p>
+                <p>tel: +39 ------------</p>
+            </div>
+            
+            <!-- Middle Column: Logo & Description -->
+            <div class="footer-col footer-brand">
+                <div class="footer-logo">
+                    <img src="assets/logo_ass.png" alt="Logo Sunflowers Group">
+                </div>
+                <p class="realization-text">Sito ufficiale dell'associazione culturale<br><strong>SUNFLOWERS GROUP</strong></p>
+                <a href="https://www.paypal.com/donate" target="_blank" class="brutalist-button bg-red donation-footer-btn" style="text-decoration: none; font-size: 0.9rem; font-weight: 900; padding: 0.6rem 1.2rem; border-radius: 6px; color: var(--text-white); display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 3px 3px 0px var(--text-black); border: 2px solid var(--text-black); margin-top: 1rem;">
+                    <i class="fa-solid fa-heart" style="color: var(--c-yellow);"></i> Sostieni l'Associazione
+                </a>
+            </div>
+            
+            <!-- Right Column: Socials & Policies -->
+            <div class="footer-col footer-socials">
+                <h3>SOCIAL</h3>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/sun.flower.fest/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051C.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@sunflower.fest" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.23.85.99 2.01 1.69 3.26 2.03.11.03.22.05.34.08v3.91c-.81-.13-1.61-.39-2.36-.77-1.12-.56-2.07-1.42-2.73-2.48-.06-.1-.13-.2-.2-.3-.02.04-.03.09-.04.13v6.78c.01 1.77-.38 3.53-1.13 5.13-.88 1.77-2.31 3.24-4.06 4.14-1.74.88-3.7 1.25-5.65 1.05-1.92-.17-3.76-.99-5.18-2.32C.29 20.47-.28 18.39-.14 16.29c.14-2.13 1.06-4.14 2.58-5.63 1.52-1.47 3.56-2.28 5.68-2.28.43-.01.86.03 1.29.11v3.96c-.45-.16-.92-.23-1.4-.23-1.14-.02-2.26.37-3.15 1.1-.9.76-1.46 1.86-1.56 3.03-.11 1.17.22 2.36.93 3.3.71.91 1.75 1.51 2.89 1.67 1.15.14 2.33-.11 3.3-.72 1-.64 1.72-1.63 1.99-2.77.13-.53.18-1.07.17-1.62-.02-2.92-.01-5.84-.02-8.76v-.93z"/>
+                        </svg>
+                    </a>
+                    <a href="https://open.spotify.com/playlist/64spZqm9N3qM6NCwvnRzfY?si=bBNFJr0JQeagZHCr__zB_Q" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.6c-.2.3-.6.4-.9.2-2.3-1.4-5.1-1.7-8.5-.9-.3.1-.7-.1-.8-.4-.1-.3.1-.7.4-.8 3.7-.8 6.9-.5 9.5 1.1.3.1.4.5.3.8zm1.3-3.3c-.3.4-.8.5-1.1.3-2.6-1.6-6.6-2.1-9.7-1.2-.5.1-1-.2-1.1-.6-.1-.5.2-1 .6-1.1 3.6-1.1 8-.6 11 1.2.4.2.5.7.3 1.1zm.1-3.4C15 8.5 9.6 8.3 6.5 9.3c-.5.1-1.1-.1-1.2-.7-.1-.5.1-1.1.7-1.2 3.6-1.1 9.6-.9 13.4 1.4.5.3.6 1 .3 1.4-.3.5-1 .6-1.4.3z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/share/1G4sMCHyNB/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="policy-link">
+                    <a href="#" target="_blank" rel="noopener noreferrer">Cookie & Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Developer Credit -->
+        <div class="footer-bottom">
+            <div class="developer-credit">
+                Sviluppato con  da <a href="https://ianyydevs.altervista.org/" target="_blank">IANYDEVS</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=1.0.3"></script>
+</body>
+</html>

@@ -1,0 +1,4302 @@
+:root {
+    /* New Vibrant Instagram Palette */
+    --c-blue: #d6e8f0;
+    --c-grey: #a0a6a9;
+    --c-red: #d15654;
+    --c-peach: #ffa270;
+    --c-green: #b6cdae;
+    --c-purple: #e0bdf6;
+    --c-yellow: #f5b027; /* the accent blob color */
+    
+    /* Pastel colors derived from user's image swatches */
+    --c-pastel-orange: #f9c1b1;  /* from #E95027 */
+    --c-pastel-yellow: #ffe29e;  /* from #FFC231 */
+    --c-pastel-blue: #bcd4fc;    /* from #4988F1 */
+    --c-pastel-green: #b7ecd3;   /* from #20A357 */
+    --c-pastel-brown: #dfc9b8;   /* from #997052 */
+    --c-pastel-pink: #fbc4db;    /* from #F377A9 */
+    --c-pastel-cream: #faf8ee;   /* from #F3EFD6 */
+    --c-pastel-grey: #e2e5e6;    /* from #2D2C2C */
+    
+    --text-black: #1a1a1a;
+    --text-white: #fdfdfd;
+    --bg-white: #f4f4f4;
+    --bg-brown: #997052;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    background-color: var(--text-black);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-black);
+    line-height: 1.4;
+    padding-top: 80px; /* Space for fixed navbar */
+}
+
+/* --- BRAND TYPOGRAPHY UTILITIES --- */
+.text-sunflower {
+    font-family: 'Monument Extended', sans-serif;
+    font-weight: 400;
+    -webkit-text-stroke: 1.5px var(--text-black);
+    color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.text-festival {
+    font-family: 'Monument Extended', sans-serif;
+    font-weight: 400;
+    color: var(--text-black);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+}
+
+/* --- NAVIGATION BAR --- */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: var(--text-black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background-color 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease;
+}
+
+/* Glassmorphism navbar state when over hero slide */
+.main-nav.transparent-nav {
+    background-color: var(--text-black);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.main-nav.transparent-nav .nav-logo .text-sunflower {
+    -webkit-text-stroke: 1.2px var(--text-white);
+}
+
+.main-nav.transparent-nav .nav-logo .text-festival {
+    color: var(--c-yellow);
+}
+
+.main-nav.transparent-nav .nav-links a {
+    color: var(--text-white);
+}
+
+.main-nav.transparent-nav .nav-links a:hover,
+.main-nav.transparent-nav .nav-links a.active {
+    color: var(--c-yellow);
+}
+
+.main-nav.transparent-nav .menu-toggle span {
+    background-color: var(--text-white);
+}
+
+.nav-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-decoration: none;
+    line-height: 0.85;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    transform: rotate(-3deg);
+}
+
+.nav-logo img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.nav-logo:hover {
+    opacity: 0.8;
+    transform: rotate(-1deg) scale(1.05);
+}
+
+.nav-logo .text-sunflower {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    -webkit-text-stroke: 1.2px var(--text-black);
+    color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.nav-logo .text-festival {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-black);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--text-white);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, color 0.2s ease;
+    display: inline-block;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--c-yellow);
+    transform: scale(1.1) rotate(-2deg);
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+}
+
+
+/* --- NAVBAR DROPDOWN & PAGE CURTAIN TRANSITIONS --- */
+/* Page Curtain style */
+.page-curtain {
+    display: none !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--text-black);
+    z-index: 100000; /* Must overlay everything, including navbar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(0);
+    transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+    pointer-events: none;
+    border-bottom: 8px solid #FFC231;
+}
+
+html.no-curtain .page-curtain {
+    display: none !important;
+}
+
+.page-curtain.slide-out {
+    transform: translateY(100%);
+}
+
+.curtain-content {
+    text-align: center;
+    line-height: 0.9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1.5rem;
+}
+
+.curtain-logo {
+    height: 180px;
+    width: auto;
+    animation: 
+        curtainLogoIntro 1s cubic-bezier(0.34, 1.56, 0.64, 1) both,
+        curtainLogoFloat 4s ease-in-out infinite 1s;
+    transform-origin: center;
+}
+
+@keyframes curtainLogoIntro {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) rotate(-90deg);
+        filter: drop-shadow(0 0 0px rgba(255, 194, 49, 0));
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.15) rotate(10deg);
+        filter: drop-shadow(0 0 20px rgba(255, 194, 49, 0.6));
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+        filter: drop-shadow(0 0 10px rgba(255, 194, 49, 0.3));
+    }
+}
+
+@keyframes curtainLogoFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        filter: drop-shadow(0 0 10px rgba(255, 194, 49, 0.3));
+    }
+    50% {
+        transform: translateY(-8px) scale(1.04) rotate(3deg);
+        filter: drop-shadow(0 0 25px rgba(255, 194, 49, 0.75));
+    }
+}
+
+
+/* --- CURTAIN CURSIVE TEXT TYPEWRITER EFFECT --- */
+.curtain-cursive-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 8.5rem;
+    color: #FFC231;
+    text-shadow: 4px 4px 0px rgba(255, 194, 49, 0.15);
+    white-space: nowrap;
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    opacity: 0; /* Hide initially before animation starts */
+    clip-path: inset(-20px 100% -20px -20px);
+    animation: typewriterEffect 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+}
+
+.curtain-cursive-text::after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    bottom: 15%;
+    left: 0;
+    width: 5px;
+    background-color: #FFC231;
+    box-shadow: 0 0 6px rgba(255, 194, 49, 0.5);
+    pointer-events: none;
+    opacity: 0; /* Hide initially before animation starts */
+    animation: 
+        cursorMove 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both,
+        blinkCursor 0.6s step-end infinite 0.2s;
+}
+
+@keyframes typewriterEffect {
+    from {
+        opacity: 1;
+        clip-path: inset(-20px 100% -20px -20px);
+    }
+    to {
+        opacity: 1;
+        clip-path: inset(-20px -30px -20px -20px);
+    }
+}
+
+@keyframes cursorMove {
+    from {
+        opacity: 1;
+        left: 0;
+    }
+    to {
+        opacity: 1;
+        left: 100%;
+    }
+}
+
+@keyframes blinkCursor {
+    from, to {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-curtain {
+        display: none !important;
+    }
+    .curtain-cursive-text {
+        font-size: 4.5rem;
+    }
+    .curtain-cursive-text::after {
+        width: 3px;
+    }
+}
+
+/* Dropdown style matching brutalist theme */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-links .nav-dropdown .dropdown-trigger {
+    background-color: var(--c-yellow);
+    color: var(--text-black);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    border: 3px solid var(--text-white);
+    box-shadow: 4px 4px 0px var(--text-white);
+    font-size: 1rem;
+    transform: rotate(-1deg);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.nav-links .nav-dropdown .dropdown-trigger i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-links .nav-dropdown .dropdown-trigger:hover {
+    background-color: var(--text-white);
+    color: var(--text-black);
+    border-color: var(--text-white);
+    box-shadow: 4px 4px 0px var(--c-yellow);
+    transform: rotate(1deg) scale(1.05);
+    text-decoration: none;
+}
+
+/* Navbar active hover Chevron rot */
+.nav-dropdown:hover .dropdown-trigger i,
+.nav-dropdown.active .dropdown-trigger i {
+    transform: rotate(180deg);
+}
+
+/* Glassmorphism navbar trigger state */
+.main-nav.transparent-nav .nav-dropdown .dropdown-trigger {
+    background-color: var(--c-yellow);
+    color: var(--text-black);
+    border-color: var(--text-black);
+    box-shadow: 4px 4px 0px var(--text-black);
+}
+
+.main-nav.transparent-nav .nav-dropdown .dropdown-trigger:hover {
+    background-color: var(--text-white);
+    color: var(--text-black);
+}
+
+/* Dropdown Menu block */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--bg-white, #f4f4f4);
+    min-width: 340px;
+    border: 3px solid var(--text-black);
+    box-shadow: 6px 6px 0px var(--text-black);
+    z-index: 1010;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 15px;
+    text-align: left;
+}
+
+/* Bridge hover gap between trigger and content */
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: transparent;
+    z-index: -1;
+}
+
+/* Support active state toggle on all screen sizes */
+.nav-dropdown.active .dropdown-content {
+    display: block;
+}
+
+/* Hover on desktop */
+@media (min-width: 992px) {
+    .nav-dropdown:hover .dropdown-content {
+        display: block;
+        animation: dropFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+}
+
+@keyframes dropFade {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.dropdown-item h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.15rem;
+    color: var(--text-black);
+    margin-bottom: 0.1rem;
+    letter-spacing: 0.5px;
+}
+
+.dropdown-item p {
+    font-size: 0.85rem;
+    color: rgba(26, 26, 26, 0.7);
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.dropdown-btn {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.9rem;
+    color: var(--text-black);
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border: 3px solid var(--text-black);
+    border-radius: 8px;
+    box-shadow: 3px 3px 0px var(--text-black);
+    transition: all 0.2s ease;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.dropdown-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px var(--text-black);
+    color: var(--text-black) !important;
+}
+
+.dropdown-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px var(--text-black);
+}
+
+.dropdown-btn.bg-yellow {
+    background-color: var(--c-yellow);
+}
+
+.dropdown-btn.bg-red {
+    background-color: var(--c-red);
+    color: var(--text-white);
+}
+
+.dropdown-btn.bg-red:hover {
+    color: var(--text-white) !important;
+}
+
+.dropdown-divider {
+    height: 3px;
+    background-color: var(--text-black);
+    margin: 1.2rem 0;
+}
+
+/* Mobile Dropdown styles */
+@media (max-width: 768px) {
+    .nav-links .nav-dropdown {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-links .nav-dropdown .dropdown-trigger {
+        font-size: 2.2rem; /* Matches other links size in mobile nav */
+        width: auto;
+        padding: 0.5rem 1.5rem;
+        margin-bottom: 0.5rem;
+        display: inline-flex;
+        justify-content: center;
+        transform: none;
+        background: none;
+        border: none;
+        box-shadow: none;
+        color: var(--text-black);
+    }
+    
+    .nav-links .nav-dropdown .dropdown-trigger i {
+        font-size: 1.4rem;
+    }
+    
+    .nav-links .nav-dropdown .dropdown-trigger:hover,
+    .nav-links .nav-dropdown.active .dropdown-trigger {
+        background: none;
+        color: var(--text-white);
+        transform: rotate(-2deg) scale(1.05);
+        text-shadow: 3px 3px 0px var(--text-black);
+    }
+    
+    /* Make transparent mobile menu trigger act correctly */
+    .main-nav.transparent-nav .nav-dropdown .dropdown-trigger {
+        background: none;
+        color: var(--text-black);
+        border: none;
+        box-shadow: none;
+    }
+
+    .main-nav.transparent-nav .nav-dropdown .dropdown-trigger:hover,
+    .main-nav.transparent-nav .nav-dropdown.active .dropdown-trigger {
+        color: var(--text-white);
+    }
+    
+    .dropdown-content {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 90%;
+        max-width: 320px;
+        min-width: unset;
+        box-shadow: 4px 4px 0px var(--text-black);
+        margin: 0.5rem auto 0 auto;
+        display: none;
+        border-radius: 12px;
+        background-color: var(--bg-white, #f4f4f4);
+    }
+    
+    .nav-dropdown.active .dropdown-content {
+        display: block !important;
+    }
+}
+
+/* --- COMMON PAGE HEADERS --- */
+.page-header {
+    background-color: var(--text-black);
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    color: var(--c-yellow);
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+    text-transform: uppercase;
+}
+
+.page-subtitle {
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- HOMEPAGE CONTENT --- */
+.full-width-wrapper {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-section {
+    position: relative;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-block {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.info-block.reverse {
+    flex-direction: row-reverse;
+}
+
+.info-text {
+    flex: 1;
+}
+
+.info-text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    color: var(--c-yellow);
+    margin-bottom: 1.5rem;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.info-text p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-image {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.torn-paper-large {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: var(--c-blue); /* Can be overridden inline */
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 15px white;
+    padding: 15px; /* space for the white border */
+}
+
+.torn-paper-large.shape-2 { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
+
+.torn-paper-inner {
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    border-radius: inherit;
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- GALLERY MASONRY --- */
+.gallery-container {
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    column-count: 3;
+    column-gap: 2rem;
+}
+
+.gallery-item {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.gallery-item .torn-paper-frame {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    padding-bottom: 100%; /* For some square ones */
+}
+
+.gallery-item.tall .torn-paper-frame { padding-bottom: 150%; }
+.gallery-item.wide .torn-paper-frame { padding-bottom: 75%; }
+
+.gallery-caption {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.6rem;
+    color: var(--c-yellow);
+    text-align: center;
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
+
+
+/* --- GRID CONTAINER (EDIZIONE 2026) --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+/* Base Card */
+.festival-card {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 0;
+}
+
+/* Background Colors */
+.bg-blue { background-color: var(--c-blue); }
+.bg-grey { background-color: var(--c-grey); }
+.bg-red { background-color: var(--c-red); }
+.bg-peach { background-color: var(--c-peach); }
+.bg-green { background-color: var(--c-green); }
+.bg-purple { background-color: var(--c-purple); }
+
+/* Card Top Section */
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    z-index: 10;
+}
+
+.venue { font-size: 1rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; width: 33%; }
+
+.card-logo {
+    text-align: center;
+    line-height: 0.9;
+    width: 33%;
+    transform: rotate(-3deg);
+}
+.card-logo .text-sunflower {
+    font-size: 0.95rem;
+    -webkit-text-stroke: 0.8px var(--text-black);
+    display: block;
+}
+.card-logo .text-festival {
+    font-size: 0.95rem;
+}
+.card-logo .year {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+.ticket-info {
+    position: relative;
+    width: 33%;
+    text-align: right;
+    font-size: 0.9rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: flex-end;
+}
+.ticket-info span { position: relative; z-index: 2; }
+
+.yellow-corner-blob {
+    position: absolute; top: -2.5rem; right: -2.5rem; width: 120px; height: 120px; fill: var(--c-yellow); z-index: 1;
+}
+
+/* Image Section & Torn Paper Effect */
+.image-section {
+    position: absolute;
+    top: 15%; left: 0; width: 100%; height: 60%;
+    display: flex; justify-content: center; align-items: center; z-index: 5;
+}
+
+.bg-blob-yellow {
+    position: absolute; width: 80px; color: var(--c-yellow); z-index: -1; animation: float 6s infinite ease-in-out;
+}
+
+.torn-paper-frame {
+    width: 70%;
+    height: 100%;
+    background-color: white;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 10px white, inset 0 0 15px rgba(0,0,0,0.1);
+    transition: transform 2s ease;
+}
+
+.torn-paper-frame.shape-2 { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
+.torn-paper-frame.shape-3 { border-radius: 30% 70% 50% 50% / 50% 30% 70% 50%; }
+.torn-paper-frame.shape-4 { border-radius: 50% 50% 30% 70% / 60% 40% 50% 50%; }
+.torn-paper-frame.shape-5 { border-radius: 40% 60% 50% 50% / 40% 50% 60% 50%; }
+.torn-paper-frame.shape-6 { border-radius: 70% 30% 40% 60% / 50% 40% 60% 50%; }
+
+.torn-paper-frame:hover { transform: scale(1.05); }
+
+/* Scale frame when card is hovered */
+.festival-card:hover .torn-paper-frame {
+    transform: scale(1.05);
+}
+
+.placeholder-img {
+    width: 100%; height: 100%;
+    background-color: #333;
+    background-size: cover; background-position: center;
+    transform: scale(0.95);
+    border-radius: inherit;
+    transition: transform 2s ease;
+}
+
+/* Card Bottom Section (Yellow Wave + Text) */
+.card-bottom {
+    position: absolute; bottom: 0; width: 100%; height: 35%;
+    z-index: 10; display: flex; flex-direction: column; justify-content: flex-end;
+}
+
+.footer-wave {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
+    fill: var(--c-yellow); z-index: -1;
+}
+
+.footer-text { padding: 0 2rem 2rem 2rem; }
+
+.artist-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 0.9;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+}
+.artist-date { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 900; }
+
+/* Placeholder Gradient Images */
+.img-angie { background: linear-gradient(45deg, #111, #333); }
+.img-daria { background: linear-gradient(135deg, #222, #444); }
+.img-mercanti { background: linear-gradient(225deg, #333, #555); }
+
+/* Animations */
+.reveal-up { opacity: 1; transform: none; transition: none; }
+.reveal-up.active { opacity: 1; transform: none; }
+.delay-1 { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.3s; }
+
+.float-anim-1 { animation: float-gentle 6s ease-in-out infinite; }
+.float-anim-2 { animation: float-gentle 7s ease-in-out infinite alternate-reverse; }
+.bg-text-anim { animation: scroll-massive-text 40s linear infinite; }
+
+@keyframes float-gentle {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes scroll-massive-text {
+    0% { transform: translate(0, -50%) rotate(-5deg); left: 0%; }
+    100% { transform: translate(-100%, -50%) rotate(-5deg); left: 100%; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+/* --- MEGA HERO & HOMEPAGE ENHANCEMENTS --- */
+.home-body { padding-top: 80px; }
+.home-hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    padding-bottom: 6rem;
+    overflow: hidden;
+}
+
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero-slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center 15%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slider .slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 20; /* Ensures the button floats above the wave if they overlap */
+    max-width: 800px;
+}
+
+.giant-title {
+    line-height: 0.75;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.giant-title .text-sunflower {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 8.5vw;
+    font-weight: 400;
+    -webkit-text-stroke: 0.25vw var(--text-white);
+    color: transparent;
+    display: block;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.04em;
+    will-change: transform;
+}
+.giant-title .text-festival {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 8.5vw;
+    font-weight: 400;
+    color: var(--text-white);
+    display: block;
+    position: relative;
+    z-index: 2;
+    margin-top: -2.5vw;
+    letter-spacing: -0.04em;
+    will-change: transform;
+}
+
+.hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 3vw;
+    color: var(--text-white);
+    margin-top: 2vw;
+    margin-bottom: 3vw;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+}
+
+/* Brutalist Button */
+.brutalist-button {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.6rem;
+    color: var(--text-black);
+    text-decoration: none;
+    padding: 1rem 3rem;
+    border: 4px solid var(--text-black);
+    border-radius: 50px;
+    box-shadow: 6px 6px 0px var(--text-black);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.brutalist-button:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0px var(--text-black);
+}
+
+.brutalist-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--text-black);
+}
+
+/* Stickers & Badges */
+.sticker {
+    position: absolute;
+    z-index: 20;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    pointer-events: none;
+}
+
+.badge-starburst {
+    width: 120px;
+    height: 120px;
+    background-color: var(--c-red);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    line-height: 1;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    transform: rotate(15deg);
+    border: 4px solid var(--text-black); /* Clip path doesn't support border well, but keeping for logic */
+}
+/* Simulate border for starburst using drop-shadow filter on parent if needed, for now just flat is fine */
+
+.badge-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--c-peach);
+    color: var(--text-black);
+    border: 3px solid var(--text-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    transform: rotate(-10deg);
+}
+
+.badge-rect {
+    background-color: var(--c-green);
+    color: var(--text-black);
+    padding: 0.5rem 1rem;
+    border: 3px solid var(--text-black);
+    box-shadow: 4px 4px 0px var(--text-black);
+}
+
+.tape-strip {
+    background-color: rgba(255,255,255,0.8);
+    color: var(--text-black);
+    padding: 0.2rem 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* simulate torn tape edge */
+    clip-path: polygon(0% 5%, 100% 0%, 95% 95%, 5% 100%);
+}
+
+.bg-peach { background-color: var(--c-peach); color: var(--text-black); }
+.bg-green { background-color: var(--c-green); color: var(--text-black); }
+.bg-white { background-color: var(--text-white); color: var(--text-black); }
+
+.badge-yellow { background-color: var(--c-yellow); color: var(--text-black); }
+.badge-red { background-color: var(--c-red); color: var(--text-black); }
+
+/* Marquee */
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 3px solid var(--text-black);
+    border-bottom: 3px solid var(--text-black);
+    padding: 0.5rem 0;
+    position: relative;
+    z-index: 50;
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee-scroll 20s linear infinite;
+}
+
+.marquee-content span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    padding: 0 2rem;
+}
+
+/* Wavy Divider */
+.wave-divider {
+    position: absolute;
+    bottom: -1px; /* fix subpixel rendering gap */
+    left: 0;
+    width: 100%;
+    height: 55px;
+    z-index: 15;
+}
+
+.wave-divider.inverted {
+    top: -1px;
+    bottom: auto;
+    transform: rotate(180deg);
+}
+
+/* Massive Background Text */
+.bg-massive-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+    font-size: 10vw;
+    color: var(--text-black);
+    opacity: 0.03;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+.bg-massive-text .text-sunflower {
+    -webkit-text-stroke: 2px var(--text-black);
+    color: transparent;
+}
+
+/* Helpers */
+.bg-yellow { background-color: var(--c-yellow); }
+
+@keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes spin-slow {
+    100% { transform: rotate(360deg); }
+}
+
+/* --- SITE FOOTER --- */
+.site-footer {
+    background-color: var(--text-black);
+    color: var(--text-white);
+    padding: 6rem 2rem 2rem 2rem;
+    border-top: none;
+    position: relative;
+}
+
+/* Footer Wave Divider SVG */
+.footer-wave-divider {
+    position: absolute;
+    top: -79px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.footer-wave-divider path:nth-child(1) {
+    fill: var(--text-black) !important;
+}
+
+.footer-wave-divider path:nth-child(2) {
+    stroke: var(--c-yellow) !important;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 3rem;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-contacts h3,
+.footer-socials h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: var(--c-yellow);
+    margin-bottom: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.footer-contacts p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--text-white);
+    margin-bottom: 0.5rem;
+}
+
+.footer-contacts a {
+    color: var(--text-white);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-logo {
+    color: var(--text-black);
+    line-height: 0.95;
+    margin-bottom: 1rem;
+}
+
+.footer-logo img {
+    height: 150px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+}
+
+.footer-logo img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 18px rgba(255, 194, 49, 0.85));
+}
+
+.footer-logo .text-sunflower {
+    font-size: 2.2rem;
+    -webkit-text-stroke: 1.5px var(--text-black);
+    display: block;
+}
+
+.footer-logo .text-festival {
+    font-size: 2.6rem;
+    display: block;
+}
+
+.footer-brand .realization-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--text-white);
+    margin-top: 0.5rem;
+}
+
+.footer-association-logo {
+    height: 150px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin: 1rem auto 0 auto;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+}
+
+.footer-association-logo:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 18px rgba(255, 194, 49, 0.85));
+}
+
+.footer-socials {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-icons a {
+    color: var(--text-white);
+    transition: transform 0.2s ease, color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2) rotate(8deg);
+    color: var(--c-red);
+}
+
+.policy-link a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.05rem;
+    color: var(--c-yellow);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+}
+
+.policy-link a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 3rem;
+    padding-top: 2rem;
+    width: 100%;
+}
+
+.developer-credit {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--text-white);
+    text-align: center;
+}
+
+.developer-credit a {
+    color: var(--text-black);
+    background-color: var(--c-yellow);
+    padding: 0.4rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 0.5rem;
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.developer-credit a:hover {
+    transform: rotate(3deg) scale(1.1);
+}
+
+
+
+/* --- COUNTDOWN --- */
+.countdown-section {
+    background-color: var(--text-white);
+    padding: 6rem 2rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 20;
+}
+
+.countdown-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: var(--text-black);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.count-box {
+    background-color: var(--text-black);
+    color: var(--c-yellow);
+    border: 4px solid var(--text-black);
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.5);
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    min-width: 120px;
+    transition: transform 0.3s ease;
+}
+
+.count-box:nth-child(1) { transform: rotate(-2deg); }
+.count-box:nth-child(2) { transform: rotate(3deg); }
+.count-box:nth-child(3) { transform: rotate(-4deg); }
+.count-box:nth-child(4) { transform: rotate(2deg); }
+
+.count-box .num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 3.5rem; line-height: 1; display: block; }
+.count-box .label { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.2rem; text-transform: uppercase; color: white; }
+
+/* Expired Timer Message Styles */
+.countdown-expired-message {
+    animation: pop-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    padding: 2rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.text-sunflower-imponente {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-black);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    text-shadow: 4px 4px 0px var(--c-yellow);
+    display: block;
+}
+
+.expired-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: var(--c-red);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+    display: block;
+}
+
+@keyframes pop-in {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .text-sunflower-imponente {
+        font-size: 1.8rem;
+        text-shadow: 3px 3px 0px var(--c-yellow);
+    }
+    .expired-sub {
+        font-size: 1.2rem;
+    }
+}
+
+/* --- SPOTIFY MINI PLAYER --- */
+.spotify-player-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 380px; /* Increased to 380px to prevent control squeezing */
+    height: 90px;
+    z-index: 10000;
+    border-radius: 12px;
+    box-shadow: 4px 4px 0px var(--text-black);
+    border: 3px solid var(--text-black);
+    background-color: var(--c-yellow);
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    transform: translateX(0);
+}
+
+.spotify-iframe-wrapper {
+    flex: 1;
+    height: 80px;
+    padding: 0 10px 0 50px;
+    transition: opacity 0.3s ease;
+}
+
+.spotify-toggle-btn {
+    position: absolute;
+    left: 8px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 3px solid var(--text-black);
+    background-color: white;
+    color: var(--text-black);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 2px 2px 0px var(--text-black);
+}
+
+.spotify-toggle-btn:hover {
+    transform: scale(1.1) rotate(10deg);
+    background-color: var(--c-peach);
+}
+
+.spotify-player-container.collapsed {
+    transform: translateX(calc(100% - 54px));
+}
+
+
+
+/* --- MAP SECTION --- */
+.map-section {
+    background-color: var(--c-peach);
+    padding: 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-top: 5px solid var(--text-black);
+}
+
+.map-container {
+    margin-top: 3rem;
+    position: relative;
+    max-width: 800px;
+    width: 100%;
+}
+
+.festival-map-img,
+.festival-map-iframe {
+    width: 100%;
+    border: 6px solid var(--text-black);
+    box-shadow: 10px 10px 0px var(--text-black);
+    background-color: white;
+    transform: rotate(2deg);
+}
+
+.festival-map-img {
+    height: auto;
+    padding: 10px;
+}
+
+.festival-map-iframe {
+    height: 450px;
+    display: block;
+}
+
+/* Responsive Styles */
+
+/* Menu Toggle Button (hidden on desktop) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1100;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--text-white);
+    border-radius: 2px;
+    transition: transform 0.3s cubic-bezier(0.77, 0, 0.175, 1),
+                opacity 0.3s ease,
+                background-color 0.3s ease;
+}
+
+/* Transform hamburger lines into X when active */
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Scroll lock when mobile menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+    .grid-container { grid-template-columns: repeat(2, 1fr); }
+    .card-logo .text-sunflower { font-size: 0.8rem; -webkit-text-stroke: 0.5px var(--text-black); }
+    .card-logo .text-festival { font-size: 0.85rem; }
+    .artist-name { font-size: 3rem; }
+    .giant-title { font-size: 6rem; }
+}
+
+@media (max-width: 992px) {
+    .home-hero {
+        padding: 4rem 1.5rem 6rem 1.5rem;
+        min-height: auto;
+    }
+    .brutalist-photo-frame {
+        max-width: 380px;
+        transform: rotate(1.5deg);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Main Navigation Mobile Custom Overlay */
+    .main-nav { 
+        padding: 0 1.5rem; 
+        height: 70px;
+        justify-content: space-between;
+    }
+    
+    body {
+        padding-top: 70px;
+    }
+    
+    .nav-logo {
+        display: flex !important;
+    }
+    .nav-logo .text-sunflower,
+    .nav-logo .text-festival {
+        font-size: 0.75rem;
+        -webkit-text-stroke: 0.8px var(--text-black);
+    }
+    
+    .menu-toggle {
+        display: flex; /* Show menu toggle on mobile */
+    }
+    
+    .nav-links { 
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--c-yellow);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1.2rem;
+        z-index: 1000;
+        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.4s;
+        border-left: 6px solid var(--text-black);
+        padding: 5rem 2rem 2rem 2rem;
+        overflow-y: auto;
+        visibility: hidden;
+    }
+    
+    .nav-links.active {
+        right: 0;
+        visibility: visible;
+    }
+    
+    .nav-links a { 
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: 1.7rem; 
+        color: var(--text-black);
+        text-transform: uppercase;
+        width: 100%;
+        text-align: center;
+        transition: transform 0.2s ease, color 0.2s ease;
+        display: inline-block;
+    }
+    
+    .nav-links a:hover, .nav-links a.active {
+        color: var(--text-white);
+        transform: scale(1.08) rotate(-3deg);
+        text-shadow: 3px 3px 0px var(--text-black);
+        text-decoration: none;
+    }
+
+    /* Force mobile menu overlay links to be black even if parent navbar is transparent */
+    .main-nav.transparent-nav .nav-links a {
+        color: var(--text-black);
+    }
+    
+    .main-nav.transparent-nav .nav-links a:hover,
+    .main-nav.transparent-nav .nav-links a.active {
+        color: var(--text-white);
+        text-shadow: 3px 3px 0px var(--text-black);
+    }
+    
+    /* Hero Section Mobile Improvements */
+    .home-hero .sticker {
+        font-size: 0.8rem;
+    }
+    .home-hero .sticker.badge-starburst {
+        top: 5% !important;
+        left: -15px !important;
+        transform: scale(0.6) rotate(15deg);
+    }
+    .home-hero .sticker.badge-circle {
+        bottom: 5% !important;
+        right: -15px !important;
+        transform: scale(0.65) rotate(-10deg);
+    }
+    .home-hero .sticker.tape-strip {
+        top: 2% !important;
+        right: 2% !important;
+        transform: scale(0.7);
+    }
+    .giant-title .text-sunflower {
+        font-family: 'Monument Extended', sans-serif;
+        font-size: clamp(2rem, 9.5vw, 3.5rem);
+        font-weight: 400;
+        -webkit-text-stroke: 1.5px var(--text-white);
+        letter-spacing: -0.04em;
+    }
+    .giant-title .text-festival {
+        font-family: 'Monument Extended', sans-serif;
+        font-size: clamp(2rem, 9.5vw, 3.5rem);
+        font-weight: 400;
+        color: var(--text-white);
+        margin-top: -0.3em;
+        letter-spacing: -0.04em;
+    }
+    .hero-subtitle {
+        font-size: clamp(1.3rem, 5vw, 1.8rem);
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        max-width: 100%;
+        line-height: 1;
+        letter-spacing: 1px;
+    }
+    .brutalist-button {
+        font-size: 1.4rem;
+        padding: 0.8rem 2rem;
+        border-width: 3px;
+        box-shadow: 4px 4px 0px var(--text-black);
+    }
+    
+    /* Countdown Mobile Adjustments */
+    .countdown-section {
+        padding: 4rem 1rem 2rem 1rem;
+    }
+    .countdown-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    .countdown-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.8rem;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .count-box {
+        min-width: 0;
+        padding: 0.8rem 0.2rem;
+        border-width: 3px;
+        box-shadow: 4px 4px 0px var(--text-black);
+    }
+    .count-box .num {
+        font-size: 2.2rem;
+    }
+    .count-box .label {
+        font-size: 0.8rem;
+    }
+    
+    /* Info Blocks Mobile Layout */
+    .info-section {
+        padding: 3rem 1rem;
+        gap: 3rem;
+    }
+    .info-block, .info-block.reverse { 
+        flex-direction: column; 
+        gap: 2rem; 
+        text-align: center; 
+    }
+    .info-text h2 { 
+        font-size: 2.5rem; 
+    }
+    .info-text p {
+        font-size: 1.1rem;
+    }
+    .info-image {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    .info-image .sticker.tape-strip {
+        font-size: 0.9rem;
+        padding: 0.2rem 1.2rem;
+    }
+    
+    /* Line-up Grid Mobile Adjustments */
+    .grid-container { 
+        grid-template-columns: 1fr; 
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+    .festival-card { 
+        border: 4px solid var(--text-black);
+        box-shadow: 6px 6px 0px var(--text-black);
+        border-radius: 16px;
+    }
+    .card-logo .text-sunflower { 
+        font-size: 0.95rem;
+        -webkit-text-stroke: 0.6px var(--text-black);
+    }
+    .card-logo .text-festival {
+        font-size: 0.95rem;
+    }
+    .artist-name { 
+        font-size: 2.6rem; /* Avoid text wrapping / clipping issues on mobile */
+    }
+    
+    /* Vibes Archive Gallery */
+    .gallery-container { 
+        column-count: 1; 
+        padding: 2rem 1rem;
+    }
+    
+    /* Footer logo adjustments on Mobile */
+    .footer-logo {
+        font-size: 3.5rem;
+    }
+    
+    /* Map Container */
+    .map-section {
+        padding: 4rem 1rem;
+    }
+    
+    .home-map-section {
+        padding: 4rem 1rem;
+    }
+
+    .home-map-title .word-dove {
+        font-size: clamp(1.5rem, 8vw, 2.8rem);
+    }
+    
+    .home-map-title .word-trovarci {
+        font-family: 'Anton', sans-serif;
+        font-size: clamp(2.8rem, 13vw, 4.2rem);
+        -webkit-text-stroke: 1.5px var(--text-black);
+        letter-spacing: 0.03em;
+    }
+    .festival-map-img,
+    .festival-map-iframe {
+        border-width: 4px;
+        box-shadow: 6px 6px 0px var(--text-black);
+    }
+    .festival-map-iframe {
+        height: 350px;
+    }
+    
+    /* Collapsible Spotify Player on Mobile */
+    .spotify-player-container {
+        right: 15px;
+        bottom: 15px;
+    }
+    .spotify-player-container:not(.collapsed) {
+        width: calc(100% - 30px);
+    }
+    
+    /* Footer Mobile Layout */
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2.5rem;
+    }
+    
+    .footer-socials {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* --- INTERACTIVE PHOTO (VIBRANT HOVER EFFECT) --- */
+.interactive-photo {
+    position: relative;
+    cursor: pointer;
+}
+
+.cover-image {
+    position: absolute;
+    top: 15px; left: 15px; right: 15px; bottom: 15px;
+    width: calc(100% - 30px); height: calc(100% - 30px);
+    z-index: 2;
+    background-size: cover;
+    background-position: center;
+    border-radius: inherit;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), filter 0.3s ease;
+    filter: brightness(0.9) contrast(1.05) saturate(0.85);
+}
+
+.interactive-photo:hover .cover-image {
+    transform: scale(1.1) rotate(2deg);
+    filter: brightness(1.05) contrast(1.1) saturate(1.2);
+}
+
+/* --- VIGNETTE PLACEHOLDERS FOR USER IMAGES --- */
+.img-association {
+    background-color: var(--c-peach);
+    background-image: url('assets/loghi/logo_ass.png'), linear-gradient(45deg, #ffa270, #f5b027);
+}
+
+.img-vibes {
+    background-color: var(--c-red);
+    background-image: url('assets/slide3.png'), linear-gradient(135deg, #d15654, #ff6b6b);
+}
+
+/* --- CONTACT INFO CARD --- */
+.contact-info-card {
+    position: relative;
+    background-color: var(--c-peach);
+    border: 4px solid var(--text-black);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 8px 8px 0px var(--text-black);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-top: 1.5rem;
+}
+
+.contact-info-card:hover {
+    transform: translate(-6px, -6px) rotate(-1deg);
+    box-shadow: 14px 14px 0px var(--text-black);
+}
+
+.contact-info-card::before {
+    content: "🌻 INFO & RECAPITI";
+    position: absolute;
+    top: -18px;
+    left: 20px;
+    background-color: var(--c-yellow);
+    color: var(--text-black);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.95rem;
+    padding: 0.4rem 1.2rem;
+    border: 3px solid var(--text-black);
+    border-radius: 6px;
+    box-shadow: 2px 2px 0px var(--text-black);
+    transform: rotate(-2deg);
+    z-index: 10;
+}
+
+/* --- SUNFLOWER MAP SECTION --- */
+.home-map-section {
+    background-color: var(--bg-white);
+    padding: 6rem 2rem 8rem 2rem;
+    text-align: center;
+    border-top: none;
+    border-bottom: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-map-title {
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
+
+.home-map-title span {
+    font-family: 'Monument Extended', sans-serif;
+    font-weight: 400;
+    -webkit-text-stroke: 2px var(--text-black);
+    color: #FFC231;
+    display: block;
+}
+
+.home-map-title .word-dove {
+    font-size: 4rem;
+    line-height: 1.1;
+    letter-spacing: 0.05em;
+}
+
+.home-map-title .word-trovarci {
+    font-size: 5rem;
+    line-height: 1;
+    letter-spacing: 0.02em;
+}
+
+.sunflower-map-container {
+    width: 450px;
+    height: 450px;
+    margin: 0 auto;
+    position: relative;
+    filter: drop-shadow(10px 10px 0px var(--text-black));
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Playful hover effect when NOT expanded */
+.sunflower-map-container:not(.expanded-rect):hover {
+    transform: translateY(-8px) scale(1.03) rotate(1.5deg);
+}
+
+.sunflower-map-container.expanded-rect:hover {
+    transform: scale(1.005);
+}
+
+/* Map Clipper - styled as circular center of the sunflower */
+.sunflower-map-container .map-clipper {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    border: 6px solid var(--text-black);
+    overflow: hidden;
+    z-index: 2;
+    background-color: var(--text-black);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Expanded state transitions clipper smoothly to a rounded rect */
+.sunflower-map-container.expanded-rect .map-clipper {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    border-width: 5px;
+}
+
+/* Outline overlay is no longer needed since we use clean CSS borders */
+.sunflower-map-container .map-outline-svg {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sunflower-map-container {
+        width: 320px;
+        height: 320px;
+    }
+}
+
+.map-clipper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    transform: scale(1.55);
+    transform-origin: center;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.sunflower-map-container.expanded-rect .map-clipper iframe {
+    transform: scale(1);
+}
+
+/* Center circle link styling (seeds/disc look) */
+.sunflower-map-link {
+    color: var(--c-yellow) !important;
+    background-color: var(--text-black);
+    font-family: 'Monument Extended', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: inset 0 0 15px rgba(255, 194, 49, 0.2);
+}
+
+.sunflower-map-link .pulsing-badge {
+    animation: pulseGlow 1.8s infinite ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.sunflower-map-link .pulsing-badge i {
+    font-size: 2.2rem;
+    color: var(--c-yellow);
+}
+
+.sunflower-map-link:hover {
+    background-color: #2a2a2a;
+    color: var(--text-white) !important;
+    box-shadow: inset 0 0 25px rgba(255, 194, 49, 0.35);
+}
+
+.sunflower-map-link:hover .pulsing-badge i {
+    transform: scale(1.15) translateY(-3px);
+    color: var(--text-white);
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        transform: scale(0.96);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(1.04);
+        opacity: 1;
+    }
+}
+
+.sunflower-map-container.expanded-rect .sunflower-map-link {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* --- SUNFLOWER STEM & LEAF GRAPHICS --- */
+.sunflower-stem-container {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 26%;
+    height: 38%;
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.5s ease;
+}
+
+.sunflower-stem-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* Hide stem and leaf when map is expanded */
+.sunflower-map-container.expanded-rect .sunflower-stem-container {
+    opacity: 0;
+    transform: translate(-50%, -20px) scale(0.2);
+    visibility: hidden;
+}
+
+/* --- SUNFLOWER PETALS LAYER --- */
+.sunflower-petals-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+    transform: rotate(0deg);
+}
+
+/* Active hover spin for petals */
+.sunflower-map-container:not(.expanded-rect):hover .sunflower-petals-layer {
+    transform: rotate(15deg);
+}
+
+/* Smooth fade out when expanded */
+.sunflower-map-container.expanded-rect .sunflower-petals-layer {
+    opacity: 0;
+    transform: scale(0.3) rotate(-45deg);
+}
+
+/* Spacing and transitions for map buttons */
+.map-buttons-container {
+    margin-top: 10.5rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 10;
+    transition: margin-top 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Slide buttons up when stem is hidden */
+.sunflower-map-container.expanded-rect + .map-buttons-container,
+.sunflower-map-container.expanded-rect ~ .map-buttons-container {
+    margin-top: 2.5rem;
+}
+
+/* Responsive spacing on mobile devices */
+@media (max-width: 768px) {
+    .map-buttons-container {
+        margin-top: 7.5rem;
+    }
+    .sunflower-map-container.expanded-rect + .map-buttons-container,
+    .sunflower-map-container.expanded-rect ~ .map-buttons-container {
+        margin-top: 2.5rem;
+    }
+}
+
+.map-action-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px);
+}
+
+.sunflower-map-container.expanded-rect + .map-buttons-container .map-action-buttons,
+.sunflower-map-container.expanded-rect ~ .map-buttons-container .map-action-buttons {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.sunflower-map-container.expanded-rect .sunflower-map-link {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Custom map marker styles removed to restore standard Google Map pin */
+
+
+/* --- SOCIAL FEEDS SECTION --- */
+.social-feeds-section {
+    margin-top: 5rem;
+    width: 100%;
+    border-top: 3px dashed var(--text-black);
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.social-feeds-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 2.8rem;
+    color: var(--text-black);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.social-feeds-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--text-black);
+    margin-bottom: 3rem;
+    max-width: 800px;
+}
+
+/* Social Brutalist Cards */
+.social-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 4rem;
+}
+
+.social-brutalist-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--text-black);
+    text-decoration: none;
+    padding: 1.2rem 1.5rem;
+    border: 3px solid var(--text-black);
+    border-radius: 12px;
+    box-shadow: 6px 6px 0px var(--text-black);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    text-transform: uppercase;
+    background-color: var(--text-white);
+}
+
+.social-brutalist-card:hover {
+    transform: translate(-4px, -4px) rotate(-1.5deg);
+    box-shadow: 10px 10px 0px var(--text-black);
+}
+
+.social-brutalist-card.instagram:hover {
+    background-color: var(--c-red);
+    color: var(--text-white);
+}
+
+.social-brutalist-card.tiktok:hover {
+    background-color: var(--text-black);
+    color: var(--c-yellow);
+}
+
+.social-brutalist-card.facebook:hover {
+    background-color: var(--c-blue);
+    color: var(--text-black);
+}
+
+.social-brutalist-card.spotify:hover {
+    background-color: var(--c-green);
+    color: var(--text-black);
+}
+
+.social-brutalist-card svg {
+    transition: transform 0.2s ease;
+}
+.social-brutalist-card:hover svg {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Live Feeds Grid using Iframe Wrapper & Placeholders */
+.iframe-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 4rem auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iframe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.iframe-wrapper {
+    position: relative;
+    height: 550px;
+    background-color: var(--text-white);
+    border: 4px solid var(--text-black);
+    border-radius: 16px;
+    box-shadow: 6px 6px 0px var(--text-black);
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.iframe-wrapper:hover {
+    transform: translate(-4px, -4px) rotate(0.5deg);
+    box-shadow: 10px 10px 0px var(--text-black);
+}
+
+.iframe-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+/* Placeholders for load screens */
+.iframe-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-black);
+    pointer-events: none;
+}
+
+.iframe-placeholder-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    animation: icon-pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes icon-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.12); opacity: 1; filter: drop-shadow(0 0 8px rgba(0,0,0,0.1)); }
+}
+
+.iframe-placeholder p {
+    font-weight: 900;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+/* Custom background themes for placeholders to match Sunflower Fest */
+.instagram-wrapper .iframe-placeholder {
+    background-color: var(--c-peach);
+}
+.instagram-wrapper .iframe-placeholder-icon {
+    color: #e1306c;
+}
+
+.tiktok-wrapper .iframe-placeholder {
+    background-color: var(--c-yellow);
+}
+.tiktok-wrapper .iframe-placeholder-icon {
+    color: var(--text-black);
+    filter: drop-shadow(-2px -1.5px 0px #ff0050) drop-shadow(2px 1.5px 0px #00f2fe);
+}
+
+.spotify-wrapper .iframe-placeholder {
+    background-color: var(--c-green);
+}
+.spotify-wrapper .iframe-placeholder-icon {
+    color: #1ed760;
+}
+
+/* Fade out loader when iframe is loaded */
+.iframe-placeholder.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Responsive adjustments for the new social sections */
+@media (max-width: 1024px) {
+    .social-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .iframe-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 2rem auto 0 auto;
+    }
+}
+
+@media (max-width: 580px) {
+    .social-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .social-feeds-title {
+        font-size: 1.8rem;
+    }
+    .social-feeds-subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* TikTok chromatic aberration hover effect */
+.social-brutalist-card.tiktok:hover svg {
+    filter: drop-shadow(-2px -1.5px 0px #ff0050) drop-shadow(2px 1.5px 0px #00f2fe);
+}
+
+.social-icons a[aria-label="TikTok"]:hover svg {
+    filter: drop-shadow(-2px -1.5px 0px #ff0050) drop-shadow(2px 1.5px 0px #00f2fe);
+}
+
+/* --- LINE-UP ARTISTS SLIDER SYSTEM --- */
+.artists-slider-section {
+    padding: 6rem 3rem;
+    position: relative;
+    background-color: var(--bg-white);
+    overflow: hidden;
+}
+
+.artists-slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.artists-title-group {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.slider-title {
+    font-family: 'Monument Extended', sans-serif;
+    font-weight: 400;
+    color: var(--text-black);
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1;
+    position: relative;
+    z-index: 2;
+}
+
+
+
+
+
+.slider-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.slider-control-btn {
+    width: 54px;
+    height: 54px;
+    border: 4px solid var(--text-black);
+    border-radius: 50%;
+    background-color: var(--text-white);
+    color: var(--text-black);
+    font-size: 1.6rem;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 0px var(--text-black);
+    transition: all 0.2s ease;
+}
+
+.slider-control-btn:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0px var(--text-black);
+    background-color: var(--c-yellow);
+}
+
+.slider-control-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0px var(--text-black);
+}
+
+.artists-slider-container {
+    width: 100%;
+    max-width: 1550px;
+    margin: 0 auto;
+    overflow-x: auto;
+    padding: 2.5rem 1rem 4.5rem 1rem;
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+}
+
+.artists-slider-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+.artists-slider-track {
+    display: flex;
+    gap: 2.5rem;
+    width: max-content;
+}
+
+/* Brutalist Slider Card */
+.artist-slider-card {
+    width: 320px;
+    height: 465px; /* Increased height to prevent text from being cut off */
+    border: 4px solid var(--text-black);
+    border-radius: 20px;
+    box-shadow: 8px 8px 0px var(--text-black);
+    background-color: var(--text-white);
+    overflow: hidden; /* Clips expanding image wrapper to the card's rounded borders */
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    position: relative;
+}
+
+/* Cleaner, modern card styling (removed retro ticket punches) */
+.artist-slider-card.bg-peach { background-color: var(--c-pastel-orange); }
+.artist-slider-card.bg-blue { background-color: var(--c-pastel-blue); }
+.artist-slider-card.bg-yellow { background-color: var(--c-pastel-yellow); }
+.artist-slider-card.bg-red { background-color: var(--c-pastel-pink); }
+.artist-slider-card.bg-purple { background-color: var(--c-pastel-pink); }
+.artist-slider-card.bg-green { background-color: var(--c-pastel-green); }
+.artist-slider-card.bg-grey { background-color: var(--c-pastel-grey); }
+.artist-slider-card.bg-brown { background-color: var(--c-pastel-brown); }
+.artist-slider-card.bg-cream { background-color: var(--c-pastel-cream); }
+
+.artist-slider-card:hover {
+    /* Removed translate/rotate since they are controlled in JS with real-time cursor tracking */
+    box-shadow: 14px 14px 0px var(--text-black);
+    z-index: 50;
+}
+
+.artist-slider-card:active {
+    transform: translateY(2px) rotate(0deg);
+    box-shadow: 4px 4px 0px var(--text-black);
+}
+
+.card-img-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 260px;
+    border-bottom: 4px solid var(--text-black);
+    overflow: hidden; /* Prevent image from overflowing or zooming out of the card */
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    z-index: 5;
+    transition: height 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-bottom-color 0.4s ease;
+    transition-delay: 0s; /* Shrink back instantly on mouse leave */
+}
+
+.card-img-wrapper .placeholder-img {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    transition: transform 2s ease, border-radius 2s ease, background-size 2s ease;
+    transform-origin: center;
+    position: relative;
+    z-index: 5;
+    transition-delay: 0s;
+}
+
+/* Hover effect: the image wrapper expands to 100% height to cover the card after 1.5 seconds of continuous hover over the image */
+.card-img-wrapper:hover {
+    height: 100%;
+    border-bottom-color: transparent;
+    transition-delay: 1s; /* Delay expansion by 1 second */
+}
+
+.card-img-wrapper:hover .placeholder-img {
+    border-radius: 16px;
+    transition-delay: 1s; /* Delay image zoom by 1 second */
+}
+
+.card-time-badge {
+    display: none; /* Hidden since we use the vertical side texts now */
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 0.4rem 0.9rem;
+    border: 3px solid var(--text-black);
+    border-radius: 8px;
+    background-color: var(--text-white);
+    color: var(--text-black);
+    box-shadow: 3px 3px 0px var(--text-black);
+    z-index: 5;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+/* Vertical side texts inside card image wrappers to fill empty space */
+.card-img-side-text {
+    position: absolute;
+    top: 50%;
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 2.2rem; /* Increased size to fill the empty space more prominently */
+    font-weight: 900;
+    color: var(--text-white); /* White text to stand out on the dark grey padding of the photos */
+    letter-spacing: 2px;
+    z-index: 10; /* Set above the image layer */
+    pointer-events: none;
+    user-select: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.card-img-side-text.left-text {
+    left: 12px;
+    writing-mode: vertical-rl;
+    transform: translateY(-50%) rotate(180deg);
+    transform-style: preserve-3d;
+}
+
+.card-img-side-text.right-text {
+    right: 12px;
+    writing-mode: vertical-rl;
+    transform: translateY(-50%);
+    transform-style: preserve-3d;
+}
+
+/* 3D Parallax effect on hover for the side texts */
+.artist-slider-card:hover .card-img-side-text.left-text {
+    transform: translateY(-50%) rotate(180deg) translateZ(25px);
+    color: var(--c-yellow); /* Yellow color highlight on hover */
+}
+
+.artist-slider-card:hover .card-img-side-text.right-text {
+    transform: translateY(-50%) translateZ(25px);
+    color: var(--c-yellow); /* Yellow color highlight on hover */
+}
+
+.artist-slider-card:hover .card-time-badge {
+    transform: translateZ(45px) scale(1.05);
+}
+
+.card-info-box {
+    margin-top: 260px; /* Pushes the text below the absolute-positioned default image wrapper */
+    padding: 1.3rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    flex-grow: 1;
+    transform-style: preserve-3d;
+    position: relative;
+    z-index: 2; /* Below the z-index of the expanding image wrapper */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition-delay: 0s; /* Instant return on leave */
+    opacity: 1;
+}
+
+/* Fade out the text smoothly after 1 second of hover on the image wrapper */
+.card-img-wrapper:hover + .card-info-box {
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+    transition-delay: 1s; /* Sync with the image wrapper delay */
+}
+
+.artist-card-name {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--text-black);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    transition: transform 0.3s ease;
+}
+
+.artist-slider-card:hover .artist-card-name {
+    transform: translateZ(30px);
+}
+
+.artist-card-time {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: rgba(26,26,26,0.6);
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+    transition: transform 0.3s ease;
+}
+
+.artist-slider-card:hover .artist-card-time {
+    transform: translateZ(20px);
+}
+
+.artist-card-genre {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--text-black);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.artist-slider-card:hover .artist-card-genre {
+    transform: translateZ(25px);
+}
+
+.card-action-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    color: var(--text-black);
+    text-transform: uppercase;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    transition: transform 0.25s ease;
+}
+
+.artist-slider-card:hover .card-action-link {
+    transform: translateZ(35px) translateX(6px);
+}
+
+
+/* --- FULL-SCREEN ARTIST PAGES SYSTEM --- */
+.artist-modals-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+    overflow: hidden;
+}
+
+.artist-modals-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.artist-full-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: none;
+    flex-direction: column;
+    transform: translateY(100vh);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 10;
+}
+
+/* Slightly stronger/richer versions of card pastel colors for the full-screen modals */
+.artist-full-page.bg-orange { background-color: #f39f86; color: var(--text-black) !important; }
+.artist-full-page.bg-peach  { background-color: #f39f86; color: var(--text-black) !important; }
+.artist-full-page.bg-yellow { background-color: #ffd073; color: var(--text-black) !important; }
+.artist-full-page.bg-blue   { background-color: #8ab3fa; color: var(--text-black) !important; }
+.artist-full-page.bg-green  { background-color: #89d9b4; color: var(--text-black) !important; }
+.artist-full-page.bg-brown  { background-color: #cba385; color: var(--text-black) !important; }
+.artist-full-page.bg-purple { background-color: #f897c2; color: var(--text-black) !important; }
+.artist-full-page.bg-cream  { background-color: #e9e4ce; color: var(--text-black) !important; }
+.artist-full-page.bg-grey   { background-color: #b8bebf; color: var(--text-black) !important; }
+
+.artist-modals-overlay.active .artist-full-page.active {
+    display: flex;
+    transform: translateY(0);
+}
+
+.full-page-header {
+    height: 110px;
+    width: 100%;
+    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4rem;
+    position: relative;
+    background-color: transparent;
+    z-index: 100;
+}
+
+.header-logo-container img {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+}
+
+.header-logo-container img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 18px rgba(255, 194, 49, 0.85));
+}
+
+.full-page-close-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--text-black);
+    background-color: var(--text-white);
+    border: 3px solid var(--text-black);
+    border-radius: 50px;
+    padding: 0.45rem 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 4px 4px 0px var(--c-yellow);
+    transition: all 0.2s ease;
+}
+
+.full-page-close-btn:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0px var(--text-black);
+    background-color: var(--c-yellow);
+}
+
+.full-page-close-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0px var(--text-black);
+}
+
+.header-logo-container {
+    font-size: 1.1rem;
+    line-height: 0.95;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: 'Monument Extended', sans-serif;
+    font-weight: 400;
+}
+
+.header-logo-container .text-sunflower {
+    -webkit-text-stroke: 1.2px var(--text-black);
+    color: transparent;
+    text-transform: uppercase;
+}
+
+.header-logo-container .text-festival {
+    color: var(--text-black);
+    text-transform: uppercase;
+}
+
+/* Full Page Content grid */
+.full-page-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.full-page-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1.3fr;
+    gap: 5rem;
+    width: 100%;
+    align-items: start;
+}
+
+.full-page-media-col {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+}
+
+.full-page-media-col .torn-paper-frame {
+    width: 90%;
+    max-width: 420px;
+    aspect-ratio: 3 / 4;
+    border: 6px solid var(--text-black);
+    box-shadow: 12px 12px 0px var(--text-black);
+    background-color: var(--text-white);
+    border-radius: 12px !important;
+    overflow: hidden;
+    transition: transform 0.4s ease;
+}
+
+.full-page-media-col .torn-paper-frame:hover {
+    transform: scale(1.02) rotate(1deg);
+}
+
+.full-page-media-col .placeholder-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 !important;
+    transform: scale(1.05) !important;
+}
+
+/* Starburst/Circle Stickers inside media column */
+.sticker-badge {
+    position: absolute;
+    bottom: -1rem;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    line-height: 1;
+    border: 4px solid var(--text-black);
+    z-index: 15;
+    text-transform: uppercase;
+}
+
+.sticker-badge.badge-starburst {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    transform: rotate(15deg);
+}
+
+.sticker-badge.badge-circle {
+    border-radius: 50%;
+    transform: rotate(-10deg);
+    box-shadow: 4px 4px 0px var(--text-black);
+}
+
+/* Text details column */
+.full-page-info-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.full-page-time-badge {
+    font-size: 1.1rem;
+    font-weight: 900;
+    padding: 0.5rem 1.4rem;
+    border: 3px solid var(--text-black);
+    border-radius: 8px;
+    background-color: var(--text-white);
+    color: var(--text-black);
+    margin-bottom: 1.2rem;
+}
+
+.full-page-title {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 400;
+    color: var(--text-black);
+    line-height: 0.95;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.full-page-genre-tag {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--text-black);
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+.brutalist-divider {
+    width: 100%;
+    height: 4px;
+    background-color: var(--text-black);
+    margin: 2.2rem 0;
+}
+
+.full-page-bio {
+    width: 100%;
+}
+
+.full-page-bio h2,
+.full-page-socials-container h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.4rem;
+    color: var(--text-black);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.full-page-description {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.75;
+    color: var(--text-black);
+    margin-bottom: 1.2rem;
+    text-align: justify;
+}
+
+.full-page-description:last-of-type {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .full-page-description {
+        text-align: left;
+    }
+}
+
+.full-page-socials-container {
+    width: 100%;
+}
+
+.full-page-socials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    margin-top: 1.2rem;
+}
+
+.brutalist-social-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    color: var(--text-black);
+    background-color: var(--text-white);
+    border: 3px solid var(--text-black);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0px var(--text-black);
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.brutalist-social-btn:hover {
+    transform: translate(-4px, -4px) rotate(-1deg);
+    box-shadow: 8px 8px 0px var(--text-black);
+    background-color: var(--c-yellow);
+}
+
+.brutalist-social-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--text-black);
+}
+
+.brutalist-social-btn.instagram:hover {
+    background-color: var(--c-peach);
+}
+
+.brutalist-social-btn.tiktok:hover {
+    background-color: var(--c-yellow);
+    filter: drop-shadow(-2px -1.5px 0px #ff0050) drop-shadow(2px 1.5px 0px #00f2fe);
+}
+
+.brutalist-social-btn.spotify:hover {
+    background-color: var(--c-green);
+    color: #1ed760;
+}
+
+
+/* RESPONSIVE DESIGN ADJUSTMENTS */
+@media (max-width: 1024px) {
+    .artists-slider-section {
+        padding: 5rem 2rem;
+    }
+    
+    .full-page-header {
+        padding: 0 2rem;
+        height: 100px;
+    }
+    
+    .full-page-content {
+        padding: 3rem 2rem;
+    }
+    
+    .full-page-grid {
+        gap: 3rem;
+    }
+    
+    .full-page-title {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .artists-slider-header {
+        margin-bottom: 2rem;
+    }
+    
+    .slider-title {
+        font-size: 2.2rem;
+    }
+    
+    .slider-cursive-text {
+        font-size: 4.6rem;
+        top: 55%;
+        left: -10px;
+    }
+    
+    
+    .slider-control-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+        border-width: 3px;
+        box-shadow: 3px 3px 0px var(--text-black);
+    }
+    
+    .artist-slider-card {
+        width: 280px;
+        height: 425px;
+    }
+    
+    .card-img-wrapper {
+        height: 220px;
+    }
+    
+    .card-info-box {
+        margin-top: 220px;
+        padding: 1rem 1.2rem;
+    }
+    
+    .artist-card-name {
+        font-size: 1.4rem;
+    }
+    
+    .artist-card-genre {
+        margin-bottom: 0.8rem;
+    }
+    
+    .full-page-header {
+        padding: 0 1.5rem;
+        height: 92px;
+    }
+    
+    .full-page-close-btn {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        z-index: 1000;
+        padding: 0.45rem 1.2rem;
+        font-size: 0.95rem;
+        border-width: 2px;
+        box-shadow: 3px 3px 0px var(--text-black);
+    }
+    
+    .full-page-content {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .full-page-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .full-page-media-col .torn-paper-frame {
+        max-width: 280px;
+        width: 100%;
+        border-width: 4px;
+        box-shadow: 6px 6px 0px var(--text-black);
+    }
+    
+    .sticker-badge {
+        width: 90px;
+        height: 90px;
+        font-size: 1.2rem;
+        border-width: 3px;
+        bottom: -0.5rem;
+        right: 1.5rem;
+    }
+    
+    .full-page-info-col {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .full-page-title {
+        font-size: 2.8rem;
+        text-align: center;
+        align-self: center;
+    }
+    
+    .full-page-genre-tag {
+        font-size: 1.15rem;
+    }
+    
+    .full-page-socials-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .brutalist-social-btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* --- SUNFLOWER CUSTOM AUDIO PLAYER --- */
+.sunflower-player {
+    width: 100%;
+    margin-top: 1.5rem;
+    background-color: var(--text-white);
+    border: 4px solid var(--text-black);
+    box-shadow: 6px 6px 0px var(--text-black);
+    border-radius: 16px;
+    padding: 1.2rem 1.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sunflower-player:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px var(--text-black);
+}
+
+/* Ensure background styling behaves on red background via-mercanti details */
+.artist-full-page.bg-red .sunflower-player {
+    border-color: var(--text-black);
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.player-play-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid var(--text-black);
+    background-color: var(--c-yellow);
+    color: var(--text-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px var(--text-black);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.player-play-btn:hover {
+    transform: scale(1.08) translate(-1px, -1px);
+    box-shadow: 4px 4px 0px var(--text-black);
+    background-color: var(--c-peach);
+}
+
+.player-play-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px var(--text-black);
+}
+
+.player-track-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.player-track-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    color: var(--text-black);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+.player-progress-bar-container {
+    width: 100%;
+    height: 12px;
+    background-color: #e0e0e0;
+    border: 2px solid var(--text-black);
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.player-progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: var(--c-yellow);
+    transition: width 0.1s linear;
+}
+
+.player-time-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: rgba(26, 26, 26, 0.7);
+}
+
+.player-status-msg {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--c-red);
+    margin-top: 0.4rem;
+    text-align: left;
+    display: none;
+}
+
+.artist-full-page.bg-red .player-status-msg {
+    color: #ffd2d2; /* Better visibility on red background */
+}
+
+/* --- SUNFLOWER PLAYER VOLUME CONTROL STYLING --- */
+.player-volume-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    margin-right: 0.2rem;
+}
+
+.player-volume-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 3px solid var(--text-black);
+    background-color: var(--text-white);
+    color: var(--text-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 2px 2px 0px var(--text-black);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.player-volume-btn:hover {
+    transform: scale(1.05) translate(-1px, -1px);
+    box-shadow: 3px 3px 0px var(--text-black);
+    background-color: var(--c-yellow);
+}
+
+.player-volume-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px var(--text-black);
+}
+
+/* Volume Slider Wrapper */
+.volume-slider-wrapper {
+    width: 0;
+    overflow: hidden;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+}
+
+/* Hover/Focus behaviors on desktop */
+.player-volume-container:hover .volume-slider-wrapper,
+.player-volume-container:focus-within .volume-slider-wrapper {
+    width: 80px;
+}
+
+.player-volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 70px;
+    height: 8px;
+    background: var(--bg-white);
+    border: 2px solid var(--text-black);
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+.player-volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--c-red);
+    border: 2px solid var(--text-black);
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.player-volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.25);
+}
+
+.player-volume-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--c-red);
+    border: 2px solid var(--text-black);
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.player-volume-slider::-moz-range-thumb:hover {
+    transform: scale(1.25);
+}
+
+/* Mobile responsive layout: keep volume slider open */
+@media (max-width: 768px) {
+    .volume-slider-wrapper {
+        width: 70px;
+    }
+}
+
+/* Custom Pulse Animation on Title to draw attention after smooth scrolling */
+.highlight-pulse {
+    animation: pulseHighlight 1s ease-in-out;
+}
+
+@keyframes pulseHighlight {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.1) rotate(-2deg);
+        color: var(--c-red);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* --- NEWS & EVENTS PAGE CARD SYSTEM --- */
+.news-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+}
+
+.news-card {
+    display: flex;
+    background-color: var(--text-white);
+    border: 4px solid var(--text-black);
+    border-radius: 24px;
+    box-shadow: 10px 10px 0px var(--text-black);
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    min-height: 280px;
+    position: relative;
+}
+
+.news-card:hover {
+    transform: translate(-6px, -6px) rotate(0.5deg) scale(1.02);
+    box-shadow: 16px 16px 0px var(--text-black);
+}
+
+.news-card-img-wrapper {
+    width: 35%;
+    min-width: 280px;
+    position: relative;
+    overflow: hidden;
+    border-right: 4px solid var(--text-black);
+    clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+    background-color: var(--c-yellow);
+}
+
+.news-card-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 2s ease;
+}
+
+.news-card-content {
+    flex: 1;
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.news-badge {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.85rem;
+    color: var(--text-white);
+    background-color: var(--c-red);
+    padding: 0.4rem 1.2rem;
+    border: 3px solid var(--text-black);
+    border-radius: 50px;
+    box-shadow: 2px 2px 0px var(--text-black);
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+}
+
+.news-card.event .news-badge {
+    background-color: var(--c-yellow);
+    color: var(--text-black);
+}
+
+.news-title {
+    font-family: 'Monument Extended', sans-serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 1.1;
+    color: var(--text-black);
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.news-date {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.95rem;
+    color: rgba(26,26,26,0.6);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.news-excerpt {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--text-black);
+    margin-bottom: 1.5rem;
+}
+
+.news-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    color: var(--c-red);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 3px;
+    text-transform: uppercase;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.news-card:hover .news-link {
+    transform: translateX(6px);
+}
+
+@media (max-width: 768px) {
+    .news-card {
+        flex-direction: column;
+    }
+    .news-card-img-wrapper {
+        width: 100%;
+        height: 240px;
+        border-right: none;
+        border-bottom: 4px solid var(--text-black);
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+}
+
+/* --- DECORATIVE HOMEPAGE GRAPHICS --- */
+.deco-graphics-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.floating-deco {
+    position: absolute;
+    opacity: 0.08;
+    font-weight: 900;
+    color: var(--text-black);
+    user-select: none;
+}
+
+.deco-flower {
+    font-size: 8rem;
+    top: 5%;
+    left: 3%;
+    opacity: 0.12;
+}
+
+.deco-starburst {
+    font-size: 6rem;
+    top: 45%;
+    right: 5%;
+    color: var(--c-red);
+    opacity: 0.1;
+}
+
+.deco-cross-1 {
+    font-size: 3rem;
+    top: 25%;
+    right: 15%;
+    opacity: 0.15;
+}
+
+.deco-cross-2 {
+    font-size: 4rem;
+    bottom: 30%;
+    left: 8%;
+    color: var(--c-yellow);
+    opacity: 0.2;
+}
+
+.deco-grid-dots {
+    width: 150px;
+    height: 150px;
+    top: 15%;
+    right: 2%;
+    opacity: 0.05;
+    background-image: radial-gradient(var(--text-black) 2px, transparent 2px);
+    background-size: 15px 15px;
+}
+
+/* --- GLOBAL MODAL NAVIGATION ARROWS --- */
+.global-modal-nav-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background-color: var(--text-white);
+    border: 4px solid var(--text-black);
+    border-radius: 50%;
+    color: var(--text-black);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 0px var(--text-black);
+    z-index: 2100; /* Above the active modal page */
+    transition: all 0.2s ease;
+}
+
+.global-modal-nav-btn:hover {
+    transform: translateY(-50%) translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--text-black);
+    background-color: var(--c-yellow);
+}
+
+.global-modal-nav-btn:active {
+    transform: translateY(-50%) translate(1px, 1px);
+    box-shadow: 2px 2px 0px var(--text-black);
+}
+
+.global-modal-nav-btn.prev-btn {
+    left: 2rem;
+}
+
+.global-modal-nav-btn.next-btn {
+    right: 2rem;
+}
+
+@media (max-width: 992px) {
+    .global-modal-nav-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+        border-width: 3px;
+        box-shadow: 3px 3px 0px var(--text-black);
+    }
+    .global-modal-nav-btn.prev-btn {
+        left: 1rem;
+    }
+    .global-modal-nav-btn.next-btn {
+        right: 1rem;
+    }
+}
+
+/* Position them at the bottom on mobile to avoid covering bio content */
+@media (max-width: 576px) {
+    .global-modal-nav-btn {
+        top: auto;
+        bottom: 20px;
+        transform: none;
+        position: fixed;
+    }
+    .global-modal-nav-btn:hover {
+        transform: translate(-2px, -2px);
+    }
+    .global-modal-nav-btn:active {
+        transform: translate(1px, 1px);
+    }
+    .global-modal-nav-btn.prev-btn {
+        left: 20px;
+        bottom: 20px;
+    }
+    .global-modal-nav-btn.next-btn {
+        right: 20px;
+        bottom: 20px;
+    }
+}
+
+/* --- SLIDER CURSIVE TEXT --- */
+.slider-cursive-text {
+    position: absolute;
+    top: 55%;
+    left: -15px;
+    transform: translateY(-50%) rotate(-2deg);
+    font-family: 'Dancing Script', cursive;
+    font-size: 7.5rem;
+    color: var(--c-yellow);
+    opacity: 0.65;
+    -webkit-text-stroke: 1px rgba(26, 26, 26, 0.35);
+    white-space: nowrap;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+}
+
+
+/* --- GLASS CARDS EFFECT --- */
+.artists-slider-track.glass-cards-active .artist-slider-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.0) 100%) !important;
+    backdrop-filter: blur(16px) saturate(220%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(220%) !important;
+    border: 2px solid rgba(255, 255, 255, 0.55) !important;
+    box-shadow: 
+        inset 2px 2px 0px rgba(255, 255, 255, 0.4), 
+        inset -2px -2px 0px rgba(255, 255, 255, 0.1), 
+        0 10px 40px 0 rgba(0, 0, 0, 0.15), 
+        8px 8px 0px rgba(26, 26, 26, 0.25) !important;
+    color: var(--text-black) !important;
+}
+
+/* Tinted glass reflections for each color class */
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-peach { 
+    background: linear-gradient(135deg, rgba(255, 162, 112, 0.35) 0%, rgba(255, 162, 112, 0.05) 60%, rgba(255, 162, 112, 0.0) 100%) !important; 
+}
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-blue { 
+    background: linear-gradient(135deg, rgba(214, 232, 240, 0.35) 0%, rgba(214, 232, 240, 0.05) 60%, rgba(214, 232, 240, 0.0) 100%) !important; 
+}
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-yellow { 
+    background: linear-gradient(135deg, rgba(245, 176, 39, 0.35) 0%, rgba(245, 176, 39, 0.05) 60%, rgba(245, 176, 39, 0.0) 100%) !important; 
+}
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-red { 
+    background: linear-gradient(135deg, rgba(209, 86, 84, 0.35) 0%, rgba(209, 86, 84, 0.05) 60%, rgba(209, 86, 84, 0.0) 100%) !important; 
+}
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-green { 
+    background: linear-gradient(135deg, rgba(182, 205, 174, 0.35) 0%, rgba(182, 205, 174, 0.05) 60%, rgba(182, 205, 174, 0.0) 100%) !important; 
+}
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-purple { 
+    background: linear-gradient(135deg, rgba(224, 189, 246, 0.35) 0%, rgba(224, 189, 246, 0.05) 60%, rgba(224, 189, 246, 0.0) 100%) !important; 
+}
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-grey { 
+    background: linear-gradient(135deg, rgba(160, 166, 169, 0.35) 0%, rgba(160, 166, 169, 0.05) 60%, rgba(160, 166, 169, 0.0) 100%) !important; 
+}
+
+/* Glass adjustments for card headers, badges, and text overrides */
+.artists-slider-track.glass-cards-active .artist-slider-card .card-img-wrapper {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Keep text elements clean and readable on glass cards */
+.artists-slider-track.glass-cards-active .artist-slider-card .artist-card-name { color: var(--text-black) !important; }
+.artists-slider-track.glass-cards-active .artist-slider-card .artist-card-time { color: rgba(26, 26, 26, 0.65) !important; }
+.artists-slider-track.glass-cards-active .artist-slider-card .artist-card-genre { color: var(--text-black) !important; }
+.artists-slider-track.glass-cards-active .artist-slider-card .card-action-link { color: var(--text-black) !important; }
+
+/* Keep name text visible for red card overrides */
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-red .artist-card-name { color: var(--text-black) !important; }
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-red .artist-card-time { color: rgba(26, 26, 26, 0.6) !important; }
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-red .artist-card-genre { color: var(--text-black) !important; }
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-red .card-action-link { color: var(--text-black) !important; }
+
+/* Dynamic active states for glass button */
+.slider-control-btn.glass-toggle {
+    margin-right: 0.5rem;
+    font-size: 1.3rem;
+}
+.slider-control-btn.glass-toggle.active {
+    background-color: var(--c-yellow);
+    box-shadow: 2px 2px 0px var(--text-black);
+    transform: translate(2px, 2px);
+}
+
+/* --- MULTI-TRACK CUSTOM PLAYER STYLES --- */
+.sunflower-player {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.player-track-selector {
+    display: flex;
+    gap: 0.6rem;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 0.2rem;
+}
+.player-track-selector::-webkit-scrollbar {
+    display: none;
+}
+
+.track-select-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.9rem;
+    border: 3px solid var(--text-black);
+    border-radius: 8px;
+    background-color: var(--text-white);
+    color: var(--text-black);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 2px 2px 0px var(--text-black);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.track-select-btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px var(--text-black);
+    background-color: var(--c-yellow);
+}
+
+.track-select-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px var(--text-black);
+}
+
+.track-select-btn.active {
+    background-color: var(--text-black);
+    color: var(--text-white);
+    box-shadow: none;
+    transform: none;
+}
+
+.player-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+}
+
+.player-skip-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid var(--text-black);
+    background-color: var(--text-white);
+    color: var(--text-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px var(--text-black);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.player-skip-btn:hover {
+    transform: scale(1.06) translate(-1px, -1px);
+    box-shadow: 4px 4px 0px var(--text-black);
+    background-color: var(--c-yellow);
+}
+
+.player-skip-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px var(--text-black);
+}
+
+@media (max-width: 576px) {
+    .player-track-selector {
+        gap: 0.5rem;
+    }
+    .track-select-btn {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.75rem;
+    }
+}
+
+/* --- HOME PAGE BACKGROUND ENHANCEMENTS --- */
+.home-body {
+    background-color: #FFC231 !important;
+}
+
+.home-body .bg-white,
+.home-body .full-width-wrapper,
+.home-body .countdown-section,
+.home-body .artists-slider-section {
+    background-color: #FFC231 !important;
+}
+
+.home-body .wave-divider path {
+    fill: #FFC231 !important;
+}
+
+.sunflower-map-link:hover {
+    color: var(--c-red) !important;
+    background-color: rgba(26, 26, 26, 0.05);
+}
+
+/* --- POSTCARD STYLE FOR CANDIDATURES --- */
+.postcard-wrapper {
+    perspective: 1000px;
+}
+
+.postcard-card {
+    background-color: var(--c-pastel-cream, #faf8ee);
+    border: 4px solid var(--text-black);
+    border-radius: 16px;
+    box-shadow: 8px 8px 0px var(--text-black);
+    padding: 2.2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-height: 340px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    transform-style: preserve-3d;
+}
+
+.postcard-wrapper:hover .postcard-card {
+    transform: translateY(-8px) rotate(-1deg);
+    box-shadow: 14px 14px 0px var(--text-black);
+}
+
+.postcard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.postcard-title-text {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 900;
+    color: var(--text-black);
+    letter-spacing: 1px;
+    border: 3px solid var(--text-black);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    background-color: var(--c-pastel-yellow);
+    box-shadow: 2px 2px 0px var(--text-black);
+}
+
+/* Stamp Illustration */
+.postcard-stamp {
+    width: 80px;
+    height: 100px;
+    background-color: var(--text-black);
+    border: 3px dashed var(--text-white);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    position: relative;
+    transform: rotate(6deg);
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.postcard-wrapper:hover .postcard-stamp {
+    transform: rotate(-4deg) scale(1.05);
+}
+
+.stamp-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 900;
+    color: var(--text-white);
+    line-height: 1.1;
+    text-align: center;
+}
+
+.stamp-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Postcard Body Split */
+.postcard-body {
+    display: flex;
+    gap: 1.8rem;
+    flex-grow: 1;
+}
+
+.postcard-left-col {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.postcard-divider {
+    width: 3px;
+    background: repeating-linear-gradient(
+        to bottom,
+        var(--text-black),
+        var(--text-black) 6px,
+        transparent 6px,
+        transparent 12px
+    );
+    align-self: stretch;
+}
+
+.postcard-right-col {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.address-lines {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.address-label {
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: rgba(26,26,26,0.6);
+}
+
+.address-line {
+    border-bottom: 2px solid var(--text-black);
+    padding-bottom: 0.3rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-black);
+}
+
+.font-handwriting {
+    font-family: 'Dancing Script', cursive !important;
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+    color: #2b3a8c !important; /* Classic blue pen ink color */
+}
+
+.postcard-message {
+    padding-top: 0.5rem;
+}
+
+.postcard-click-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.85rem;
+    color: var(--text-white);
+    background-color: var(--c-red);
+    padding: 0.6rem 1rem;
+    border: 3px solid var(--text-black);
+    border-radius: 8px;
+    box-shadow: 3px 3px 0px var(--text-black);
+    align-self: flex-start;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.postcard-wrapper:hover .postcard-click-action {
+    background-color: var(--text-black);
+    color: var(--c-yellow);
+    box-shadow: 3px 3px 0px var(--c-red);
+}
+
+@media (max-width: 768px) {
+    .postcard-body {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .postcard-divider {
+        width: 100%;
+        height: 3px;
+        background: repeating-linear-gradient(
+            to right,
+            var(--text-black),
+            var(--text-black) 6px,
+            transparent 6px,
+            transparent 12px
+        );
+    }
+    .postcard-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Custom player mobile styling */
+@media (max-width: 768px) {
+    .sunflower-player {
+        padding: 1.2rem 1.2rem;
+    }
+
+    .player-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.2rem;
+    }
+
+    .player-track-info {
+        order: -1; /* Pushes track name and progress bar to the top */
+        width: 100%;
+    }
+
+    .player-btn-group {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .player-volume-container {
+        display: flex;
+        justify-content: center;
+        gap: 0.8rem;
+        margin-top: 0.2rem;
+    }
+
+    .volume-slider-wrapper {
+        width: 100px !important; /* Make volume slider a bit larger and fully visible on mobile */
+    }
+}
+
+/* --- LAZY LOADING PLACEHOLDER STYLE --- */
+.lazy-bg {
+    background-image: none !important;
+    background-color: rgba(26, 26, 26, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.lazy-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: lazyShimmer 1.5s infinite;
+}
+
+@keyframes lazyShimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Mobile Fixes for Modal Content and Player */
+@media (max-width: 768px) {
+    .artist-full-page {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+    }
+
+    .full-page-content {
+        display: block !important; /* Prevents flex centering from causing horizontal overflow */
+        padding: 2rem 1.2rem 120px 1.2rem !important; /* Extra bottom padding so elements don't get covered by fixed navigation buttons */
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .full-page-grid {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        grid-template-columns: 1fr !important;
+        min-width: 0 !important;
+    }
+
+    .full-page-info-col {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        min-width: 0 !important;
+    }
+
+    .full-page-bio,
+    .sunflower-player-section {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        min-width: 0 !important;
+    }
+
+    .full-page-description {
+        width: 100% !important;
+        word-break: break-word !important;
+        box-sizing: border-box !important;
+    }
+
+    .sunflower-player {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        min-width: 0 !important;
+    }
+
+    /* Ensure navigation buttons don't block the player or overlap awkwardly */
+    .global-modal-nav-btn {
+        z-index: 2200 !important; /* Keep above players */
+    }
+
+    .player-track-name {
+        word-break: break-word !important;
+        white-space: normal !important;
+    }
+
+    .player-track-selector {
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+
+
+
+
+
+

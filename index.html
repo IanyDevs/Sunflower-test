@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunflower Fest | Home</title>
+    <meta name="description" content="Sunflower Fest - Il festival della creatività e della musica emergente.">
+    <link rel="stylesheet" href="style.css?v=29">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;900&family=Great+Vibes&family=Dancing+Script&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/monument-extended" rel="stylesheet">
+
+    <script>
+        (function() {
+            if (sessionStorage.getItem('playTransitionOut') !== 'true') {
+                document.documentElement.classList.add('no-curtain');
+            }
+        })();
+    </script>
+</head>
+
+<body class="home-body">
+
+  
+
+    <!-- NAVBAR HOMEPAGE -->
+    <nav class="main-nav">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="chi-siamo.html">Chi Siamo</a>
+            <a href="news-eventi.html">News & Eventi</a>
+            <a href="contatti.html">Contatti</a>
+            <div class="nav-dropdown">
+                <a href="#" class="dropdown-trigger">Lavora con noi <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-item">
+                        <h4>LAVORA CON NOI</h4>
+                        <p>Entra a far parte dello staff e aiutaci a organizzare il festival!</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSexlqiySbiXjuskMPaoTKAL4eFnGVCigT198Jx8wdQ3EUx08g/viewform"
+                            target="_blank" class="dropdown-btn bg-yellow">Lavora con noi</a>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-item">
+                        <h4>SALI SUL PALCO</h4>
+                        <p>Sei un artista o una band emergente? Mostraci il tuo talento!</p>
+                        <a href="sali-sul-palco.html" class="dropdown-btn bg-red">Sali sul palco</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Hero Section (Clean Brutalist Style) -->
+    <header class="home-hero">
+        <!-- Background Slider Carousel -->
+        <div class="hero-slider">
+            <div class="slide active"
+                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/foto1.webp');">
+            </div>
+            <div class="slide"
+                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/foto4.webp');">
+            </div>
+            <div class="slide"
+                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/foto6.webp');">
+            </div>
+            <div class="slide"
+                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/foto7.webp');">
+            </div>
+            <div class="slide"
+                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/foto8.webp');">
+            </div>
+            <div class="slide"
+                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/foto9.webp');">
+            </div>
+            <div class="slide"
+                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/Foto10.webp');">
+            </div>
+            <div class="slide"
+                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/Foto11.webp');">
+            </div>
+            <div class="slide"
+                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/Foto14.webp');">
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <h1 class="giant-title">
+                <span class="text-sunflower">SUNFLOWER</span><br>
+                <span class="text-festival">FESTIVAL</span>
+            </h1>
+            <p class="hero-subtitle">11 LUGLIO</p>
+            <a href="#ospiti-2026" class="brutalist-button bg-white" id="scopri-lineup-btn">Scopri la Line-Up 2026!</a>
+        </div>
+
+        <!-- Wavy Divider -->
+        <svg class="wave-divider" viewBox="0 0 1000 100" preserveAspectRatio="none">
+            <path d="M0,100 C300,0 700,0 1000,100 L1000,150 L0,150 Z" fill="var(--text-white)"></path>
+        </svg>
+    </header>
+
+    <div class="full-width-wrapper bg-white">
+
+        <!-- SEZIONE COUNTDOWN -->
+        <section class="countdown-section">
+            <h2 class="countdown-title">IL FESTIVAL INIZIA TRA:</h2>
+            <div class="countdown-container">
+                <div class="count-box">
+                    <span class="num" id="days-count">00</span>
+                    <span class="label">Giorni</span>
+                </div>
+                <div class="count-box">
+                    <span class="num" id="hours-count">00</span>
+                    <span class="label">Ore</span>
+                </div>
+                <div class="count-box">
+                    <span class="num" id="mins-count">00</span>
+                    <span class="label">Minuti</span>
+                </div>
+                <div class="count-box">
+                    <span class="num" id="secs-count">00</span>
+                    <span class="label">Secondi</span>
+                </div>
+            </div>
+           
+            </div>
+        </section>
+
+        <!-- Animated Background Text (Brutalist style) -->
+        <div class="bg-massive-text bg-text-anim">
+            <span class="text-sunflower">SUNFLOWERS</span> GROUP
+        </div>
+
+        <!-- Line-Up Artists Slider Section -->
+        <main id="ospiti-2026" class="artists-slider-section reveal-up">
+            <div class="artists-slider-header">
+                <div class="artists-title-group" style="position: relative;">
+                    <h2 class="slider-title">OSPITI 2026</h2>
+
+                </div>
+                <div class="slider-controls">
+                    <button id="slider-prev" class="slider-control-btn" aria-label="Precedente">
+                        &lt;
+                    </button>
+                    <button id="slider-next" class="slider-control-btn" aria-label="Successivo">
+                        &gt;
+                    </button>
+                </div>
+            </div>
+
+            <div class="artists-slider-container">
+                <div class="artists-slider-track">
+
+                    <!-- Card 1: Santachiara -->
+                    <div class="artist-slider-card bg-brown" data-artist="Santachiara">
+                        <div class="card-img-wrapper">
+                            <div class="card-img-side-text left-text">ORE</div>
+                            <div class="placeholder-img lazy-bg"
+                                data-bg="assets/foto-artisti/Santachiara.jpeg" style="background-position: center;">
+                            </div>
+                            <div class="card-img-side-text right-text">23:00</div>
+                            <span class="card-time-badge">23:00</span>
+                        </div>
+                        <div class="card-info-box">
+                            <h3 class="artist-card-name">Santachiara</h3>
+                            <p class="artist-card-time">11 Luglio • 23:00</p>
+                            <p class="artist-card-genre">Indie-pop/wUrban</p>
+                            <div class="card-action-link">SCOPRI DI PIÙ &rarr;</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Carla Fucci -->
+                    <div class="artist-slider-card bg-green" data-artist="Carla Fucci">
+                        <div class="card-img-wrapper">
+                            <div class="card-img-side-text left-text">ORE</div>
+                            <div class="placeholder-img lazy-bg"
+                                data-bg="assets/foto-artisti/CarlaFucci.jpeg" style="background-position: center;">
+                            </div>
+                            <div class="card-img-side-text right-text">20:00</div>
+                            <span class="card-time-badge">20:00</span>
+                        </div>
+                        <div class="card-info-box">
+                            <h3 class="artist-card-name">Carla Fucci</h3>
+                            <p class="artist-card-time">11 Luglio • 20:00</p>
+                            <p class="artist-card-genre">Pop indie</p>
+                            <div class="card-action-link">SCOPRI DI PIÙ &rarr;</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Dinìche -->
+                    <div class="artist-slider-card bg-purple" data-artist="Diniche">
+                        <div class="card-img-wrapper">
+                            <div class="card-img-side-text left-text">ORE</div>
+                            <div class="placeholder-img lazy-bg"
+                                data-bg="assets/foto-artisti/Dinìche.jpeg" style="background-position: center;">
+                            </div>
+                            <div class="card-img-side-text right-text">20:00</div>
+                            <span class="card-time-badge">20:00</span>
+                        </div>
+                        <div class="card-info-box">
+                            <h3 class="artist-card-name">Dinìche</h3>
+                            <p class="artist-card-time">11 Luglio • 20:00</p>
+                            <p class="artist-card-genre">Cantautorato</p>
+                            <div class="card-action-link">SCOPRI DI PIÙ &rarr;</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Davide De Luca -->
+                    <div class="artist-slider-card bg-blue" data-artist="Davide De Luca">
+                        <div class="card-img-wrapper">
+                            <div class="card-img-side-text left-text">ORE</div>
+                            <div class="placeholder-img lazy-bg"
+                                data-bg="assets/foto-artisti/DavideDeLuca.jpeg" style="background-position: center;">
+                            </div>
+                            <div class="card-img-side-text right-text">20:00</div>
+                            <span class="card-time-badge">20:00</span>
+                        </div>
+                        <div class="card-info-box">
+                            <h3 class="artist-card-name">Davide De Luca</h3>
+                            <p class="artist-card-time">11 Luglio • 20:00</p>
+                            <p class="artist-card-genre">R&B / Soul / Nu-Funk</p>
+                            <div class="card-action-link">SCOPRI DI PIÙ &rarr;</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: ARIA -->
+                    <div class="artist-slider-card bg-purple" data-artist="ARIA">
+                        <div class="card-img-wrapper">
+                            <div class="card-img-side-text left-text">ORE</div>
+                            <div class="placeholder-img lazy-bg"
+                                data-bg="assets/foto-artisti/Aria.jpeg" style="background-position: center;">
+                            </div>
+                            <div class="card-img-side-text right-text">20:00</div>
+                            <span class="card-time-badge">20:00</span>
+                        </div>
+                        <div class="card-info-box">
+                            <h3 class="artist-card-name">ARIA</h3>
+                            <p class="artist-card-time">11 Luglio • 20:00</p>
+                            <p class="artist-card-genre">Pop Indie </p>
+                            <div class="card-action-link">SCOPRI DI PIÙ &rarr;</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Antonio Calabrese -->
+                    <div class="artist-slider-card bg-blue" data-artist="Antonio Calabrese">
+                        <div class="card-img-wrapper">
+                            <div class="card-img-side-text left-text">ORE</div>
+                            <div class="placeholder-img lazy-bg"
+                                data-bg="assets/foto-artisti/AntonioCalabrese.jpeg" style="background-position: center;">
+                            </div>
+                            <div class="card-img-side-text right-text">20:00</div>
+                            <span class="card-time-badge">20:00</span>
+                        </div>
+                        <div class="card-info-box">
+                            <h3 class="artist-card-name">Antonio Calabrese</h3>
+                            <p class="artist-card-time">11 Luglio • 20:00</p>
+                            <p class="artist-card-genre">Cantautorato</p>
+                            <div class="card-action-link">SCOPRI DI PIÙ &rarr;</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 7: Secondo-->
+                    <div class="artist-slider-card bg-grey" data-artist="Secondo">
+                        <div class="card-img-wrapper">
+                            <div class="card-img-side-text left-text">ORE</div>
+                            <div class="placeholder-img lazy-bg"
+                                data-bg="assets/foto-artisti/Secondo.jpeg" style="background-position: center;">
+                            </div>
+                            <div class="card-img-side-text right-text">20:00</div>
+                            <span class="card-time-badge">20:00</span>
+                        </div>
+                        <div class="card-info-box">
+                            <h3 class="artist-card-name">Secondo</h3>
+                            <p class="artist-card-time">11 Luglio • 20:00</p>
+                            <p class="artist-card-genre">Cantautorato</p>
+                            <div class="card-action-link">SCOPRI DI PIÙ &rarr;</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 8: Lyra -->
+                    <div class="artist-slider-card bg-cream" data-artist="Lyra">
+                        <div class="card-img-wrapper">
+                            <div class="card-img-side-text left-text">ORE</div>
+                            <div class="placeholder-img lazy-bg"
+                                data-bg="assets/foto-artisti/Lyra.jpeg" style="background-position: center;">
+                            </div>
+                            <div class="card-img-side-text right-text">20:00</div>
+                            <span class="card-time-badge">20:00</span>
+                        </div>
+                        <div class="card-info-box">
+                            <h3 class="artist-card-name">Lyra</h3>
+                            <p class="artist-card-time">11 Luglio • 20:00</p>
+                            <p class="artist-card-genre">Indefinito</p>
+                            <div class="card-action-link">SCOPRI DI PIÙ &rarr;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modals Container (Global Overlays for Artist Info - Full-screen layout) -->
+        <div class="artist-modals-overlay" id="modals-overlay">
+            <!-- Global Floating Navigation Arrows -->
+            <button class="global-modal-nav-btn prev-btn" aria-label="Artista precedente">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="global-modal-nav-btn next-btn" aria-label="Artista successivo">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <!-- Full-Screen ARIA -->
+            <div class="artist-full-page bg-purple" id="modal-ARIA">
+                <div class="full-page-header">
+                    <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
+                        <i class="fa-solid fa-arrow-left"></i> TORNA ALLA HOME
+                    </button>
+                    <div class="header-logo-container">
+                        <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+                    </div>
+                </div>
+
+                <div class="full-page-content">
+                    <div class="full-page-grid">
+                        <div class="full-page-media-col">
+                            <div class="torn-paper-frame shape-1">
+                                <div class="placeholder-img"
+                                    style="background-image: url('assets/foto-artisti/Aria.jpeg');"></div>
+                            </div>
+                            <!-- Cute sticker details inside the media column -->
+                            <div class="sticker-badge badge-circle badge-yellow float-anim-2">20:00</div>
+                        </div>
+
+                        <div class="full-page-info-col">
+
+                            <h1 class="full-page-title">ARIA</h1>
+                            <p class="full-page-genre-tag">Pop</p>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="full-page-bio">
+                                <h2>LA BIOGRAFIA</h2>
+                                <p class="full-page-description">
+                                    Ilaria Cofone, in arte ARIA, classe 2004, utilizza fin da bambina la musica come
+                                    strumento di espressione e come mezzo per accogliere le parti più profonde di sé. 
+                                </p>
+                                <p class="full-page-description">
+                                    Il suo nome d’arte richiama una personalità sospesa tra il timore di essere invisibile
+                                    e il desiderio di sentirsi leggera, una malinconia che attraversa anche le sue
+                                    canzoni.
+                                </p>
+                            </div>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="sunflower-player-section" style="width: 100%; margin-top: 1.5rem;">
+                                <div class="player-brutalist-container" style="border: 4px solid var(--text-black); box-shadow: 6px 6px 0px var(--text-black); border-radius: 12px; background-color: var(--text-black); overflow: hidden; display: flex; flex-direction: column;">
+                                    <!-- Header decoration bar -->
+                                    <div style="background: var(--primary-orange); border-bottom: 4px solid var(--text-black); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-black); letter-spacing: 1px;">
+                                        <span><i class="fa-solid fa-circle-play" style="margin-right: 0.5rem;"></i>SUNFLOWER MUSIC PLAYER</span>
+                                        <div style="display: flex; gap: 6px;">
+                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                                        </div>
+                                    </div>
+                                    <!-- Iframe container -->
+                                    <div style="background-color: #121212; line-height: 0;">
+                                        <iframe style="border: none;" src="https://open.spotify.com/embed/artist/3QptZmsuqUYGVDlrC02wdD?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="full-page-socials-container">
+                                <h2>SEGUI L'ARTISTA</h2>
+                                <div class="full-page-socials-grid">
+                                    <a href="https://www.instagram.com/ariainarte/" target="_blank"
+                                        class="brutalist-social-btn instagram">
+                                        <i class="fa-brands fa-instagram"></i> INSTAGRAM
+                                    </a>
+                                    <a href="https://www.tiktok.com/@ariainarte" target="_blank"
+                                        class="brutalist-social-btn tiktok">
+                                        <i class="fa-brands fa-tiktok"></i> TIKTOK
+                                    </a>
+                                    <a href="https://open.spotify.com/intl-it/artist/3QptZmsuqUYGVDlrC02wdD"
+                                        target="_blank" class="brutalist-social-btn spotify">
+                                        <i class="fa-brands fa-spotify"></i> SPOTIFY
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full-Screen Davide De Luca -->
+            <div class="artist-full-page bg-blue" id="modal-Davide De Luca">
+                <div class="full-page-header">
+                    <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
+                        <i class="fa-solid fa-arrow-left"></i> TORNA ALLA HOME
+                    </button>
+                    <div class="header-logo-container">
+                        <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+                    </div>
+                </div>
+
+                <div class="full-page-content">
+                    <div class="full-page-grid">
+                        <div class="full-page-media-col">
+                            <div class="torn-paper-frame shape-2">
+                                <div class="placeholder-img"
+                                    style="background-image: url('assets/foto-artisti/DavideDeLuca.jpeg');"></div>
+                            </div>
+                            <div class="sticker-badge badge-circle badge-yellow float-anim-2">20:00</div>
+                        </div>
+
+                        <div class="full-page-info-col">
+
+                            <h1 class="full-page-title">Davide De Luca</h1>
+                            <p class="full-page-genre-tag">R&B / Soul / Nu-Funk</p>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="full-page-bio">
+                                <h2>LA BIOGRAFIA</h2>
+                                <p class="full-page-description">
+                                    Davide De Luca è un cantautore di Lecce il cui sound fonde R&B, Soul e Nu-Funk.
+                                    Nel 2018 si esibisce sul palco di Musicultura. Nel 2021 si laurea in Canto Jazz a
+                                    Monopoli e completa un master in Canto Jazz ad Amsterdam nel 2024. 
+                                </p>
+                                <p class="full-page-description">
+                                    Nel 2023 pubblica il singolo Amsterdam, che gli consente di farsi conoscere su TikTok, forma la sua
+                                    band e si esibisce in numerosi festival olandesi. Nel 2024 pubblica l’EP d’esordio
+                                    Crisalidi con MAKEATHOUSAND, a cui seguirà il suo secondo EP Vado Oltre. Nel 2025 si
+                                    esibisce all’RDS Summer Festival di Monopoli, apre l’RDS Showcase di Giorgia a Roma
+                                    ed è ospite in diretta su Radio Deejay nel format di “Say waaad?”. Nel giugno 2026 è
+                                    ospite al Rino Gaetano Day a Roma.
+                                </p>
+                            </div>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="sunflower-player-section" style="width: 100%; margin-top: 1.5rem;">
+                                <div class="player-brutalist-container" style="border: 4px solid var(--text-black); box-shadow: 6px 6px 0px var(--text-black); border-radius: 12px; background-color: var(--text-black); overflow: hidden; display: flex; flex-direction: column;">
+                                    <!-- Header decoration bar -->
+                                    <div style="background: var(--primary-orange); border-bottom: 4px solid var(--text-black); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-black); letter-spacing: 1px;">
+                                        <span><i class="fa-solid fa-circle-play" style="margin-right: 0.5rem;"></i>SUNFLOWER MUSIC PLAYER</span>
+                                        <div style="display: flex; gap: 6px;">
+                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                                        </div>
+                                    </div>
+                                    <!-- Iframe container -->
+                                    <div style="background-color: #121212; line-height: 0;">
+                                        <iframe style="border: none;" src="https://open.spotify.com/embed/artist/4ZddSTJRLFej3dy6bBynu6?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="full-page-socials-container">
+                                <h2>SEGUI L'ARTISTA</h2>
+                                <div class="full-page-socials-grid">
+                                    <a href="https://www.instagram.com/davidedelucamusic/" target="_blank"
+                                        class="brutalist-social-btn instagram">
+                                        <i class="fa-brands fa-instagram"></i> INSTAGRAM
+                                    </a>
+                                    <a href="https://www.tiktok.com/@davidedelucamusic" target="_blank"
+                                        class="brutalist-social-btn tiktok">
+                                        <i class="fa-brands fa-tiktok"></i> TIKTOK
+                                    </a>
+                                    <a href="https://open.spotify.com/intl-it/artist/4ZddSTJRLFej3dy6bBynu6?si=cQup-yAzQryPNagHMmD8Jg"
+                                        target="_blank" class="brutalist-social-btn spotify">
+                                        <i class="fa-brands fa-spotify"></i> SPOTIFY
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full-Screen Carla Fucci -->
+            <div class="artist-full-page bg-green" id="modal-Carla Fucci">
+                <div class="full-page-header">
+                    <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
+                        <i class="fa-solid fa-arrow-left"></i> TORNA ALLA HOME
+                    </button>
+                    <div class="header-logo-container">
+                        <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+                    </div>
+                </div>
+
+                <div class="full-page-content">
+                    <div class="full-page-grid">
+                        <div class="full-page-media-col">
+                            <div class="torn-paper-frame shape-3">
+                                <div class="placeholder-img"
+                                    style="background-image: url('assets/foto-artisti/CarlaFucci.jpeg');"></div>
+                            </div>
+                            <div class="sticker-badge badge-circle badge-yellow float-anim-2">20:00</div>
+                        </div>
+
+                        <div class="full-page-info-col">
+                            <h1 class="full-page-title">Carla Fucci</h1>
+                            <p class="full-page-genre-tag">Pop indie</p>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="full-page-bio">
+                                <h2>LA BIOGRAFIA</h2>
+                                <p class="full-page-description">
+                                    Carla Fucci, cantautrice napoletana classe 1998, è una voce che racconta storie e
+                                    sentimenti. Fin da bambina ha trovato nella musica il suo rifugio e il suo primo
+                                    grande amore, una passione che l’ha accompagnata fino alla laurea in Canto Jazz al
+                                    Conservatorio di Benevento nel 2022.
+                                </p>
+                                <p class="full-page-description">
+                                    La sua arte è un viaggio tra melodie e influenze che abbracciano il reggae, il pop e
+                                    una moltitudine di sonorità diverse, dando vita a brani che parlano al cuore.
+                                </p>
+                            </div>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="sunflower-player-section" style="width: 100%; margin-top: 1.5rem;">
+                                <div class="player-brutalist-container" style="border: 4px solid var(--text-black); box-shadow: 6px 6px 0px var(--text-black); border-radius: 12px; background-color: var(--text-black); overflow: hidden; display: flex; flex-direction: column;">
+                                    <!-- Header decoration bar -->
+                                    <div style="background: var(--primary-orange); border-bottom: 4px solid var(--text-black); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-black); letter-spacing: 1px;">
+                                        <span><i class="fa-solid fa-circle-play" style="margin-right: 0.5rem;"></i>SUNFLOWER MUSIC PLAYER</span>
+                                        <div style="display: flex; gap: 6px;">
+                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                                        </div>
+                                    </div>
+                                    <!-- Iframe container -->
+                                    <div style="background-color: #121212; line-height: 0;">
+                                        <iframe style="border: none;" src="https://open.spotify.com/embed/artist/7DuCINBTI0hkLFXYjPdOu5?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="full-page-socials-container">
+                                <h2>SEGUI L'ARTISTA</h2>
+                                <div class="full-page-socials-grid">
+                                    <a href="https://www.instagram.com/carlafucci_/" target="_blank"
+                                        class="brutalist-social-btn instagram">
+                                        <i class="fa-brands fa-instagram"></i> INSTAGRAM
+                                    </a>
+                                    <a href="https://www.tiktok.com/@carlafucci3" target="_blank"
+                                        class="brutalist-social-btn tiktok">
+                                        <i class="fa-brands fa-tiktok"></i> TIKTOK
+                                    </a>
+                                    <a href="https://open.spotify.com/intl-it/artist/7DuCINBTI0hkLFXYjPdOu5"
+                                        target="_blank" class="brutalist-social-btn spotify">
+                                        <i class="fa-brands fa-spotify"></i> SPOTIFY
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full-Screen Santachiara -->
+            <div class="artist-full-page bg-brown" id="modal-Santachiara">
+                <div class="full-page-header">
+                    <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
+                        <i class="fa-solid fa-arrow-left"></i> TORNA ALLA HOME
+                    </button>
+                    <div class="header-logo-container">
+                        <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+                    </div>
+                </div>
+
+                <div class="full-page-content">
+                    <div class="full-page-grid">
+                        <div class="full-page-media-col">
+                            <div class="torn-paper-frame shape-4">
+                                <div class="placeholder-img"
+                                    style="background-image: url('assets/foto-artisti/Santachiara.jpeg');"></div>
+                            </div>
+                            <div class="sticker-badge badge-circle badge-yellow float-anim-2">23:00</div>
+                        </div>
+
+                        <div class="full-page-info-col">
+
+                            <h1 class="full-page-title">Santachiara</h1>
+                            <p class="full-page-genre-tag">Indie-pop/Urban </p>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="full-page-bio">
+                                <h2>LA BIOGRAFIA</h2>
+                                <p class="full-page-description">
+                                    Luigi Picone, in arte SANTACHIARA, nasce ad Alberobello nel 1998 e passa la sua infanzia in giro per l’Italia e il mondo viaggiando con i suoi genitori, artisti di strada, e crescendo in un ambiente pieno di stimoli culturali. Trascorre la sua adolescenza tra Spoleto e Siracusa, per poi trasferirsi a Napoli nel quartiere Santa Chiara, cuore del centro storico della città.
+                                </p>
+                                <p class="full-page-description">
+                                    Si appassiona al rap sin da ragazzino, ma gli sta stretto e inizia a prendere ispirazione dalla musica più disparata: dal cantautorato italiano al rock, passando per la techno, la classica e l’urban. Studia pianoforte e chitarra e inizia a mescolare su Garage Band i Radiohead con Mozart e i Nirvana, pescando da tutto quello che ascolta, ed è un gioco che fa insieme al compagno di studi Andrea.
+                                </p>
+                            </div>
+
+                            <div class="sunflower-player-section" style="width: 100%; margin-top: 1.5rem;">
+                                <div class="player-brutalist-container" style="border: 4px solid var(--text-black); box-shadow: 6px 6px 0px var(--text-black); border-radius: 12px; background-color: var(--text-black); overflow: hidden; display: flex; flex-direction: column;">
+                                    <!-- Header decoration bar -->
+                                    <div style="background: var(--primary-orange); border-bottom: 4px solid var(--text-black); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-black); letter-spacing: 1px;">
+                                        <span><i class="fa-solid fa-circle-play" style="margin-right: 0.5rem;"></i>SUNFLOWER MUSIC PLAYER</span>
+                                        <div style="display: flex; gap: 6px;">
+                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                                        </div>
+                                    </div>
+                                    <!-- Iframe container -->
+                                    <div style="background-color: #121212; line-height: 0;">
+                                        <iframe style="border: none;" src="https://open.spotify.com/embed/artist/5lQwH3yb4bvUNnFG5DXMRW?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="full-page-socials-container">
+                                <h2>SEGUI L'ARTISTA</h2>
+                                <div class="full-page-socials-grid">
+                                    <a href="https://www.instagram.com/solosantachiara/" target="_blank"
+                                        class="brutalist-social-btn instagram">
+                                        <i class="fa-brands fa-instagram"></i> INSTAGRAM
+                                    </a>
+                                    <a href="https://www.tiktok.com/@sssantachiara" target="_blank"
+                                        class="brutalist-social-btn tiktok">
+                                        <i class="fa-brands fa-tiktok"></i> TIKTOK
+                                    </a>
+                                    <a href="https://open.spotify.com/intl-it/artist/5lQwH3yb4bvUNnFG5DXMRW" target="_blank" class="brutalist-social-btn spotify">
+                                        <i class="fa-brands fa-spotify"></i> SPOTIFY
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full-Screen Secondo -->
+            <div class="artist-full-page bg-grey" id="modal-Secondo">
+                <div class="full-page-header">
+                    <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
+                        <i class="fa-solid fa-arrow-left"></i> TORNA ALLA HOME
+                    </button>
+                    <div class="header-logo-container">
+                        <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+                    </div>
+                </div>
+
+                <div class="full-page-content">
+                    <div class="full-page-grid">
+                        <div class="full-page-media-col">
+                            <div class="torn-paper-frame shape-5">
+                                <div class="placeholder-img"
+                                    style="background-image: url('assets/foto-artisti/Secondo.jpeg');"></div>
+                            </div>
+                            <div class="sticker-badge badge-circle badge-yellow float-anim-2">20:00</div>
+                        </div>
+
+                        <div class="full-page-info-col">
+
+                            <h1 class="full-page-title">Secondo</h1>
+                            <p class="full-page-genre-tag">Cantautorato</p>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="full-page-bio">
+                                <h2>LA BIOGRAFIA</h2>
+                                <p class="full-page-description">
+                                    Secondo nasce da un gioco di significati: è il secondogenito, ma anche la figura che
+                                    resta nell’ombra, indispensabile e silenziosa, come un secondo nel tempo - fugace,
+                                    invisibile, eppure essenziale. Il progetto prende vita nel 2018, quando, dopo anni
+                                    da corista e musicista al servizio di altri artisti, sceglie di mettersi in primo piano
+                                    per scoprire sé stesso attraverso la musica.
+                                </p>
+                                <p class="full-page-description">
+                                    Le sue canzoni nascono dal desiderio di dare voce a emozioni comuni ma spesso
+                                    taciute, con parole semplici che diventano universali. Musicalmente, il suo mondo
+                                    intreccia cantautorato classico, rock, suggestioni popolari napoletane e una certa
+                                    solennità liturgica, in un equilibrio tra immediatezza e profondità.
+                                </p>
+                            </div>
+
+                            <div class="brutalist-divider"></div>
+                            <div class="sunflower-player-section" style="width: 100%; margin-top: 1.5rem;">
+                                <div class="player-brutalist-container" style="border: 4px solid var(--text-black); box-shadow: 6px 6px 0px var(--text-black); border-radius: 12px; background-color: var(--text-black); overflow: hidden; display: flex; flex-direction: column;">
+                                    <!-- Header decoration bar -->
+                                    <div style="background: var(--primary-orange); border-bottom: 4px solid var(--text-black); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-black); letter-spacing: 1px;">
+                                        <span><i class="fa-solid fa-circle-play" style="margin-right: 0.5rem;"></i>SUNFLOWER MUSIC PLAYER</span>
+                                        <div style="display: flex; gap: 6px;">
+                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                                        </div>
+                                    </div>
+                                    <!-- Iframe container -->
+                                    <div style="background-color: #121212; line-height: 0;">
+                                        <iframe style="border: none;" src="https://open.spotify.com/embed/artist/7JHICDCuKigKcxrqsrUWxE?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="full-page-socials-container">
+                                <h2>SEGUI L'ARTISTA</h2>
+                                <div class="full-page-socials-grid">
+                                    <a href="https://www.instagram.com/secondomusica/" target="_blank"
+                                        class="brutalist-social-btn instagram">
+                                        <i class="fa-brands fa-instagram"></i> INSTAGRAM
+                                    </a>
+                                    <a href="https://www.tiktok.com/@secondomusica" target="_blank"
+                                        class="brutalist-social-btn tiktok">
+                                        <i class="fa-brands fa-tiktok"></i> TIKTOK
+                                    </a>
+                                    <a href="https://open.spotify.com/intl-it/artist/7JHICDCuKigKcxrqsrUWxE?si=VuXmlQ7JQUeenZUALTn1FA"
+                                        target="_blank" class="brutalist-social-btn spotify">
+                                        <i class="fa-brands fa-spotify"></i> SPOTIFY
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full-Screen Lyra -->
+            <div class="artist-full-page bg-cream" id="modal-Lyra">
+                <div class="full-page-header">
+                    <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
+                        <i class="fa-solid fa-arrow-left"></i> TORNA ALLA HOME
+                    </button>
+                    <div class="header-logo-container">
+                        <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+                    </div>
+                </div>
+
+                <div class="full-page-content">
+                    <div class="full-page-grid">
+                        <div class="full-page-media-col">
+                            <div class="torn-paper-frame shape-5">
+                                <div class="placeholder-img"
+                                    style="background-image: url('assets/foto-artisti/Lyra.jpeg');"></div>
+                            </div>
+                            <div class="sticker-badge badge-circle badge-yellow float-anim-2">20:00</div>
+                        </div>
+
+                        <div class="full-page-info-col">
+                            <h1 class="full-page-title">Lyra</h1>
+                            <p class="full-page-genre-tag">indefinito</p>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="full-page-bio">
+                                <h2>LA BIOGRAFIA</h2>
+                                <p class="full-page-description">
+                                   “Lyra” è un progetto ultra-musicale, nato nell’autunno del 2025, dalla volontà di 5 musicisti salernitani di sperimentare nuovi linguaggi comunicativi e di provare,
+                                   attraverso la fusione di una narrativa di carattere personale e sociale con sonorità spiccatamente elettro-pop, a raggiungere l’ascoltatore in maniera diretta e senza alcun filtro.
+                                   Nel mondo “Lyra”, infatti, ritmi D’nB, Jungle e synth fanno da sfondo a testi in cui le esperienze personali si intrecciano strettamente a temi sociali attuali come la
+                                   discriminazione di genere, il rispetto delle diﬀerenze, l’uso distorto dei social media, la moderna frenetica routine che non lascia spazio alla singolarità che ogni
+                                   essere umano rappresenta.
+                                </p>
+                                <p class="full-page-description">
+                                   La formazione è composta da Arianna Fortunato (voce), Enrico Di Marino (chitarra), Gerardo Zambrano (basso e synth), Federica Sergio (tastiere e programmazioni),
+                                   Federico Amato (batteria e programmazioni). Parallelamente al lavoro di produzione in studio che si tradurrà alla fine dell’estate nella pubblicazione del primo ep,
+                                   la band ha cercato di curare nei minimi dettagli anche l’aspetto live al fine di potersi esibire dal vivo nei mesi che precedono l’uscita del primo lavoro discografico. 
+                                </p>
+                            </div>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="sunflower-player-section" style="width: 100%; margin-top: 1.5rem;">
+                                <div class="player-brutalist-container" style="border: 4px solid var(--text-black); box-shadow: 6px 6px 0px var(--text-black); border-radius: 12px; background-color: var(--text-black); overflow: hidden; display: flex; flex-direction: column;">
+                                    <!-- Header decoration bar -->
+                                    <div style="background: var(--primary-orange); border-bottom: 4px solid var(--text-black); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-black); letter-spacing: 1px;">
+                                        <span><i class="fa-solid fa-circle-play" style="margin-right: 0.5rem;"></i>SUNFLOWER MUSIC PLAYER</span>
+                                        <div style="display: flex; gap: 6px;">
+                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                                        </div>
+                                    </div>
+                                    <div style="background-color: #E95027; color: var(--text-black); padding: 1.5rem; text-align: center; font-family: 'Outfit', sans-serif; font-weight: bold; text-transform: uppercase;">
+                                        <i class="fa-solid fa-compact-disc fa-spin" style="font-size: 2.5rem; margin-bottom: 0.75rem; color: var(--text-black);"></i>
+                                        <div style="font-size: 1.25rem; margin-bottom: 0.25rem;">EP d'esordio in arrivo!</div>
+                                        <div style="font-size: 0.9rem; font-weight: normal; text-transform: none; line-height: 1.4;">
+                                            Nuova musica in arrivo a fine estate. Segui i canali social per rimanere aggiornato.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="full-page-socials-container">
+                                <h2>SEGUI L'ARTISTA</h2>
+                                <div class="full-page-socials-grid">
+                                    <a href="https://www.instagram.com/ly.ra.music/" target="_blank"
+                                        class="brutalist-social-btn instagram">
+                                        <i class="fa-brands fa-instagram"></i> INSTAGRAM
+                                    </a>
+                                    <a href="https://www.tiktok.com/@lyra.music7" target="_blank"
+                                        class="brutalist-social-btn tiktok">
+                                        <i class="fa-brands fa-tiktok"></i> TIKTOK
+                                    </a>
+                                    <a href="https://soundcloud.com/lyra-276096307/imperfetta-alchimia-mp3?ref=clipboard&p=i&c=1&si=99EE4FB3982845B0B27207B1B29BB6CD&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank" class="brutalist-social-btn soundcloud">
+                                        <i class="fa-brands fa-soundcloud"></i> SOUNDCLOUD
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full-Screen Dinìche -->
+            <div class="artist-full-page bg-purple" id="modal-Diniche">
+                <div class="full-page-header">
+                    <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
+                        <i class="fa-solid fa-arrow-left"></i> TORNA ALLA HOME
+                    </button>
+                    <div class="header-logo-container">
+                        <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+                    </div>
+                </div>
+
+                <div class="full-page-content">
+                    <div class="full-page-grid">
+                        <div class="full-page-media-col">
+                            <div class="torn-paper-frame shape-5">
+                                <div class="placeholder-img"
+                                    style="background-image: url('assets/foto-artisti/Dinìche.jpeg');"></div>
+                            </div>
+                            <div class="sticker-badge badge-circle badge-yellow float-anim-2">20:00</div>
+                        </div>
+
+                        <div class="full-page-info-col">
+                            <h1 class="full-page-title">Dinìche</h1>
+                            <p class="full-page-genre-tag">Cantautorato</p>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="full-page-bio">
+                                <h2>LA BIOGRAFIA</h2>
+                                <p class="full-page-description">
+                                    DINìCHE ha all’attivo un progetto di musica elettronica, cantato in inglese/italiano/napoletano, dal titolo IN TIEMP’ (ON TIME).
+                                    Il singolo NISIDA, estratto dal suo EP d’esordio, si è posizionato in tre playlist editoriali Spotify: “New Music Friday”, “Nuovo Pop” e “Anima R&B”. Il 14 marzo è uscito il suo nuovo singolo FUOCHI AMMARE, inserito nelle principali playlist Apple: “Swipe Pop”, “Super Indie” e “New Music Daily”.
+                                    A giugno 2024 ha aperto il tour di Ermal Meta “Buona fortuna”, si è esibita al Meeting del Mare e in Piazza del Plebiscito per il Capodanno di Napoli, aprendo Loredana Bertè.
+                                </p>
+                                <p class="full-page-description">
+                                    I singoli NISIDA e FUOCHI AMMARE sono stati selezionati per diversi premi nazionali, come il Ciao-Rassegna Lucio Dalla (tra i 10 progetti finalisti), Musicultura (tra i 101
+                                    selezionati) e Music For Change (tra i 21 semifinalisti).
+                                    DINìCHE è la vincitrice assoluta dell’1MNEXT 2025 e si è esibita a Roma, in Piazza San Giovanni, per il Concertone del Primo Maggio. Grazie alla vittoria, nel 2026 ha
+                                    realizzato un tour di 5 date con il contributo del Nuovo IMAIE, esibendosi a Milano, Firenze, Roma, Modica e Catania. A marzo dello stesso anno, durante la finalissima del SanNolo 2026, si è posizionata nella cinquina dei vincitori.
+                                </p>
+                            </div>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="sunflower-player-section" style="width: 100%; margin-top: 1.5rem;">
+                                <div class="player-brutalist-container" style="border: 4px solid var(--text-black); box-shadow: 6px 6px 0px var(--text-black); border-radius: 12px; background-color: var(--text-black); overflow: hidden; display: flex; flex-direction: column;">
+                                    <!-- Header decoration bar -->
+                                    <div style="background: var(--primary-orange); border-bottom: 4px solid var(--text-black); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-black); letter-spacing: 1px;">
+                                        <span><i class="fa-solid fa-circle-play" style="margin-right: 0.5rem;"></i>SUNFLOWER MUSIC PLAYER</span>
+                                        <div style="display: flex; gap: 6px;">
+                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                                        </div>
+                                    </div>
+                                    <!-- Iframe container -->
+                                    <div style="background-color: #121212; line-height: 0;">
+                                        <iframe style="border: none;" src="https://open.spotify.com/embed/artist/4DRvk320Z8VrBjCnDRDwEM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="full-page-socials-container">
+                                <h2>SEGUI L'ARTISTA</h2>
+                                <div class="full-page-socials-grid">
+                                    <a href="https://www.instagram.com/ladiniche/" target="_blank"
+                                        class="brutalist-social-btn instagram">
+                                        <i class="fa-brands fa-instagram"></i> INSTAGRAM
+                                    </a>
+                                    <a href="https://www.tiktok.com/@ladiniche" target="_blank"
+                                        class="brutalist-social-btn tiktok">
+                                        <i class="fa-brands fa-tiktok"></i> TIKTOK
+                                    </a>
+                                    <a href="https://open.spotify.com/artist/4DRvk320Z8VrBjCnDRDwEM" target="_blank" class="brutalist-social-btn spotify">
+                                        <i class="fa-brands fa-spotify"></i> SPOTIFY
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full-Screen Antonio Calabrese -->
+            <div class="artist-full-page bg-blue" id="modal-Antonio Calabrese">
+                <div class="full-page-header">
+                    <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
+                        <i class="fa-solid fa-arrow-left"></i> TORNA ALLA HOME
+                    </button>
+                    <div class="header-logo-container">
+                        <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+                    </div>
+                </div>
+
+                <div class="full-page-content">
+                    <div class="full-page-grid">
+                        <div class="full-page-media-col">
+                            <div class="torn-paper-frame shape-5">
+                                <div class="placeholder-img"
+                                    style="background-image: url('assets/foto-artisti/AntonioCalabrese.jpeg');"></div>
+                            </div>
+                            <div class="sticker-badge badge-circle badge-yellow float-anim-2">20:00</div>
+                        </div>
+
+                        <div class="full-page-info-col">
+
+                            <h1 class="full-page-title">Antonio Calabrese</h1>
+                            <p class="full-page-genre-tag">Cantautorato</p>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="full-page-bio">
+                                <h2>LA BIOGRAFIA</h2>
+                                <p class="full-page-description">
+                                    Antonio Calabrese è un cantautore salernitano, che fonde folk cinematico alla lingua italiana.
+                                    Ha condiviso il palco con artisti del calibro di Francesco Di Bella, Giovanni Block, Bobo Rondelli e Beppe Barra.
+                                </p>
+                                <p class="full-page-description">
+                                    Ha suonato in location prestigiose come il Teatro Trianon Viviani e all'estero, esibendosi in Uruguay per un tour di 10 date.
+                                    Vincitore di diversi riconoscimenti regionali e nazionali (tra cui il Premio della Critica Aniello De Vita 2025, Palco d'Autore 2023 e Cesare Filangieri 2024), ha all'attivo due singoli e un EP autoprodotti.
+                                </p>
+                            </div>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="sunflower-player-section" style="width: 100%; margin-top: 1.5rem;">
+                                <div class="player-brutalist-container" style="border: 4px solid var(--text-black); box-shadow: 6px 6px 0px var(--text-black); border-radius: 12px; background-color: var(--text-black); overflow: hidden; display: flex; flex-direction: column;">
+                                    <!-- Header decoration bar -->
+                                    <div style="background: var(--primary-orange); border-bottom: 4px solid var(--text-black); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-black); letter-spacing: 1px;">
+                                        <span><i class="fa-solid fa-circle-play" style="margin-right: 0.5rem;"></i>SUNFLOWER MUSIC PLAYER</span>
+                                        <div style="display: flex; gap: 6px;">
+                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                                        </div>
+                                    </div>
+                                    <!-- Iframe container -->
+                                    <div style="background-color: #121212; line-height: 0;">
+                                        <iframe style="border: none;" src="https://open.spotify.com/embed/artist/5QrRzAUU59Wf0mrzu3ZoX3?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="brutalist-divider"></div>
+
+                            <div class="full-page-socials-container">
+                                <h2>SEGUI L'ARTISTA</h2>
+                                <div class="full-page-socials-grid">
+                                    <a href="https://www.instagram.com/iosono.antonio/" target="_blank"
+                                        class="brutalist-social-btn instagram">
+                                        <i class="fa-brands fa-instagram"></i> INSTAGRAM
+                                    </a>
+                                    <a href="https://www.tiktok.com/@antonio.calabrese29" target="_blank"
+                                        class="brutalist-social-btn tiktok">
+                                        <i class="fa-brands fa-tiktok"></i> TIKTOK
+                                    </a>
+                                    <a href="https://open.spotify.com/intl-it/artist/5QrRzAUU59Wf0mrzu3ZoX3"
+                                        target="_blank" class="brutalist-social-btn spotify">
+                                        <i class="fa-brands fa-spotify"></i> SPOTIFY
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- Map Section Shaped Like a Sunflower -->
+    <section class="home-map-section">
+        <h2 class="home-map-title">
+            <span class="word-dove">DOVE</span>
+            <span class="word-trovarci">TROVARCI</span>
+        </h2>
+
+        <!-- Sunflower Map Wrapper -->
+        <div class="sunflower-map-container reveal-up">
+            <!-- Stem and Leaves (Visual only) -->
+            <div class="sunflower-stem-container">
+                <svg class="sunflower-stem-svg" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Stem line -->
+                    <path d="M 50,0 Q 42,75 45,150" stroke="var(--text-black)" stroke-width="24" stroke-linecap="round" fill="none" />
+                    <path d="M 50,0 Q 42,75 45,150" stroke="var(--c-green)" stroke-width="12" stroke-linecap="round" fill="none" />
+
+                    <!-- Left Leaf (higher up, pointing slightly up) -->
+                    <path d="M 45,60 C 15,40 5,80 45,95 Z" fill="var(--text-black)" stroke="var(--text-black)" stroke-width="8" stroke-linejoin="round" />
+                    <path d="M 45,60 C 20,45 12,75 45,92 Z" fill="var(--c-green)" />
+                    <path d="M 45,92 Q 28,70 18,60" stroke="var(--text-black)" stroke-width="4" stroke-linecap="round" />
+
+                    <!-- Right Leaf (lower down, pointing slightly down/right) -->
+                    <path d="M 44,95 C 74,85 85,120 45,130 Z" fill="var(--text-black)" stroke="var(--text-black)" stroke-width="8" stroke-linejoin="round" />
+                    <path d="M 44,95 C 69,90 78,115 45,127 Z" fill="var(--c-green)" />
+                    <path d="M 45,127 Q 60,110 70,105" stroke="var(--text-black)" stroke-width="4" stroke-linecap="round" />
+                </svg>
+            </div>
+
+            <!-- Petals Layer (Symmetrical stylized brutalist petals behind the map) -->
+            <div class="sunflower-petals-layer">
+                <svg viewBox="0 0 100 100" class="sunflower-petals-svg" style="width: 100%; height: 100%; filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.15));">
+                    <defs>
+                        <!-- Single Petal Definition -->
+                        <g id="petal">
+                            <!-- Petal Outline (brutalist style) -->
+                            <path d="M 50,50 C 42,20 45,4 50,0 C 55,4 58,20 50,50 Z" fill="#FFC231" stroke="var(--text-black)" stroke-width="2" stroke-linejoin="round" />
+                            <!-- Inner shadow accent -->
+                            <path d="M 50,42 C 45,25 47,15 50,5 C 53,15 55,25 50,42 Z" fill="#E29B3A" opacity="0.4" />
+                        </g>
+                        <!-- Offset Petal for depth -->
+                        <g id="petal-back">
+                            <path d="M 50,50 C 40,20 44,4 50,0 C 56,4 60,20 50,50 Z" fill="#D38627" stroke="var(--text-black)" stroke-width="2" stroke-linejoin="round" />
+                        </g>
+                    </defs>
+                    
+                    <!-- Back Layer Petals (Rotated offset) -->
+                    <g class="petals-back-group">
+                        <use href="#petal-back" transform="rotate(15 50 50)" />
+                        <use href="#petal-back" transform="rotate(45 50 50)" />
+                        <use href="#petal-back" transform="rotate(75 50 50)" />
+                        <use href="#petal-back" transform="rotate(105 50 50)" />
+                        <use href="#petal-back" transform="rotate(135 50 50)" />
+                        <use href="#petal-back" transform="rotate(165 50 50)" />
+                        <use href="#petal-back" transform="rotate(195 50 50)" />
+                        <use href="#petal-back" transform="rotate(225 50 50)" />
+                        <use href="#petal-back" transform="rotate(255 50 50)" />
+                        <use href="#petal-back" transform="rotate(285 50 50)" />
+                        <use href="#petal-back" transform="rotate(315 50 50)" />
+                        <use href="#petal-back" transform="rotate(345 50 50)" />
+                    </g>
+                    
+                    <!-- Front Layer Petals -->
+                    <g class="petals-front-group">
+                        <use href="#petal" transform="rotate(0 50 50)" />
+                        <use href="#petal" transform="rotate(30 50 50)" />
+                        <use href="#petal" transform="rotate(60 50 50)" />
+                        <use href="#petal" transform="rotate(90 50 50)" />
+                        <use href="#petal" transform="rotate(120 50 50)" />
+                        <use href="#petal" transform="rotate(150 50 50)" />
+                        <use href="#petal" transform="rotate(180 50 50)" />
+                        <use href="#petal" transform="rotate(210 50 50)" />
+                        <use href="#petal" transform="rotate(240 50 50)" />
+                        <use href="#petal" transform="rotate(270 50 50)" />
+                        <use href="#petal" transform="rotate(300 50 50)" />
+                        <use href="#petal" transform="rotate(330 50 50)" />
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Google Map Iframe and overlay -->
+            <div class="map-clipper">
+                <iframe
+                    src="https://maps.google.com/maps?q=Social%20Tennis%20Club,%20Via%20Marcello%20Garzia,%202,%20Cava%20de%27%20Tirreni&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="Posizione del Social Tennis Club Cava de' Tirreni"></iframe>
+
+                <a href="#" class="sunflower-map-link">
+                    <span class="pulsing-badge"><i class="fa-solid fa-location-dot"></i> CLICCA QUI</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Interactive buttons and info wrapper -->
+        <div class="map-buttons-container" style="flex-direction: column;">
+            <div class="badge-rect map-label-badge"
+                style="transform: rotate(1deg); display: inline-block; background-color: var(--text-white); color: var(--text-black); font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.25rem; padding: 0.6rem 2.5rem; border-radius: 4px; border: 3px solid var(--text-black); box-shadow: 4px 4px 0px var(--text-black); margin-bottom: 1.5rem; pointer-events: none;">
+                Social Tennis Club • Cava de' Tirreni</div>
+            <div class="map-action-buttons">
+                <a href="https://maps.google.com/?q=Social%20Tennis%20Club,%20Via%20Marcello%20Garzia,%202,%20Cava%20de%27%20Tirreni"
+                    target="_blank" class="brutalist-button bg-green"
+                    style="font-size: 1.1rem; font-weight: 900; padding: 0.8rem 1.8rem; cursor: pointer; text-decoration: none; border-radius: 8px; color: var(--text-black);">
+                    Apri su Google Maps</a>
+                <button id="shrink-map" class="brutalist-button bg-blue"
+                    style="font-size: 1.1rem; font-weight: 900; padding: 0.8rem 1.8rem; cursor: pointer; border-radius: 8px;">
+                    Chiudi Mappa</button>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <!-- Wavy Divider at the top of the footer (concave valley style) -->
+        <svg class="footer-wave-divider" viewBox="0 0 1000 100" preserveAspectRatio="none">
+            <path d="M0,0 C300,100 700,100 1000,0 L1000,100 L0,100 Z" fill="var(--c-yellow)"></path>
+            <path d="M0,0 C300,100 700,100 1000,0" fill="none" stroke="var(--text-black)" stroke-width="8"></path>
+        </svg>
+
+        <div class="footer-container">
+
+            <!-- Left Column: Contacts -->
+            <div class="footer-col footer-contacts">
+                <h3>Contatti</h3>
+                <p class="association-name">Sunflowers Group</p>
+                <p>Piazza San Francesco, 22</p>
+                <p>84013 Cava de' Tirreni (SA)</p>
+                <p>Email festival: info@sunflowerfestival.it </p>
+                <P>Pec associazione: ass.sunflowergroup@pec.it </P>
+                <p>tel: +39 339 6816196</p>
+                <p>C.F.: 06366340658</p>
+                <p>P. Iva: 06366340658</p>
+            </div>
+
+            <!-- Middle Column: Logo & Realization -->
+            <div class="footer-col footer-brand">
+                <p class="realization-text">Il Sunflower Fest è realizzato dall'associazione
+                    culturale<br><strong>SUNFLOWERS GROUP APS</strong></p>
+                <img src="assets/loghi/logo_ass.png" alt="Logo Associazione" class="footer-association-logo">
+                <a href="https://www.paypal.com/donate" target="_blank"
+                    class="brutalist-button bg-red donation-footer-btn"
+                    style="text-decoration: none; font-size: 0.9rem; font-weight: 900; padding: 0.6rem 1.2rem; border-radius: 6px; color: var(--text-white); display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 3px 3px 0px var(--text-black); border: 2px solid var(--text-black); margin-top: 1rem;">
+                    <i class="fa-solid fa-heart" style="color: var(--c-yellow);"></i> Fai una Donazione
+                </a>
+            </div>
+
+            <!-- Right Column: Socials & Policies -->
+            <div class="footer-col footer-socials">
+                <h3>SOCIAL</h3>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/sun.flower.fest/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051C.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@sunflower.fest" target="_blank" rel="noopener noreferrer"
+                        aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                            <path
+                                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.23.85.99 2.01 1.69 3.26 2.03.11.03.22.05.34.08v3.91c-.81-.13-1.61-.39-2.36-.77-1.12-.56-2.07-1.42-2.73-2.48-.06-.1-.13-.2-.2-.3-.02.04-.03.09-.04.13v6.78c.01 1.77-.38 3.53-1.13 5.13-.88 1.77-2.31 3.24-4.06 4.14-1.74.88-3.7 1.25-5.65 1.05-1.92-.17-3.76-.99-5.18-2.32C.29 20.47-.28 18.39-.14 16.29c.14-2.13 1.06-4.14 2.58-5.63 1.52-1.47 3.56-2.28 5.68-2.28.43-.01.86.03 1.29.11v3.96c-.45-.16-.92-.23-1.4-.23-1.14-.02-2.26.37-3.15 1.1-.9.76-1.46 1.86-1.56 3.03-.11 1.17.22 2.36.93 3.3.71.91 1.75 1.51 2.89 1.67 1.15.14 2.33-.11 3.3-.72 1-.64 1.72-1.63 1.99-2.77.13-.53.18-1.07.17-1.62-.02-2.92-.01-5.84-.02-8.76v-.93z" />
+                        </svg>
+                    </a>
+                    <a href="https://open.spotify.com/playlist/64spZqm9N3qM6NCwvnRzfY?si=bBNFJr0JQeagZHCr__zB_Q" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.6c-.2.3-.6.4-.9.2-2.3-1.4-5.1-1.7-8.5-.9-.3.1-.7-.1-.8-.4-.1-.3.1-.7.4-.8 3.7-.8 6.9-.5 9.5 1.1.3.1.4.5.3.8zm1.3-3.3c-.3.4-.8.5-1.1.3-2.6-1.6-6.6-2.1-9.7-1.2-.5.1-1-.2-1.1-.6-.1-.5.2-1 .6-1.1 3.6-1.1 8-.6 11 1.2.4.2.5.7.3 1.1zm.1-3.4C15 8.5 9.6 8.3 6.5 9.3c-.5.1-1.1-.1-1.2-.7-.1-.5.1-1.1.7-1.2 3.6-1.1 9.6-.9 13.4 1.4.5.3.6 1 .3 1.4-.3.5-1 .6-1.4.3z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/share/1G4sMCHyNB/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="policy-link">
+                    <a href="#" target="_blank" rel="noopener noreferrer">Cookie & Privacy Policy</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Developer Credit -->
+        <div class="footer-bottom">
+            <div class="developer-credit">
+                Sviluppato con 🌻 da <a href="https://ianyydevs.altervista.org/" target="_blank">IANYDEVS</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=1.0.3"></script>
+</body>
+
+</html>

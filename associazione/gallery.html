@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunflower Fest | Vibes Archive</title>
+    <meta name="description" content="L'Archivio delle Vibes - Galleria fotografica delle edizioni passate del Sunflower Fest.">
+    <link rel="stylesheet" href="style.css?v=30">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;900&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/monument-extended" rel="stylesheet">
+    <script>
+        (function() {
+            if (sessionStorage.getItem('playTransitionOut') !== 'true') {
+                document.documentElement.classList.add('no-curtain');
+            }
+        })();
+    </script>
+</head>
+<body>
+    
+    <!-- CURTAIN TRANSITION -->
+    <div class="page-curtain">
+        <div class="curtain-content">
+            <img src="assets/logo_ass.png" alt="Logo Sunflowers Group" class="curtain-logo">
+            <div class="curtain-cursive-text" style="opacity: 0; clip-path: inset(-20px 100% -20px -20px);">Sunflowers Group</div>
+        </div>
+    </div>
+    
+    <!-- NAVBAR -->
+    <nav class="main-nav">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo_ass.png" alt="Logo Sunflowers Group">
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="index.html">L'Associazione</a>
+            <a href="gallery.html" class="active">Vibes Archive</a>
+            <a href="../index.html" class="nav-btn-fest">Sunflower Fest</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header" style="background-color: var(--c-purple);">
+        <svg class="bg-blob-yellow" viewBox="0 0 100 100" style="width: 150px; opacity: 0.8; right: 15%; top: 20%;"><path d="M50,10 C80,0 100,30 90,60 C80,90 30,100 10,70 C-10,40 20,20 50,10 Z" fill="currentColor"/></svg>
+        <h1 class="page-title" style="color: var(--text-black); font-size: 5rem;">L'ARCHIVIO DELLE VIBES</h1>
+        <p class="page-subtitle" style="color: var(--text-black);">I momenti più belli delle edizioni passate.</p>
+    </header>
+
+    <!-- Masonry Gallery -->
+    <main class="gallery-container">
+        
+        <!-- Gallery Item 1 -->
+        <div class="gallery-item reveal-up">
+            <div class="torn-paper-frame shape-2">
+                <div class="placeholder-img" style="background-image: linear-gradient(to right, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);"></div>
+            </div>
+            <p class="gallery-caption">Art Day</p>
+        </div>
+
+        <!-- Gallery Item 2 -->
+        <div class="gallery-item tall reveal-up delay-1">
+            <div class="torn-paper-frame shape-4">
+                <div class="placeholder-img" style="background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);"></div>
+            </div>
+            <p class="gallery-caption">Il Palco</p>
+        </div>
+
+        <!-- Gallery Item 3 -->
+        <div class="gallery-item reveal-up delay-2">
+            <div class="torn-paper-frame shape-5">
+                <div class="placeholder-img" style="background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);"></div>
+            </div>
+            <p class="gallery-caption">Backstage</p>
+        </div>
+
+        <!-- Gallery Item 4 -->
+        <div class="gallery-item wide reveal-up">
+            <div class="torn-paper-frame shape-3">
+                <div class="placeholder-img" style="background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);"></div>
+            </div>
+            <p class="gallery-caption">Il Pubblico</p>
+        </div>
+
+        <!-- Gallery Item 5 -->
+        <div class="gallery-item tall reveal-up delay-1">
+            <div class="torn-paper-frame">
+                <div class="placeholder-img" style="background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);"></div>
+            </div>
+            <p class="gallery-caption">Notte Magica</p>
+        </div>
+
+        <!-- Gallery Item 6 -->
+        <div class="gallery-item reveal-up delay-2">
+            <div class="torn-paper-frame shape-6">
+                <div class="placeholder-img" style="background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);"></div>
+            </div>
+            <p class="gallery-caption">Artisti</p>
+        </div>
+
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <!-- Wavy Divider at the top of the footer (concave valley style) -->
+        <svg class="footer-wave-divider" viewBox="0 0 1000 100" preserveAspectRatio="none">
+            <path d="M0,0 C300,100 700,100 1000,0 L1000,100 L0,100 Z" fill="var(--c-yellow)"></path>
+            <path d="M0,0 C300,100 700,100 1000,0" fill="none" stroke="var(--text-black)" stroke-width="8"></path>
+        </svg>
+        
+
+        <div class="footer-container">
+            
+            <!-- Left Column: Contacts -->
+            <div class="footer-col footer-contacts">
+                <h3>Contatti</h3>
+                <p class="association-name">Sunflowers Group</p>
+                <p>Via --------------------, -</p>
+                <p>----- Cava de' Tirreni (SA)</p>
+                <p><a href="mailto:----@-----------.---">----@-----------.---</a></p>
+                <p>tel: +39 ------------</p>
+            </div>
+            
+            <!-- Middle Column: Logo & Description -->
+            <div class="footer-col footer-brand">
+                <div class="footer-logo">
+                    <img src="assets/logo_ass.png" alt="Logo Sunflowers Group">
+                </div>
+                <p class="realization-text">Sito ufficiale dell'associazione culturale<br><strong>SUNFLOWERS GROUP</strong></p>
+                <a href="https://www.paypal.com/donate" target="_blank" class="brutalist-button bg-red donation-footer-btn" style="text-decoration: none; font-size: 0.9rem; font-weight: 900; padding: 0.6rem 1.2rem; border-radius: 6px; color: var(--text-white); display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 3px 3px 0px var(--text-black); border: 2px solid var(--text-black); margin-top: 1rem;">
+                    <i class="fa-solid fa-heart" style="color: var(--c-yellow);"></i> Sostieni l'Associazione
+                </a>
+            </div>
+            
+            <!-- Right Column: Socials & Policies -->
+            <div class="footer-col footer-socials">
+                <h3>SOCIAL</h3>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/sun.flower.fest/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051C.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@sunflower.fest" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.23.85.99 2.01 1.69 3.26 2.03.11.03.22.05.34.08v3.91c-.81-.13-1.61-.39-2.36-.77-1.12-.56-2.07-1.42-2.73-2.48-.06-.1-.13-.2-.2-.3-.02.04-.03.09-.04.13v6.78c.01 1.77-.38 3.53-1.13 5.13-.88 1.77-2.31 3.24-4.06 4.14-1.74.88-3.7 1.25-5.65 1.05-1.92-.17-3.76-.99-5.18-2.32C.29 20.47-.28 18.39-.14 16.29c.14-2.13 1.06-4.14 2.58-5.63 1.52-1.47 3.56-2.28 5.68-2.28.43-.01.86.03 1.29.11v3.96c-.45-.16-.92-.23-1.4-.23-1.14-.02-2.26.37-3.15 1.1-.9.76-1.46 1.86-1.56 3.03-.11 1.17.22 2.36.93 3.3.71.91 1.75 1.51 2.89 1.67 1.15.14 2.33-.11 3.3-.72 1-.64 1.72-1.63 1.99-2.77.13-.53.18-1.07.17-1.62-.02-2.92-.01-5.84-.02-8.76v-.93z"/>
+                        </svg>
+                    </a>
+                    <a href="https://open.spotify.com/playlist/64spZqm9N3qM6NCwvnRzfY?si=bBNFJr0JQeagZHCr__zB_Q" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.6c-.2.3-.6.4-.9.2-2.3-1.4-5.1-1.7-8.5-.9-.3.1-.7-.1-.8-.4-.1-.3.1-.7.4-.8 3.7-.8 6.9-.5 9.5 1.1.3.1.4.5.3.8zm1.3-3.3c-.3.4-.8.5-1.1.3-2.6-1.6-6.6-2.1-9.7-1.2-.5.1-1-.2-1.1-.6-.1-.5.2-1 .6-1.1 3.6-1.1 8-.6 11 1.2.4.2.5.7.3 1.1zm.1-3.4C15 8.5 9.6 8.3 6.5 9.3c-.5.1-1.1-.1-1.2-.7-.1-.5.1-1.1.7-1.2 3.6-1.1 9.6-.9 13.4 1.4.5.3.6 1 .3 1.4-.3.5-1 .6-1.4.3z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/share/1G4sMCHyNB/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="policy-link">
+                    <a href="#" target="_blank" rel="noopener noreferrer">Cookie & Privacy Policy</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Bottom Developer Credit -->
+        <div class="footer-bottom">
+            <div class="developer-credit">
+                Sviluppato con 🌻 da <a href="https://ianyydevs.altervista.org/" target="_blank">IANYDEVS</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=1.0.3"></script>
+</body>
+</html>
