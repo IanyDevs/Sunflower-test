@@ -165,6 +165,7 @@ function initMapToggle() {
     const mapContainer = document.querySelector('.sunflower-map-container');
     const mapLink = document.querySelector('.sunflower-map-link');
     const shrinkBtn = document.getElementById('shrink-map');
+    const phoneHomeBtn = document.getElementById('phone-home-btn');
     
     if (!mapContainer) return;
     
@@ -177,6 +178,13 @@ function initMapToggle() {
     
     if (shrinkBtn) {
         shrinkBtn.addEventListener('click', () => {
+            mapContainer.classList.remove('expanded-rect');
+        });
+    }
+
+    if (phoneHomeBtn) {
+        phoneHomeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             mapContainer.classList.remove('expanded-rect');
         });
     }

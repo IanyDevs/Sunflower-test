@@ -1981,12 +1981,47 @@ body.menu-open {
 }
 
 .sunflower-map-container {
-    width: 450px;
-    height: 450px;
+    width: 325px;
+    height: 620px;
     margin: 0 auto;
     position: relative;
-    filter: drop-shadow(10px 10px 0px var(--text-black));
+    border: 12px solid var(--text-black);
+    border-radius: 40px;
+    background-color: #1a1a1a;
+    box-shadow: 8px 8px 0px var(--text-black);
+    overflow: hidden;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Smartphone Top Notch / Dynamic Island */
+.sunflower-map-container::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95px;
+    height: 20px;
+    background-color: var(--text-black);
+    border-radius: 10px;
+    z-index: 15;
+    pointer-events: none;
+}
+
+/* Smartphone Bottom Home Bar */
+.sunflower-map-container::after {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 4px;
+    background-color: var(--text-black);
+    border-radius: 2px;
+    z-index: 15;
+    opacity: 0.6;
+    pointer-events: none;
 }
 
 /* Playful hover effect when NOT expanded */
@@ -1994,180 +2029,204 @@ body.menu-open {
     transform: translateY(-8px) scale(1.03) rotate(1.5deg);
 }
 
-.sunflower-map-container.expanded-rect:hover {
-    transform: scale(1.005);
-}
-
-/* Map Clipper - styled as circular center of the sunflower */
-.sunflower-map-container .map-clipper {
-    position: absolute;
-    top: 25%;
-    left: 25%;
-    width: 50%;
-    height: 50%;
-    border-radius: 50%;
-    border: 6px solid var(--text-black);
-    overflow: hidden;
-    z-index: 2;
-    background-color: var(--text-black);
-    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* Expanded state transitions clipper smoothly to a rounded rect */
-.sunflower-map-container.expanded-rect .map-clipper {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    border-width: 5px;
-}
-
-/* Outline overlay is no longer needed since we use clean CSS borders */
-.sunflower-map-container .map-outline-svg {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .sunflower-map-container {
-        width: 320px;
-        height: 320px;
-    }
-}
-
-.map-clipper iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    transform: scale(1.55);
-    transform-origin: center;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.sunflower-map-container.expanded-rect .map-clipper iframe {
-    transform: scale(1);
-}
-
-/* Center circle link styling (seeds/disc look) */
-.sunflower-map-link {
-    color: var(--c-yellow) !important;
-    background-color: var(--text-black);
-    font-family: 'Monument Extended', sans-serif;
-    font-weight: 400;
-    font-size: 1.1rem;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    text-transform: uppercase;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    cursor: pointer;
-    text-align: center;
-    padding: 1.5rem;
-    box-shadow: inset 0 0 15px rgba(255, 194, 49, 0.2);
-}
-
-.sunflower-map-link .pulsing-badge {
-    animation: pulseGlow 1.8s infinite ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.sunflower-map-link .pulsing-badge i {
-    font-size: 2.2rem;
-    color: var(--c-yellow);
-}
-
-.sunflower-map-link:hover {
-    background-color: #2a2a2a;
-    color: var(--text-white) !important;
-    box-shadow: inset 0 0 25px rgba(255, 194, 49, 0.35);
-}
-
-.sunflower-map-link:hover .pulsing-badge i {
-    transform: scale(1.15) translateY(-3px);
-    color: var(--text-white);
-}
-
-@keyframes pulseGlow {
-    0%, 100% {
-        transform: scale(0.96);
-        opacity: 0.9;
-    }
-    50% {
-        transform: scale(1.04);
-        opacity: 1;
-    }
-}
-
-.sunflower-map-container.expanded-rect .sunflower-map-link {
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* --- SUNFLOWER STEM & LEAF GRAPHICS --- */
-.sunflower-stem-container {
-    position: absolute;
-    top: 85%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 26%;
-    height: 38%;
-    z-index: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.5s ease;
-}
-
-.sunflower-stem-svg {
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-}
-
-/* Hide stem and leaf when map is expanded */
-.sunflower-map-container.expanded-rect .sunflower-stem-container {
-    opacity: 0;
-    transform: translate(-50%, -20px) scale(0.2);
-    visibility: hidden;
-}
-
-/* --- SUNFLOWER PETALS LAYER --- */
-.sunflower-petals-layer {
+/* Screen elements styling */
+.phone-home-screen {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
-    pointer-events: none;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
-    transform: rotate(0deg);
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Active hover spin for petals */
-.sunflower-map-container:not(.expanded-rect):hover .sunflower-petals-layer {
-    transform: rotate(15deg);
-}
-
-/* Smooth fade out when expanded */
-.sunflower-map-container.expanded-rect .sunflower-petals-layer {
+.sunflower-map-container.expanded-rect .phone-home-screen {
     opacity: 0;
-    transform: scale(0.3) rotate(-45deg);
+    transform: scale(1.1);
+    pointer-events: none;
+}
+
+/* Status Bar */
+.phone-status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px 0 20px;
+    font-size: 0.75rem;
+    font-weight: 900;
+    color: var(--text-black);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 12;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.phone-status-bar.dark-status-bar {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 2px solid var(--text-black);
+    height: 40px;
+    padding-top: 0;
+}
+
+.phone-status-bar .status-icons {
+    display: flex;
+    gap: 0.4rem;
+}
+
+/* Wallpaper */
+.phone-wallpaper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+    background: linear-gradient(135deg, var(--c-yellow), var(--c-peach));
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+
+.phone-wallpaper-logo {
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(4px 4px 0px var(--text-black));
+    margin-bottom: 0.8rem;
+}
+
+.phone-wallpaper-title {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--text-black);
+    text-shadow: 2px 2px 0px var(--text-white);
+}
+
+/* Apps Grid */
+.phone-apps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+    background-color: var(--bg-white);
+    height: 40%;
+    box-sizing: border-box;
+    border-top: 4px solid var(--text-black);
+}
+
+.phone-app-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-black);
+    cursor: pointer;
+}
+
+.app-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    border: 3px solid var(--text-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    background-color: var(--text-white);
+    box-shadow: 3px 3px 0px var(--text-black);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.phone-app-icon:hover .app-icon-box {
+    transform: translateY(-4px) rotate(-3deg);
+}
+
+.instagram-app .app-icon-box {
+    background-color: var(--c-peach);
+    color: #e1306c;
+}
+
+.spotify-app .app-icon-box {
+    background-color: var(--c-green);
+    color: #1ed760;
+}
+
+.maps-app .app-icon-box {
+    background-color: var(--c-blue);
+    color: var(--text-black);
+}
+
+.pulsing-app-icon {
+    animation: appPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes appPulse {
+    0%, 100% { transform: scale(1); box-shadow: 3px 3px 0px var(--text-black); }
+    50% { transform: scale(1.08) translateY(-2px); box-shadow: 4px 4px 0px var(--text-black); }
+}
+
+.app-name {
+    font-size: 0.7rem;
+    font-weight: 800;
+    margin-top: 0.4rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Google Map App Screen */
+.sunflower-map-container .map-clipper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    overflow: hidden;
+    z-index: 2;
+    background-color: var(--text-black);
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.92);
+}
+
+.sunflower-map-container.expanded-rect .map-clipper {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+.map-clipper iframe {
+    width: 100%;
+    height: calc(100% - 40px);
+    margin-top: 40px;
+    border: none;
+    display: block;
+}
+
+/* Home button overlay on the phone screen bottom */
+.phone-home-button-trigger {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 20;
+}
+
+@media (max-width: 768px) {
+    .sunflower-map-container {
+        width: 310px;
+        height: 590px;
+    }
 }
 
 /* Spacing and transitions for map buttons */
 .map-buttons-container {
-    margin-top: 10.5rem;
+    margin-top: 2.5rem;
     display: flex;
     gap: 1.5rem;
     justify-content: center;
@@ -2176,23 +2235,6 @@ body.menu-open {
     position: relative;
     z-index: 10;
     transition: margin-top 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* Slide buttons up when stem is hidden */
-.sunflower-map-container.expanded-rect + .map-buttons-container,
-.sunflower-map-container.expanded-rect ~ .map-buttons-container {
-    margin-top: 2.5rem;
-}
-
-/* Responsive spacing on mobile devices */
-@media (max-width: 768px) {
-    .map-buttons-container {
-        margin-top: 7.5rem;
-    }
-    .sunflower-map-container.expanded-rect + .map-buttons-container,
-    .sunflower-map-container.expanded-rect ~ .map-buttons-container {
-        margin-top: 2.5rem;
-    }
 }
 
 .map-action-buttons {
@@ -2211,11 +2253,6 @@ body.menu-open {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
-}
-
-.sunflower-map-container.expanded-rect .sunflower-map-link {
-    opacity: 0;
-    pointer-events: none;
 }
 
 /* Custom map marker styles removed to restore standard Google Map pin */
