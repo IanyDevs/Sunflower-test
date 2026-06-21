@@ -1636,7 +1636,7 @@ body.menu-open {
     .nav-links { 
         position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
         width: 100%;
         height: 100vh;
         background-color: var(--c-yellow);
@@ -1646,7 +1646,8 @@ body.menu-open {
         align-items: center;
         gap: 1.2rem;
         z-index: 1000;
-        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.4s;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.4s;
         border-left: 6px solid var(--text-black);
         padding: 5rem 2rem 2rem 2rem;
         overflow-y: auto;
@@ -1654,7 +1655,7 @@ body.menu-open {
     }
     
     .nav-links.active {
-        right: 0;
+        transform: translateX(0);
         visibility: visible;
     }
     
