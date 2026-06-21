@@ -2376,20 +2376,26 @@ body.menu-open {
 
 .iframe-wrapper iframe {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 40px);
     border: none;
     display: block;
-    position: relative;
+    position: absolute;
+    top: 40px;
+    left: 0;
     z-index: 1;
+}
+
+.spotify-wrapper {
+    background-color: #121212 !important;
 }
 
 /* Placeholders for load screens */
 .iframe-placeholder {
     position: absolute;
-    top: 0;
+    top: 40px;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 40px);
     z-index: 5;
     display: flex;
     flex-direction: column;
