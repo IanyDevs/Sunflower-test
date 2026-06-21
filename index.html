@@ -1011,65 +1011,85 @@
             <span class="word-trovarci">TROVARCI</span>
         </h2>
 
-        <!-- Sunflower Map Wrapper (Smartphone Mockup) -->
-        <div class="sunflower-map-container reveal-up">
-            <!-- Phone Home Screen (Visible by default) -->
-            <div class="phone-home-screen">
-                <!-- Status Bar -->
-                <div class="phone-status-bar">
-                    <span class="status-time">14:33</span>
-                    <div class="status-icons">
-                        <i class="fa-solid fa-signal"></i>
-                        <i class="fa-solid fa-wifi"></i>
-                        <i class="fa-solid fa-battery-three-quarters"></i>
-                    </div>
-                </div>
-
-                <!-- Wallpaper with graphic and brand -->
-                <div class="phone-wallpaper">
-                    <img src="assets/loghi/logo-nobg.png" alt="Sunflower Logo" class="phone-wallpaper-logo">
-                    <div class="phone-wallpaper-title">SUNFLOWER FEST</div>
-                </div>
-
-                <!-- App Icons Grid -->
-                <div class="phone-apps-grid">
-                    <a href="https://www.instagram.com/sun.flower.fest/" target="_blank" rel="noopener noreferrer" class="phone-app-icon instagram-app">
-                        <div class="app-icon-box"><i class="fa-brands fa-instagram"></i></div>
-                        <span class="app-name">Instagram</span>
-                    </a>
-                    <a href="https://open.spotify.com/playlist/64spZqm9N3qM6NCwvnRzfY?si=bBNFJr0JQeagZHCr__zB_Q" target="_blank" rel="noopener noreferrer" class="phone-app-icon spotify-app">
-                        <div class="app-icon-box"><i class="fa-brands fa-spotify"></i></div>
-                        <span class="app-name">Spotify</span>
-                    </a>
-                    <!-- Maps App (Launches the map) -->
-                    <a href="#" class="phone-app-icon maps-app sunflower-map-link">
-                        <div class="app-icon-box pulsing-app-icon">
-                            <i class="fa-solid fa-map-location-dot"></i>
+        <!-- Interactive Smartphone Map Container -->
+        <div class="smartphone-map-container reveal-up">
+            <div class="smartphone-phone-wrapper">
+                <!-- Top Notch / Dynamic Island -->
+                <div class="smartphone-top-notch"></div>
+                
+                <!-- Phone Screen -->
+                <div class="smartphone-inner-screen">
+                    
+                    <!-- 1. Home Screen (Wallpaper & Apps) -->
+                    <div class="smartphone-home-screen">
+                        <!-- Status Bar -->
+                        <div class="smartphone-status-bar">
+                            <span class="status-time">20:00</span>
+                            <div class="status-icons">
+                                <i class="fa-solid fa-signal"></i>
+                                <i class="fa-solid fa-wifi"></i>
+                                <i class="fa-solid fa-battery-full"></i>
+                            </div>
                         </div>
-                        <span class="app-name">Mappa</span>
-                    </a>
-                </div>
-            </div>
+                        
+                        <!-- iOS Style Map Widget (Primary action - occupies most of the screen) -->
+                        <div class="smartphone-widget map-app-trigger" style="height: 280px;">
+                            <a href="#" class="sunflower-map-link" style="margin: 0; width: 100%; height: 100%; display: block; text-decoration: none;">
+                                <div class="widget-map-preview" style="flex-direction: column; justify-content: center; text-align: center; gap: 0.8rem;">
+                                    <i class="fa-solid fa-map-location-dot widget-icon" style="font-size: 3.2rem; padding: 0.8rem; border-radius: 16px;"></i>
+                                    <div class="widget-text" style="align-items: center;">
+                                        <span class="widget-title" style="font-size: 1.4rem;">Dove Trovarci</span>
+                                        <span class="widget-subtitle" style="font-size: 0.85rem; text-align: center; margin-top: 0.2rem;">Social Tennis Club<br>Cava de' Tirreni</span>
+                                        <span class="widget-click-info"><i class="fa-solid fa-hand-pointer"></i> Clicca per la mappa</span>
+                                    </div>
+                                    <!-- Sunflower Logo inside the map widget as a background watermark -->
+                                    <img src="assets/loghi/logo-nobg.png" alt="Sunflower" class="widget-watermark-logo">
+                                </div>
+                            </a>
+                        </div>
 
-            <!-- Google Map Iframe and overlay -->
-            <div class="map-clipper">
-                <!-- App header bar inside the map -->
-                <div class="phone-status-bar dark-status-bar">
-                    <span class="status-time">14:33</span>
-                    <div class="status-icons">
-                        <i class="fa-solid fa-signal" style="color: var(--text-black);"></i>
-                        <i class="fa-solid fa-wifi" style="color: var(--text-black);"></i>
-                        <i class="fa-solid fa-battery-three-quarters" style="color: var(--text-black);"></i>
+                        <!-- Grid of Apps (Docked at the bottom) -->
+                        <div class="smartphone-apps-grid" style="margin-top: auto; margin-bottom: 1.5rem;">
+                            <a href="https://www.instagram.com/sun.flower.fest/" target="_blank" rel="noopener noreferrer" class="smartphone-app">
+                                <div class="app-icon-box bg-red" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white;"><i class="fa-brands fa-instagram"></i></div>
+                                <span class="app-label">Instagram</span>
+                            </a>
+                            <a href="https://www.tiktok.com/@sunflower.fest" target="_blank" rel="noopener noreferrer" class="smartphone-app">
+                                <div class="app-icon-box bg-black" style="background-color: #000000; color: #ffffff; border-color: var(--text-black);"><i class="fa-brands fa-tiktok"></i></div>
+                                <span class="app-label">TikTok</span>
+                            </a>
+                            <a href="https://open.spotify.com/playlist/64spZqm9N3qM6NCwvnRzfY?si=bBNFJr0JQeagZHCr__zB_Q" target="_blank" rel="noopener noreferrer" class="smartphone-app">
+                                <div class="app-icon-box bg-green" style="background-color: #1db954; color: white; border-color: var(--text-black);"><i class="fa-brands fa-spotify"></i></div>
+                                <span class="app-label">Spotify</span>
+                            </a>
+                            <a href="https://www.facebook.com/share/1G4sMCHyNB/" target="_blank" rel="noopener noreferrer" class="smartphone-app">
+                                <div class="app-icon-box bg-blue" style="background-color: #1877f2; color: white; border-color: var(--text-black);"><i class="fa-brands fa-facebook-f"></i></div>
+                                <span class="app-label">Facebook</span>
+                            </a>
+                        </div>
                     </div>
+                    
+                    <!-- 2. Map Screen (Iframe & App Header) -->
+                    <div class="smartphone-map-screen">
+                        <div class="smartphone-app-header">
+                            <button class="map-back-btn" aria-label="Torna alla Home">
+                                <i class="fa-solid fa-chevron-left"></i> Home
+                            </button>
+                            <span class="app-header-title">Mappa</span>
+                        </div>
+                        
+                        <div class="smartphone-map-frame">
+                            <iframe
+                                src="https://maps.google.com/maps?q=Social%20Tennis%20Club,%20Via%20Marcello%20Garzia,%202,%20Cava%20de%27%20Tirreni&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                title="Posizione del Social Tennis Club Cava de' Tirreni"></iframe>
+                        </div>
+                    </div>
+                    
                 </div>
                 
-                <iframe
-                    src="https://maps.google.com/maps?q=Social%20Tennis%20Club,%20Via%20Marcello%20Garzia,%202,%20Cava%20de%27%20Tirreni&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                    title="Posizione del Social Tennis Club Cava de' Tirreni"></iframe>
-
-                <!-- Clickable Home bar to go back to home screen -->
-                <div class="phone-home-button-trigger" id="phone-home-btn"></div>
+                <!-- Bottom Home Bar -->
+                <div class="smartphone-bottom-bar"></div>
             </div>
         </div>
 

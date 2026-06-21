@@ -162,30 +162,46 @@ function initScrollSlide() {
 }
 
 function initMapToggle() {
-    const mapContainer = document.querySelector('.sunflower-map-container');
+    const mapContainer = document.querySelector('.smartphone-map-container');
     const mapLink = document.querySelector('.sunflower-map-link');
+    const appTrigger = document.querySelector('.map-app-trigger');
+    const backBtn = document.querySelector('.map-back-btn');
     const shrinkBtn = document.getElementById('shrink-map');
-    const phoneHomeBtn = document.getElementById('phone-home-btn');
     
     if (!mapContainer) return;
+    
+    function openMap() {
+        mapContainer.classList.add('map-active');
+    }
+    
+    function closeMap() {
+        mapContainer.classList.remove('map-active');
+    }
     
     if (mapLink) {
         mapLink.addEventListener('click', (e) => {
             e.preventDefault();
-            mapContainer.classList.add('expanded-rect');
+            openMap();
+        });
+    }
+    
+    if (appTrigger) {
+        appTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            openMap();
+        });
+    }
+    
+    if (backBtn) {
+        backBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeMap();
         });
     }
     
     if (shrinkBtn) {
         shrinkBtn.addEventListener('click', () => {
-            mapContainer.classList.remove('expanded-rect');
-        });
-    }
-
-    if (phoneHomeBtn) {
-        phoneHomeBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            mapContainer.classList.remove('expanded-rect');
+            closeMap();
         });
     }
 }

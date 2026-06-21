@@ -1980,21 +1980,27 @@ body.menu-open {
     letter-spacing: 0.02em;
 }
 
-.sunflower-map-container {
+.smartphone-map-container {
     width: 325px;
     height: 620px;
     margin: 0 auto;
     position: relative;
-    border: 12px solid var(--text-black);
-    border-radius: 40px;
-    background-color: #1a1a1a;
-    box-shadow: 8px 8px 0px var(--text-black);
-    overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 10;
 }
 
-/* Smartphone Top Notch / Dynamic Island */
-.sunflower-map-container::before {
+.smartphone-phone-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    border: 12px solid var(--text-black);
+    border-radius: 40px;
+    box-shadow: 8px 8px 0px var(--text-black);
+    overflow: hidden;
+}
+
+/* Notch */
+.smartphone-top-notch {
     content: "";
     position: absolute;
     top: 10px;
@@ -2004,12 +2010,12 @@ body.menu-open {
     height: 20px;
     background-color: var(--text-black);
     border-radius: 10px;
-    z-index: 15;
+    z-index: 20;
     pointer-events: none;
 }
 
-/* Smartphone Bottom Home Bar */
-.sunflower-map-container::after {
+/* Home Bar */
+.smartphone-bottom-bar {
     content: "";
     position: absolute;
     bottom: 8px;
@@ -2019,214 +2025,359 @@ body.menu-open {
     height: 4px;
     background-color: var(--text-black);
     border-radius: 2px;
-    z-index: 15;
+    z-index: 20;
     opacity: 0.6;
     pointer-events: none;
 }
 
-/* Playful hover effect when NOT expanded */
-.sunflower-map-container:not(.expanded-rect):hover {
-    transform: translateY(-8px) scale(1.03) rotate(1.5deg);
+/* Screen */
+.smartphone-inner-screen {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: linear-gradient(135deg, #FFC231 0%, #ff6b6b 100%);
 }
 
-/* Screen elements styling */
-.phone-home-screen {
+.smartphone-wallpaper-logo {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 160px;
+    height: 160px;
+    background: url('assets/loghi/logo-nobg.png') no-repeat center/contain;
+    /* Soft white outer glow + strong dark drop shadow to make it pop */
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6)) drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35));
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.95;
+}
+
+/* Smartphone iOS-style Widget */
+.smartphone-widget {
+    width: 100%;
+    height: 120px;
+    background-color: var(--text-white);
+    border: 3px solid var(--text-black);
+    border-radius: 20px;
+    box-shadow: 4px 4px 0px var(--text-black);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.smartphone-widget:hover {
+    transform: scale(1.03) rotate(-1deg);
+    box-shadow: 6px 6px 0px var(--text-black);
+}
+
+.widget-map-preview {
+    width: 100%;
+    height: 100%;
+    padding: 1.2rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #e5e9f0;
+    background-image: radial-gradient(var(--text-black) 1px, transparent 1px);
+    background-size: 15px 15px;
+    position: relative;
+}
+
+.widget-map-preview::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: var(--c-yellow);
+    border-top: 2px solid var(--text-black);
+    border-bottom: 2px solid var(--text-black);
+    transform: rotate(10deg);
+    opacity: 0.8;
+}
+
+.widget-icon {
+    font-size: 2.5rem;
+    color: var(--c-red);
+    background-color: var(--text-white);
+    padding: 0.5rem;
+    border: 3px solid var(--text-black);
+    border-radius: 12px;
+    box-shadow: 2px 2px 0px var(--text-black);
+    z-index: 2;
+    animation: bounce-widget-icon 2s infinite ease-in-out;
+}
+
+@keyframes bounce-widget-icon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.widget-text {
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    text-align: left;
+}
+
+.widget-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    color: var(--text-black);
+    text-transform: uppercase;
+}
+
+.widget-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: rgba(26,26,26,0.7);
+}
+
+.widget-watermark-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    width: 180px;
+    height: 180px;
+    opacity: 0.5; /* Aumentato a 0.5 per renderlo ancora più visibile */
+    pointer-events: none;
+    z-index: 1;
+}
+
+.widget-click-info {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.8rem;
+    color: var(--c-red);
+    text-transform: uppercase;
+    margin-top: 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    animation: pulse-widget-text 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-widget-text {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.03); }
+}
+
+/* Home Screen & Map Screen wrappers */
+.smartphone-home-screen, 
+.smartphone-map-screen {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
-    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
 }
 
-.sunflower-map-container.expanded-rect .phone-home-screen {
+.smartphone-home-screen {
+    z-index: 2;
+    transform: translateX(0);
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px 20px 20px;
+    box-sizing: border-box;
+}
+
+.smartphone-map-container.map-active .smartphone-home-screen {
+    transform: translateX(-100%);
     opacity: 0;
-    transform: scale(1.1);
     pointer-events: none;
 }
 
+.smartphone-map-screen {
+    z-index: 1;
+    transform: translateX(100%);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #f5f5f7;
+}
+
+.smartphone-map-container.map-active .smartphone-map-screen {
+    z-index: 3;
+    transform: translateX(0);
+    opacity: 1;
+}
+
 /* Status Bar */
-.phone-status-bar {
+.smartphone-status-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 20px 0 20px;
-    font-size: 0.75rem;
-    font-weight: 900;
-    color: var(--text-black);
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    box-sizing: border-box;
-    z-index: 12;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.phone-status-bar.dark-status-bar {
-    background-color: rgba(255, 255, 255, 0.95);
-    border-bottom: 2px solid var(--text-black);
-    height: 40px;
-    padding-top: 0;
-}
-
-.phone-status-bar .status-icons {
-    display: flex;
-    gap: 0.4rem;
-}
-
-/* Wallpaper */
-.phone-wallpaper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 60%;
-    background: linear-gradient(135deg, var(--c-yellow), var(--c-peach));
-    padding-top: 30px;
-    box-sizing: border-box;
-}
-
-.phone-wallpaper-logo {
-    width: 80px;
-    height: 80px;
-    filter: drop-shadow(4px 4px 0px var(--text-black));
-    margin-bottom: 0.8rem;
-}
-
-.phone-wallpaper-title {
-    font-family: 'Monument Extended', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 900;
     color: var(--text-black);
-    text-shadow: 2px 2px 0px var(--text-white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+}
+
+.smartphone-status-bar .status-icons {
+    display: flex;
+    gap: 5px;
 }
 
 /* Apps Grid */
-.phone-apps-grid {
+.smartphone-apps-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
-    padding: 1.5rem 1rem;
-    background-color: var(--bg-white);
-    height: 40%;
-    box-sizing: border-box;
-    border-top: 4px solid var(--text-black);
+    width: 100%;
 }
 
-.phone-app-icon {
+.smartphone-app {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-decoration: none;
-    color: var(--text-black);
     cursor: pointer;
+    text-decoration: none;
 }
 
 .app-icon-box {
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
     border-radius: 12px;
     border: 3px solid var(--text-black);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    color: var(--text-black);
+    box-shadow: 2px 2px 0px var(--text-black);
+    transition: transform 0.2s ease;
+}
+
+.smartphone-app:hover .app-icon-box {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.app-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: var(--text-black);
+    margin-top: 0.3rem;
+}
+
+.app-icon-box.bg-red { background-color: var(--c-red); }
+.app-icon-box.bg-blue { background-color: var(--c-blue); }
+.app-icon-box.bg-purple { background-color: #a855f7; }
+.app-icon-box.bg-green { background-color: var(--c-green); }
+
+.glowing-app-icon {
+    animation: icon-glow 1.5s infinite ease-in-out;
+}
+
+@keyframes icon-glow {
+    0%, 100% {
+        box-shadow: 2px 2px 0px var(--text-black), 0 0 0px var(--c-green);
+    }
+    50% {
+        box-shadow: 2px 2px 0px var(--text-black), 0 0 15px var(--c-green);
+        transform: scale(1.05);
+    }
+}
+
+.sunflower-map-link {
+    text-decoration: none;
+    margin-top: auto;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.phone-tap-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.85rem;
+    color: var(--text-white);
+    background-color: var(--text-black);
+    padding: 0.8rem 1rem;
+    border: 3px solid var(--text-black);
+    border-radius: 12px;
+    box-shadow: 4px 4px 0px var(--c-red);
+    text-align: center;
+    transition: all 0.2s ease;
+    animation: pulse-prompt 1.8s infinite ease-in-out;
+}
+
+@keyframes pulse-prompt {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); box-shadow: 4px 4px 0px var(--c-yellow); }
+}
+
+.sunflower-map-link:hover .phone-tap-prompt {
+    background-color: var(--c-yellow);
+    color: var(--text-black);
+    box-shadow: 4px 4px 0px var(--text-black);
+}
+
+.smartphone-app-header {
+    display: flex;
+    align-items: center;
+    padding: 35px 15px 10px 15px;
     background-color: var(--text-white);
-    box-shadow: 3px 3px 0px var(--text-black);
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-bottom: 3px solid var(--text-black);
 }
 
-.phone-app-icon:hover .app-icon-box {
-    transform: translateY(-4px) rotate(-3deg);
+.map-back-btn {
+    background: none;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: var(--c-red);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
 }
 
-.instagram-app .app-icon-box {
-    background-color: var(--c-peach);
-    color: #e1306c;
-}
-
-.spotify-app .app-icon-box {
-    background-color: var(--c-green);
-    color: #1ed760;
-}
-
-.maps-app .app-icon-box {
-    background-color: var(--c-blue);
+.map-back-btn:hover {
     color: var(--text-black);
 }
 
-.pulsing-app-icon {
-    animation: appPulse 1.5s infinite ease-in-out;
-}
-
-@keyframes appPulse {
-    0%, 100% { transform: scale(1); box-shadow: 3px 3px 0px var(--text-black); }
-    50% { transform: scale(1.08) translateY(-2px); box-shadow: 4px 4px 0px var(--text-black); }
-}
-
-.app-name {
-    font-size: 0.7rem;
-    font-weight: 800;
-    margin-top: 0.4rem;
+.app-header-title {
     font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: var(--text-black);
+    margin-left: 2rem;
 }
 
-/* Google Map App Screen */
-.sunflower-map-container .map-clipper {
-    position: absolute;
-    top: 0;
-    left: 0;
+.smartphone-map-frame {
+    flex-grow: 1;
+    width: 100%;
+    height: calc(100% - 100px);
+    position: relative;
+}
+
+.smartphone-map-frame iframe {
     width: 100%;
     height: 100%;
-    border-radius: 0;
-    border: none;
-    overflow: hidden;
-    z-index: 2;
-    background-color: var(--text-black);
-    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(0.92);
-}
-
-.sunflower-map-container.expanded-rect .map-clipper {
-    opacity: 1;
-    pointer-events: auto;
-    transform: scale(1);
-}
-
-.map-clipper iframe {
-    width: 100%;
-    height: calc(100% - 40px);
-    margin-top: 40px;
     border: none;
     display: block;
 }
 
-/* Home button overlay on the phone screen bottom */
-.phone-home-button-trigger {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 25px;
-    cursor: pointer;
-    z-index: 20;
-}
-
-@media (max-width: 768px) {
-    .sunflower-map-container {
-        width: 310px;
-        height: 590px;
-    }
-}
-
-/* Spacing and transitions for map buttons */
 .map-buttons-container {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     display: flex;
     gap: 1.5rem;
     justify-content: center;
@@ -2234,7 +2385,6 @@ body.menu-open {
     flex-wrap: wrap;
     position: relative;
     z-index: 10;
-    transition: margin-top 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .map-action-buttons {
@@ -2248,14 +2398,12 @@ body.menu-open {
     transform: translateY(10px);
 }
 
-.sunflower-map-container.expanded-rect + .map-buttons-container .map-action-buttons,
-.sunflower-map-container.expanded-rect ~ .map-buttons-container .map-action-buttons {
+.smartphone-map-container.map-active + .map-buttons-container .map-action-buttons,
+.smartphone-map-container.map-active ~ .map-buttons-container .map-action-buttons {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
 }
-
-/* Custom map marker styles removed to restore standard Google Map pin */
 
 
 /* --- SOCIAL FEEDS SECTION --- */
