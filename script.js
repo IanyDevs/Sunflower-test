@@ -128,20 +128,37 @@ function initMobileMenu() {
     const toggleBtn = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (!toggleBtn || !navLinks) return;
-    
+
+    const closeMenu = () => {
+        toggleBtn.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        const openDropdown = navLinks.querySelector('.nav-dropdown.active');
+        if (openDropdown) openDropdown.classList.remove('active');
+    };
+
+    const openMenu = () => {
+        toggleBtn.classList.add('active');
+        navLinks.classList.add('active');
+        document.body.classList.add('menu-open');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+    };
+
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    toggleBtn.setAttribute('aria-controls', 'nav-links');
+    navLinks.setAttribute('id', 'nav-links');
+
     toggleBtn.addEventListener('click', () => {
-        toggleBtn.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
+        navLinks.classList.contains('active') ? closeMenu() : openMenu();
     });
-    
-    // Close mobile menu when clicking a link
+
     navLinks.querySelectorAll('a:not(.dropdown-trigger)').forEach(link => {
-        link.addEventListener('click', () => {
-            toggleBtn.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.classList.remove('menu-open');
-        });
+        link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) closeMenu();
     });
 }
 
@@ -152,6 +169,11 @@ function initScrollSlide() {
     if (!sunflowerText || !festivalText) return;
     
     window.addEventListener('scroll', () => {
+        if (window.innerWidth <= 768) {
+            sunflowerText.style.transform = '';
+            festivalText.style.transform = '';
+            return;
+        }
         const scrolled = window.scrollY;
         // Adjust scroll translation speed
         const speed = 0.6; 
@@ -916,6 +938,7 @@ function initScrollToLineup() {
 }
 
 function init3DTilt() {
+    if (window.innerWidth <= 768) return;
     const cards = document.querySelectorAll('.artist-slider-card');
     
     cards.forEach(card => {

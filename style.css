@@ -370,7 +370,16 @@ html.no-curtain .page-curtain {
 }
 
 /* Navbar active hover Chevron rot */
-.nav-dropdown:hover .dropdown-trigger i,
+@media (hover: hover) {
+    .nav-dropdown:hover .dropdown-trigger i {
+        transform: rotate(180deg);
+    }
+    .main-nav.transparent-nav .nav-dropdown .dropdown-trigger:hover {
+        background-color: var(--text-white);
+        color: var(--text-black);
+    }
+}
+
 .nav-dropdown.active .dropdown-trigger i {
     transform: rotate(180deg);
 }
@@ -381,11 +390,6 @@ html.no-curtain .page-curtain {
     color: var(--text-black);
     border-color: var(--text-black);
     box-shadow: 4px 4px 0px var(--text-black);
-}
-
-.main-nav.transparent-nav .nav-dropdown .dropdown-trigger:hover {
-    background-color: var(--text-white);
-    color: var(--text-black);
 }
 
 /* Dropdown Menu block */
@@ -520,7 +524,7 @@ html.no-curtain .page-curtain {
     }
     
     .nav-links .nav-dropdown .dropdown-trigger {
-        font-size: 2.2rem; /* Matches other links size in mobile nav */
+        font-size: 1.8rem;
         width: auto;
         padding: 0.5rem 1.5rem;
         margin-bottom: 0.5rem;
@@ -531,13 +535,26 @@ html.no-curtain .page-curtain {
         border: none;
         box-shadow: none;
         color: var(--text-black);
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
     
     .nav-links .nav-dropdown .dropdown-trigger i {
         font-size: 1.4rem;
     }
     
-    .nav-links .nav-dropdown .dropdown-trigger:hover,
+    @media (hover: hover) {
+        .nav-links .nav-dropdown .dropdown-trigger:hover {
+            background: none;
+            color: var(--text-white);
+            transform: rotate(-2deg) scale(1.05);
+            text-shadow: 3px 3px 0px var(--text-black);
+        }
+        .main-nav.transparent-nav .nav-dropdown .dropdown-trigger:hover {
+            color: var(--text-white);
+        }
+    }
+
     .nav-links .nav-dropdown.active .dropdown-trigger {
         background: none;
         color: var(--text-white);
@@ -553,7 +570,6 @@ html.no-curtain .page-curtain {
         box-shadow: none;
     }
 
-    .main-nav.transparent-nav .nav-dropdown .dropdown-trigger:hover,
     .main-nav.transparent-nav .nav-dropdown.active .dropdown-trigger {
         color: var(--text-white);
     }
@@ -567,13 +583,21 @@ html.no-curtain .page-curtain {
         min-width: unset;
         box-shadow: 4px 4px 0px var(--text-black);
         margin: 0.5rem auto 0 auto;
-        display: none;
         border-radius: 12px;
         background-color: var(--bg-white, #f4f4f4);
+        /* Smooth expand instead of display toggle */
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease;
     }
-    
+
     .nav-dropdown.active .dropdown-content {
-        display: block !important;
+        max-height: 1000px;
+        opacity: 1;
+        pointer-events: auto;
     }
 }
 
@@ -886,8 +910,8 @@ html.no-curtain .page-curtain {
 }
 
 @keyframes scroll-massive-text {
-    0% { transform: translate(0, -50%) rotate(-5deg); left: 0%; }
-    100% { transform: translate(-100%, -50%) rotate(-5deg); left: 100%; }
+    0%   { transform: translateX(-100%) translateY(-50%) rotate(-5deg); }
+    100% { transform: translateX(100vw) translateY(-50%) rotate(-5deg); }
 }
 
 @keyframes float {
@@ -1007,6 +1031,8 @@ html.no-curtain .page-curtain {
     transition: all 0.2s ease;
     cursor: pointer;
     text-transform: uppercase;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .brutalist-button:hover {
@@ -1131,8 +1157,8 @@ html.no-curtain .page-curtain {
 .bg-massive-text {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-5deg);
+    left: 0;
+    transform: translateX(-100%) translateY(-50%) rotate(-5deg);
     font-size: 10vw;
     color: var(--text-black);
     opacity: 0.03;
@@ -1166,6 +1192,7 @@ html.no-curtain .page-curtain {
     padding: 6rem 2rem 2rem 2rem;
     border-top: none;
     position: relative;
+    overflow-x: hidden;
 }
 
 /* Footer Wave Divider SVG */
@@ -1551,37 +1578,52 @@ html.no-curtain .page-curtain {
 /* Menu Toggle Button (hidden on desktop) */
 .menu-toggle {
     display: none;
+    width: 44px;
+    height: 44px;
     flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
     z-index: 1100;
+    position: relative;
+    border-radius: 8px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .menu-toggle span {
     display: block;
-    width: 100%;
-    height: 4px;
+    height: 2px;
     background-color: var(--text-white);
     border-radius: 2px;
-    transition: transform 0.3s cubic-bezier(0.77, 0, 0.175, 1),
-                opacity 0.3s ease,
-                background-color 0.3s ease;
+    transform-origin: center;
+    will-change: transform;
+    transition:
+        transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+        opacity 0.3s ease,
+        width 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+        background-color 0.3s ease;
 }
 
-/* Transform hamburger lines into X when active */
+.menu-toggle span:nth-child(1),
+.menu-toggle span:nth-child(3) { width: 24px; }
+.menu-toggle span:nth-child(2) { width: 16px; }
+
+/* Morph hamburger → X with micro-stagger on bottom bar */
 .menu-toggle.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
 }
 .menu-toggle.active span:nth-child(2) {
     opacity: 0;
+    width: 0;
 }
 .menu-toggle.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
+    transition-delay: 0.04s, 0s, 0.04s, 0s;
 }
 
 /* Scroll lock when mobile menu is open */
@@ -1616,10 +1658,15 @@ body.menu-open {
         justify-content: space-between;
     }
     
-    body {
+    body,
+    .home-body {
         padding-top: 70px;
     }
-    
+
+    .bg-massive-text {
+        display: none;
+    }
+
     .nav-logo {
         display: flex !important;
     }
@@ -1630,59 +1677,102 @@ body.menu-open {
     }
     
     .menu-toggle {
-        display: flex; /* Show menu toggle on mobile */
+        display: flex;
     }
-    
-    .nav-links { 
+
+    .nav-links {
         position: fixed;
         top: 0;
         right: 0;
         width: 100%;
         height: 100vh;
+        height: 100dvh;
         background-color: var(--c-yellow);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        gap: 1.2rem;
+        gap: 1.5rem;
         z-index: 1000;
         transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.4s;
+        transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s;
         border-left: 6px solid var(--text-black);
-        padding: 5rem 2rem 2rem 2rem;
+        padding: 5.5rem 2rem max(3.5rem, env(safe-area-inset-bottom, 3.5rem)) 2rem;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         visibility: hidden;
+        will-change: transform;
     }
-    
+
+    .nav-links::after {
+        content: '— SUNFLOWER FEST —';
+        display: block;
+        text-align: center;
+        width: 100%;
+        margin-top: 1.5rem;
+        margin-bottom: 2.5rem;
+        font-family: 'Monument Extended', sans-serif;
+        font-size: 0.58rem;
+        color: var(--text-black);
+        opacity: 0.22;
+        letter-spacing: 0.28em;
+        white-space: nowrap;
+        pointer-events: none;
+        flex-shrink: 0;
+    }
+
     .nav-links.active {
         transform: translateX(0);
         visibility: visible;
     }
-    
-    .nav-links a { 
+
+    .nav-links a {
         font-family: 'Montserrat', sans-serif;
         font-weight: 900;
-        font-size: 1.7rem; 
+        font-size: 1.8rem;
         color: var(--text-black);
         text-transform: uppercase;
         width: 100%;
         text-align: center;
         transition: transform 0.2s ease, color 0.2s ease;
         display: inline-block;
+        -webkit-tap-highlight-color: transparent;
     }
-    
+
     .nav-links a:hover, .nav-links a.active {
         color: var(--text-white);
-        transform: scale(1.08) rotate(-3deg);
+        transform: scale(1.06) rotate(-2deg);
         text-shadow: 3px 3px 0px var(--text-black);
         text-decoration: none;
     }
+
+    /* Staggered entrance: links slide in when menu opens */
+    .nav-links > a,
+    .nav-links .nav-dropdown {
+        opacity: 0;
+        translate: 20px 0;
+        transition: color 0.2s ease;
+    }
+
+    .nav-links.active > a,
+    .nav-links.active .nav-dropdown {
+        opacity: 1;
+        translate: 0 0;
+        transition: opacity 0.38s ease, translate 0.42s cubic-bezier(0.23, 1, 0.32, 1), color 0.2s ease;
+    }
+
+    .nav-links.active > a:nth-child(1) { transition-delay: 0.08s; }
+    .nav-links.active > a:nth-child(2) { transition-delay: 0.14s; }
+    .nav-links.active > a:nth-child(3) { transition-delay: 0.20s; }
+    .nav-links.active > a:nth-child(4) { transition-delay: 0.26s; }
+    .nav-links.active > a:nth-child(5) { transition-delay: 0.32s; }
+    .nav-links.active .nav-dropdown    { transition-delay: 0.38s; }
 
     /* Force mobile menu overlay links to be black even if parent navbar is transparent */
     .main-nav.transparent-nav .nav-links a {
         color: var(--text-black);
     }
-    
+
     .main-nav.transparent-nav .nav-links a:hover,
     .main-nav.transparent-nav .nav-links a.active {
         color: var(--text-white);
@@ -1873,6 +1963,34 @@ body.menu-open {
     .footer-socials {
         align-items: center;
         text-align: center;
+    }
+
+    /* Anchor links: leave space for fixed nav */
+    :target {
+        scroll-margin-top: 80px;
+    }
+
+    /* Bigger tap targets for footer links */
+    .footer-socials a {
+        padding: 0.5rem;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Active link indicator in yellow mobile menu */
+    .nav-links > a.active {
+        color: var(--text-white);
+        position: relative;
+    }
+    .nav-links > a.active::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 3px;
+        background-color: var(--text-black);
+        border-radius: 2px;
     }
 }
 
@@ -2999,6 +3117,7 @@ body.menu-open {
     z-index: 2000;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: opacity 0.35s ease, visibility 0.35s ease;
     overflow: hidden;
 }
@@ -3006,6 +3125,7 @@ body.menu-open {
 .artist-modals-overlay.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 .artist-full-page {
@@ -3911,12 +4031,16 @@ body.menu-open {
     color: var(--text-black);
     font-size: 1.5rem;
     cursor: pointer;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     box-shadow: 4px 4px 0px var(--text-black);
-    z-index: 2100; /* Above the active modal page */
+    z-index: 2100;
     transition: all 0.2s ease;
+}
+
+.artist-modals-overlay.active .global-modal-nav-btn {
+    display: flex;
 }
 
 .global-modal-nav-btn:hover {
