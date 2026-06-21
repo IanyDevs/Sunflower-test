@@ -1927,7 +1927,7 @@ body.menu-open {
 }
 
 .contact-info-card::before {
-    content: "🌻 INFO & RECAPITI";
+    content: " INFO & RECAPITI";
     position: absolute;
     top: -18px;
     left: 20px;
@@ -2335,13 +2335,47 @@ body.menu-open {
 
 .iframe-wrapper {
     position: relative;
-    height: 550px;
+    max-width: 325px;
+    width: 100%;
+    height: 620px;
     background-color: var(--text-white);
-    border: 4px solid var(--text-black);
-    border-radius: 16px;
+    border: 12px solid var(--text-black);
+    border-radius: 40px;
     box-shadow: 6px 6px 0px var(--text-black);
     overflow: hidden;
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    margin: 0 auto;
+}
+
+/* Smartphone Top Notch / Dynamic Island */
+.iframe-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95px;
+    height: 20px;
+    background-color: var(--text-black);
+    border-radius: 10px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Smartphone Bottom Home Bar */
+.iframe-wrapper::after {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 4px;
+    background-color: var(--text-black);
+    border-radius: 2px;
+    z-index: 10;
+    opacity: 0.6;
+    pointer-events: none;
 }
 
 .iframe-wrapper:hover {
