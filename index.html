@@ -141,6 +141,40 @@
             </div>
         </section>
 
+        <!-- SEZIONE STATISTICHE / NUMERI -->
+        <section class="stats-section reveal-up">
+            <h2 class="stats-section-title">SUNFLOWER IN NUMERI</h2>
+            <div class="stats-container">
+                <!-- Stat 1: Followers -->
+                <div class="stat-box bg-yellow">
+                    <div class="stat-icon"><i class="fa-brands fa-instagram"></i></div>
+                    <span class="stat-num">1K+</span>
+                    <span class="stat-label">Followers IG</span>
+                </div>
+                <!-- Stat 2: Spettatori -->
+                <div class="stat-box bg-orange">
+                    <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+                    <span class="stat-num">500+</span>
+                    <span class="stat-label">Spettatori</span>
+                </div>
+                <!-- Stat 3: Artisti -->
+                <div class="stat-box bg-green">
+                    <div class="stat-icon"><i class="fa-solid fa-music"></i></div>
+                    <span class="stat-num">30+</span>
+                    <span class="stat-label">Artisti</span>
+                </div>
+                <!-- Stat 4: Edizioni -->
+                <div class="stat-box bg-blue">
+                    <div class="stat-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                    <span class="stat-num">3+</span>
+                    <span class="stat-label">Edizioni</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divisore Brutalista per separare le sezioni -->
+        <div class="section-divider-line"></div>
+
         <!-- Animated Background Text (Brutalist style) -->
         <div class="bg-massive-text bg-text-anim">
             <span class="text-sunflower">SUNFLOWERS</span> GROUP
@@ -1012,8 +1046,9 @@
             <span class="word-trovarci">TROVARCI</span>
         </h2>
 
-        <!-- Interactive Smartphone Map Container -->
-        <div class="smartphone-map-container reveal-up">
+        <div class="map-section-grid reveal-up">
+            <!-- Left Side: Interactive Smartphone Map Container -->
+            <div class="smartphone-map-container">
             <div class="smartphone-phone-wrapper">
                 <!-- Top Notch / Dynamic Island -->
                 <div class="smartphone-top-notch"></div>
@@ -1093,6 +1128,82 @@
                 <div class="smartphone-bottom-bar"></div>
             </div>
         </div>
+        
+        <!-- Right Side: Come Raggiungerci Accordion Menu -->
+        <div class="how-to-reach-container">
+            <h3 class="reach-title">COME RAGGIUNGERCI</h3>
+            
+            <!-- Brutalist ZTL Warning Banner -->
+            <div class="brutalist-alert-banner" style="border: 4px solid var(--text-black); background-color: var(--c-pastel-orange); color: var(--text-black); font-weight: 900; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; padding: 0.8rem 1rem; border-radius: 12px; box-shadow: 4px 4px 0px var(--text-black); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; transform: rotate(-0.5deg);">
+                <i class="fa-solid fa-triangle-exclamation" style="font-size: 1.2rem; color: var(--c-red); margin-right: 0.2rem;"></i>
+                <span><strong>ATTENZIONE ZTL:</strong> Il centro storico ha varchi attivi. Consigliamo di parcheggiare fuori per evitare sanzioni!</span>
+            </div>
+
+            <div class="brutalist-accordion">
+                <!-- Item 1: Auto e Parcheggi -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-label="Espandi indicazioni auto e parcheggi">
+                        <span><i class="fa-solid fa-car"></i>In Auto e Parcheggi</span>
+                        <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Il Social Tennis Club si trova in centro. Ecco dove parcheggiare senza pensieri (gestito da <strong>Metellia Servizi</strong>, pagabile anche con <strong>EasyPark</strong>):</p>
+                        <ul>
+                            <li><strong>Area Trincerone Coperto:</strong> Accesso da SS18. Parcheggio sotterraneo custodito e vicinissimo. <a href="https://www.google.com/maps/dir/?api=1&destination=Parcheggio+Trincerone+Cava+de+Tirreni" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;"><i class="fa-solid fa-route"></i> Naviga Qui</a></li>
+                            <li><strong>Piazza Amabile / Piazzale Europa:</strong> Ampie aree di sosta comunali all'aperto, ideali per la sera. <a href="https://www.google.com/maps/dir/?api=1&destination=Piazza+Amabile+Cava+de+Tirreni" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;"><i class="fa-solid fa-route"></i> Naviga Qui</a></li>
+                            <li><strong>Autorimessa Villa Comunale:</strong> Parcheggio privato custodito a pagamento, in Via Marcello Garzia. <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Marcello+Garzia+Cava+de+Tirreni" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;"><i class="fa-solid fa-route"></i> Naviga Qui</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Item 2: Treno -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-label="Espandi indicazioni treno">
+                        <span><i class="fa-solid fa-train"></i>In Treno</span>
+                        <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Il treno è la scelta più comoda ed ecologica per raggiungere il festival:</p>
+                        <ul>
+                            <li><strong>Stazione di Cava de' Tirreni:</strong> Fermata per treni regionali sulla tratta Napoli Campi Flegrei - Salerno.</li>
+                            <li><strong>Passeggiata a piedi:</strong> Dalla stazione dista solo <strong>400 metri</strong> (circa 5 minuti a piedi attraversando la Villa Comunale e Corso Umberto I). <a href="https://www.google.com/maps/dir/?api=1&origin=Stazione+Cava+de+Tirreni&destination=Social+Tennis+Club+Cava+de+Tirreni&travelmode=walking" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;"><i class="fa-solid fa-person-walking"></i> Mostra Percorso</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Item 3: Pullman / Autobus -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-label="Espandi indicazioni autobus">
+                        <span><i class="fa-solid fa-bus"></i>In Pullman / Bus</span>
+                        <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Collegamenti frequenti con mezzi regionali operati da <strong>Busitalia Campania</strong>:</p>
+                        <ul>
+                            <li><strong>Da Salerno:</strong> Linee urbane ed extraurbane (es. <strong>Linea 4</strong> e <strong>Linea 9</strong>).</li>
+                            <li><strong>Da Napoli e agro nocerino:</strong> Collegamenti diretti (es. <strong>Linea 84</strong>).</li>
+                            <li><strong>Fermate vicine:</strong> Scendi alla fermata principale di <strong>Viale Crispi</strong> (a 2 minuti a piedi dal club). <a href="https://www.google.com/maps/search/?api=1&query=Viale+Crispi+Cava+de+Tirreni" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;"><i class="fa-solid fa-location-dot"></i> Vedi Fermata</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Item 4: Altre Info e ZTL -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-label="Espandi altre indicazioni">
+                        <span><i class="fa-solid fa-circle-info"></i>Altre Info</span>
+                        <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Il Social Tennis Club si trova proprio a ridosso del famoso <strong>borgo porticato medievale</strong> di Cava de' Tirreni:</p>
+                        <ul>
+                            <li>Intorno all'area del festival sono presenti bar, pizzerie e locali storici convenzionati.</li>
+                            <li>L'ingresso del club si trova nei pressi di Viale Garibaldi, facilmente raggiungibile a piedi da qualsiasi punto del centro storico. <a href="https://www.google.com/maps/dir/?api=1&destination=Social+Tennis+Club+Cava+de+Tirreni" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;"><i class="fa-solid fa-map-location-dot"></i> Naviga al Club</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
         <!-- Interactive buttons and info wrapper -->
         <div class="map-buttons-container" style="flex-direction: column;">
@@ -1176,6 +1287,9 @@
                             <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                         </svg>
                     </a>
+                </div>
+                <div class="edizioni-link-container">
+                    <a href="#" class="edizioni-link">Edizioni</a>
                 </div>
                 <div class="policy-link">
                     <a href="#" target="_blank" rel="noopener noreferrer">Cookie & Privacy Policy</a>

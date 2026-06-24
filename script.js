@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     init3DTilt();
     initEmailObfuscation();
     initLazyLoading();
+    initAccordion();
 });
 
 function initScrollAnimations() {
@@ -1107,6 +1108,24 @@ function initLazyLoading() {
 
     lazyBackgrounds.forEach(bg => imageObserver.observe(bg));
     lazyImages.forEach(img => imageObserver.observe(img));
+}
+
+function initAccordion() {
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+        header.addEventListener('click', () => {
+            const item = header.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            document.querySelectorAll('.accordion-item').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
 }
 
 
