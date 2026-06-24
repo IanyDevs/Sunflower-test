@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     init3DTilt();
     initEmailObfuscation();
     initLazyLoading();
+    initArchiveGallery();
 });
 
 function initScrollAnimations() {
@@ -1021,9 +1022,197 @@ function initLazyLoading() {
     lazyImages.forEach(img => imageObserver.observe(img));
 }
 
+function initArchiveGallery() {
+    const galleries = {
+        'art-day': {
+            title: 'Art Day',
+            images: [
+                '../assets/Foto-generali/foto1.webp',
+                '../assets/Foto-generali/foto2.webp',
+                '../assets/Foto-generali/Foto10.webp',
+                '../assets/Foto-generali/Foto11.webp',
+                '../assets/Foto-generali/Foto12.webp'
+            ]
+        },
+        'palco': {
+            title: 'Il Palco',
+            images: [
+                '../assets/Foto-generali/foto3.webp',
+                '../assets/Foto-generali/foto4.webp',
+                '../assets/Foto-generali/Foto13.webp',
+                '../assets/Foto-generali/Foto14.webp',
+                '../assets/Foto-generali/Foto22.webp'
+            ]
+        },
+        'backstage': {
+            title: 'Backstage',
+            images: [
+                '../assets/Foto-generali/foto5.webp',
+                '../assets/Foto-generali/foto6.webp',
+                '../assets/Foto-generali/Foto15.webp',
+                '../assets/Foto-generali/Foto16.webp'
+            ]
+        },
+        'pubblico': {
+            title: 'Il Pubblico',
+            images: [
+                '../assets/Foto-generali/foto7.webp',
+                '../assets/Foto-generali/foto8.webp',
+                '../assets/Foto-generali/Foto17.webp',
+                '../assets/Foto-generali/Foto18.webp',
+                '../assets/Foto-generali/Foto19.webp'
+            ]
+        },
+        'notte-magica': {
+            title: 'Notte Magica',
+            images: [
+                '../assets/Foto-generali/foto9.webp',
+                '../assets/Foto-generali/Foto20.webp',
+                '../assets/Foto-generali/Foto21.webp'
+            ]
+        },
+        'artisti': {
+            title: 'Artisti',
+            images: [
+                '../assets/foto-artisti/AntonioCalabrese.jpeg',
+                '../assets/foto-artisti/Aria.jpeg',
+                '../assets/foto-artisti/CarlaFucci.jpeg',
+                '../assets/foto-artisti/DavideDeLuca.jpeg',
+                '../assets/foto-artisti/Dinìche.jpeg',
+                '../assets/foto-artisti/Lyra.jpeg',
+                '../assets/foto-artisti/Santachiara.jpeg',
+                '../assets/foto-artisti/Secondo.jpeg'
+            ]
+        }
+    };
 
+    // DOM Elements
+    const galleryItems = document.querySelectorAll('.gallery-item[data-gallery]');
+    const modal = document.getElementById('gallery-modal');
+    const modalTitle = document.getElementById('gallery-modal-title');
+    const modalGrid = document.getElementById('gallery-modal-grid');
+    const modalClose = modal ? modal.querySelector('.gallery-modal-close') : null;
+    const modalBackdrop = modal ? modal.querySelector('.gallery-modal-backdrop') : null;
 
+    const lightbox = document.getElementById('gallery-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = lightbox ? lightbox.querySelector('.lightbox-close') : null;
+    const lightboxBackdrop = lightbox ? lightbox.querySelector('.lightbox-backdrop') : null;
+    const lightboxPrev = lightbox ? lightbox.querySelector('.lightbox-prev') : null;
+    const lightboxNext = lightbox ? lightbox.querySelector('.lightbox-next') : null;
 
+    if (!modal || !lightbox) return;
 
+    let currentGalleryKey = '';
+    let currentImageIndex = 0;
 
+    // Open Gallery Modal
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const key = item.getAttribute('data-gallery');
+            const data = galleries[key];
+            if (!data) return;
 
+            currentGalleryKey = key;
+            modalTitle.textContent = data.title;
+            modalGrid.innerHTML = '';
+
+            // Inject Polaroid Photo Cards dynamically
+            data.images.forEach((src, idx) => {
+                const card = document.createElement('div');
+                card.className = 'gallery-photo-card';
+                
+                // Add random brutalist offset rotations (-3deg to 3deg)
+                const rot = (Math.random() * 6 - 3).toFixed(1);
+                card.style.transform = `rotate(${rot}deg)`;
+                
+                // Create image element
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = `${data.title} - Foto ${idx + 1}`;
+                img.loading = 'lazy';
+                
+                card.appendChild(img);
+                modalGrid.appendChild(card);
+
+                // Open Lightbox on card click
+                card.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openLightbox(idx);
+                });
+            });
+
+            // Show Modal and disable body scrolling
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Close Gallery Modal
+    function closeGalleryModal() {
+        modal.classList.remove('active');
+        // Only restore scroll if the lightbox isn't open
+        if (!lightbox.classList.contains('active')) {
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (modalClose) modalClose.addEventListener('click', closeGalleryModal);
+    if (modalBackdrop) modalBackdrop.addEventListener('click', closeGalleryModal);
+
+    // Lightbox Control Functions
+    function openLightbox(index) {
+        const data = galleries[currentGalleryKey];
+        if (!data || !data.images[index]) return;
+
+        currentImageIndex = index;
+        lightboxImg.src = data.images[currentImageIndex];
+        lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        // If gallery modal is also closed, restore body scrolling
+        if (!modal.classList.contains('active')) {
+            document.body.style.overflow = '';
+        }
+    }
+
+    function navigateLightbox(direction) {
+        const data = galleries[currentGalleryKey];
+        if (!data) return;
+
+        const total = data.images.length;
+        if (direction === 'next') {
+            currentImageIndex = (currentImageIndex + 1) % total;
+        } else if (direction === 'prev') {
+            currentImageIndex = (currentImageIndex - 1 + total) % total;
+        }
+        
+        // Update lightbox image
+        lightboxImg.src = data.images[currentImageIndex];
+    }
+
+    // Lightbox Event Listeners
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+    if (lightboxPrev) lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('prev'); });
+    if (lightboxNext) lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('next'); });
+
+    // Keyboard controls
+    document.addEventListener('keydown', (e) => {
+        if (lightbox.classList.contains('active')) {
+            if (e.key === 'ArrowRight') {
+                navigateLightbox('next');
+            } else if (e.key === 'ArrowLeft') {
+                navigateLightbox('prev');
+            } else if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        } else if (modal.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                closeGalleryModal();
+            }
+        }
+    });
+}

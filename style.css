@@ -895,8 +895,15 @@ html.no-curtain .page-curtain {
 .img-mercanti { background: linear-gradient(225deg, #333, #555); }
 
 /* Animations */
-.reveal-up { opacity: 1; transform: none; transition: none; }
-.reveal-up.active { opacity: 1; transform: none; }
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 .delay-1 { transition-delay: 0.15s; }
 .delay-2 { transition-delay: 0.3s; }
 
@@ -1450,10 +1457,34 @@ html.no-curtain .page-curtain {
     transition: transform 0.3s ease;
 }
 
-.count-box:nth-child(1) { transform: rotate(-2deg); }
-.count-box:nth-child(2) { transform: rotate(3deg); }
-.count-box:nth-child(3) { transform: rotate(-4deg); }
-.count-box:nth-child(4) { transform: rotate(2deg); }
+.count-box:nth-child(1) { animation: bobbing-1 4s ease-in-out infinite alternate; }
+.count-box:nth-child(2) { animation: bobbing-2 4.5s ease-in-out infinite alternate; }
+.count-box:nth-child(3) { animation: bobbing-3 5s ease-in-out infinite alternate; }
+.count-box:nth-child(4) { animation: bobbing-4 3.8s ease-in-out infinite alternate; }
+
+.count-box:hover {
+    transform: scale(1.1) translateY(-10px) !important;
+    box-shadow: 10px 10px 0px var(--text-black);
+    color: var(--text-white) !important;
+    cursor: default;
+}
+
+@keyframes bobbing-1 {
+    0% { transform: translateY(0) rotate(-2deg); }
+    100% { transform: translateY(-8px) rotate(1deg); }
+}
+@keyframes bobbing-2 {
+    0% { transform: translateY(0) rotate(3deg); }
+    100% { transform: translateY(-10px) rotate(-1deg); }
+}
+@keyframes bobbing-3 {
+    0% { transform: translateY(0) rotate(-4deg); }
+    100% { transform: translateY(-6px) rotate(2deg); }
+}
+@keyframes bobbing-4 {
+    0% { transform: translateY(0) rotate(2deg); }
+    100% { transform: translateY(-12px) rotate(-3deg); }
+}
 
 .count-box .num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 3.5rem; line-height: 1; display: block; }
 .count-box .label { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.2rem; text-transform: uppercase; color: white; }

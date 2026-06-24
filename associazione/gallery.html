@@ -57,54 +57,82 @@
     <main class="gallery-container">
         
         <!-- Gallery Item 1 -->
-        <div class="gallery-item reveal-up">
+        <div class="gallery-item reveal-up" data-gallery="art-day" style="cursor: pointer;">
             <div class="torn-paper-frame shape-2">
-                <div class="placeholder-img" style="background-image: linear-gradient(to right, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);"></div>
+                <div class="placeholder-img" style="background-image: url('../assets/Foto-generali/Foto10.webp');"></div>
             </div>
             <p class="gallery-caption">Art Day</p>
         </div>
 
         <!-- Gallery Item 2 -->
-        <div class="gallery-item tall reveal-up delay-1">
+        <div class="gallery-item tall reveal-up delay-1" data-gallery="palco" style="cursor: pointer;">
             <div class="torn-paper-frame shape-4">
-                <div class="placeholder-img" style="background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);"></div>
+                <div class="placeholder-img" style="background-image: url('../assets/Foto-generali/Foto22.webp');"></div>
             </div>
             <p class="gallery-caption">Il Palco</p>
         </div>
 
         <!-- Gallery Item 3 -->
-        <div class="gallery-item reveal-up delay-2">
+        <div class="gallery-item reveal-up delay-2" data-gallery="backstage" style="cursor: pointer;">
             <div class="torn-paper-frame shape-5">
-                <div class="placeholder-img" style="background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);"></div>
+                <div class="placeholder-img" style="background-image: url('../assets/Foto-generali/foto5.webp');"></div>
             </div>
             <p class="gallery-caption">Backstage</p>
         </div>
 
         <!-- Gallery Item 4 -->
-        <div class="gallery-item wide reveal-up">
+        <div class="gallery-item wide reveal-up" data-gallery="pubblico" style="cursor: pointer;">
             <div class="torn-paper-frame shape-3">
-                <div class="placeholder-img" style="background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);"></div>
+                <div class="placeholder-img" style="background-image: url('../assets/Foto-generali/Foto18.webp');"></div>
             </div>
             <p class="gallery-caption">Il Pubblico</p>
         </div>
 
         <!-- Gallery Item 5 -->
-        <div class="gallery-item tall reveal-up delay-1">
+        <div class="gallery-item tall reveal-up delay-1" data-gallery="notte-magica" style="cursor: pointer;">
             <div class="torn-paper-frame">
-                <div class="placeholder-img" style="background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);"></div>
+                <div class="placeholder-img" style="background-image: url('../assets/Foto-generali/Foto19.webp');"></div>
             </div>
             <p class="gallery-caption">Notte Magica</p>
         </div>
 
         <!-- Gallery Item 6 -->
-        <div class="gallery-item reveal-up delay-2">
+        <div class="gallery-item reveal-up delay-2" data-gallery="artisti" style="cursor: pointer;">
             <div class="torn-paper-frame shape-6">
-                <div class="placeholder-img" style="background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);"></div>
+                <div class="placeholder-img" style="background-image: url('../assets/foto-artisti/Santachiara.jpeg');"></div>
             </div>
             <p class="gallery-caption">Artisti</p>
         </div>
 
     </main>
+
+    <!-- Gallery Modal Overlay -->
+    <div id="gallery-modal" class="gallery-modal">
+        <div class="gallery-modal-backdrop"></div>
+        <div class="gallery-modal-wrapper">
+            <button class="gallery-modal-close" aria-label="Chiudi galleria">&times;</button>
+            <div class="gallery-modal-header">
+                <h2 id="gallery-modal-title" class="gallery-modal-title">NOME SEZIONE</h2>
+                <p class="gallery-modal-subtitle">Clicca su una foto per ingrandirla</p>
+            </div>
+            <div class="gallery-modal-body">
+                <div id="gallery-modal-grid" class="gallery-modal-grid">
+                    <!-- Dynamic images injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox for individual image zoom -->
+    <div id="gallery-lightbox" class="gallery-lightbox">
+        <div class="lightbox-backdrop"></div>
+        <button class="lightbox-close" aria-label="Chiudi">&times;</button>
+        <button class="lightbox-nav lightbox-prev" aria-label="Precedente"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Zoom immagine">
+        </div>
+        <button class="lightbox-nav lightbox-next" aria-label="Successiva"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
 
     <!-- Site Footer -->
     <footer class="site-footer">

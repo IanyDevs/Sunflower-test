@@ -424,7 +424,7 @@ function initArtistModals() {
 
         // Load Spotify iframe dynamically
         const iframe = targetModal.querySelector('iframe[data-src]');
-        if (iframe && !iframe.src) {
+        if (iframe) {
             iframe.src = iframe.getAttribute('data-src');
         }
 
@@ -447,7 +447,7 @@ function initArtistModals() {
             // Unload Spotify iframe to free up memory and stop background execution
             const iframe = p.querySelector('iframe[data-src]');
             if (iframe) {
-                iframe.src = "";
+                iframe.src = "about:blank";
             }
         });
         document.body.style.overflow = '';
