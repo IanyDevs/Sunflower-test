@@ -1760,47 +1760,53 @@ html.no-curtain .page-curtain {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
     background: none;
     border: none;
+    -webkit-appearance: none;
+    appearance: none;
     cursor: pointer;
     padding: 0;
     z-index: 1100;
     position: relative;
-    border-radius: 8px;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+    outline: none;
 }
 
+.menu-toggle:focus-visible {
+    outline: 2px solid var(--c-yellow);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Tre barre uniformi: 26×3 px con gap 6px.
+   Totale altezza gruppo: 3×3 + 2×6 = 21px.
+   Centro gruppo: 10.5px. Centro barra 1: 1.5px → Δ = 9px. */
 .menu-toggle span {
     display: block;
-    height: 2px;
+    width: 26px;
+    height: 3px;
     background-color: var(--text-white);
-    border-radius: 2px;
+    border-radius: 3px;
     transform-origin: center;
     will-change: transform;
     transition:
-        transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
-        opacity 0.3s ease,
-        width 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+        transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+        opacity 0.25s ease,
         background-color 0.3s ease;
 }
 
-.menu-toggle span:nth-child(1),
-.menu-toggle span:nth-child(3) { width: 24px; }
-.menu-toggle span:nth-child(2) { width: 16px; }
-
-/* Morph hamburger → X with micro-stagger on bottom bar */
+/* Morph hamburger → X */
 .menu-toggle.active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translateY(9px) rotate(45deg);
 }
 .menu-toggle.active span:nth-child(2) {
     opacity: 0;
-    width: 0;
+    transform: scaleX(0);
 }
 .menu-toggle.active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-    transition-delay: 0.04s, 0s, 0.04s, 0s;
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 /* Scroll lock when mobile menu is open */
@@ -5005,7 +5011,7 @@ body.menu-open {
     box-shadow: 1px 1px 0px var(--text-black);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .map-section-grid {
         flex-direction: column;
         align-items: center;
@@ -5020,8 +5026,203 @@ body.menu-open {
         font-size: 1.8rem;
         text-align: center;
     }
+    /* Let's make stats 2 columns instead of stacking immediately */
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
 }
 
+/* --- COMPREHENSIVE RESPONSIVENESS OVERRIDES --- */
+@media (max-width: 768px) {
+    /* Safe viewport constraints */
+    html, body {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Fluid typography for main titles */
+    .page-title {
+        font-size: clamp(2rem, 8vw, 3.5rem) !important;
+    }
+    .page-subtitle {
+        font-size: clamp(0.95rem, 3.5vw, 1.25rem) !important;
+        padding: 0 1rem;
+    }
+    .giant-title .text-sunflower,
+    .giant-title .text-festival {
+        font-size: clamp(2rem, 12vw, 5.5rem) !important;
+    }
+    
+    /* Countdown fixes */
+    .countdown-container {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 0.5rem !important;
+        max-width: 100% !important;
+        padding: 0 0.5rem;
+    }
+    .count-box {
+        padding: 0.6rem 0.1rem !important;
+    }
+    .count-box .num {
+        font-size: clamp(1.5rem, 6vw, 2.5rem) !important;
+    }
+    .count-box .label {
+        font-size: clamp(0.6rem, 2vw, 0.9rem) !important;
+    }
+
+    /* Form and button scaling */
+    input, textarea, select, button, .brutalist-button {
+        min-height: 44px; /* Touch target height rule */
+    }
+
+    /* Info blocks responsive adjustment */
+    .info-block {
+        padding: 2rem 1rem !important;
+        gap: 1.5rem !important;
+    }
+    
+    /* Social networks alignment fixing */
+    .social-channels-grid {
+        grid-template-columns: 1fr !important; /* Stack vertically for clear alignment */
+        gap: 1rem !important;
+        padding: 0 1rem;
+    }
+
+    /* Map responsive sizing */
+    .smartphone-map-container {
+        width: 100% !important;
+        max-width: 320px !important;
+        height: 520px !important; /* Slightly shorter to fit smaller screens */
+    }
+
+    /* Gallery Letters Grid on Mobile/Tablet */
+    .sunflower-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+        gap: 1.5rem !important;
+        padding: 0 1.5rem !important;
+    }
+    .letter-card {
+        height: 220px !important;
+    }
+    .letter-card .huge-letter {
+        font-size: 5rem !important;
+    }
+
+    /* Footer styling fix */
+    .site-footer {
+        padding: 3rem 1rem 1.5rem 1rem !important;
+    }
+    .footer-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 2.5rem !important;
+    }
+    .footer-col {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .footer-association-logo {
+        margin: 1rem auto 0 auto !important;
+    }
+}
+
+@media (max-width: 600px) {
+    /* 2-Columns layout for SUNFLOWER Letters Grid on mobile phone viewports */
+    .sunflower-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.8rem !important;
+        padding: 0 1rem !important;
+        margin: 2rem auto !important;
+    }
+    .letter-card {
+        height: 150px !important;
+        border-width: 3px !important;
+        box-shadow: 4px 4px 0px var(--text-black) !important;
+    }
+    .letter-card:hover {
+        box-shadow: 6px 6px 0px var(--text-black) !important;
+        transform: translate(-2px, -2px) !important;
+    }
+    .letter-card .huge-letter {
+        font-size: 3.5rem !important;
+        -webkit-text-stroke: 2px var(--text-black) !important;
+    }
+    .letter-card .letter-concept {
+        font-size: 0.75rem !important;
+        bottom: 8px !important;
+        padding: 2px 6px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Stats stacking on very small screens */
+    .stats-container {
+        grid-template-columns: 1fr !important;
+    }
+    .stat-box {
+        padding: 1.5rem 1rem !important;
+    }
+
+    /* Countdown layout on tiny screens to avoid squishing numbers */
+    .countdown-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.8rem !important;
+    }
+
+    /* Adjust page-header padding */
+    .page-header {
+        padding: 3rem 1rem !important;
+    }
+
+    /* Text block sizes */
+    .info-text p {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    /* Postcard message scaling */
+    .postcard-message {
+        font-size: 1.2rem !important;
+    }
+    .postcard-click-action {
+        font-size: 0.8rem !important;
+    }
+
+    /* Iframe elements width reset */
+    iframe, video, img {
+        max-width: 100% !important;
+    }
+}
+
+/* =============================================
+   FIX MOBILE: centratura mappa + sezione
+   ============================================= */
+
+/* Rimuove il doppio padding (sezione ha già padding: 1rem).
+   Con padding: 0 la griglia si allinea al titolo "DOVE TROVARCI"
+   e lo smartphone può essere centrato via margin auto. */
+@media (max-width: 1024px) {
+    .map-section-grid {
+        padding: 0 !important;
+    }
+
+    .map-section-grid .smartphone-map-container {
+        margin: 0 auto !important;
+    }
+
+    .how-to-reach-container {
+        min-width: 0 !important;
+    }
+}
+
+/* Su mobile portrait: garantisce altezza mappa proporzionata */
+@media (max-width: 480px) {
+    .smartphone-map-container {
+        max-width: min(300px, calc(100vw - 2rem)) !important;
+        height: 490px !important;
+    }
+}
 
 
 
