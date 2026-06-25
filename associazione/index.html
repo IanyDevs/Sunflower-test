@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sunflowers Group | Associazione Culturale</title>
-    <link rel="icon" type="image/png" href="assets/logo_ass.png">
+    <link rel="icon" type="image/png" href="assets/logo_ass.webp">
     <meta name="description" content="Sito ufficiale dell'Associazione Culturale Sunflowers Group. Promuoviamo arte, musica e creatività giovanile sul territorio.">
     <link rel="stylesheet" href="style.css?v=30">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.cdnfonts.com">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;900&family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/monument-extended" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;900&family=Great+Vibes&family=Dancing+Script&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;900&family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://fonts.cdnfonts.com/css/monument-extended" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.cdnfonts.com/css/monument-extended" rel="stylesheet"></noscript>
     <script>
         (function() {
             if (sessionStorage.getItem('playTransitionOut') !== 'true') {
@@ -25,7 +30,7 @@
     <!-- CURTAIN TRANSITION -->
     <div class="page-curtain">
         <div class="curtain-content">
-            <img src="assets/logo_ass.png" alt="Logo Sunflowers Group" class="curtain-logo">
+            <img src="assets/logo_ass.webp" alt="Logo Sunflowers Group" class="curtain-logo">
             <div class="curtain-cursive-text" style="opacity: 0; clip-path: inset(-20px 100% -20px -20px);">Sunflowers Group</div>
         </div>
     </div>
@@ -33,7 +38,7 @@
     <!-- NAVBAR -->
     <nav class="main-nav">
         <a href="index.html" class="nav-logo">
-            <img src="assets/logo_ass.png" alt="Logo Sunflowers Group">
+            <img src="assets/logo_ass.webp" alt="Logo Sunflowers Group">
         </a>
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
             <span></span>
@@ -70,7 +75,7 @@
                 </div>
                 <div class="info-image" style="position: relative;">
                     <div class="torn-paper-large float-anim-1 interactive-photo" style="background-color: var(--c-green);">
-                        <div class="torn-paper-inner cover-image" style="background-image: url('assets/Img_ass1.jpg');"></div>
+                        <div class="torn-paper-inner cover-image" style="background-image: url('assets/Img_ass1.webp');"></div>
                     </div>
                     <!-- Freccia e Testo "L'uomo girasole" -->
                     <div class="girasole-pointer" style="position: absolute; bottom: 10px; right: -25px; z-index: 15; font-family: 'Montserrat', sans-serif; font-weight: 900; pointer-events: none; display: flex; flex-direction: column; align-items: center;">
@@ -143,7 +148,7 @@
             <!-- Middle Column: Logo & Description -->
             <div class="footer-col footer-brand">
                 <div class="footer-logo">
-                    <img src="assets/logo_ass.png" alt="Logo Sunflowers Group">
+                    <img src="assets/logo_ass.webp" alt="Logo Sunflowers Group">
                 </div>
                 <p class="realization-text">Sito ufficiale dell'associazione culturale<br><strong>SUNFLOWERS GROUP</strong></p>
                 <a href="https://www.paypal.com/donate" target="_blank" class="brutalist-button bg-red donation-footer-btn" style="text-decoration: none; font-size: 0.9rem; font-weight: 900; padding: 0.6rem 1.2rem; border-radius: 6px; color: var(--text-white); display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 3px 3px 0px var(--text-black); border: 2px solid var(--text-black); margin-top: 1rem;">

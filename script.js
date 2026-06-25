@@ -428,6 +428,14 @@ function initArtistModals() {
             iframe.src = iframe.getAttribute('data-src');
         }
 
+        // Load artist photo lazily (hidden via opacity so IntersectionObserver never fires)
+        const artistPhoto = targetModal.querySelector('.placeholder-img[data-bg]');
+        if (artistPhoto) {
+            artistPhoto.style.backgroundImage = `url('${artistPhoto.dataset.bg}')`;
+            artistPhoto.removeAttribute('data-bg');
+            artistPhoto.classList.remove('lazy-bg');
+        }
+
         // Deactivate any currently active modals just in case
         fullPages.forEach(p => p.classList.remove('active'));
 

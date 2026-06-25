@@ -5088,11 +5088,11 @@ body.menu-open {
         padding: 0 1rem;
     }
 
-    /* Map responsive sizing */
+    /* Map responsive sizing: keep phone at desktop proportions */
     .smartphone-map-container {
-        width: 100% !important;
-        max-width: 320px !important;
-        height: 520px !important; /* Slightly shorter to fit smaller screens */
+        width: 325px !important;
+        max-width: 325px !important;
+        height: 620px !important;
     }
 
     /* Gallery Letters Grid on Mobile/Tablet */
@@ -5216,11 +5216,12 @@ body.menu-open {
     }
 }
 
-/* Su mobile portrait: garantisce altezza mappa proporzionata */
+/* Su mobile portrait: mantiene le stesse dimensioni del desktop */
 @media (max-width: 480px) {
     .smartphone-map-container {
-        max-width: min(300px, calc(100vw - 2rem)) !important;
-        height: 490px !important;
+        width: 325px !important;
+        max-width: 325px !important;
+        height: 620px !important;
     }
 }
 

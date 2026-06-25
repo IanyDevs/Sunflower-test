@@ -6,12 +6,17 @@
     <title>Sunflower Fest | News & Eventi</title>
     <link rel="icon" type="image/png" href="assets/loghi/logo-nobg.png">
     <meta name="description" content="News & Eventi - Rimani aggiornato su tutte le novità e gli appuntamenti del Sunflower Fest.">
-    <link rel="stylesheet" href="style.css?v=28">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=30">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.cdnfonts.com">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;900&family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/monument-extended" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;900&family=Great+Vibes&family=Dancing+Script&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;900&family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://fonts.cdnfonts.com/css/monument-extended" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.cdnfonts.com/css/monument-extended" rel="stylesheet"></noscript>
     <script>
         (function() {
             if (sessionStorage.getItem('playTransitionOut') !== 'true') {
@@ -33,7 +38,7 @@
     <!-- NAVBAR -->
     <nav class="main-nav">
         <a href="index.html" class="nav-logo">
-            <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+            <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" width="80" height="80">
         </a>
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
             <span></span>
@@ -149,7 +154,7 @@
             <div class="footer-col footer-brand">
                 <p class="realization-text">Il Sunflower Fest è realizzato dall'associazione culturale<br><strong>SUNFLOWERS GROUP APS</strong></p>
                 <a href="associazione/index.html">
-                    <img src="assets/loghi/logo_ass.png" alt="Logo Associazione" class="footer-association-logo">
+                    <img src="assets/loghi/logo_ass.webp" alt="Logo Associazione" class="footer-association-logo" loading="lazy" width="150" height="163">
                 </a>
                 <a href="https://www.paypal.com/donate" target="_blank" class="brutalist-button bg-red donation-footer-btn" style="text-decoration: none; font-size: 0.9rem; font-weight: 900; padding: 0.6rem 1.2rem; border-radius: 6px; color: var(--text-white); display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 3px 3px 0px var(--text-black); border: 2px solid var(--text-black); margin-top: 1rem;">
                     <i class="fa-solid fa-heart" style="color: var(--c-yellow);"></i> Fai una Donazione

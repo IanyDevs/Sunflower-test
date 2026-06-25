@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="it">
 
 <head>
@@ -7,14 +7,22 @@
     <title>Sunflower Fest | Home</title>
     <link rel="icon" type="image/png" href="assets/loghi/logo-nobg.png">
     <meta name="description" content="Sunflower Fest - Il festival della creatività e della musica emergente.">
-    <link rel="stylesheet" href="style.css?v=29">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;900&family=Great+Vibes&family=Dancing+Script&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/monument-extended" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.cdnfonts.com">
+    <link rel="stylesheet" href="style.css?v=30">
+    <!-- Preload hero LCP image -->
+    <link rel="preload" as="image" href="assets/Foto-generali/foto1.webp" fetchpriority="high">
+    <!-- Font Awesome: non-blocking -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <!-- Google Fonts: non-blocking -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;900&family=Great+Vibes&family=Dancing+Script&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;900&family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet"></noscript>
+    <!-- Monument Extended: non-blocking -->
+    <link rel="preload" href="https://fonts.cdnfonts.com/css/monument-extended" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.cdnfonts.com/css/monument-extended" rel="stylesheet"></noscript>
 
     <script>
         (function() {
@@ -32,7 +40,7 @@
     <!-- NAVBAR HOMEPAGE -->
     <nav class="main-nav">
         <a href="index.html" class="nav-logo">
-            <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+            <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" width="80" height="80" fetchpriority="high">
         </a>
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
             <span></span>
@@ -72,31 +80,7 @@
         <!-- Background Slider Carousel -->
         <div class="hero-slider">
             <div class="slide active"
-                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/foto1.webp');">
-            </div>
-            <div class="slide"
-                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/foto4.webp');">
-            </div>
-            <div class="slide"
-                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/foto6.webp');">
-            </div>
-            <div class="slide"
-                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/foto7.webp');">
-            </div>
-            <div class="slide"
-                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/foto8.webp');">
-            </div>
-            <div class="slide"
-                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/foto9.webp');">
-            </div>
-            <div class="slide"
-                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/Foto10.webp');">
-            </div>
-            <div class="slide"
-                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/Foto11.webp');">
-            </div>
-            <div class="slide"
-                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/Foto14.webp');">
+                style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/foto1.webp'); background-position: center 10%;">
             </div>
         </div>
 
@@ -207,7 +191,7 @@
                         <div class="card-img-wrapper">
                             <div class="card-img-side-text left-text">ORE</div>
                             <div class="placeholder-img lazy-bg"
-                                data-bg="assets/foto-artisti/Santachiara.jpeg" style="background-position: center;">
+                                data-bg="assets/foto-artisti/Santachiara.webp" style="background-position: center;">
                             </div>
                             <div class="card-img-side-text right-text">23:00</div>
                             <span class="card-time-badge">23:00</span>
@@ -225,7 +209,7 @@
                         <div class="card-img-wrapper">
                             <div class="card-img-side-text left-text">ORE</div>
                             <div class="placeholder-img lazy-bg"
-                                data-bg="assets/foto-artisti/CarlaFucci.jpeg" style="background-position: center;">
+                                data-bg="assets/foto-artisti/CarlaFucci.webp" style="background-position: center;">
                             </div>
                             <div class="card-img-side-text right-text">20:00</div>
                             <span class="card-time-badge">20:00</span>
@@ -243,7 +227,7 @@
                         <div class="card-img-wrapper">
                             <div class="card-img-side-text left-text">ORE</div>
                             <div class="placeholder-img lazy-bg"
-                                data-bg="assets/foto-artisti/Dinìche.jpeg" style="background-position: center;">
+                                data-bg="assets/foto-artisti/Dinìche.webp" style="background-position: center;">
                             </div>
                             <div class="card-img-side-text right-text">20:00</div>
                             <span class="card-time-badge">20:00</span>
@@ -261,7 +245,7 @@
                         <div class="card-img-wrapper">
                             <div class="card-img-side-text left-text">ORE</div>
                             <div class="placeholder-img lazy-bg"
-                                data-bg="assets/foto-artisti/DavideDeLuca.jpeg" style="background-position: center;">
+                                data-bg="assets/foto-artisti/DavideDeLuca.webp" style="background-position: center;">
                             </div>
                             <div class="card-img-side-text right-text">20:00</div>
                             <span class="card-time-badge">20:00</span>
@@ -279,7 +263,7 @@
                         <div class="card-img-wrapper">
                             <div class="card-img-side-text left-text">ORE</div>
                             <div class="placeholder-img lazy-bg"
-                                data-bg="assets/foto-artisti/Aria.jpeg" style="background-position: center;">
+                                data-bg="assets/foto-artisti/Aria.webp" style="background-position: center;">
                             </div>
                             <div class="card-img-side-text right-text">20:00</div>
                             <span class="card-time-badge">20:00</span>
@@ -297,7 +281,7 @@
                         <div class="card-img-wrapper">
                             <div class="card-img-side-text left-text">ORE</div>
                             <div class="placeholder-img lazy-bg"
-                                data-bg="assets/foto-artisti/AntonioCalabrese.jpeg" style="background-position: center;">
+                                data-bg="assets/foto-artisti/AntonioCalabrese.webp" style="background-position: center;">
                             </div>
                             <div class="card-img-side-text right-text">20:00</div>
                             <span class="card-time-badge">20:00</span>
@@ -315,7 +299,7 @@
                         <div class="card-img-wrapper">
                             <div class="card-img-side-text left-text">ORE</div>
                             <div class="placeholder-img lazy-bg"
-                                data-bg="assets/foto-artisti/Secondo.jpeg" style="background-position: center;">
+                                data-bg="assets/foto-artisti/Secondo.webp" style="background-position: center;">
                             </div>
                             <div class="card-img-side-text right-text">20:00</div>
                             <span class="card-time-badge">20:00</span>
@@ -333,7 +317,7 @@
                         <div class="card-img-wrapper">
                             <div class="card-img-side-text left-text">ORE</div>
                             <div class="placeholder-img lazy-bg"
-                                data-bg="assets/foto-artisti/Lyra.jpeg" style="background-position: center;">
+                                data-bg="assets/foto-artisti/Lyra.webp" style="background-position: center;">
                             </div>
                             <div class="card-img-side-text right-text">20:00</div>
                             <span class="card-time-badge">20:00</span>
@@ -366,7 +350,7 @@
                         <i class="fa-solid fa-arrow-left"></i> TORNA ALLA HOME
                     </button>
                     <div class="header-logo-container">
-                        <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+                        <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" loading="lazy" width="80" height="80">
                     </div>
                 </div>
 
@@ -375,7 +359,7 @@
                         <div class="full-page-media-col">
                             <div class="torn-paper-frame shape-1">
                                 <div class="placeholder-img"
-                                    style="background-image: url('assets/foto-artisti/Aria.jpeg');"></div>
+                                    data-bg="assets/foto-artisti/Aria.webp"></div>
                             </div>
                             <!-- Cute sticker details inside the media column -->
                             <div class="sticker-badge badge-circle badge-yellow float-anim-2">20:00</div>
@@ -451,7 +435,7 @@
                         <i class="fa-solid fa-arrow-left"></i> TORNA ALLA HOME
                     </button>
                     <div class="header-logo-container">
-                        <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+                        <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" loading="lazy" width="80" height="80">
                     </div>
                 </div>
 
@@ -460,7 +444,7 @@
                         <div class="full-page-media-col">
                             <div class="torn-paper-frame shape-2">
                                 <div class="placeholder-img"
-                                    style="background-image: url('assets/foto-artisti/DavideDeLuca.jpeg');"></div>
+                                    data-bg="assets/foto-artisti/DavideDeLuca.webp"></div>
                             </div>
                             <div class="sticker-badge badge-circle badge-yellow float-anim-2">20:00</div>
                         </div>
@@ -539,7 +523,7 @@
                         <i class="fa-solid fa-arrow-left"></i> TORNA ALLA HOME
                     </button>
                     <div class="header-logo-container">
-                        <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+                        <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" loading="lazy" width="80" height="80">
                     </div>
                 </div>
 
@@ -548,7 +532,7 @@
                         <div class="full-page-media-col">
                             <div class="torn-paper-frame shape-3">
                                 <div class="placeholder-img"
-                                    style="background-image: url('assets/foto-artisti/CarlaFucci.jpeg');"></div>
+                                    data-bg="assets/foto-artisti/CarlaFucci.webp"></div>
                             </div>
                             <div class="sticker-badge badge-circle badge-yellow float-anim-2">20:00</div>
                         </div>
@@ -623,7 +607,7 @@
                         <i class="fa-solid fa-arrow-left"></i> TORNA ALLA HOME
                     </button>
                     <div class="header-logo-container">
-                        <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+                        <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" loading="lazy" width="80" height="80">
                     </div>
                 </div>
 
@@ -632,7 +616,7 @@
                         <div class="full-page-media-col">
                             <div class="torn-paper-frame shape-4">
                                 <div class="placeholder-img"
-                                    style="background-image: url('assets/foto-artisti/Santachiara.jpeg');"></div>
+                                    data-bg="assets/foto-artisti/Santachiara.webp"></div>
                             </div>
                             <div class="sticker-badge badge-circle badge-yellow float-anim-2">23:00</div>
                         </div>
@@ -701,7 +685,7 @@
                         <i class="fa-solid fa-arrow-left"></i> TORNA ALLA HOME
                     </button>
                     <div class="header-logo-container">
-                        <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+                        <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" loading="lazy" width="80" height="80">
                     </div>
                 </div>
 
@@ -710,7 +694,7 @@
                         <div class="full-page-media-col">
                             <div class="torn-paper-frame shape-5">
                                 <div class="placeholder-img"
-                                    style="background-image: url('assets/foto-artisti/Secondo.jpeg');"></div>
+                                    data-bg="assets/foto-artisti/Secondo.webp"></div>
                             </div>
                             <div class="sticker-badge badge-circle badge-yellow float-anim-2">20:00</div>
                         </div>
@@ -788,7 +772,7 @@
                         <i class="fa-solid fa-arrow-left"></i> TORNA ALLA HOME
                     </button>
                     <div class="header-logo-container">
-                        <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+                        <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" loading="lazy" width="80" height="80">
                     </div>
                 </div>
 
@@ -797,7 +781,7 @@
                         <div class="full-page-media-col">
                             <div class="torn-paper-frame shape-5">
                                 <div class="placeholder-img"
-                                    style="background-image: url('assets/foto-artisti/Lyra.jpeg');"></div>
+                                    data-bg="assets/foto-artisti/Lyra.webp"></div>
                             </div>
                             <div class="sticker-badge badge-circle badge-yellow float-anim-2">20:00</div>
                         </div>
@@ -876,7 +860,7 @@
                         <i class="fa-solid fa-arrow-left"></i> TORNA ALLA HOME
                     </button>
                     <div class="header-logo-container">
-                        <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+                        <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" loading="lazy" width="80" height="80">
                     </div>
                 </div>
 
@@ -885,7 +869,7 @@
                         <div class="full-page-media-col">
                             <div class="torn-paper-frame shape-5">
                                 <div class="placeholder-img"
-                                    style="background-image: url('assets/foto-artisti/Dinìche.jpeg');"></div>
+                                    data-bg=assets/foto-artisti/Dinìche.webp>
                             </div>
                             <div class="sticker-badge badge-circle badge-yellow float-anim-2">20:00</div>
                         </div>
@@ -960,7 +944,7 @@
                         <i class="fa-solid fa-arrow-left"></i> TORNA ALLA HOME
                     </button>
                     <div class="header-logo-container">
-                        <img src="assets/loghi/logo-nobg.png" alt="Sunflower Fest Logo">
+                        <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" loading="lazy" width="80" height="80">
                     </div>
                 </div>
 
@@ -969,7 +953,7 @@
                         <div class="full-page-media-col">
                             <div class="torn-paper-frame shape-5">
                                 <div class="placeholder-img"
-                                    style="background-image: url('assets/foto-artisti/AntonioCalabrese.jpeg');"></div>
+                                    data-bg="assets/foto-artisti/AntonioCalabrese.webp"></div>
                             </div>
                             <div class="sticker-badge badge-circle badge-yellow float-anim-2">20:00</div>
                         </div>
@@ -1081,7 +1065,7 @@
                                         <span class="widget-click-info"><i class="fa-solid fa-hand-pointer"></i> Clicca per la mappa</span>
                                     </div>
                                     <!-- Sunflower Logo inside the map widget as a background watermark -->
-                                    <img src="assets/loghi/logo-nobg.png" alt="Sunflower" class="widget-watermark-logo">
+                                    <img src="assets/loghi/logo-nobg.webp" alt="Sunflower" class="widget-watermark-logo" loading="lazy" width="180" height="180">
                                 </div>
                             </a>
                         </div>
@@ -1254,7 +1238,7 @@
                 <p class="realization-text">Il Sunflower Fest è realizzato dall'associazione
                     culturale<br><strong>SUNFLOWERS GROUP APS</strong></p>
                 <a href="associazione/index.html">
-                    <img src="assets/loghi/logo_ass.png" alt="Logo Associazione" class="footer-association-logo">
+                    <img src="assets/loghi/logo_ass.webp" alt="Logo Associazione" class="footer-association-logo" loading="lazy" width="150" height="163">
                 </a>
                 <a href="https://www.paypal.com/donate" target="_blank"
                     class="brutalist-button bg-red donation-footer-btn"
