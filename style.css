@@ -3766,11 +3766,12 @@ body.menu-open {
     }
     
     .full-page-title {
-        font-size: clamp(1.8rem, 10vw, 2.8rem);
+        font-size: clamp(1.2rem, 7.2vw, 2.5rem);
         text-align: center;
         align-self: center;
         word-wrap: break-word;
         max-width: 100%;
+        line-height: 1.1;
     }
     
     .full-page-genre-tag {
@@ -4949,7 +4950,7 @@ body.menu-open {
 }
 
 .accordion-item.active .accordion-content {
-    max-height: 400px;
+    max-height: 1200px;
     padding: 1.5rem;
 }
 
