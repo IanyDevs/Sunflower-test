@@ -184,6 +184,11 @@
                 opacity: 1;
             }
 
+            body.modal-open {
+                overflow: hidden !important;
+                height: 100vh !important;
+            }
+
             /* --- BRUTALIST MODAL STYLES --- */
             .gallery-modal {
                 display: none;
@@ -483,6 +488,27 @@
                 .gallery-modal-grid {
                     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
                     gap: 1.2rem;
+                }
+
+                /* Lightbox Mobile Navigation Fix */
+                .lightbox-content {
+                    max-height: 65vh !important;
+                    margin-bottom: 90px !important;
+                }
+                .lightbox-content img {
+                    max-height: 60vh !important;
+                }
+                .lightbox-nav {
+                    top: auto !important;
+                    bottom: 30px !important;
+                    transform: none !important;
+                }
+                .lightbox-prev {
+                    left: calc(50% - 80px) !important;
+                }
+                .lightbox-next {
+                    left: calc(50% + 20px) !important;
+                    right: auto !important;
                 }
             }
 
@@ -816,6 +842,7 @@
 
                     modal.classList.add("active");
                     document.body.style.overflow = "hidden"; // Prevent body scroll
+                    document.body.classList.add("modal-open");
                 });
             });
 
@@ -823,6 +850,7 @@
             const closeModal = () => {
                 modal.classList.remove("active");
                 document.body.style.overflow = "";
+                document.body.classList.remove("modal-open");
             };
             modalClose.addEventListener("click", closeModal);
             modalBackdrop.addEventListener("click", closeModal);
