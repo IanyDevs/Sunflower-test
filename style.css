@@ -3731,6 +3731,10 @@ body.menu-open {
         box-shadow: 3px 3px 0px var(--text-black);
     }
     
+    .close-btn-desktop-text {
+        display: none;
+    }
+    
     .full-page-content {
         padding: 2.5rem 1.5rem;
     }
