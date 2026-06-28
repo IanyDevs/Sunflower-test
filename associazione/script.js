@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initEmailObfuscation();
     initLazyLoading();
     initArchiveGallery();
+    initLanguageSwitcher();
 });
 
 function initScrollAnimations() {
@@ -341,10 +342,8 @@ function initArtistModals() {
     const artistNames = Array.from(cards).map(c => c.getAttribute('data-artist')).filter(Boolean);
 
     function openModal(artistName) {
-        // Stop any currently playing audio from another artist modal
         stopAllCustomAudioPlayers();
 
-        // Find modal
         const targetModal = document.getElementById(`modal-${artistName}`);
         if (!targetModal) return;
 
@@ -356,7 +355,6 @@ function initArtistModals() {
         targetModal.classList.add('active');
         targetModal.scrollTop = 0;
 
-        // Prevent body scroll
         document.body.style.overflow = 'hidden';
     }
 
@@ -376,17 +374,17 @@ function initArtistModals() {
     function navigateModal(direction) {
         const currentArtist = getActiveArtistName();
         if (!currentArtist) return;
-        
+
         const currentIndex = artistNames.indexOf(currentArtist);
         if (currentIndex === -1) return;
-        
+
         let nextIndex;
         if (direction === 'next') {
             nextIndex = (currentIndex + 1) % artistNames.length;
         } else {
             nextIndex = (currentIndex - 1 + artistNames.length) % artistNames.length;
         }
-        
+
         const nextArtist = artistNames[nextIndex];
         openModal(nextArtist);
     }
@@ -1025,7 +1023,8 @@ function initLazyLoading() {
 function initArchiveGallery() {
     const galleries = {
         'art-day': {
-            title: 'Art Day',
+            titleIt: 'Art Day',
+            titleEn: 'Art Day',
             images: [
                 '../assets/Foto-generali/foto1.webp',
                 '../assets/Foto-generali/foto2.webp',
@@ -1035,7 +1034,8 @@ function initArchiveGallery() {
             ]
         },
         'palco': {
-            title: 'Il Palco',
+            titleIt: 'Il Palco',
+            titleEn: 'The Stage',
             images: [
                 '../assets/Foto-generali/foto3.webp',
                 '../assets/Foto-generali/foto4.webp',
@@ -1045,7 +1045,8 @@ function initArchiveGallery() {
             ]
         },
         'backstage': {
-            title: 'Backstage',
+            titleIt: 'Backstage',
+            titleEn: 'Backstage',
             images: [
                 '../assets/Foto-generali/foto5.webp',
                 '../assets/Foto-generali/foto6.webp',
@@ -1054,7 +1055,8 @@ function initArchiveGallery() {
             ]
         },
         'pubblico': {
-            title: 'Il Pubblico',
+            titleIt: 'Il Pubblico',
+            titleEn: 'The Audience',
             images: [
                 '../assets/Foto-generali/foto7.webp',
                 '../assets/Foto-generali/foto8.webp',
@@ -1064,7 +1066,8 @@ function initArchiveGallery() {
             ]
         },
         'notte-magica': {
-            title: 'Notte Magica',
+            titleIt: 'Notte Magica',
+            titleEn: 'Magical Night',
             images: [
                 '../assets/Foto-generali/foto9.webp',
                 '../assets/Foto-generali/Foto20.webp',
@@ -1072,7 +1075,8 @@ function initArchiveGallery() {
             ]
         },
         'artisti': {
-            title: 'Artisti',
+            titleIt: 'Artisti',
+            titleEn: 'Artists',
             images: [
                 '../assets/foto-artisti/AntonioCalabrese.jpeg',
                 '../assets/foto-artisti/Aria.jpeg',
@@ -1114,7 +1118,9 @@ function initArchiveGallery() {
             if (!data) return;
 
             currentGalleryKey = key;
-            modalTitle.textContent = data.title;
+            const isEn = document.body.classList.contains('lang-en-active');
+            const currentTitle = isEn ? data.titleEn : data.titleIt;
+            modalTitle.textContent = currentTitle;
             modalGrid.innerHTML = '';
 
             // Inject Polaroid Photo Cards dynamically
@@ -1129,7 +1135,7 @@ function initArchiveGallery() {
                 // Create image element
                 const img = document.createElement('img');
                 img.src = src;
-                img.alt = `${data.title} - Foto ${idx + 1}`;
+                img.alt = `${currentTitle} - Foto ${idx + 1}`;
                 img.loading = 'lazy';
                 
                 card.appendChild(img);
@@ -1213,6 +1219,38 @@ function initArchiveGallery() {
             if (e.key === 'Escape') {
                 closeGalleryModal();
             }
+        }
+    });
+}
+
+function initLanguageSwitcher() {
+    const preferredLang = localStorage.getItem('preferred-lang') || 'it';
+    setLanguage(preferredLang);
+
+    // Listen for language selector button clicks
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.lang-btn');
+        if (btn) {
+            const lang = btn.getAttribute('data-lang');
+            setLanguage(lang);
+        }
+    });
+}
+
+function setLanguage(lang) {
+    if (lang === 'en') {
+        document.body.classList.add('lang-en-active');
+    } else {
+        document.body.classList.remove('lang-en-active');
+    }
+    localStorage.setItem('preferred-lang', lang);
+
+    // Update active class on all buttons matching data-lang
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
         }
     });
 }

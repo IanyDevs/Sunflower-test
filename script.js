@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initEmailObfuscation();
     initLazyLoading();
     initAccordion();
+    initLanguageSwitcher();
 });
 
 function initScrollAnimations() {
@@ -195,6 +196,10 @@ function initMapToggle() {
     
     function openMap() {
         mapContainer.classList.add('map-active');
+        const iframe = mapContainer.querySelector('iframe');
+        if (iframe) {
+            iframe.src = iframe.src;
+        }
     }
     
     function closeMap() {
@@ -471,17 +476,17 @@ function initArtistModals() {
     function navigateModal(direction) {
         const currentArtist = getActiveArtistName();
         if (!currentArtist) return;
-        
+
         const currentIndex = artistNames.indexOf(currentArtist);
         if (currentIndex === -1) return;
-        
+
         let nextIndex;
         if (direction === 'next') {
             nextIndex = (currentIndex + 1) % artistNames.length;
         } else {
             nextIndex = (currentIndex - 1 + artistNames.length) % artistNames.length;
         }
-        
+
         const nextArtist = artistNames[nextIndex];
         openModal(nextArtist);
     }
@@ -992,7 +997,7 @@ function init3DTilt() {
     const cards = document.querySelectorAll('.artist-slider-card');
     
     cards.forEach(card => {
-        const wrapper = card.querySelector('.card-img-wrapper');
+        const wrapper = card.querySelector('.card-img-wrapper') || card.querySelector('.card-full-photo');
         if (!wrapper) return;
         
         card.addEventListener('mousemove', (e) => {
@@ -1014,6 +1019,15 @@ function init3DTilt() {
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
             card.style.transition = 'transform 0.1s ease, box-shadow 0.1s ease';
             card.style.boxShadow = `${14 + xc * 6}px ${14 + yc * -6}px 0px var(--text-black)`;
+
+            // Parallax movement for the background photo
+            const photo = card.querySelector('.card-full-photo');
+            if (photo) {
+                const transX = xc * 12; // translate image horizontally up to 12px
+                const transY = yc * -12; // translate image vertically up to 12px
+                photo.style.transform = `scale(1.12) rotate(1.5deg) translateX(${transX}px) translateY(${transY}px)`;
+                photo.style.transition = 'transform 0.1s ease';
+            }
         });
         
         card.addEventListener('mouseleave', () => {
@@ -1021,6 +1035,12 @@ function init3DTilt() {
             card.style.transform = '';
             card.style.transition = 'transform 2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease';
             card.style.boxShadow = '';
+
+            const photo = card.querySelector('.card-full-photo');
+            if (photo) {
+                photo.style.transform = '';
+                photo.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+            }
         });
     });
 }
@@ -1135,6 +1155,39 @@ function initAccordion() {
         });
     });
 }
+
+function initLanguageSwitcher() {
+    const preferredLang = localStorage.getItem('preferred-lang') || 'it';
+    setLanguage(preferredLang);
+
+    // Listen for language selector button clicks
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.lang-btn');
+        if (btn) {
+            const lang = btn.getAttribute('data-lang');
+            setLanguage(lang);
+        }
+    });
+}
+
+function setLanguage(lang) {
+    if (lang === 'en') {
+        document.body.classList.add('lang-en-active');
+    } else {
+        document.body.classList.remove('lang-en-active');
+    }
+    localStorage.setItem('preferred-lang', lang);
+
+    // Update active class on all buttons matching data-lang
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+}
+
 
 
 

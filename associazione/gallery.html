@@ -45,9 +45,14 @@
             <span></span>
         </button>
         <div class="nav-links">
-            <a href="index.html">L'Associazione</a>
+            <a href="index.html"><span class="lang-it">L'Associazione</span><span class="lang-en">The Association</span></a>
             <a href="gallery.html" class="active">Vibes Archive</a>
             <a href="../index.html" class="nav-btn-fest">Sunflower Fest</a>
+            <div class="lang-switcher">
+                <button class="lang-btn it" data-lang="it">IT</button>
+                <div class="lang-switcher-divider"></div>
+                <button class="lang-btn en" data-lang="en">EN</button>
+            </div>
         </div>
     </nav>
 
@@ -55,7 +60,10 @@
     <header class="page-header" style="background-color: var(--c-purple);">
         <svg class="bg-blob-yellow" viewBox="0 0 100 100" style="width: 150px; opacity: 0.8; right: 15%; top: 20%;"><path d="M50,10 C80,0 100,30 90,60 C80,90 30,100 10,70 C-10,40 20,20 50,10 Z" fill="currentColor"/></svg>
         <h1 class="page-title" style="color: var(--text-black); font-size: 5rem;">L'ARCHIVIO DELLE VIBES</h1>
-        <p class="page-subtitle" style="color: var(--text-black);">I momenti più belli delle edizioni passate.</p>
+        <p class="page-subtitle" style="color: var(--text-black);">
+            <span class="lang-it">I momenti più belli delle edizioni passate.</span>
+            <span class="lang-en">The most beautiful moments of past editions.</span>
+        </p>
     </header>
 
     <!-- Masonry Gallery -->
@@ -74,7 +82,10 @@
             <div class="torn-paper-frame shape-4">
                 <div class="placeholder-img" style="background-image: url('../assets/Foto-generali/Foto22.webp');"></div>
             </div>
-            <p class="gallery-caption">Il Palco</p>
+            <p class="gallery-caption">
+                <span class="lang-it">Il Palco</span>
+                <span class="lang-en">The Stage</span>
+            </p>
         </div>
 
         <!-- Gallery Item 3 -->
@@ -90,7 +101,10 @@
             <div class="torn-paper-frame shape-3">
                 <div class="placeholder-img" style="background-image: url('../assets/Foto-generali/Foto18.webp');"></div>
             </div>
-            <p class="gallery-caption">Il Pubblico</p>
+            <p class="gallery-caption">
+                <span class="lang-it">Il Pubblico</span>
+                <span class="lang-en">The Audience</span>
+            </p>
         </div>
 
         <!-- Gallery Item 5 -->
@@ -98,7 +112,10 @@
             <div class="torn-paper-frame">
                 <div class="placeholder-img" style="background-image: url('../assets/Foto-generali/Foto19.webp');"></div>
             </div>
-            <p class="gallery-caption">Notte Magica</p>
+            <p class="gallery-caption">
+                <span class="lang-it">Notte Magica</span>
+                <span class="lang-en">Magical Night</span>
+            </p>
         </div>
 
         <!-- Gallery Item 6 -->
@@ -106,7 +123,10 @@
             <div class="torn-paper-frame shape-6">
                 <div class="placeholder-img" style="background-image: url('../assets/foto-artisti/Santachiara.jpeg');"></div>
             </div>
-            <p class="gallery-caption">Artisti</p>
+            <p class="gallery-caption">
+                <span class="lang-it">Artisti</span>
+                <span class="lang-en">Artists</span>
+            </p>
         </div>
 
     </main>
@@ -118,7 +138,10 @@
             <button class="gallery-modal-close" aria-label="Chiudi galleria">&times;</button>
             <div class="gallery-modal-header">
                 <h2 id="gallery-modal-title" class="gallery-modal-title">NOME SEZIONE</h2>
-                <p class="gallery-modal-subtitle">Clicca su una foto per ingrandirla</p>
+                <p class="gallery-modal-subtitle">
+                    <span class="lang-it">Clicca su una foto per ingrandirla</span>
+                    <span class="lang-en">Click on a photo to enlarge it</span>
+                </p>
             </div>
             <div class="gallery-modal-body">
                 <div id="gallery-modal-grid" class="gallery-modal-grid">
@@ -146,19 +169,27 @@
             <path d="M0,0 C300,100 700,100 1000,0 L1000,100 L0,100 Z" fill="var(--c-yellow)"></path>
             <path d="M0,0 C300,100 700,100 1000,0" fill="none" stroke="var(--text-black)" stroke-width="8"></path>
         </svg>
-        
 
         <div class="footer-container">
             
             <!-- Left Column: Contacts -->
             <div class="footer-col footer-contacts">
-                <h3>Contatti</h3>
+                <h3><span class="lang-it">Contatti</span><span class="lang-en">Contacts</span></h3>
                 <p class="association-name">Sunflowers Group</p>
                 <p>Piazza San Francesco, 22</p>
                 <p>84013 Cava de' Tirreni (SA)</p>
-                <p>Email festival: info@sunflowerfestival.it </p>
-                <P>Pec associazione: ass.sunflowergroup@pec.it </P>
-                <p>tel: +39 339 6816196</p>
+                <p>
+                    <span class="lang-it">Email festival: info@sunflowerfestival.it</span>
+                    <span class="lang-en">Festival email: info@sunflowerfestival.it</span>
+                </p>
+                <p>
+                    <span class="lang-it">Pec associazione: ass.sunflowergroup@pec.it</span>
+                    <span class="lang-en">Association PEC: ass.sunflowergroup@pec.it</span>
+                </p>
+                <p>
+                    <span class="lang-it">tel: +39 339 6816196</span>
+                    <span class="lang-en">tel: +39 339 6816196</span>
+                </p>
                 <p>C.F.: 06366340658</p>
                 <p>P. Iva: 06366340658</p>
             </div>
@@ -168,9 +199,14 @@
                 <div class="footer-logo">
                     <img src="assets/logo_ass.webp" alt="Logo Sunflowers Group">
                 </div>
-                <p class="realization-text">Sito ufficiale dell'associazione culturale<br><strong>SUNFLOWERS GROUP</strong></p>
+                <p class="realization-text">
+                    <span class="lang-it">Sito ufficiale dell'associazione culturale<br><strong>SUNFLOWERS GROUP</strong></span>
+                    <span class="lang-en">Official website of the cultural association<br><strong>SUNFLOWERS GROUP</strong></span>
+                </p>
                 <a href="https://www.paypal.com/donate" target="_blank" class="brutalist-button bg-red donation-footer-btn" style="text-decoration: none; font-size: 0.9rem; font-weight: 900; padding: 0.6rem 1.2rem; border-radius: 6px; color: var(--text-white); display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 3px 3px 0px var(--text-black); border: 2px solid var(--text-black); margin-top: 1rem;">
-                    <i class="fa-solid fa-heart" style="color: var(--c-yellow);"></i> Sostieni l'Associazione
+                    <i class="fa-solid fa-heart" style="color: var(--c-yellow);"></i> 
+                    <span class="lang-it">Sostieni l'Associazione</span>
+                    <span class="lang-en">Support the Association</span>
                 </a>
             </div>
             
@@ -209,7 +245,7 @@
         <!-- Bottom Developer Credit -->
         <div class="footer-bottom">
             <div class="developer-credit">
-                Sito web a cura di <a href="https://ianyydevs.altervista.org/" target="_blank">IANYDEVS</a>
+               <span class="lang-it">Sito web a cura di</span><span class="lang-en">Website by</span> <a href="https://ianyydevs.altervista.org/" target="_blank">IANYDEVS</a>
             </div>
         </div>
     </footer>

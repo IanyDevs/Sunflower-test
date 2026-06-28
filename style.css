@@ -2976,6 +2976,8 @@ body.menu-open {
     padding: 6rem 3rem;
     position: relative;
     background-color: var(--bg-white);
+    background-image: radial-gradient(circle, rgba(26,26,26,0.06) 1.5px, transparent 1.5px);
+    background-size: 28px 28px;
     overflow: hidden;
 }
 
@@ -3007,10 +3009,6 @@ body.menu-open {
     position: relative;
     z-index: 2;
 }
-
-
-
-
 
 .slider-controls {
     display: flex;
@@ -3051,13 +3049,10 @@ body.menu-open {
     margin: 0 auto;
     overflow-x: auto;
     padding: 2.5rem 1rem 4.5rem 1rem;
-    scrollbar-width: none; /* Hide scrollbar Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
-
-.artists-slider-container::-webkit-scrollbar {
-    display: none; /* Hide scrollbar Chrome/Safari */
-}
+.artists-slider-container::-webkit-scrollbar { display: none; }
 
 .artists-slider-track {
     display: flex;
@@ -3065,235 +3060,266 @@ body.menu-open {
     width: max-content;
 }
 
-/* Brutalist Slider Card */
+/* ============================
+   Artist Slider Cards
+   ============================ */
 .artist-slider-card {
-    width: 320px;
-    height: 465px; /* Increased height to prevent text from being cut off */
+    width: 300px;
+    height: 460px;
     border: 4px solid var(--text-black);
     border-radius: 20px;
     box-shadow: 8px 8px 0px var(--text-black);
-    background-color: var(--text-white);
-    overflow: hidden; /* Clips expanding image wrapper to the card's rounded borders */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
     transform-style: preserve-3d;
     perspective: 1000px;
     position: relative;
 }
 
-/* Cleaner, modern card styling (removed retro ticket punches) */
-.artist-slider-card.bg-peach { background-color: var(--c-pastel-orange); }
-.artist-slider-card.bg-blue { background-color: var(--c-pastel-blue); }
+/* Colori pastel per ogni variante */
+.artist-slider-card.bg-peach  { background-color: var(--c-pastel-orange); }
+.artist-slider-card.bg-blue   { background-color: #8ab3fa; }
 .artist-slider-card.bg-yellow { background-color: var(--c-pastel-yellow); }
-.artist-slider-card.bg-red { background-color: var(--c-pastel-pink); }
+.artist-slider-card.bg-red    { background-color: var(--c-pastel-pink); }
 .artist-slider-card.bg-purple { background-color: var(--c-pastel-pink); }
-.artist-slider-card.bg-green { background-color: var(--c-pastel-green); }
-.artist-slider-card.bg-grey { background-color: var(--c-pastel-grey); }
-.artist-slider-card.bg-brown { background-color: var(--c-pastel-brown); }
-.artist-slider-card.bg-cream { background-color: var(--c-pastel-cream); }
+.artist-slider-card.bg-green  { background-color: var(--c-pastel-green); }
+.artist-slider-card.bg-grey   { background-color: var(--c-pastel-grey); }
+.artist-slider-card.bg-brown  { background-color: var(--c-pastel-brown); }
+.artist-slider-card.bg-cream  { background-color: var(--c-pastel-cream); }
 
 .artist-slider-card:hover {
-    /* Removed translate/rotate since they are controlled in JS with real-time cursor tracking */
     box-shadow: 14px 14px 0px var(--text-black);
     z-index: 50;
 }
-
 .artist-slider-card:active {
-    transform: translateY(2px) rotate(0deg);
+    transform: translateY(2px);
     box-shadow: 4px 4px 0px var(--text-black);
 }
 
-.card-img-wrapper {
+/* Striscia in cima alla card */
+.card-top-strip {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 260px;
-    border-bottom: 4px solid var(--text-black);
-    overflow: hidden; /* Prevent image from overflowing or zooming out of the card */
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    z-index: 5;
-    transition: height 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-bottom-color 0.4s ease;
-    transition-delay: 0s; /* Shrink back instantly on mouse leave */
-}
-
-.card-img-wrapper .placeholder-img {
-    width: 100%;
-    height: 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    transition: transform 2s ease, border-radius 2s ease, background-size 2s ease;
-    transform-origin: center;
-    position: relative;
-    z-index: 5;
-    transition-delay: 0s;
-}
-
-/* Hover effect: the image wrapper expands to 100% height to cover the card after 1.5 seconds of continuous hover over the image */
-.card-img-wrapper:hover {
-    height: 100%;
-    border-bottom-color: transparent;
-    transition-delay: 1s; /* Delay expansion by 1 second */
-}
-
-.card-img-wrapper:hover .placeholder-img {
-    border-radius: 16px;
-    transition-delay: 1s; /* Delay image zoom by 1 second */
-}
-
-.card-time-badge {
-    display: none; /* Hidden since we use the vertical side texts now */
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    font-size: 1rem;
-    font-weight: 900;
-    padding: 0.4rem 0.9rem;
-    border: 3px solid var(--text-black);
-    border-radius: 8px;
-    background-color: var(--text-white);
-    color: var(--text-black);
-    box-shadow: 3px 3px 0px var(--text-black);
-    z-index: 5;
-    transition: border-color 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.1rem;
+    height: 44px;
+    min-height: 44px;
+    border-bottom: 3px solid var(--text-black);
+    background-color: inherit;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
     transform-style: preserve-3d;
 }
-
-/* Vertical side texts inside card image wrappers to fill empty space */
-.card-img-side-text {
-    position: absolute;
-    top: 50%;
-    font-family: 'Monument Extended', sans-serif;
-    font-size: 2.2rem; /* Increased size to fill the empty space more prominently */
-    font-weight: 900;
-    color: var(--text-white); /* White text to stand out on the dark grey padding of the photos */
-    letter-spacing: 2px;
-    z-index: 10; /* Set above the image layer */
+.artist-slider-card:hover .card-top-strip {
+    transform: translateY(-100%);
+    opacity: 0;
     pointer-events: none;
-    user-select: none;
-    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.card-img-side-text.left-text {
-    left: 12px;
-    writing-mode: vertical-rl;
-    transform: translateY(-50%) rotate(180deg);
+.card-lineup-num {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 900;
+    color: var(--text-black);
+    letter-spacing: 1px;
+}
+
+.card-date-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 900;
+    color: var(--text-black);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0.6;
+}
+
+/* Foto full-bleed */
+.card-full-photo {
+    flex: 1;
+    background-size: cover;
+    background-position: center top;
+    position: relative;
+    overflow: hidden;
+    filter: grayscale(20%) brightness(0.88) contrast(95%);
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s cubic-bezier(0.16, 1, 0.3, 1);
     transform-style: preserve-3d;
 }
-
-.card-img-side-text.right-text {
-    right: 12px;
-    writing-mode: vertical-rl;
-    transform: translateY(-50%);
-    transform-style: preserve-3d;
+.artist-slider-card:hover .card-full-photo {
+    transform: scale(1.12) rotate(1.5deg);
+    filter: grayscale(0%) brightness(1.05) contrast(102%);
 }
 
-/* 3D Parallax effect on hover for the side texts */
-.artist-slider-card:hover .card-img-side-text.left-text {
-    transform: translateY(-50%) rotate(180deg) translateZ(45px);
-    color: var(--c-yellow); /* Yellow color highlight on hover */
-    text-shadow: 2px -2px 0px var(--text-black), 4px -4px 0px rgba(0, 0, 0, 0.4);
-}
-
-.artist-slider-card:hover .card-img-side-text.right-text {
-    transform: translateY(-50%) translateZ(45px);
-    color: var(--c-yellow); /* Yellow color highlight on hover */
-    text-shadow: -2px 2px 0px var(--text-black), -4px 4px 0px rgba(0, 0, 0, 0.4);
-}
-
-.artist-slider-card:hover .card-time-badge {
-    transform: translateZ(55px) scale(1.08);
-    box-shadow: 5px 5px 0px var(--text-black);
-}
-
-.card-info-box {
-    margin-top: 260px; /* Pushes the text below the absolute-positioned default image wrapper */
-    padding: 1.3rem 1.6rem;
+/* Gradient overlay sul testo */
+.card-photo-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 46px;
+    left: 0;
+    right: 0;
+    padding: 2rem 1.2rem 1.2rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    flex-grow: 1;
+    justify-content: flex-end;
+    gap: 0.35rem;
+    background: linear-gradient(
+        to top,
+        rgba(15, 15, 15, 0.95) 0%,
+        rgba(15, 15, 15, 0.55) 40%,
+        transparent 65%
+    );
     transform-style: preserve-3d;
-    position: relative;
-    z-index: 2; /* Below the z-index of the expanding image wrapper */
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    transition-delay: 0s; /* Instant return on leave */
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Accento luminoso di colore blu (abbinato allo sfondo) che si attiva su hover */
+.card-photo-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(138, 179, 250, 0.28) 0%, transparent 65%);
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+}
+.artist-slider-card:hover .card-photo-overlay::before {
     opacity: 1;
 }
 
-/* Fade out the text smoothly after 1 second of hover on the image wrapper */
-.card-img-wrapper:hover + .card-info-box {
-    opacity: 0;
-    transform: translateY(15px);
-    pointer-events: none;
-    transition-delay: 1s; /* Sync with the image wrapper delay */
-}
-
-.artist-card-name {
-    font-family: 'Monument Extended', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 400;
+/* Badge genere musicale */
+.card-genre-pill {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--c-yellow);
     color: var(--text-black);
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    transition: transform 0.3s ease;
-}
-
-.artist-slider-card:hover .artist-card-name {
-    transform: translateZ(45px) scale(1.03);
-    text-shadow: 2px 2px 0px var(--c-yellow), 4px 4px 0px rgba(0, 0, 0, 0.15);
-}
-
-.artist-card-time {
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: rgba(26,26,26,0.6);
-    margin-bottom: 0.2rem;
-    text-transform: uppercase;
-    transition: transform 0.3s ease;
-}
-
-.artist-slider-card:hover .artist-card-time {
-    transform: translateZ(30px);
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
-}
-
-.artist-card-genre {
-    font-size: 1.05rem;
-    font-weight: 800;
-    color: var(--text-black);
-    margin-bottom: 1.5rem;
-    transition: transform 0.3s ease;
-}
-
-.artist-slider-card:hover .artist-card-genre {
-    transform: translateZ(35px);
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
-}
-
-.card-action-link {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
-    font-size: 1rem;
-    color: var(--text-black);
+    font-size: 0.58rem;
     text-transform: uppercase;
-    margin-top: auto;
-    display: flex;
-    align-items: center;
-    transition: transform 0.25s ease;
+    letter-spacing: 1.5px;
+    padding: 0.22rem 0.6rem;
+    border: 2px solid var(--text-black);
+    border-radius: 4px;
+    align-self: flex-start;
+    box-shadow: 2px 2px 0 var(--text-black);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.artist-slider-card:hover .card-genre-pill {
+    transform: translateZ(22px) scale(1.06);
+    box-shadow: 3px 3px 0 var(--text-black);
 }
 
-.artist-slider-card:hover .card-action-link {
-    transform: translateZ(45px) translateX(6px);
-    text-shadow: 2px 2px 0px var(--c-yellow);
+/* Nome artista */
+.artist-card-name {
+    position: relative;
+    z-index: 2;
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    text-shadow: 3px 3px 0 var(--text-black);
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+.artist-slider-card:hover .artist-card-name {
+    transform: translateZ(32px);
+    text-shadow: 4px 4px 0 var(--text-black);
+}
+
+/* Chip data/ora */
+.card-time-chip {
+    position: relative;
+    z-index: 2;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: rgba(253, 253, 253, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+.artist-slider-card:hover .card-time-chip {
+    transform: translateZ(16px);
+    color: rgba(253, 253, 253, 0.88);
+}
+
+/* Barra CTA in fondo */
+.card-cta-bar {
+    height: 46px;
+    min-height: 46px;
+    background-color: var(--text-black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.78rem;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-top: 3px solid var(--text-black);
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.3s ease;
+    transform-style: preserve-3d;
+}
+.artist-slider-card:hover .card-cta-bar {
+    background-color: var(--c-yellow);
+    color: var(--text-black);
+    transform: translateZ(18px);
+}
+.card-cta-bar i {
+    font-size: 0.85rem;
+    transition: transform 0.2s ease;
+}
+.artist-slider-card:hover .card-cta-bar i {
+    transform: translateX(5px);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .artists-slider-header { margin-bottom: 2rem; }
+    .slider-title { font-size: 2.2rem; }
+    .slider-control-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+        border-width: 3px;
+        box-shadow: 3px 3px 0px var(--text-black);
+    }
+    .artist-slider-card {
+        width: 260px;
+        height: 410px;
+    }
+    .card-top-strip {
+        height: 40px;
+        min-height: 40px;
+    }
+    .card-photo-overlay {
+        top: 0;
+        bottom: 42px;
+    }
+    .artist-slider-card:hover .card-top-strip {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    .artist-card-name { font-size: 1.3rem; }
+    .card-cta-bar {
+        height: 42px;
+        min-height: 42px;
+        font-size: 0.72rem;
+    }
 }
 
 
@@ -4319,57 +4345,30 @@ body.menu-open {
 
 /* --- GLASS CARDS EFFECT --- */
 .artists-slider-track.glass-cards-active .artist-slider-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.0) 100%) !important;
+    background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.0) 100%) !important;
     backdrop-filter: blur(16px) saturate(220%) !important;
     -webkit-backdrop-filter: blur(16px) saturate(220%) !important;
-    border: 2px solid rgba(255, 255, 255, 0.55) !important;
-    box-shadow: 
-        inset 2px 2px 0px rgba(255, 255, 255, 0.4), 
-        inset -2px -2px 0px rgba(255, 255, 255, 0.1), 
-        0 10px 40px 0 rgba(0, 0, 0, 0.15), 
-        8px 8px 0px rgba(26, 26, 26, 0.25) !important;
+    border: 2px solid rgba(255,255,255,0.55) !important;
+    box-shadow:
+        inset 2px 2px 0px rgba(255,255,255,0.4),
+        inset -2px -2px 0px rgba(255,255,255,0.1),
+        0 10px 40px 0 rgba(0,0,0,0.15),
+        8px 8px 0px rgba(26,26,26,0.25) !important;
     color: var(--text-black) !important;
 }
 
 /* Tinted glass reflections for each color class */
-.artists-slider-track.glass-cards-active .artist-slider-card.bg-peach { 
-    background: linear-gradient(135deg, rgba(255, 162, 112, 0.35) 0%, rgba(255, 162, 112, 0.05) 60%, rgba(255, 162, 112, 0.0) 100%) !important; 
-}
-.artists-slider-track.glass-cards-active .artist-slider-card.bg-blue { 
-    background: linear-gradient(135deg, rgba(214, 232, 240, 0.35) 0%, rgba(214, 232, 240, 0.05) 60%, rgba(214, 232, 240, 0.0) 100%) !important; 
-}
-.artists-slider-track.glass-cards-active .artist-slider-card.bg-yellow { 
-    background: linear-gradient(135deg, rgba(245, 176, 39, 0.35) 0%, rgba(245, 176, 39, 0.05) 60%, rgba(245, 176, 39, 0.0) 100%) !important; 
-}
-.artists-slider-track.glass-cards-active .artist-slider-card.bg-red { 
-    background: linear-gradient(135deg, rgba(209, 86, 84, 0.35) 0%, rgba(209, 86, 84, 0.05) 60%, rgba(209, 86, 84, 0.0) 100%) !important; 
-}
-.artists-slider-track.glass-cards-active .artist-slider-card.bg-green { 
-    background: linear-gradient(135deg, rgba(182, 205, 174, 0.35) 0%, rgba(182, 205, 174, 0.05) 60%, rgba(182, 205, 174, 0.0) 100%) !important; 
-}
-.artists-slider-track.glass-cards-active .artist-slider-card.bg-purple { 
-    background: linear-gradient(135deg, rgba(224, 189, 246, 0.35) 0%, rgba(224, 189, 246, 0.05) 60%, rgba(224, 189, 246, 0.0) 100%) !important; 
-}
-.artists-slider-track.glass-cards-active .artist-slider-card.bg-grey { 
-    background: linear-gradient(135deg, rgba(160, 166, 169, 0.35) 0%, rgba(160, 166, 169, 0.05) 60%, rgba(160, 166, 169, 0.0) 100%) !important; 
-}
-
-/* Glass adjustments for card headers, badges, and text overrides */
-.artists-slider-track.glass-cards-active .artist-slider-card .card-img-wrapper {
-    border-bottom: 2px solid rgba(255, 255, 255, 0.25) !important;
-}
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-peach  { background: linear-gradient(135deg, rgba(255,162,112,0.35) 0%, rgba(255,162,112,0.05) 60%, rgba(255,162,112,0.0) 100%) !important; }
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-blue   { background: linear-gradient(135deg, rgba(214,232,240,0.35) 0%, rgba(214,232,240,0.05) 60%, rgba(214,232,240,0.0) 100%) !important; }
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-yellow { background: linear-gradient(135deg, rgba(245,176,39,0.35) 0%, rgba(245,176,39,0.05) 60%, rgba(245,176,39,0.0) 100%) !important; }
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-red    { background: linear-gradient(135deg, rgba(209,86,84,0.35) 0%, rgba(209,86,84,0.05) 60%, rgba(209,86,84,0.0) 100%) !important; }
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-green  { background: linear-gradient(135deg, rgba(182,205,174,0.35) 0%, rgba(182,205,174,0.05) 60%, rgba(182,205,174,0.0) 100%) !important; }
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-purple { background: linear-gradient(135deg, rgba(224,189,246,0.35) 0%, rgba(224,189,246,0.05) 60%, rgba(224,189,246,0.0) 100%) !important; }
+.artists-slider-track.glass-cards-active .artist-slider-card.bg-grey   { background: linear-gradient(135deg, rgba(160,166,169,0.35) 0%, rgba(160,166,169,0.05) 60%, rgba(160,166,169,0.0) 100%) !important; }
 
 /* Keep text elements clean and readable on glass cards */
 .artists-slider-track.glass-cards-active .artist-slider-card .artist-card-name { color: var(--text-black) !important; }
-.artists-slider-track.glass-cards-active .artist-slider-card .artist-card-time { color: rgba(26, 26, 26, 0.65) !important; }
-.artists-slider-track.glass-cards-active .artist-slider-card .artist-card-genre { color: var(--text-black) !important; }
-.artists-slider-track.glass-cards-active .artist-slider-card .card-action-link { color: var(--text-black) !important; }
-
-/* Keep name text visible for red card overrides */
-.artists-slider-track.glass-cards-active .artist-slider-card.bg-red .artist-card-name { color: var(--text-black) !important; }
-.artists-slider-track.glass-cards-active .artist-slider-card.bg-red .artist-card-time { color: rgba(26, 26, 26, 0.6) !important; }
-.artists-slider-track.glass-cards-active .artist-slider-card.bg-red .artist-card-genre { color: var(--text-black) !important; }
-.artists-slider-track.glass-cards-active .artist-slider-card.bg-red .card-action-link { color: var(--text-black) !important; }
+.artists-slider-track.glass-cards-active .artist-slider-card .card-time-chip { color: rgba(26, 26, 26, 0.65) !important; }
 
 /* Dynamic active states for glass button */
 .slider-control-btn.glass-toggle {
@@ -5231,6 +5230,488 @@ body.menu-open {
         height: 620px !important;
     }
 }
+
+/* ============================================================
+   NUOVO SUNFLOWER SPOTIFY PLAYER — .sf-music-player
+   ============================================================ */
+
+.sf-music-player {
+    width: 100%;
+    margin-top: 1.5rem;
+    border: 4px solid var(--text-black);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 8px 8px 0px var(--text-black);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--text-black);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
+}
+
+.sf-music-player:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 11px 11px 0px var(--text-black);
+}
+
+/* Header bar giallo */
+.sf-player-header {
+    background-color: var(--c-yellow);
+    border-bottom: 4px solid var(--text-black);
+    padding: 0.6rem 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 46px;
+}
+
+/* Label con icona Spotify */
+.sf-player-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    color: var(--text-black);
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    justify-content: center;
+}
+
+.sf-player-label .fa-spotify {
+    font-size: 1.05rem;
+    color: #1ed760;
+    filter: drop-shadow(0 0 5px rgba(30, 215, 96, 0.5));
+}
+
+/* Barre equalizzatore animate */
+.sf-player-eq {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.sf-player-eq span {
+    display: block;
+    width: 4px;
+    border-radius: 2px 2px 0 0;
+    background-color: var(--text-black);
+    animation: sf-eq-bounce 1.2s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.sf-player-eq span:nth-child(1) { height: 8px;  animation-duration: 1.1s;  animation-delay: 0s; }
+.sf-player-eq span:nth-child(2) { height: 16px; animation-duration: 0.88s; animation-delay: 0.18s; }
+.sf-player-eq span:nth-child(3) { height: 10px; animation-duration: 1.35s; animation-delay: 0.06s; }
+.sf-player-eq span:nth-child(4) { height: 14px; animation-duration: 0.98s; animation-delay: 0.32s; }
+.sf-player-eq span:nth-child(5) { height: 6px;  animation-duration: 1.25s; animation-delay: 0.14s; }
+
+@keyframes sf-eq-bounce {
+    0%, 100% { transform: scaleY(0.28); opacity: 0.55; }
+    50%       { transform: scaleY(1);   opacity: 1; }
+}
+
+/* Pallini decorativi traffic-light */
+.sf-player-dots {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.sf-player-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--text-black);
+}
+
+.sf-player-dots span:nth-child(1) { opacity: 0.78; }
+.sf-player-dots span:nth-child(2) { opacity: 0.44; }
+.sf-player-dots span:nth-child(3) { opacity: 0.2; }
+
+/* Area iframe Spotify */
+.sf-player-body {
+    background-color: #121212;
+    line-height: 0;
+    flex: 1;
+}
+
+.sf-player-body iframe {
+    display: block;
+    border: none;
+    width: 100%;
+    height: 152px;
+}
+
+/* Variante "in arrivo" (artisti senza Spotify) */
+.sf-player-coming-soon-body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #222 100%);
+    padding: 1.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    min-height: 104px;
+}
+
+.sf-player-coming-soon-body .fa-compact-disc {
+    font-size: 2.8rem;
+    color: var(--c-yellow);
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 10px rgba(245, 176, 39, 0.45));
+}
+
+.sf-coming-soon-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.sf-coming-soon-text span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: var(--c-yellow);
+    letter-spacing: 0.5px;
+}
+
+.sf-coming-soon-text p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(253, 253, 253, 0.68);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Animazione di entrata quando il fullscreen si apre */
+.artist-full-page.active .sf-music-player {
+    animation: fp-slide-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .sf-music-player {
+        border-width: 3px;
+        box-shadow: 5px 5px 0px var(--text-black);
+        margin-top: 1rem;
+    }
+
+    .sf-player-header {
+        min-height: 40px;
+        padding: 0.5rem 0.9rem;
+        gap: 0.5rem;
+    }
+
+    .sf-player-label {
+        font-size: 0.62rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* ============================================================
+   FULLSCREEN ARTIST — Numero decorativo di sfondo (fp-bg-deco)
+   ============================================================ */
+
+.artist-full-page .fp-bg-deco {
+    position: fixed !important;
+    bottom: -2rem;
+    right: -1.5rem;
+    font-family: 'Monument Extended', sans-serif;
+    font-size: clamp(11rem, 28vw, 26rem);
+    font-weight: 400;
+    color: var(--text-black);
+    opacity: 0.04;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -0.04em;
+    z-index: 0 !important;
+}
+
+@media (max-width: 768px) {
+    .artist-full-page .fp-bg-deco {
+        font-size: 42vw;
+        bottom: 0;
+        right: -2rem;
+        opacity: 0.035;
+    }
+}
+
+/* ============================================================
+   ARTIST FULL-PAGE — Miglioramenti grafici & animazioni
+   ============================================================ */
+
+/* Texture diagonale di sfondo sulla pagina artista */
+.artist-full-page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.05;
+    background-image: repeating-linear-gradient(
+        -45deg,
+        var(--text-black),
+        var(--text-black) 1px,
+        transparent 1px,
+        transparent 14px
+    );
+}
+.artist-full-page > * { position: relative; z-index: 1; }
+
+/* Staggered entry animations quando il modal si apre */
+@keyframes fp-slide-left {
+    from { opacity: 0; transform: translateX(-50px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fp-slide-right {
+    from { opacity: 0; transform: translateX(50px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fp-slide-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fp-expand {
+    from { transform: scaleX(0); opacity: 0; }
+    to   { transform: scaleX(1); opacity: 1; }
+}
+
+.artist-full-page.active .full-page-media-col {
+    animation: fp-slide-left 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+}
+.artist-full-page.active .full-page-time-badge {
+    animation: fp-slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+.artist-full-page.active .full-page-title {
+    animation: fp-slide-right 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+.artist-full-page.active .full-page-genre-tag {
+    animation: fp-slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+}
+.artist-full-page.active .brutalist-divider {
+    animation: fp-expand 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+    transform-origin: left;
+}
+.artist-full-page.active .full-page-bio {
+    animation: fp-slide-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+}
+.artist-full-page.active .sunflower-player-section {
+    animation: fp-slide-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
+}
+.artist-full-page.active .full-page-socials-container {
+    animation: fp-slide-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.75s both;
+}
+
+/* Sticker badge: animazione float costante */
+@keyframes sticker-float {
+    0%, 100% { transform: rotate(-10deg) translateY(0px); }
+    50%       { transform: rotate(-7deg)  translateY(-7px); }
+}
+.sticker-badge.badge-circle {
+    animation: sticker-float 3s ease-in-out infinite !important;
+}
+.sticker-badge.badge-starburst {
+    animation: sticker-float 4s ease-in-out infinite !important;
+}
+
+/* Titolo artista — ombra testo più drammatica */
+.full-page-title {
+    text-shadow: 5px 5px 0px rgba(0,0,0,0.15);
+}
+
+/* Bio section — pannello semi-trasparente */
+.full-page-bio {
+    background-color: rgba(255,255,255,0.3);
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 12px;
+    padding: 1.4rem 1.6rem;
+    backdrop-filter: blur(6px);
+}
+
+/* Genre tag — aspetto timbro */
+.full-page-genre-tag {
+    display: inline-block;
+    border: 2.5px solid var(--text-black);
+    border-radius: 4px;
+    padding: 0.25rem 1rem;
+    background-color: rgba(0,0,0,0.08);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    transform: rotate(-1deg);
+    margin-bottom: 1.5rem;
+}
+
+/* Time badge — migliorato */
+.full-page-time-badge {
+    box-shadow: 4px 4px 0 var(--text-black);
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transform: rotate(0.5deg);
+    display: inline-block;
+}
+
+/* Photo frame — ombra più drammatica */
+.full-page-media-col .torn-paper-frame {
+    box-shadow: 16px 16px 0px var(--text-black) !important;
+    transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+}
+.full-page-media-col .torn-paper-frame:hover {
+    transform: scale(1.02) rotate(1.5deg) !important;
+    box-shadow: 20px 20px 0px var(--text-black) !important;
+}
+
+/* Brutalist divider — accent giallo */
+.brutalist-divider {
+    background: linear-gradient(to right, var(--c-yellow) 40px, var(--text-black) 40px);
+    height: 5px;
+    border-radius: 0;
+}
+
+/* Sunflower player — striscia NOW PLAYING */
+.sunflower-player {
+    border-radius: 12px !important;
+    overflow: hidden;
+    position: relative;
+}
+.sunflower-player::before {
+    content: '♪ NOW PLAYING';
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.58rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-black);
+    background-color: var(--c-yellow);
+    border-bottom: 2px solid var(--text-black);
+    padding: 0.35rem 1rem;
+    margin: -1.2rem -1.8rem 1rem -1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.sunflower-player::after {
+    content: '';
+    position: absolute;
+    top: 2.1rem;
+    right: 1.2rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--text-black);
+    animation: player-dot-pulse 1.4s ease-in-out infinite;
+}
+@keyframes player-dot-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%       { transform: scale(1.6); opacity: 0.4; }
+}
+
+/* Progress bar più alta */
+.player-progress-bar-container {
+    height: 14px !important;
+    border-radius: 7px !important;
+    background-color: rgba(0,0,0,0.1) !important;
+    border: 2px solid var(--text-black) !important;
+}
+.player-progress-bar {
+    border-radius: 7px !important;
+    background: linear-gradient(to right, var(--c-yellow), #e8a020) !important;
+    position: relative;
+}
+
+/* Play button — ring animato in hover */
+.player-play-btn {
+    position: relative;
+}
+.player-play-btn::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid var(--c-yellow);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.player-play-btn:hover::after {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Social buttons — stagger hover delay */
+.full-page-socials-grid .brutalist-social-btn:nth-child(1) { transition-delay: 0s; }
+.full-page-socials-grid .brutalist-social-btn:nth-child(2) { transition-delay: 0.04s; }
+.full-page-socials-grid .brutalist-social-btn:nth-child(3) { transition-delay: 0.08s; }
+.full-page-socials-grid .brutalist-social-btn:nth-child(4) { transition-delay: 0.12s; }
+.full-page-socials-grid .brutalist-social-btn:nth-child(5) { transition-delay: 0.16s; }
+
+/* ============================================================
+   LANGUAGE SWITCHER STYLES
+   ============================================================ */
+body.lang-en-active .lang-it {
+    display: none !important;
+}
+body:not(.lang-en-active) .lang-en {
+    display: none !important;
+}
+
+.lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    border: 3px solid var(--text-black);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--text-white);
+    box-shadow: 3px 3px 0px var(--text-black);
+    margin-left: 1rem;
+    height: 38px;
+}
+
+.lang-btn {
+    border: none;
+    background: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    color: var(--text-black);
+    transition: background-color 0.2s ease;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.lang-btn.active {
+    background-color: var(--c-yellow);
+}
+
+.lang-btn:not(.active):hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.lang-switcher-divider {
+    width: 2px;
+    height: 16px;
+    background-color: var(--text-black);
+}
+
+@media (max-width: 768px) {
+    .lang-switcher {
+        margin: 1.5rem auto 0 auto;
+        display: flex;
+        width: fit-content;
+    }
+}
+
+
 
 
 

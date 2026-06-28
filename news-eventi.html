@@ -47,26 +47,34 @@
         </button>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="chi-siamo.html">Chi Siamo</a>
-            <a href="news-eventi.html" class="active">News & Eventi</a>
-            <a href="galleria.html">Galleria</a>
-            <a href="contatti.html">Contatti</a>
+            <a href="chi-siamo.html"><span class="lang-it">Chi Siamo</span><span class="lang-en">About Us</span></a>
+            <a href="news-eventi.html" class="active"><span class="lang-it">News & Eventi</span><span class="lang-en">News & Events</span></a>
+            <a href="galleria.html"><span class="lang-it">Galleria</span><span class="lang-en">Gallery</span></a>
+            <a href="contatti.html"><span class="lang-it">Contatti</span><span class="lang-en">Contact</span></a>
             <div class="nav-dropdown">
-                <a href="#" class="dropdown-trigger">Lavora con noi <i class="fa-solid fa-chevron-down"></i></a>
+                <a href="#" class="dropdown-trigger">
+                    <span class="lang-it">Lavora con noi <i class="fa-solid fa-chevron-down"></i></span>
+                    <span class="lang-en">Work with us <i class="fa-solid fa-chevron-down"></i></span>
+                </a>
                 <div class="dropdown-content">
                     <div class="dropdown-item">
-                        <h4>LAVORA CON NOI</h4>
-                        <p>Entra a far parte dello staff e aiutaci a organizzare il festival!</p>
+                        <h4><span class="lang-it">LAVORA CON NOI</span><span class="lang-en">WORK WITH US</span></h4>
+                        <p><span class="lang-it">Entra a far parte dello staff e aiutaci a organizzare il festival!</span><span class="lang-en">Join the staff and help us organize the festival!</span></p>
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSexlqiySbiXjuskMPaoTKAL4eFnGVCigT198Jx8wdQ3EUx08g/viewform"
-                            target="_blank" class="dropdown-btn bg-yellow">Lavora con noi</a>
+                            target="_blank" class="dropdown-btn bg-yellow"><span class="lang-it">Lavora con noi</span><span class="lang-en">Work with us</span></a>
                     </div>
                     <div class="dropdown-divider"></div>
                     <div class="dropdown-item">
-                        <h4>SALI SUL PALCO</h4>
-                        <p>Sei un artista o una band emergente? Mostraci il tuo talento!</p>
-                        <a href="sali-sul-palco.html" class="dropdown-btn bg-red">Sali sul palco</a>
+                        <h4><span class="lang-it">SALI SUL PALCO</span><span class="lang-en">JOIN THE STAGE</span></h4>
+                        <p><span class="lang-it">Sei un artista o una band emergente? Mostraci il tuo talento!</span><span class="lang-en">Are you an emerging artist or band? Show us your talent!</span></p>
+                        <a href="sali-sul-palco.html" class="dropdown-btn bg-red"><span class="lang-it">Sali sul palco</span><span class="lang-en">Join the stage</span></a>
                     </div>
                 </div>
+            </div>
+            <div class="lang-switcher">
+                <button class="lang-btn it" data-lang="it">IT</button>
+                <div class="lang-switcher-divider"></div>
+                <button class="lang-btn en" data-lang="en">EN</button>
             </div>
         </div>
     </nav>
@@ -75,7 +83,10 @@
     <header class="page-header" style="background-color: var(--c-peach); border-bottom: 3px solid var(--text-black);">
         <svg class="bg-blob-yellow" viewBox="0 0 100 100" style="width: 160px; opacity: 0.7; left: 8%; top: 15%; color: var(--c-yellow);"><path d="M45,20 C70,10 90,40 80,70 C70,100 30,90 15,60 C0,30 20,30 45,20 Z" fill="currentColor"/></svg>
         <h1 class="page-title" style="color: var(--text-black);">NEWS & EVENTI</h1>
-        <p class="page-subtitle" style="color: var(--text-black);">Tutte le novità e gli appuntamenti del Sunflower Festival</p>
+        <p class="page-subtitle" style="color: var(--text-black);">
+            <span class="lang-it">Tutte le novità e gli appuntamenti del Sunflower Festival</span>
+            <span class="lang-en">All the latest news and events of the Sunflower Festival</span>
+        </p>
     </header>
 
     <!-- Content Wrapper -->
@@ -89,11 +100,23 @@
                     <div class="news-card-img" style="background-image: url('assets/slide1.png');"></div>
                 </div>
                 <div class="news-card-content">
-                    <span class="news-badge">Annuncio</span>
-                    <h2 class="news-title">Annunciata la Location Ufficiale!</h2>
-                    <p class="news-date">- Maggio 2026</p>
-                    <p class="news-excerpt">Il Sunflower Fest 2026 si terrà nella splendida cornice del Social Tennis Club a Cava de' Tirreni.</p>
-                    <a href="#" class="news-link">Leggi di più &rarr;</a>
+                    <span class="news-badge">
+                        <span class="lang-it">Annuncio</span>
+                        <span class="lang-en">Announcement</span>
+                    </span>
+                    <h2 class="news-title">
+                        <span class="lang-it">Annunciata la Location Ufficiale!</span>
+                        <span class="lang-en">Official Location Announced!</span>
+                    </h2>
+                    <p class="news-date">- <span class="lang-it">Maggio 2026</span><span class="lang-en">May 2026</span></p>
+                    <p class="news-excerpt">
+                        <span class="lang-it">Il Sunflower Fest 2026 si terrà nella splendida cornice del Social Tennis Club a Cava de' Tirreni.</span>
+                        <span class="lang-en">Sunflower Fest 2026 will be held in the beautiful setting of the Social Tennis Club in Cava de' Tirreni.</span>
+                    </p>
+                    <a href="#" class="news-link">
+                        <span class="lang-it">Leggi di più &rarr;</span>
+                        <span class="lang-en">Read more &rarr;</span>
+                    </a>
                 </div>
             </article>
 
@@ -104,10 +127,19 @@
                 </div>
                 <div class="news-card-content">
                     <span class="news-badge">Contest</span>
-                    <h2 class="news-title">Sali sul Palco: Candidature Chiuse</h2>
-                    <p class="news-date">- Maggio 2026</p>
-                    <p class="news-excerpt">Sei un artista o fai parte di una band emergente? Le iscrizioni per esibirsi al festival sono chiuse poiché l'evento è già iniziato. Scopri come seguirci per le prossime edizioni.</p>
-                    <a href="sali-sul-palco.html" class="news-link">Scopri di più &rarr;</a>
+                    <h2 class="news-title">
+                        <span class="lang-it">Sali sul Palco: Candidature Chiuse</span>
+                        <span class="lang-en">Join the Stage: Applications Closed</span>
+                    </h2>
+                    <p class="news-date">- <span class="lang-it">Maggio 2026</span><span class="lang-en">May 2026</span></p>
+                    <p class="news-excerpt">
+                        <span class="lang-it">Sei un artista o fai parte di una band emergente? Le iscrizioni per esibirsi al festival sono chiuse poiché l'evento è già iniziato. Scopri come seguirci per le prossime edizioni.</span>
+                        <span class="lang-en">Are you an artist or part of an emerging band? Registration to perform at the festival is closed as the event has already started. Find out how to follow us for future editions.</span>
+                    </p>
+                    <a href="sali-sul-palco.html" class="news-link">
+                        <span class="lang-it">Scopri di più &rarr;</span>
+                        <span class="lang-en">Learn more &rarr;</span>
+                    </a>
                 </div>
             </article>
 
@@ -118,10 +150,22 @@
                 </div>
                 <div class="news-card-content">
                     <span class="news-badge">Line-Up</span>
-                    <h2 class="news-title">Svelata la Line-up degli Ospiti 2026!</h2>
-                    <p class="news-date">24 Aprile 2026</p>
-                    <p class="news-excerpt">Scopri tutti gli artisti di quest'anno.</p>
-                    <a href="index.html#ospiti-2026" class="news-link">Scopri gli ospiti &rarr;</a>
+                    <h2 class="news-title">
+                        <span class="lang-it">Svelata la Line-up degli Ospiti 2026!</span>
+                        <span class="lang-en">2026 Guests Line-up Revealed!</span>
+                    </h2>
+                    <p class="news-date">
+                        <span class="lang-it">24 Aprile 2026</span>
+                        <span class="lang-en">April 24, 2026</span>
+                    </p>
+                    <p class="news-excerpt">
+                        <span class="lang-it">Scopri tutti gli artisti di quest'anno.</span>
+                        <span class="lang-en">Discover all the artists of this year.</span>
+                    </p>
+                    <a href="index.html#ospiti-2026" class="news-link">
+                        <span class="lang-it">Scopri gli ospiti &rarr;</span>
+                        <span class="lang-en">Discover the guests &rarr;</span>
+                    </a>
                 </div>
             </article>
 
@@ -139,28 +183,45 @@
         <div class="footer-container">
             <!-- Left Column: Contacts -->
             <div class="footer-col footer-contacts">
-                <h3>Contatti</h3>
+                <h3><span class="lang-it">Contatti</span><span class="lang-en">Contacts</span></h3>
                 <p class="association-name">Sunflowers Group</p>
                 <p>Piazza San Francesco, 22</p>
                 <p>84013 Cava de' Tirreni (SA)</p>
-                <p>Email festival: info@sunflowerfestival.it </p>
-                <P>Pec associazione: ass.sunflowergroup@pec.it </P>
-                <p>tel: +39 339 6816196</p>
+                <p>
+                    <span class="lang-it">Email festival: info@sunflowerfestival.it</span>
+                    <span class="lang-en">Festival email: info@sunflowerfestival.it</span>
+                </p>
+                <p>
+                    <span class="lang-it">Pec associazione: ass.sunflowergroup@pec.it</span>
+                    <span class="lang-en">Association PEC: ass.sunflowergroup@pec.it</span>
+                </p>
+                <p>
+                    <span class="lang-it">tel: +39 339 6816196</span>
+                    <span class="lang-en">tel: +39 339 6816196</span>
+                </p>
                 <p>C.F.: 06366340658</p>
                 <p>P. Iva: 06366340658</p>
             </div>
             
             <!-- Middle Column: Logo & Realization -->
             <div class="footer-col footer-brand">
-                <p class="realization-text">Il Sunflower Fest è realizzato dall'associazione culturale<br><strong>SUNFLOWERS GROUP APS</strong></p>
+                <p class="realization-text">
+                    <span class="lang-it">Il Sunflower Fest è realizzato dall'associazione culturale<br><strong>SUNFLOWERS GROUP APS</strong></span>
+                    <span class="lang-en">Sunflower Fest is realized by the cultural association<br><strong>SUNFLOWERS GROUP APS</strong></span>
+                </p>
                 <a href="associazione/index.html">
                     <img src="assets/loghi/logo_ass.webp" alt="Logo Associazione" class="footer-association-logo" loading="lazy" width="150" height="163">
                 </a>
                 <a href="https://www.paypal.com/donate" target="_blank" class="brutalist-button bg-red donation-footer-btn" style="text-decoration: none; font-size: 0.9rem; font-weight: 900; padding: 0.6rem 1.2rem; border-radius: 6px; color: var(--text-white); display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 3px 3px 0px var(--text-black); border: 2px solid var(--text-black); margin-top: 1rem;">
-                    <i class="fa-solid fa-heart" style="color: var(--c-yellow);"></i> Fai una Donazione
+                    <i class="fa-solid fa-heart" style="color: var(--c-yellow);"></i> 
+                    <span class="lang-it">Fai una Donazione</span>
+                    <span class="lang-en">Make a Donation</span>
                 </a>
                 <div class="edizioni-link-container" style="margin-top: 1.5rem;">
-                    <a href="#" class="edizioni-link">Storico Edizioni</a>
+                    <a href="#" class="edizioni-link">
+                        <span class="lang-it">Storico Edizioni</span>
+                        <span class="lang-en">Editions History</span>
+                    </a>
                 </div>
             </div>
             
@@ -198,7 +259,7 @@
         <!-- Bottom Developer Credit -->
         <div class="footer-bottom">
             <div class="developer-credit">
-               Sito web a cura di <a href="https://ianyydevs.altervista.org/" target="_blank">IANYDEVS</a>
+               <span class="lang-it">Sito web a cura di</span><span class="lang-en">Website by</span> <a href="https://ianyydevs.altervista.org/" target="_blank">IANYDEVS</a>
             </div>
         </div>
     </footer>

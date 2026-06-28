@@ -46,26 +46,34 @@
         </button>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="chi-siamo.html">Chi Siamo</a>
-            <a href="news-eventi.html">News & Eventi</a>
-            <a href="galleria.html" class="active">Galleria</a>
-            <a href="contatti.html">Contatti</a>
+            <a href="chi-siamo.html"><span class="lang-it">Chi Siamo</span><span class="lang-en">About Us</span></a>
+            <a href="news-eventi.html"><span class="lang-it">News & Eventi</span><span class="lang-en">News & Events</span></a>
+            <a href="galleria.html" class="active"><span class="lang-it">Galleria</span><span class="lang-en">Gallery</span></a>
+            <a href="contatti.html"><span class="lang-it">Contatti</span><span class="lang-en">Contact</span></a>
             <div class="nav-dropdown">
-                <a href="#" class="dropdown-trigger">Lavora con noi <i class="fa-solid fa-chevron-down"></i></a>
+                <a href="#" class="dropdown-trigger">
+                    <span class="lang-it">Lavora con noi <i class="fa-solid fa-chevron-down"></i></span>
+                    <span class="lang-en">Work with us <i class="fa-solid fa-chevron-down"></i></span>
+                </a>
                 <div class="dropdown-content">
                     <div class="dropdown-item">
-                        <h4>LAVORA CON NOI</h4>
-                        <p>Entra a far parte dello staff e aiutaci a organizzare il festival!</p>
+                        <h4><span class="lang-it">LAVORA CON NOI</span><span class="lang-en">WORK WITH US</span></h4>
+                        <p><span class="lang-it">Entra a far parte dello staff e aiutaci a organizzare il festival!</span><span class="lang-en">Join the staff and help us organize the festival!</span></p>
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSexlqiySbiXjuskMPaoTKAL4eFnGVCigT198Jx8wdQ3EUx08g/viewform"
-                            target="_blank" class="dropdown-btn bg-yellow">Lavora con noi</a>
+                            target="_blank" class="dropdown-btn bg-yellow"><span class="lang-it">Lavora con noi</span><span class="lang-en">Work with us</span></a>
                     </div>
                     <div class="dropdown-divider"></div>
                     <div class="dropdown-item">
-                        <h4>SALI SUL PALCO</h4>
-                        <p>Sei un artista o una band emergente? Mostraci il tuo talento!</p>
-                        <a href="sali-sul-palco.html" class="dropdown-btn bg-red">Sali sul palco</a>
+                        <h4><span class="lang-it">SALI SUL PALCO</span><span class="lang-en">JOIN THE STAGE</span></h4>
+                        <p><span class="lang-it">Sei un artista o una band emergente? Mostraci il tuo talento!</span><span class="lang-en">Are you an emerging artist or band? Show us your talent!</span></p>
+                        <a href="sali-sul-palco.html" class="dropdown-btn bg-red"><span class="lang-it">Sali sul palco</span><span class="lang-en">Join the stage</span></a>
                     </div>
                 </div>
+            </div>
+            <div class="lang-switcher">
+                <button class="lang-btn it" data-lang="it">IT</button>
+                <div class="lang-switcher-divider"></div>
+                <button class="lang-btn en" data-lang="en">EN</button>
             </div>
         </div>
     </nav>
@@ -74,10 +82,15 @@
     <header class="page-header" style="background-color: var(--c-purple);">
         <svg class="bg-blob-yellow" viewBox="0 0 100 100" style="width: 150px; opacity: 0.8; right: 15%; top: 20%;"><path d="M50,10 C80,0 100,30 90,60 C80,90 30,100 10,70 C-10,40 20,20 50,10 Z" fill="currentColor"/></svg>
         <h1 class="page-title" style="color: var(--text-black); font-size: 5rem;">LA GALLERIA</h1>
-        <p class="page-subtitle" style="color: var(--text-black);">Un'anteprima dei momenti più significativi del Sunflower.</p>
+        <p class="page-subtitle" style="color: var(--text-black);">
+            <span class="lang-it">Un'anteprima dei momenti più significativi del Sunflower.</span>
+            <span class="lang-en">A preview of the most significant moments of Sunflower.</span>
+        </p>
         <div style="margin-top: 1.5rem;">
             <a href="https://drive.google.com" target="_blank" class="brutalist-button bg-yellow" style="text-decoration: none; font-weight: 900; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.8rem;">
-                <i class="fa-solid fa-images"></i> VEDI TUTTE LE FOTO E I VIDEO DEL FESTIVAL &rarr;
+                <i class="fa-solid fa-images"></i> 
+                <span class="lang-it">VEDI TUTTE LE FOTO E I VIDEO DEL FESTIVAL &rarr;</span>
+                <span class="lang-en">SEE ALL FESTIVAL PHOTOS AND VIDEOS &rarr;</span>
             </a>
         </div>
     </header>
@@ -547,21 +560,21 @@
             <div class="letter-card" data-gallery="S" style="--card-bg: var(--c-red);">
                 <div class="letter-bg-image" style="background-image: url('assets/Foto-generali/Foto12.webp');"></div>
                 <span class="huge-letter">S</span>
-                <span class="letter-concept">Spettacolo</span>
+                <span class="letter-concept"><span class="lang-it">Spettacolo</span><span class="lang-en">Show</span></span>
             </div>
 
             <!-- U Card -->
             <div class="letter-card" data-gallery="U" style="--card-bg: var(--c-blue);">
                 <div class="letter-bg-image" style="background-image: url('assets/Foto-generali/Foto15.webp');"></div>
                 <span class="huge-letter">U</span>
-                <span class="letter-concept">Unione</span>
+                <span class="letter-concept"><span class="lang-it">Unione</span><span class="lang-en">Union</span></span>
             </div>
 
             <!-- N Card -->
             <div class="letter-card" data-gallery="N" style="--card-bg: var(--c-green);">
                 <div class="letter-bg-image" style="background-image: url('assets/Foto-generali/Foto19.webp');"></div>
                 <span class="huge-letter">N</span>
-                <span class="letter-concept">Notte</span>
+                <span class="letter-concept"><span class="lang-it">Notte</span><span class="lang-en">Night</span></span>
             </div>
 
             <!-- F Card -->
@@ -582,7 +595,7 @@
             <div class="letter-card" data-gallery="O" style="--card-bg: #cc5de8;">
                 <div class="letter-bg-image" style="background-image: url('assets/Foto-generali/foto2.webp');"></div>
                 <span class="huge-letter">O</span>
-                <span class="letter-concept">Oltre</span>
+                <span class="letter-concept"><span class="lang-it">Oltre</span><span class="lang-en">Beyond</span></span>
             </div>
 
             <!-- W Card -->
@@ -596,14 +609,14 @@
             <div class="letter-card" data-gallery="E" style="--card-bg: #ff8787;">
                 <div class="letter-bg-image" style="background-image: url('assets/foto-artisti/AntonioCalabrese.jpeg');"></div>
                 <span class="huge-letter">E</span>
-                <span class="letter-concept">Energia</span>
+                <span class="letter-concept"><span class="lang-it">Energia</span><span class="lang-en">Energy</span></span>
             </div>
 
             <!-- R Card -->
             <div class="letter-card" data-gallery="R" style="--card-bg: #845ef7;">
                 <div class="letter-bg-image" style="background-image: url('assets/Foto-generali/Foto22.webp');"></div>
                 <span class="huge-letter">R</span>
-                <span class="letter-concept">Ricordi</span>
+                <span class="letter-concept"><span class="lang-it">Ricordi</span><span class="lang-en">Memories</span></span>
             </div>
 
         </main>
@@ -617,7 +630,10 @@
             <button class="gallery-modal-close" aria-label="Chiudi galleria">&times;</button>
             <div class="gallery-modal-header">
                 <h2 id="gallery-modal-title" class="gallery-modal-title">NOME SEZIONE</h2>
-                <p class="gallery-modal-subtitle">Clicca su una foto per ingrandirla</p>
+                <p class="gallery-modal-subtitle">
+                    <span class="lang-it">Clicca su una foto per ingrandirla</span>
+                    <span class="lang-en">Click on a photo to enlarge it</span>
+                </p>
             </div>
             <div class="gallery-modal-body">
                 <div id="gallery-modal-grid" class="gallery-modal-grid">
@@ -650,30 +666,47 @@
 
             <!-- Left Column: Contacts -->
             <div class="footer-col footer-contacts">
-                <h3>Contatti</h3>
+                <h3><span class="lang-it">Contatti</span><span class="lang-en">Contacts</span></h3>
                 <p class="association-name">Sunflowers Group</p>
                 <p>Piazza San Francesco, 22</p>
                 <p>84013 Cava de' Tirreni (SA)</p>
-                <p>Email festival: info@sunflowerfestival.it </p>
-                <p>Pec associazione: ass.sunflowergroup@pec.it </p>
-                <p>tel: +39 339 6816196</p>
+                <p>
+                    <span class="lang-it">Email festival: info@sunflowerfestival.it</span>
+                    <span class="lang-en">Festival email: info@sunflowerfestival.it</span>
+                </p>
+                <p>
+                    <span class="lang-it">Pec associazione: ass.sunflowergroup@pec.it</span>
+                    <span class="lang-en">Association PEC: ass.sunflowergroup@pec.it</span>
+                </p>
+                <p>
+                    <span class="lang-it">tel: +39 339 6816196</span>
+                    <span class="lang-en">tel: +39 339 6816196</span>
+                </p>
                 <p>C.F.: 06366340658</p>
                 <p>P. Iva: 06366340658</p>
             </div>
 
             <!-- Middle Column: Logo & Realization -->
             <div class="footer-col footer-brand">
-                <p class="realization-text">Il Sunflower Fest è realizzato dall'associazione culturale<br><strong>SUNFLOWERS GROUP APS</strong></p>
+                <p class="realization-text">
+                    <span class="lang-it">Il Sunflower Fest è realizzato dall'associazione culturale<br><strong>SUNFLOWERS GROUP APS</strong></span>
+                    <span class="lang-en">Sunflower Fest is realized by the cultural association<br><strong>SUNFLOWERS GROUP APS</strong></span>
+                </p>
                 <a href="associazione/index.html">
                     <img src="assets/loghi/logo_ass.webp" alt="Logo Associazione" class="footer-association-logo" loading="lazy" width="150" height="163">
                 </a>
                 <a href="https://www.paypal.com/donate" target="_blank"
                     class="brutalist-button bg-red donation-footer-btn"
                     style="text-decoration: none; font-size: 0.9rem; font-weight: 900; padding: 0.6rem 1.2rem; border-radius: 6px; color: var(--text-white); display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 3px 3px 0px var(--text-black); border: 2px solid var(--text-black); margin-top: 1rem;">
-                    <i class="fa-solid fa-heart" style="color: var(--c-yellow);"></i> Fai una Donazione
+                    <i class="fa-solid fa-heart" style="color: var(--c-yellow);"></i> 
+                    <span class="lang-it">Fai una Donazione</span>
+                    <span class="lang-en">Make a Donation</span>
                 </a>
                 <div class="edizioni-link-container" style="margin-top: 1.5rem;">
-                    <a href="#" class="edizioni-link">Storico Edizioni</a>
+                    <a href="#" class="edizioni-link">
+                        <span class="lang-it">Storico Edizioni</span>
+                        <span class="lang-en">Editions History</span>
+                    </a>
                 </div>
             </div>
 
@@ -716,7 +749,7 @@
         <!-- Bottom Developer Credit -->
         <div class="footer-bottom">
             <div class="developer-credit">
-             Sito web a cura di <a href="https://ianyydevs.altervista.org/" target="_blank">IANYDEVS</a>
+               <span class="lang-it">Sito web a cura di</span><span class="lang-en">Website by</span> <a href="https://ianyydevs.altervista.org/" target="_blank">IANYDEVS</a>
             </div>
         </div>
     </footer>
@@ -727,7 +760,8 @@
             // Gallery data mapping each letter of SUNFLOWER to CONCEPT, TITLE and IMAGES
             const galleryData = {
                 S: {
-                    title: "S - Spettacolo",
+                    titleIt: "S - Spettacolo",
+                    titleEn: "S - Show",
                     images: [
                         "assets/Foto-generali/Foto12.webp",
                         "assets/Foto-generali/Foto13.webp",
@@ -735,7 +769,8 @@
                     ]
                 },
                 U: {
-                    title: "U - Unione",
+                    titleIt: "U - Unione",
+                    titleEn: "U - Union",
                     images: [
                         "assets/Foto-generali/Foto15.webp",
                         "assets/Foto-generali/Foto16.webp",
@@ -743,7 +778,8 @@
                     ]
                 },
                 N: {
-                    title: "N - Notte",
+                    titleIt: "N - Notte",
+                    titleEn: "N - Night",
                     images: [
                         "assets/Foto-generali/Foto19.webp",
                         "assets/Foto-generali/Foto20.webp",
@@ -751,7 +787,8 @@
                     ]
                 },
                 F: {
-                    title: "F - Festival",
+                    titleIt: "F - Festival",
+                    titleEn: "F - Festival",
                     images: [
                         "assets/Foto-generali/Foto10.webp",
                         "assets/Foto-generali/Foto11.webp",
@@ -759,7 +796,8 @@
                     ]
                 },
                 L: {
-                    title: "L - Live",
+                    titleIt: "L - Live",
+                    titleEn: "L - Live",
                     images: [
                         "assets/foto-artisti/Santachiara.jpeg",
                         "assets/foto-artisti/Secondo.jpeg",
@@ -767,7 +805,8 @@
                     ]
                 },
                 O: {
-                    title: "O - Oltre",
+                    titleIt: "O - Oltre",
+                    titleEn: "O - Beyond",
                     images: [
                         "assets/Foto-generali/foto2.webp",
                         "assets/Foto-generali/foto3.webp",
@@ -775,7 +814,8 @@
                     ]
                 },
                 W: {
-                    title: "W - Workshop",
+                    titleIt: "W - Workshop",
+                    titleEn: "W - Workshop",
                     images: [
                         "assets/Foto-generali/foto6.webp",
                         "assets/Foto-generali/foto7.webp",
@@ -783,7 +823,8 @@
                     ]
                 },
                 E: {
-                    title: "E - Energia",
+                    titleIt: "E - Energia",
+                    titleEn: "E - Energy",
                     images: [
                         "assets/foto-artisti/AntonioCalabrese.jpeg",
                         "assets/foto-artisti/Aria.jpeg",
@@ -791,7 +832,8 @@
                     ]
                 },
                 R: {
-                    title: "R - Ricordi",
+                    titleIt: "R - Ricordi",
+                    titleEn: "R - Memories",
                     images: [
                         "assets/Foto-generali/Foto22.webp",
                         "assets/Foto-generali/foto9.webp",
@@ -825,7 +867,8 @@
                     const data = galleryData[category];
                     if (!data) return;
 
-                    modalTitle.textContent = data.title;
+                    const isEn = document.body.classList.contains("lang-en-active");
+                    modalTitle.textContent = isEn ? data.titleEn : data.titleIt;
                     modalGrid.innerHTML = "";
                     currentImages = data.images;
 

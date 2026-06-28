@@ -4944,3 +4944,259 @@ body.menu-open {
     }
 }
 
+/* ============================================================
+   ARTIST FULL-PAGE — Miglioramenti grafici & animazioni
+   ============================================================ */
+
+.artist-full-page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.05;
+    background-image: repeating-linear-gradient(
+        -45deg,
+        var(--text-black),
+        var(--text-black) 1px,
+        transparent 1px,
+        transparent 14px
+    );
+}
+.artist-full-page > * { position: relative; z-index: 1; }
+
+@keyframes fp-slide-left {
+    from { opacity: 0; transform: translateX(-50px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fp-slide-right {
+    from { opacity: 0; transform: translateX(50px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fp-slide-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fp-expand {
+    from { transform: scaleX(0); opacity: 0; }
+    to   { transform: scaleX(1); opacity: 1; }
+}
+
+.artist-full-page.active .full-page-media-col {
+    animation: fp-slide-left 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+}
+.artist-full-page.active .full-page-time-badge {
+    animation: fp-slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+.artist-full-page.active .full-page-title {
+    animation: fp-slide-right 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+.artist-full-page.active .full-page-genre-tag {
+    animation: fp-slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+}
+.artist-full-page.active .brutalist-divider {
+    animation: fp-expand 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+    transform-origin: left;
+}
+.artist-full-page.active .full-page-bio {
+    animation: fp-slide-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+}
+.artist-full-page.active .sunflower-player-section {
+    animation: fp-slide-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
+}
+.artist-full-page.active .full-page-socials-container {
+    animation: fp-slide-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.75s both;
+}
+
+@keyframes sticker-float {
+    0%, 100% { transform: rotate(-10deg) translateY(0px); }
+    50%       { transform: rotate(-7deg)  translateY(-7px); }
+}
+.sticker-badge.badge-circle {
+    animation: sticker-float 3s ease-in-out infinite !important;
+}
+.sticker-badge.badge-starburst {
+    animation: sticker-float 4s ease-in-out infinite !important;
+}
+
+.full-page-title {
+    text-shadow: 5px 5px 0px rgba(0,0,0,0.15);
+}
+
+.full-page-bio {
+    background-color: rgba(255,255,255,0.3);
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 12px;
+    padding: 1.4rem 1.6rem;
+    backdrop-filter: blur(6px);
+}
+
+.full-page-genre-tag {
+    display: inline-block;
+    border: 2.5px solid var(--text-black);
+    border-radius: 4px;
+    padding: 0.25rem 1rem;
+    background-color: rgba(0,0,0,0.08);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    transform: rotate(-1deg);
+    margin-bottom: 1.5rem;
+}
+
+.full-page-time-badge {
+    box-shadow: 4px 4px 0 var(--text-black);
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transform: rotate(0.5deg);
+    display: inline-block;
+}
+
+.full-page-media-col .torn-paper-frame {
+    box-shadow: 16px 16px 0px var(--text-black) !important;
+    transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+}
+.full-page-media-col .torn-paper-frame:hover {
+    transform: scale(1.02) rotate(1.5deg) !important;
+    box-shadow: 20px 20px 0px var(--text-black) !important;
+}
+
+.brutalist-divider {
+    background: linear-gradient(to right, var(--c-yellow) 40px, var(--text-black) 40px);
+    height: 5px;
+    border-radius: 0;
+}
+
+.sunflower-player {
+    border-radius: 12px !important;
+    overflow: hidden;
+    position: relative;
+}
+.sunflower-player::before {
+    content: '♪ NOW PLAYING';
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.58rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-black);
+    background-color: var(--c-yellow);
+    border-bottom: 2px solid var(--text-black);
+    padding: 0.35rem 1rem;
+    margin: -1.2rem -1.8rem 1rem -1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.sunflower-player::after {
+    content: '';
+    position: absolute;
+    top: 2.1rem;
+    right: 1.2rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--text-black);
+    animation: player-dot-pulse 1.4s ease-in-out infinite;
+}
+@keyframes player-dot-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%       { transform: scale(1.6); opacity: 0.4; }
+}
+
+.player-progress-bar-container {
+    height: 14px !important;
+    border-radius: 7px !important;
+    background-color: rgba(0,0,0,0.1) !important;
+    border: 2px solid var(--text-black) !important;
+}
+.player-progress-bar {
+    border-radius: 7px !important;
+    background: linear-gradient(to right, var(--c-yellow), #e8a020) !important;
+    position: relative;
+}
+
+.player-play-btn {
+    position: relative;
+}
+.player-play-btn::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid var(--c-yellow);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.player-play-btn:hover::after {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.full-page-socials-grid .brutalist-social-btn:nth-child(1) { transition-delay: 0s; }
+.full-page-socials-grid .brutalist-social-btn:nth-child(2) { transition-delay: 0.04s; }
+.full-page-socials-grid .brutalist-social-btn:nth-child(3) { transition-delay: 0.08s; }
+.full-page-socials-grid .brutalist-social-btn:nth-child(4) { transition-delay: 0.12s; }
+.full-page-socials-grid .brutalist-social-btn:nth-child(5) { transition-delay: 0.16s; }
+
+/* ============================================================
+   LANGUAGE SWITCHER STYLES
+   ============================================================ */
+body.lang-en-active .lang-it {
+    display: none !important;
+}
+body:not(.lang-en-active) .lang-en {
+    display: none !important;
+}
+
+.lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    border: 3px solid var(--text-black);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--text-white);
+    box-shadow: 3px 3px 0px var(--text-black);
+    margin-left: 1rem;
+    height: 38px;
+}
+
+.lang-btn {
+    border: none;
+    background: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    color: var(--text-black);
+    transition: background-color 0.2s ease;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.lang-btn.active {
+    background-color: var(--c-yellow);
+}
+
+.lang-btn:not(.active):hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.lang-switcher-divider {
+    width: 2px;
+    height: 16px;
+    background-color: var(--text-black);
+}
+
+@media (max-width: 768px) {
+    .lang-switcher {
+        margin: 1.5rem auto 0 auto;
+        display: flex;
+        width: fit-content;
+    }
+}
+
+

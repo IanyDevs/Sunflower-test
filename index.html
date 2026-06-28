@@ -49,26 +49,34 @@
         </button>
         <div class="nav-links">
             <a href="index.html" class="active">Home</a>
-            <a href="chi-siamo.html">Chi Siamo</a>
-            <a href="news-eventi.html">News & Eventi</a>
-            <a href="galleria.html">Galleria</a>
-            <a href="contatti.html">Contatti</a>
+            <a href="chi-siamo.html"><span class="lang-it">Chi Siamo</span><span class="lang-en">About Us</span></a>
+            <a href="news-eventi.html"><span class="lang-it">News & Eventi</span><span class="lang-en">News & Events</span></a>
+            <a href="galleria.html"><span class="lang-it">Galleria</span><span class="lang-en">Gallery</span></a>
+            <a href="contatti.html"><span class="lang-it">Contatti</span><span class="lang-en">Contact</span></a>
             <div class="nav-dropdown">
-                <a href="#" class="dropdown-trigger">Lavora con noi <i class="fa-solid fa-chevron-down"></i></a>
+                <a href="#" class="dropdown-trigger">
+                    <span class="lang-it">Lavora con noi <i class="fa-solid fa-chevron-down"></i></span>
+                    <span class="lang-en">Work with us <i class="fa-solid fa-chevron-down"></i></span>
+                </a>
                 <div class="dropdown-content">
                     <div class="dropdown-item">
-                        <h4>LAVORA CON NOI</h4>
-                        <p>Entra a far parte dello staff e aiutaci a organizzare il festival!</p>
+                        <h4><span class="lang-it">LAVORA CON NOI</span><span class="lang-en">WORK WITH US</span></h4>
+                        <p><span class="lang-it">Entra a far parte dello staff e aiutaci a organizzare il festival!</span><span class="lang-en">Join the staff and help us organize the festival!</span></p>
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSexlqiySbiXjuskMPaoTKAL4eFnGVCigT198Jx8wdQ3EUx08g/viewform"
-                            target="_blank" class="dropdown-btn bg-yellow">Lavora con noi</a>
+                            target="_blank" class="dropdown-btn bg-yellow"><span class="lang-it">Lavora con noi</span><span class="lang-en">Work with us</span></a>
                     </div>
                     <div class="dropdown-divider"></div>
                     <div class="dropdown-item">
-                        <h4>SALI SUL PALCO</h4>
-                        <p>Sei un artista o una band emergente? Mostraci il tuo talento!</p>
-                        <a href="sali-sul-palco.html" class="dropdown-btn bg-red">Sali sul palco</a>
+                        <h4><span class="lang-it">SALI SUL PALCO</span><span class="lang-en">JOIN THE STAGE</span></h4>
+                        <p><span class="lang-it">Sei un artista o una band emergente? Mostraci il tuo talento!</span><span class="lang-en">Are you an emerging artist or band? Show us your talent!</span></p>
+                        <a href="sali-sul-palco.html" class="dropdown-btn bg-red"><span class="lang-it">Sali sul palco</span><span class="lang-en">Join the stage</span></a>
                     </div>
                 </div>
+            </div>
+            <div class="lang-switcher">
+                <button class="lang-btn it" data-lang="it">IT</button>
+                <div class="lang-switcher-divider"></div>
+                <button class="lang-btn en" data-lang="en">EN</button>
             </div>
         </div>
     </nav>
@@ -90,7 +98,10 @@
                 <span class="text-festival">FESTIVAL</span>
             </h1>
             <p class="hero-subtitle">11 LUGLIO</p>
-            <a href="#ospiti-2026" class="brutalist-button bg-white" id="scopri-lineup-btn">Scopri la Line-Up 2026!</a>
+            <a href="#ospiti-2026" class="brutalist-button bg-white" id="scopri-lineup-btn">
+                <span class="lang-it">Scopri la Line-Up 2026!</span>
+                <span class="lang-en">Discover the 2026 Line-Up!</span>
+            </a>
         </div>
 
         <!-- Wavy Divider -->
@@ -103,32 +114,48 @@
 
         <!-- SEZIONE COUNTDOWN -->
         <section class="countdown-section">
-            <h2 class="countdown-title">IL FESTIVAL INIZIA TRA:</h2>
+            <h2 class="countdown-title">
+                <span class="lang-it">IL FESTIVAL INIZIA TRA:</span>
+                <span class="lang-en">THE FESTIVAL STARTS IN:</span>
+            </h2>
             <div class="countdown-container">
                 <div class="count-box">
                     <span class="num" id="days-count">00</span>
-                    <span class="label">Giorni</span>
+                    <span class="label">
+                        <span class="lang-it">Giorni</span>
+                        <span class="lang-en">Days</span>
+                    </span>
                 </div>
                 <div class="count-box">
                     <span class="num" id="hours-count">00</span>
-                    <span class="label">Ore</span>
+                    <span class="label">
+                        <span class="lang-it">Ore</span>
+                        <span class="lang-en">Hours</span>
+                    </span>
                 </div>
                 <div class="count-box">
                     <span class="num" id="mins-count">00</span>
-                    <span class="label">Minuti</span>
+                    <span class="label">
+                        <span class="lang-it">Minuti</span>
+                        <span class="lang-en">Minutes</span>
+                    </span>
                 </div>
                 <div class="count-box">
                     <span class="num" id="secs-count">00</span>
-                    <span class="label">Secondi</span>
+                    <span class="label">
+                        <span class="lang-it">Secondi</span>
+                        <span class="lang-en">Seconds</span>
+                    </span>
                 </div>
-            </div>
-           
             </div>
         </section>
 
         <!-- SEZIONE STATISTICHE / NUMERI -->
         <section class="stats-section reveal-up">
-            <h2 class="stats-section-title">SUNFLOWER IN NUMERI</h2>
+            <h2 class="stats-section-title">
+                <span class="lang-it">SUNFLOWER IN NUMERI</span>
+                <span class="lang-en">SUNFLOWER IN NUMBERS</span>
+            </h2>
             <div class="stats-container">
                 <!-- Stat 1: Followers -->
                 <div class="stat-box bg-yellow">
@@ -140,21 +167,29 @@
                 <div class="stat-box bg-blue">
                     <div class="stat-icon"><i class="fa-brands fa-tiktok"></i></div>
                     <span class="stat-num">100k+</span>
-                    <span class="stat-label">Visual TIKTOK</span>
+                    <span class="stat-label">
+                        <span class="lang-it">Visual TIKTOK</span>
+                        <span class="lang-en">TIKTOK Views</span>
+                    </span>
                 </div>
                 <!-- Stat 3: Spettatori Live -->
                 <div class="stat-box bg-orange">
                     <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
                     <span class="stat-num">600+</span>
-                    <span class="stat-label">Spettatori Live</span>
+                    <span class="stat-label">
+                        <span class="lang-it">Spettatori Live</span>
+                        <span class="lang-en">Live Spectators</span>
+                    </span>
                 </div>
                 <!-- Stat 4: Artisti -->
                 <div class="stat-box bg-green">
                     <div class="stat-icon"><i class="fa-solid fa-music"></i></div>
                     <span class="stat-num">30+</span>
-                    <span class="stat-label">Artisti</span>
+                    <span class="stat-label">
+                        <span class="lang-it">Artisti</span>
+                        <span class="lang-en">Artists</span>
+                    </span>
                 </div>
-               
             </div>
         </section>
 
@@ -167,171 +202,260 @@
         </div>
 
         <!-- Line-Up Artists Slider Section -->
-        <main id="ospiti-2026" class="artists-slider-section reveal-up">
-            <div class="artists-slider-header">
-                <div class="artists-title-group" style="position: relative;">
-                    <h2 class="slider-title">OSPITI 2026</h2>
+<main id="ospiti-2026" class="artists-slider-section reveal-up">
+    <div class="artists-slider-header">
+        <div class="artists-title-group" style="position: relative;">
+            <h2 class="slider-title">
+                <span class="lang-it">OSPITI 2026</span>
+                <span class="lang-en">GUESTS 2026</span>
+            </h2>
+        </div>
+        <div class="slider-controls">
+            <button id="slider-prev" class="slider-control-btn" aria-label="Precedente">&lt;</button>
+            <button id="slider-next" class="slider-control-btn" aria-label="Successivo">&gt;</button>
+        </div>
+    </div>
 
+    <div class="artists-slider-container">
+        <div class="artists-slider-track">
+
+            <!-- Card 1: Santachiara -->
+            <div class="artist-slider-card bg-blue" data-artist="Santachiara">
+                <div class="card-top-strip">
+                    <span class="card-lineup-num">#01</span>
+                    <span class="card-date-label">
+                        <span class="lang-it">11 Lug '26</span>
+                        <span class="lang-en">11 Jul '26</span>
+                    </span>
                 </div>
-                <div class="slider-controls">
-                    <button id="slider-prev" class="slider-control-btn" aria-label="Precedente">
-                        &lt;
-                    </button>
-                    <button id="slider-next" class="slider-control-btn" aria-label="Successivo">
-                        &gt;
-                    </button>
+                <div class="card-full-photo lazy-bg" data-bg="assets/foto-artisti/Santachiara.jpeg"></div>
+                <div class="card-photo-overlay">
+                    <span class="card-genre-pill">Indie-pop / Urban</span>
+                    <h3 class="artist-card-name">Santachiara</h3>
+                    <span class="card-time-chip">
+                        <span class="lang-it">11 Luglio &bull; 23:00</span>
+                        <span class="lang-en">July 11 &bull; 23:00</span>
+                    </span>
+                </div>
+                <div class="card-cta-bar">
+                    <span>
+                        <span class="lang-it">Scopri di più</span>
+                        <span class="lang-en">Discover more</span>
+                    </span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+
+            <!-- Card 2: Carla Fucci -->
+            <div class="artist-slider-card bg-blue" data-artist="Carla Fucci">
+                <div class="card-top-strip">
+                    <span class="card-lineup-num">#02</span>
+                    <span class="card-date-label">
+                        <span class="lang-it">11 Lug '26</span>
+                        <span class="lang-en">11 Jul '26</span>
+                    </span>
+                </div>
+                <div class="card-full-photo lazy-bg" data-bg="assets/foto-artisti/CarlaFucci.jpeg"></div>
+                <div class="card-photo-overlay">
+                    <span class="card-genre-pill">
+                        <span class="lang-it">Pop Indie</span>
+                        <span class="lang-en">Indie Pop</span>
+                    </span>
+                    <h3 class="artist-card-name">Carla Fucci</h3>
+                    <span class="card-time-chip">
+                        <span class="lang-it">11 Luglio &bull; 20:00</span>
+                        <span class="lang-en">July 11 &bull; 20:00</span>
+                    </span>
+                </div>
+                <div class="card-cta-bar">
+                    <span>
+                        <span class="lang-it">Scopri di più</span>
+                        <span class="lang-en">Discover more</span>
+                    </span>
+                    <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
 
-            <div class="artists-slider-container">
-                <div class="artists-slider-track">
-
-                    <!-- Card 1: Santachiara -->
-                    <div class="artist-slider-card bg-blue" data-artist="Santachiara">
-                        <div class="card-img-wrapper">
-                            <div class="card-img-side-text left-text">ORE</div>
-                            <div class="placeholder-img lazy-bg"
-                                data-bg="assets/foto-artisti/Santachiara.webp" style="background-position: center;">
-                            </div>
-                            <div class="card-img-side-text right-text">23:00</div>
-                            <span class="card-time-badge">23:00</span>
-                        </div>
-                        <div class="card-info-box">
-                            <h3 class="artist-card-name">Santachiara</h3>
-                            <p class="artist-card-time">11 Luglio • 23:00</p>
-                            <p class="artist-card-genre">Indie-pop/wUrban</p>
-                            <div class="card-action-link">SCOPRI DI PIÙ &rarr;</div>
-                        </div>
-                    </div>
-
-                    <!-- Card 2: Carla Fucci -->
-                    <div class="artist-slider-card bg-blue" data-artist="Carla Fucci">
-                        <div class="card-img-wrapper">
-                            <div class="card-img-side-text left-text">ORE</div>
-                            <div class="placeholder-img lazy-bg"
-                                data-bg="assets/foto-artisti/CarlaFucci.webp" style="background-position: center;">
-                            </div>
-                            <div class="card-img-side-text right-text">20:00</div>
-                            <span class="card-time-badge">20:00</span>
-                        </div>
-                        <div class="card-info-box">
-                            <h3 class="artist-card-name">Carla Fucci</h3>
-                            <p class="artist-card-time">11 Luglio • 20:00</p>
-                            <p class="artist-card-genre">Pop indie</p>
-                            <div class="card-action-link">SCOPRI DI PIÙ &rarr;</div>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Dinìche -->
-                    <div class="artist-slider-card bg-blue" data-artist="Diniche">
-                        <div class="card-img-wrapper">
-                            <div class="card-img-side-text left-text">ORE</div>
-                            <div class="placeholder-img lazy-bg"
-                                data-bg="assets/foto-artisti/Dinìche.webp" style="background-position: center;">
-                            </div>
-                            <div class="card-img-side-text right-text">20:00</div>
-                            <span class="card-time-badge">20:00</span>
-                        </div>
-                        <div class="card-info-box">
-                            <h3 class="artist-card-name">Dinìche</h3>
-                            <p class="artist-card-time">11 Luglio • 20:00</p>
-                            <p class="artist-card-genre">Cantautorato</p>
-                            <div class="card-action-link">SCOPRI DI PIÙ &rarr;</div>
-                        </div>
-                    </div>
-
-                    <!-- Card 4: Davide De Luca -->
-                    <div class="artist-slider-card bg-blue" data-artist="Davide De Luca">
-                        <div class="card-img-wrapper">
-                            <div class="card-img-side-text left-text">ORE</div>
-                            <div class="placeholder-img lazy-bg"
-                                data-bg="assets/foto-artisti/DavideDeLuca.webp" style="background-position: center;">
-                            </div>
-                            <div class="card-img-side-text right-text">20:00</div>
-                            <span class="card-time-badge">20:00</span>
-                        </div>
-                        <div class="card-info-box">
-                            <h3 class="artist-card-name">Davide De Luca</h3>
-                            <p class="artist-card-time">11 Luglio • 20:00</p>
-                            <p class="artist-card-genre">R&B / Soul / Nu-Funk</p>
-                            <div class="card-action-link">SCOPRI DI PIÙ &rarr;</div>
-                        </div>
-                    </div>
-
-                    <!-- Card 5: ARIA -->
-                    <div class="artist-slider-card bg-blue" data-artist="ARIA">
-                        <div class="card-img-wrapper">
-                            <div class="card-img-side-text left-text">ORE</div>
-                            <div class="placeholder-img lazy-bg"
-                                data-bg="assets/foto-artisti/Aria.webp" style="background-position: center;">
-                            </div>
-                            <div class="card-img-side-text right-text">20:00</div>
-                            <span class="card-time-badge">20:00</span>
-                        </div>
-                        <div class="card-info-box">
-                            <h3 class="artist-card-name">ARIA</h3>
-                            <p class="artist-card-time">11 Luglio • 20:00</p>
-                            <p class="artist-card-genre">Pop Indie </p>
-                            <div class="card-action-link">SCOPRI DI PIÙ &rarr;</div>
-                        </div>
-                    </div>
-
-                    <!-- Card 6: Antonio Calabrese -->
-                    <div class="artist-slider-card bg-blue" data-artist="Antonio Calabrese">
-                        <div class="card-img-wrapper">
-                            <div class="card-img-side-text left-text">ORE</div>
-                            <div class="placeholder-img lazy-bg"
-                                data-bg="assets/foto-artisti/AntonioCalabrese.webp" style="background-position: center;">
-                            </div>
-                            <div class="card-img-side-text right-text">20:00</div>
-                            <span class="card-time-badge">20:00</span>
-                        </div>
-                        <div class="card-info-box">
-                            <h3 class="artist-card-name">Antonio Calabrese</h3>
-                            <p class="artist-card-time">11 Luglio • 20:00</p>
-                            <p class="artist-card-genre">Cantautorato</p>
-                            <div class="card-action-link">SCOPRI DI PIÙ &rarr;</div>
-                        </div>
-                    </div>
-
-                    <!-- Card 7: Secondo-->
-                    <div class="artist-slider-card bg-blue" data-artist="Secondo">
-                        <div class="card-img-wrapper">
-                            <div class="card-img-side-text left-text">ORE</div>
-                            <div class="placeholder-img lazy-bg"
-                                data-bg="assets/foto-artisti/Secondo.webp" style="background-position: center;">
-                            </div>
-                            <div class="card-img-side-text right-text">20:00</div>
-                            <span class="card-time-badge">20:00</span>
-                        </div>
-                        <div class="card-info-box">
-                            <h3 class="artist-card-name">Secondo</h3>
-                            <p class="artist-card-time">11 Luglio • 20:00</p>
-                            <p class="artist-card-genre">Cantautorato</p>
-                            <div class="card-action-link">SCOPRI DI PIÙ &rarr;</div>
-                        </div>
-                    </div>
-
-                    <!-- Card 8: Lyra -->
-                    <div class="artist-slider-card bg-blue" data-artist="Lyra">
-                        <div class="card-img-wrapper">
-                            <div class="card-img-side-text left-text">ORE</div>
-                            <div class="placeholder-img lazy-bg"
-                                data-bg="assets/foto-artisti/Lyra.webp" style="background-position: center;">
-                            </div>
-                            <div class="card-img-side-text right-text">20:00</div>
-                            <span class="card-time-badge">20:00</span>
-                        </div>
-                        <div class="card-info-box">
-                            <h3 class="artist-card-name">Lyra</h3>
-                            <p class="artist-card-time">11 Luglio • 20:00</p>
-                            <p class="artist-card-genre">Indefinito</p>
-                            <div class="card-action-link">SCOPRI DI PIÙ &rarr;</div>
-                        </div>
-                    </div>
+            <!-- Card 3: Dinìche -->
+            <div class="artist-slider-card bg-blue" data-artist="Diniche">
+                <div class="card-top-strip">
+                    <span class="card-lineup-num">#03</span>
+                    <span class="card-date-label">
+                        <span class="lang-it">11 Lug '26</span>
+                        <span class="lang-en">11 Jul '26</span>
+                    </span>
+                </div>
+                <div class="card-full-photo lazy-bg" data-bg="assets/foto-artisti/Dinìche.jpeg"></div>
+                <div class="card-photo-overlay">
+                    <span class="card-genre-pill">
+                        <span class="lang-it">Cantautorato</span>
+                        <span class="lang-en">Songwriting</span>
+                    </span>
+                    <h3 class="artist-card-name">Dinìche</h3>
+                    <span class="card-time-chip">
+                        <span class="lang-it">11 Luglio &bull; 20:00</span>
+                        <span class="lang-en">July 11 &bull; 20:00</span>
+                    </span>
+                </div>
+                <div class="card-cta-bar">
+                    <span>
+                        <span class="lang-it">Scopri di più</span>
+                        <span class="lang-en">Discover more</span>
+                    </span>
+                    <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
-        </main>
+
+            <!-- Card 4: Davide De Luca -->
+            <div class="artist-slider-card bg-blue" data-artist="Davide De Luca">
+                <div class="card-top-strip">
+                    <span class="card-lineup-num">#04</span>
+                    <span class="card-date-label">
+                        <span class="lang-it">11 Lug '26</span>
+                        <span class="lang-en">11 Jul '26</span>
+                    </span>
+                </div>
+                <div class="card-full-photo lazy-bg" data-bg="assets/foto-artisti/DavideDeLuca.jpeg"></div>
+                <div class="card-photo-overlay">
+                    <span class="card-genre-pill">R&amp;B / Soul / Nu-Funk</span>
+                    <h3 class="artist-card-name">Davide De Luca</h3>
+                    <span class="card-time-chip">
+                        <span class="lang-it">11 Luglio &bull; 20:00</span>
+                        <span class="lang-en">July 11 &bull; 20:00</span>
+                    </span>
+                </div>
+                <div class="card-cta-bar">
+                    <span>
+                        <span class="lang-it">Scopri di più</span>
+                        <span class="lang-en">Discover more</span>
+                    </span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+
+            <!-- Card 5: ARIA -->
+            <div class="artist-slider-card bg-blue" data-artist="ARIA">
+                <div class="card-top-strip">
+                    <span class="card-lineup-num">#05</span>
+                    <span class="card-date-label">
+                        <span class="lang-it">11 Lug '26</span>
+                        <span class="lang-en">11 Jul '26</span>
+                    </span>
+                </div>
+                <div class="card-full-photo lazy-bg" data-bg="assets/foto-artisti/Aria.jpeg"></div>
+                <div class="card-photo-overlay">
+                    <span class="card-genre-pill">
+                        <span class="lang-it">Pop Indie</span>
+                        <span class="lang-en">Indie Pop</span>
+                    </span>
+                    <h3 class="artist-card-name">ARIA</h3>
+                    <span class="card-time-chip">
+                        <span class="lang-it">11 Luglio &bull; 20:00</span>
+                        <span class="lang-en">July 11 &bull; 20:00</span>
+                    </span>
+                </div>
+                <div class="card-cta-bar">
+                    <span>
+                        <span class="lang-it">Scopri di più</span>
+                        <span class="lang-en">Discover more</span>
+                    </span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+
+            <!-- Card 6: Antonio Calabrese -->
+            <div class="artist-slider-card bg-blue" data-artist="Antonio Calabrese">
+                <div class="card-top-strip">
+                    <span class="card-lineup-num">#06</span>
+                    <span class="card-date-label">
+                        <span class="lang-it">11 Lug '26</span>
+                        <span class="lang-en">11 Jul '26</span>
+                    </span>
+                </div>
+                <div class="card-full-photo lazy-bg" data-bg="assets/foto-artisti/AntonioCalabrese.jpeg"></div>
+                <div class="card-photo-overlay">
+                    <span class="card-genre-pill">
+                        <span class="lang-it">Cantautorato</span>
+                        <span class="lang-en">Songwriting</span>
+                    </span>
+                    <h3 class="artist-card-name">Antonio Calabrese</h3>
+                    <span class="card-time-chip">
+                        <span class="lang-it">11 Luglio &bull; 20:00</span>
+                        <span class="lang-en">July 11 &bull; 20:00</span>
+                    </span>
+                </div>
+                <div class="card-cta-bar">
+                    <span>
+                        <span class="lang-it">Scopri di più</span>
+                        <span class="lang-en">Discover more</span>
+                    </span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+
+            <!-- Card 7: Secondo -->
+            <div class="artist-slider-card bg-blue" data-artist="Secondo">
+                <div class="card-top-strip">
+                    <span class="card-lineup-num">#07</span>
+                    <span class="card-date-label">
+                        <span class="lang-it">11 Lug '26</span>
+                        <span class="lang-en">11 Jul '26</span>
+                    </span>
+                </div>
+                <div class="card-full-photo lazy-bg" data-bg="assets/foto-artisti/Secondo.jpeg"></div>
+                <div class="card-photo-overlay">
+                    <span class="card-genre-pill">
+                        <span class="lang-it">Cantautorato</span>
+                        <span class="lang-en">Songwriting</span>
+                    </span>
+                    <h3 class="artist-card-name">Secondo</h3>
+                    <span class="card-time-chip">
+                        <span class="lang-it">11 Luglio &bull; 20:00</span>
+                        <span class="lang-en">July 11 &bull; 20:00</span>
+                    </span>
+                </div>
+                <div class="card-cta-bar">
+                    <span>
+                        <span class="lang-it">Scopri di più</span>
+                        <span class="lang-en">Discover more</span>
+                    </span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+
+            <!-- Card 8: Lyra -->
+            <div class="artist-slider-card bg-blue" data-artist="Lyra">
+                <div class="card-top-strip">
+                    <span class="card-lineup-num">#08</span>
+                    <span class="card-date-label">
+                        <span class="lang-it">11 Lug '26</span>
+                        <span class="lang-en">11 Jul '26</span>
+                    </span>
+                </div>
+                <div class="card-full-photo lazy-bg" data-bg="assets/foto-artisti/Lyra.jpeg"></div>
+                <div class="card-photo-overlay">
+                    <span class="card-genre-pill">
+                        <span class="lang-it">Elettro-pop</span>
+                        <span class="lang-en">Electro-pop</span>
+                    </span>
+                    <h3 class="artist-card-name">Lyra</h3>
+                    <span class="card-time-chip">
+                        <span class="lang-it">11 Luglio &bull; 20:00</span>
+                        <span class="lang-en">July 11 &bull; 20:00</span>
+                    </span>
+                </div>
+                <div class="card-cta-bar">
+                    <span>
+                        <span class="lang-it">Scopri di più</span>
+                        <span class="lang-en">Discover more</span>
+                    </span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
 
         <!-- Modals Container (Global Overlays for Artist Info - Full-screen layout) -->
         <div class="artist-modals-overlay" id="modals-overlay">
@@ -342,12 +466,12 @@
             <button class="global-modal-nav-btn next-btn" aria-label="Artista successivo">
                 <i class="fa-solid fa-chevron-right"></i>
             </button>
-
             <!-- Full-Screen ARIA -->
             <div class="artist-full-page bg-blue" id="modal-ARIA">
+                <div class="fp-bg-deco" aria-hidden="true">#05</div>
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
-                        <i class="fa-solid fa-arrow-left"></i> <span class="close-btn-desktop-text">TORNA ALLA </span>HOME
+                        <i class="fa-solid fa-arrow-left"></i> <span class="close-btn-desktop-text"><span class="lang-it">TORNA ALLA </span><span class="lang-en">BACK TO </span></span>HOME
                     </button>
                     <div class="header-logo-container">
                         <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" loading="lazy" width="80" height="80">
@@ -355,7 +479,7 @@
                 </div>
 
                 <div class="full-page-content">
-                    <div class="full-page-grid">
+                     <div class="full-page-grid">
                         <div class="full-page-media-col">
                             <div class="torn-paper-frame shape-1">
                                 <div class="placeholder-img"
@@ -373,41 +497,46 @@
                             <div class="brutalist-divider"></div>
 
                             <div class="full-page-bio">
-                                <h2>LA BIOGRAFIA</h2>
+                                <h2>
+                                    <span class="lang-it">LA BIOGRAFIA</span>
+                                    <span class="lang-en">BIOGRAPHY</span>
+                                </h2>
                                 <p class="full-page-description">
-                                    Ilaria Cofone, in arte ARIA, classe 2004, utilizza fin da bambina la musica come
-                                    strumento di espressione e come mezzo per accogliere le parti più profonde di sé. 
+                                    <span class="lang-it">Ilaria Cofone, in arte ARIA, classe 2004, utilizza fin da bambina la musica come strumento di espressione e come mezzo per accogliere le parti più profonde di sé.</span>
+                                    <span class="lang-en">Ilaria Cofone, artistically known as ARIA, born in 2004, has used music since childhood as an instrument of expression and a means to embrace the deepest parts of herself.</span>
                                 </p>
                                 <p class="full-page-description">
-                                    Il suo nome d’arte richiama una personalità sospesa tra il timore di essere invisibile
-                                    e il desiderio di sentirsi leggera, una malinconia che attraversa anche le sue
-                                    canzoni.
+                                    <span class="lang-it">Il suo nome d’arte richiama una personalità sospesa tra il timore di essere invisibile e il desiderio di sentirsi leggera, una malinconia che attraversa anche le sue canzoni.</span>
+                                    <span class="lang-en">Her stage name recalls a personality suspended between the fear of being invisible and the desire to feel light, a melancholy that also flows through her songs.</span>
                                 </p>
                             </div>
 
                             <div class="brutalist-divider"></div>
 
-                            <div class="sunflower-player-section" style="width: 100%; margin-top: 1.5rem;">
-                                <div class="player-brutalist-container" style="border: 4px solid var(--text-black); box-shadow: 6px 6px 0px var(--text-black); border-radius: 12px; background-color: var(--text-black); overflow: hidden; display: flex; flex-direction: column;">
-                                    <!-- Header decoration bar -->
-                                    <div style="background: var(--primary-orange); border-bottom: 4px solid var(--text-black); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-black); letter-spacing: 1px;">
-                                        <span><i class="fa-solid fa-circle-play" style="margin-right: 0.5rem;"></i>SUNFLOWER MUSIC PLAYER</span>
-                                        <div style="display: flex; gap: 6px;">
-                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
-                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
-                                        </div>
+                            <div class="sf-music-player">
+                                <div class="sf-player-header">
+                                    <div class="sf-player-eq" aria-hidden="true">
+                                        <span></span><span></span><span></span><span></span><span></span>
                                     </div>
-                                    <!-- Iframe container -->
-                                    <div style="background-color: #121212; line-height: 0;">
-                                        <iframe style="border: none;" src="" data-src="https://open.spotify.com/embed/artist/3QptZmsuqUYGVDlrC02wdD?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    <span class="sf-player-label">
+                                        <i class="fa-brands fa-spotify"></i> SUNFLOWER MUSIC
+                                    </span>
+                                    <div class="sf-player-dots" aria-hidden="true">
+                                        <span></span><span></span><span></span>
                                     </div>
+                                </div>
+                                <div class="sf-player-body">
+                                    <iframe src="" data-src="https://open.spotify.com/embed/artist/3QptZmsuqUYGVDlrC02wdD?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                                 </div>
                             </div>
 
                             <div class="brutalist-divider"></div>
 
                             <div class="full-page-socials-container">
-                                <h2>SEGUI L'ARTISTA</h2>
+                                <h2>
+                                    <span class="lang-it">SEGUI L'ARTISTA</span>
+                                    <span class="lang-en">FOLLOW THE ARTIST</span>
+                                </h2>
                                 <div class="full-page-socials-grid">
                                     <a href="https://www.instagram.com/ariainarte/" target="_blank"
                                         class="brutalist-social-btn instagram">
@@ -430,9 +559,10 @@
 
             <!-- Full-Screen Davide De Luca -->
             <div class="artist-full-page bg-blue" id="modal-Davide De Luca">
+                <div class="fp-bg-deco" aria-hidden="true">#04</div>
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
-                        <i class="fa-solid fa-arrow-left"></i> <span class="close-btn-desktop-text">TORNA ALLA </span>HOME
+                        <i class="fa-solid fa-arrow-left"></i> <span class="close-btn-desktop-text"><span class="lang-it">TORNA ALLA </span><span class="lang-en">BACK TO </span></span>HOME
                     </button>
                     <div class="header-logo-container">
                         <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" loading="lazy" width="80" height="80">
@@ -457,45 +587,46 @@
                             <div class="brutalist-divider"></div>
 
                             <div class="full-page-bio">
-                                <h2>LA BIOGRAFIA</h2>
+                                <h2>
+                                    <span class="lang-it">LA BIOGRAFIA</span>
+                                    <span class="lang-en">BIOGRAPHY</span>
+                                </h2>
                                 <p class="full-page-description">
-                                    Davide De Luca è un cantautore di Lecce il cui sound fonde R&B, Soul e Nu-Funk.
-                                    Nel 2018 si esibisce sul palco di Musicultura. Nel 2021 si laurea in Canto Jazz a
-                                    Monopoli e completa un master in Canto Jazz ad Amsterdam nel 2024. 
+                                    <span class="lang-it">Davide De Luca è un cantautore di Lecce il cui sound fonde R&B, Soul e Nu-Funk. Nel 2018 si esibisce sul palco di Musicultura. Nel 2021 si laurea in Canto Jazz a Monopoli e completa un master in Canto Jazz ad Amsterdam nel 2024.</span>
+                                    <span class="lang-en">Davide De Luca is a singer-songwriter from Lecce whose sound blends R&B, Soul and Nu-Funk. In 2018 he performed on the Musicultura stage. In 2021 he graduated in Jazz Vocals in Monopoli and completed a master's degree in Jazz Vocals in Amsterdam in 2024.</span>
                                 </p>
                                 <p class="full-page-description">
-                                    Nel 2023 pubblica il singolo Amsterdam, che gli consente di farsi conoscere su TikTok, forma la sua
-                                    band e si esibisce in numerosi festival olandesi. Nel 2024 pubblica l’EP d’esordio
-                                    Crisalidi con MAKEATHOUSAND, a cui seguirà il suo secondo EP Vado Oltre. Nel 2025 si
-                                    esibisce all’RDS Summer Festival di Monopoli, apre l’RDS Showcase di Giorgia a Roma
-                                    ed è ospite in diretta su Radio Deejay nel format di “Say waaad?”. Nel giugno 2026 è
-                                    ospite al Rino Gaetano Day a Roma.
+                                    <span class="lang-it">Nel 2023 pubblica il singolo Amsterdam, che gli consente di farsi conoscere su TikTok, forma la sua band e si esibisce in numerosi festival olandesi. Nel 2024 pubblica l’EP d’esordio Crisalidi con MAKEATHOUSAND, a cui seguirà il suo secondo EP Vado Oltre. Nel 2025 si esibisce all’RDS Summer Festival di Monopoli, apre l’RDS Showcase di Giorgia a Roma ed è ospite in diretta su Radio Deejay nel format di “Say waaad?”. Nel giugno 2026 è ospite al Rino Gaetano Day a Roma.</span>
+                                    <span class="lang-en">In 2023 he released the single Amsterdam, which allowed him to get known on TikTok, formed his band and performed at numerous Dutch festivals. In 2024 he released his debut EP Crisalidi with MAKEATHOUSAND, which will be followed by his second EP Vado Oltre. In 2025 he performed at the RDS Summer Festival in Monopoli, opened the RDS Showcase for Giorgia in Rome and was a guest live on Radio Deejay in the "Say waaad?" format. In June 2026 he was a guest at Rino Gaetano Day in Rome.</span>
                                 </p>
                             </div>
 
                             <div class="brutalist-divider"></div>
 
-                            <div class="sunflower-player-section" style="width: 100%; margin-top: 1.5rem;">
-                                <div class="player-brutalist-container" style="border: 4px solid var(--text-black); box-shadow: 6px 6px 0px var(--text-black); border-radius: 12px; background-color: var(--text-black); overflow: hidden; display: flex; flex-direction: column;">
-                                    <!-- Header decoration bar -->
-                                    <div style="background: var(--primary-orange); border-bottom: 4px solid var(--text-black); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-black); letter-spacing: 1px;">
-                                        <span><i class="fa-solid fa-circle-play" style="margin-right: 0.5rem;"></i>SUNFLOWER MUSIC PLAYER</span>
-                                        <div style="display: flex; gap: 6px;">
-                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
-                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
-                                        </div>
+                            <div class="sf-music-player">
+                                <div class="sf-player-header">
+                                    <div class="sf-player-eq" aria-hidden="true">
+                                        <span></span><span></span><span></span><span></span><span></span>
                                     </div>
-                                    <!-- Iframe container -->
-                                    <div style="background-color: #121212; line-height: 0;">
-                                        <iframe style="border: none;" src="" data-src="https://open.spotify.com/embed/artist/4ZddSTJRLFej3dy6bBynu6?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    <span class="sf-player-label">
+                                        <i class="fa-brands fa-spotify"></i> SUNFLOWER MUSIC
+                                    </span>
+                                    <div class="sf-player-dots" aria-hidden="true">
+                                        <span></span><span></span><span></span>
                                     </div>
+                                </div>
+                                <div class="sf-player-body">
+                                    <iframe src="" data-src="https://open.spotify.com/embed/artist/4ZddSTJRLFej3dy6bBynu6?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                                 </div>
                             </div>
 
                             <div class="brutalist-divider"></div>
 
                             <div class="full-page-socials-container">
-                                <h2>SEGUI L'ARTISTA</h2>
+                                <h2>
+                                    <span class="lang-it">SEGUI L'ARTISTA</span>
+                                    <span class="lang-en">FOLLOW THE ARTIST</span>
+                                </h2>
                                 <div class="full-page-socials-grid">
                                     <a href="https://www.instagram.com/davidedelucamusic/" target="_blank"
                                         class="brutalist-social-btn instagram">
@@ -518,9 +649,10 @@
 
             <!-- Full-Screen Carla Fucci -->
             <div class="artist-full-page bg-blue" id="modal-Carla Fucci">
+                <div class="fp-bg-deco" aria-hidden="true">#02</div>
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
-                        <i class="fa-solid fa-arrow-left"></i> <span class="close-btn-desktop-text">TORNA ALLA </span>HOME
+                        <i class="fa-solid fa-arrow-left"></i> <span class="close-btn-desktop-text"><span class="lang-it">TORNA ALLA </span><span class="lang-en">BACK TO </span></span>HOME
                     </button>
                     <div class="header-logo-container">
                         <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" loading="lazy" width="80" height="80">
@@ -539,47 +671,54 @@
 
                         <div class="full-page-info-col">
                             <h1 class="full-page-title">Carla Fucci</h1>
-                            <p class="full-page-genre-tag">Pop indie</p>
+                            <p class="full-page-genre-tag">
+                                <span class="lang-it">Pop indie</span>
+                                <span class="lang-en">Indie Pop</span>
+                            </p>
 
                             <div class="brutalist-divider"></div>
 
                             <div class="full-page-bio">
-                                <h2>LA BIOGRAFIA</h2>
+                                <h2>
+                                    <span class="lang-it">LA BIOGRAFIA</span>
+                                    <span class="lang-en">BIOGRAPHY</span>
+                                </h2>
                                 <p class="full-page-description">
-                                    Carla Fucci, cantautrice napoletana classe 1998, è una voce che racconta storie e
-                                    sentimenti. Fin da bambina ha trovato nella musica il suo rifugio e il suo primo
-                                    grande amore, una passione che l’ha accompagnata fino alla laurea in Canto Jazz al
-                                    Conservatorio di Benevento nel 2022.
+                                    <span class="lang-it">Carla Fucci, cantautrice napoletana classe 1998, è una voce che racconta storie e sentimenti. Fin da bambina ha trovato nella musica il suo rifugio e il suo primo grande amore, una passione che l’ha accompagnata fino alla laurea in Canto Jazz al Conservatorio di Benevento nel 2022.</span>
+                                    <span class="lang-en">Carla Fucci, a Neapolitan singer-songwriter born in 1998, is a voice that tells stories and feelings. Since she was a child she found in music her refuge and her first great love, a passion that accompanied her until her graduation in Jazz Vocals at the Benevento Conservatory in 2022.</span>
                                 </p>
                                 <p class="full-page-description">
-                                    La sua arte è un viaggio tra melodie e influenze che abbracciano il reggae, il pop e
-                                    una moltitudine di sonorità diverse, dando vita a brani che parlano al cuore.
+                                    <span class="lang-it">La sua arte è un viaggio tra melodie e influenze che abbracciano il reggae, il pop e una moltitudine di sonorità diverse, dando vita a brani che parlano al cuore.</span>
+                                    <span class="lang-en">Her art is a journey through melodies and influences that embrace reggae, pop and a multitude of different sounds, giving life to songs that speak to the heart.</span>
                                 </p>
                             </div>
 
                             <div class="brutalist-divider"></div>
 
-                            <div class="sunflower-player-section" style="width: 100%; margin-top: 1.5rem;">
-                                <div class="player-brutalist-container" style="border: 4px solid var(--text-black); box-shadow: 6px 6px 0px var(--text-black); border-radius: 12px; background-color: var(--text-black); overflow: hidden; display: flex; flex-direction: column;">
-                                    <!-- Header decoration bar -->
-                                    <div style="background: var(--primary-orange); border-bottom: 4px solid var(--text-black); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-black); letter-spacing: 1px;">
-                                        <span><i class="fa-solid fa-circle-play" style="margin-right: 0.5rem;"></i>SUNFLOWER MUSIC PLAYER</span>
-                                        <div style="display: flex; gap: 6px;">
-                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
-                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
-                                        </div>
+                            <div class="sf-music-player">
+                                <div class="sf-player-header">
+                                    <div class="sf-player-eq" aria-hidden="true">
+                                        <span></span><span></span><span></span><span></span><span></span>
                                     </div>
-                                    <!-- Iframe container -->
-                                    <div style="background-color: #121212; line-height: 0;">
-                                        <iframe style="border: none;" src="" data-src="https://open.spotify.com/embed/artist/7DuCINBTI0hkLFXYjPdOu5?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    <span class="sf-player-label">
+                                        <i class="fa-brands fa-spotify"></i> SUNFLOWER MUSIC
+                                    </span>
+                                    <div class="sf-player-dots" aria-hidden="true">
+                                        <span></span><span></span><span></span>
                                     </div>
+                                </div>
+                                <div class="sf-player-body">
+                                    <iframe src="" data-src="https://open.spotify.com/embed/artist/7DuCINBTI0hkLFXYjPdOu5?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                                 </div>
                             </div>
 
                             <div class="brutalist-divider"></div>
 
                             <div class="full-page-socials-container">
-                                <h2>SEGUI L'ARTISTA</h2>
+                                <h2>
+                                    <span class="lang-it">SEGUI L'ARTISTA</span>
+                                    <span class="lang-en">FOLLOW THE ARTIST</span>
+                                </h2>
                                 <div class="full-page-socials-grid">
                                     <a href="https://www.instagram.com/carlafucci_/" target="_blank"
                                         class="brutalist-social-btn instagram">
@@ -602,9 +741,10 @@
 
             <!-- Full-Screen Santachiara -->
             <div class="artist-full-page bg-blue" id="modal-Santachiara">
+                <div class="fp-bg-deco" aria-hidden="true">#01</div>
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
-                        <i class="fa-solid fa-arrow-left"></i> <span class="close-btn-desktop-text">TORNA ALLA </span>HOME
+                        <i class="fa-solid fa-arrow-left"></i> <span class="close-btn-desktop-text"><span class="lang-it">TORNA ALLA </span><span class="lang-en">BACK TO </span></span>HOME
                     </button>
                     <div class="header-logo-container">
                         <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" loading="lazy" width="80" height="80">
@@ -629,36 +769,44 @@
                             <div class="brutalist-divider"></div>
 
                             <div class="full-page-bio">
-                                <h2>LA BIOGRAFIA</h2>
+                                <h2>
+                                    <span class="lang-it">LA BIOGRAFIA</span>
+                                    <span class="lang-en">BIOGRAPHY</span>
+                                </h2>
                                 <p class="full-page-description">
-                                    Luigi Picone, in arte SANTACHIARA, nasce ad Alberobello nel 1998 e passa la sua infanzia in giro per l’Italia e il mondo viaggiando con i suoi genitori, artisti di strada, e crescendo in un ambiente pieno di stimoli culturali. Trascorre la sua adolescenza tra Spoleto e Siracusa, per poi trasferirsi a Napoli nel quartiere Santa Chiara, cuore del centro storico della città.
+                                    <span class="lang-it">Luigi Picone, in arte SANTACHIARA, nasce ad Alberobello nel 1998 e passa la sua infanzia in giro per l’Italia e il mondo viaggiando con i suoi genitori, artisti di strada, e crescendo in un ambiente pieno di stimoli culturali. Trascorre la sua adolescenza tra Spoleto e Siracusa, per poi trasferirsi a Napoli nel quartiere Santa Chiara, cuore del centro storico della città.</span>
+                                    <span class="lang-en">Luigi Picone, stage name SANTACHIARA, was born in Alberobello in 1998 and spent his childhood traveling around Italy and the world with his parents, street artists, and growing up in an environment full of cultural stimuli. He spent his adolescence between Spoleto and Syracuse, and then moved to Naples to the Santa Chiara district, the heart of the city's historic center.</span>
                                 </p>
                                 <p class="full-page-description">
-                                    Si appassiona al rap sin da ragazzino, ma gli sta stretto e inizia a prendere ispirazione dalla musica più disparata: dal cantautorato italiano al rock, passando per la techno, la classica e l’urban. Studia pianoforte e chitarra e inizia a mescolare su Garage Band i Radiohead con Mozart e i Nirvana, pescando da tutto quello che ascolta, ed è un gioco che fa insieme al compagno di studi Andrea.
+                                    <span class="lang-it">Si appassiona al rap sin da ragazzino, ma gli sta stretto e inizia a prendere ispirazione dalla musica più disparata: dal cantautorato italiano al rock, passando per la techno, la classica e l’urban. Studia pianoforte e chitarra e inizia a mescolare su Garage Band i Radiohead con Mozart e i Nirvana, pescando da tutto quello che ascolta, ed è un gioco che fa insieme al compagno di studi Andrea.</span>
+                                    <span class="lang-en">He has been passionate about rap since he was a kid, but felt it was too narrow and began to take inspiration from a wide variety of music: from Italian songwriting to rock, passing through techno, classical and urban. He studied piano and guitar and started mixing Radiohead with Mozart and Nirvana on Garage Band, drawing from everything he listened to, a game he played together with his study partner Andrea.</span>
                                 </p>
                             </div>
 
-                            <div class="sunflower-player-section" style="width: 100%; margin-top: 1.5rem;">
-                                <div class="player-brutalist-container" style="border: 4px solid var(--text-black); box-shadow: 6px 6px 0px var(--text-black); border-radius: 12px; background-color: var(--text-black); overflow: hidden; display: flex; flex-direction: column;">
-                                    <!-- Header decoration bar -->
-                                    <div style="background: var(--primary-orange); border-bottom: 4px solid var(--text-black); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-black); letter-spacing: 1px;">
-                                        <span><i class="fa-solid fa-circle-play" style="margin-right: 0.5rem;"></i>SUNFLOWER MUSIC PLAYER</span>
-                                        <div style="display: flex; gap: 6px;">
-                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
-                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
-                                        </div>
+                            <div class="sf-music-player">
+                                <div class="sf-player-header">
+                                    <div class="sf-player-eq" aria-hidden="true">
+                                        <span></span><span></span><span></span><span></span><span></span>
                                     </div>
-                                    <!-- Iframe container -->
-                                    <div style="background-color: #121212; line-height: 0;">
-                                        <iframe style="border: none;" src="" data-src="https://open.spotify.com/embed/artist/5lQwH3yb4bvUNnFG5DXMRW?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    <span class="sf-player-label">
+                                        <i class="fa-brands fa-spotify"></i> SUNFLOWER MUSIC
+                                    </span>
+                                    <div class="sf-player-dots" aria-hidden="true">
+                                        <span></span><span></span><span></span>
                                     </div>
+                                </div>
+                                <div class="sf-player-body">
+                                    <iframe src="" data-src="https://open.spotify.com/embed/artist/5lQwH3yb4bvUNnFG5DXMRW?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                                 </div>
                             </div>
 
                             <div class="brutalist-divider"></div>
 
                             <div class="full-page-socials-container">
-                                <h2>SEGUI L'ARTISTA</h2>
+                                <h2>
+                                    <span class="lang-it">SEGUI L'ARTISTA</span>
+                                    <span class="lang-en">FOLLOW THE ARTIST</span>
+                                </h2>
                                 <div class="full-page-socials-grid">
                                     <a href="https://www.instagram.com/solosantachiara/" target="_blank"
                                         class="brutalist-social-btn instagram">
@@ -680,9 +828,10 @@
 
             <!-- Full-Screen Secondo -->
             <div class="artist-full-page bg-blue" id="modal-Secondo">
+                <div class="fp-bg-deco" aria-hidden="true">#07</div>
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
-                        <i class="fa-solid fa-arrow-left"></i> <span class="close-btn-desktop-text">TORNA ALLA </span>HOME
+                        <i class="fa-solid fa-arrow-left"></i> <span class="close-btn-desktop-text"><span class="lang-it">TORNA ALLA </span><span class="lang-en">BACK TO </span></span>HOME
                     </button>
                     <div class="header-logo-container">
                         <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" loading="lazy" width="80" height="80">
@@ -702,49 +851,53 @@
                         <div class="full-page-info-col">
 
                             <h1 class="full-page-title">Secondo</h1>
-                            <p class="full-page-genre-tag">Cantautorato</p>
+                            <p class="full-page-genre-tag">
+                                <span class="lang-it">Cantautorato</span>
+                                <span class="lang-en">Songwriting</span>
+                            </p>
 
                             <div class="brutalist-divider"></div>
 
                             <div class="full-page-bio">
-                                <h2>LA BIOGRAFIA</h2>
+                                <h2>
+                                    <span class="lang-it">LA BIOGRAFIA</span>
+                                    <span class="lang-en">BIOGRAPHY</span>
+                                </h2>
                                 <p class="full-page-description">
-                                    Secondo nasce da un gioco di significati: è il secondogenito, ma anche la figura che
-                                    resta nell’ombra, indispensabile e silenziosa, come un secondo nel tempo - fugace,
-                                    invisibile, eppure essenziale. Il progetto prende vita nel 2018, quando, dopo anni
-                                    da corista e musicista al servizio di altri artisti, sceglie di mettersi in primo piano
-                                    per scoprire sé stesso attraverso la musica.
+                                    <span class="lang-it">Secondo nasce da un gioco di significati: è il secondogenito, ma anche la figura che resta nell’ombra, indispensabile e silenziosa, come un secondo nel tempo - fugace, invisibile, eppure essenziale. Il progetto prende vita nel 2018, quando, dopo anni da corista e musicista al servizio di altri artisti, sceglie di mettersi in primo piano per scoprire sé stesso attraverso la musica.</span>
+                                    <span class="lang-en">Secondo is born from a play on meanings: he is the second-born, but also the figure that remains in the shadow, indispensable and silent, like a second in time - fleeting, invisible, yet essential. The project came to life in 2018, when, after years as a backing vocalist and musician at the service of other artists, he chose to step into the foreground to discover himself through music.</span>
                                 </p>
                                 <p class="full-page-description">
-                                    Le sue canzoni nascono dal desiderio di dare voce a emozioni comuni ma spesso
-                                    taciute, con parole semplici che diventano universali. Musicalmente, il suo mondo
-                                    intreccia cantautorato classico, rock, suggestioni popolari napoletane e una certa
-                                    solennità liturgica, in un equilibrio tra immediatezza e profondità.
+                                    <span class="lang-it">Le sue canzoni nascono dal desiderio di dare voce a emozioni comuni ma spesso taciute, con parole semplici che diventano universali. Musicalmente, il suo mondo intreccia cantautorato classico, rock, suggestioni popolari napoletane e una certa solennità liturgica, in un equilibrio tra immediatezza e profondità.</span>
+                                    <span class="lang-en">His songs are born from the desire to give voice to common but often unexpressed emotions, with simple words that become universal. Musically, his world intertwines classical songwriting, rock, popular Neapolitan influences and a certain liturgical solemnity, in a balance between immediacy and depth.</span>
                                 </p>
                             </div>
 
                             <div class="brutalist-divider"></div>
-                            <div class="sunflower-player-section" style="width: 100%; margin-top: 1.5rem;">
-                                <div class="player-brutalist-container" style="border: 4px solid var(--text-black); box-shadow: 6px 6px 0px var(--text-black); border-radius: 12px; background-color: var(--text-black); overflow: hidden; display: flex; flex-direction: column;">
-                                    <!-- Header decoration bar -->
-                                    <div style="background: var(--primary-orange); border-bottom: 4px solid var(--text-black); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-black); letter-spacing: 1px;">
-                                        <span><i class="fa-solid fa-circle-play" style="margin-right: 0.5rem;"></i>SUNFLOWER MUSIC PLAYER</span>
-                                        <div style="display: flex; gap: 6px;">
-                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
-                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
-                                        </div>
+                            <div class="sf-music-player">
+                                <div class="sf-player-header">
+                                    <div class="sf-player-eq" aria-hidden="true">
+                                        <span></span><span></span><span></span><span></span><span></span>
                                     </div>
-                                    <!-- Iframe container -->
-                                    <div style="background-color: #121212; line-height: 0;">
-                                        <iframe style="border: none;" src="" data-src="https://open.spotify.com/embed/artist/7JHICDCuKigKcxrqsrUWxE?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    <span class="sf-player-label">
+                                        <i class="fa-brands fa-spotify"></i> SUNFLOWER MUSIC
+                                    </span>
+                                    <div class="sf-player-dots" aria-hidden="true">
+                                        <span></span><span></span><span></span>
                                     </div>
+                                </div>
+                                <div class="sf-player-body">
+                                    <iframe src="" data-src="https://open.spotify.com/embed/artist/7JHICDCuKigKcxrqsrUWxE?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                                 </div>
                             </div>
 
                             <div class="brutalist-divider"></div>
 
                             <div class="full-page-socials-container">
-                                <h2>SEGUI L'ARTISTA</h2>
+                                <h2>
+                                    <span class="lang-it">SEGUI L'ARTISTA</span>
+                                    <span class="lang-en">FOLLOW THE ARTIST</span>
+                                </h2>
                                 <div class="full-page-socials-grid">
                                     <a href="https://www.instagram.com/secondomusica/" target="_blank"
                                         class="brutalist-social-btn instagram">
@@ -767,9 +920,10 @@
 
             <!-- Full-Screen Lyra -->
             <div class="artist-full-page bg-blue" id="modal-Lyra">
+                <div class="fp-bg-deco" aria-hidden="true">#08</div>
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
-                        <i class="fa-solid fa-arrow-left"></i> <span class="close-btn-desktop-text">TORNA ALLA </span>HOME
+                        <i class="fa-solid fa-arrow-left"></i> <span class="close-btn-desktop-text"><span class="lang-it">TORNA ALLA </span><span class="lang-en">BACK TO </span></span>HOME
                     </button>
                     <div class="header-logo-container">
                         <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" loading="lazy" width="80" height="80">
@@ -788,44 +942,53 @@
 
                         <div class="full-page-info-col">
                             <h1 class="full-page-title">Lyra</h1>
-                            <p class="full-page-genre-tag">indefinito</p>
+                            <p class="full-page-genre-tag">
+                                <span class="lang-it">indefinito</span>
+                                <span class="lang-en">indefinite</span>
+                            </p>
 
                             <div class="brutalist-divider"></div>
 
                             <div class="full-page-bio">
-                                <h2>LA BIOGRAFIA</h2>
+                                <h2>
+                                    <span class="lang-it">LA BIOGRAFIA</span>
+                                    <span class="lang-en">BIOGRAPHY</span>
+                                </h2>
                                 <p class="full-page-description">
-                                   “Lyra” è un progetto ultra-musicale, nato nell’autunno del 2025, dalla volontà di 5 musicisti salernitani di sperimentare nuovi linguaggi comunicativi e di provare,
-                                   attraverso la fusione di una narrativa di carattere personale e sociale con sonorità spiccatamente elettro-pop, a raggiungere l’ascoltatore in maniera diretta e senza alcun filtro.
-                                   Nel mondo “Lyra”, infatti, ritmi D’nB, Jungle e synth fanno da sfondo a testi in cui le esperienze personali si intrecciano strettamente a temi sociali attuali come la
-                                   discriminazione di genere, il rispetto delle diﬀerenze, l’uso distorto dei social media, la moderna frenetica routine che non lascia spazio alla singolarità che ogni
-                                   essere umano rappresenta.
+                                   <span class="lang-it">“Lyra” è un progetto ultra-musicale, nato nell’autunno del 2025, dalla volontà di 5 musicisti salernitani di sperimentare nuovi linguaggi comunicativi e di provare, attraverso la fusione di una narrativa di carattere personale e sociale con sonorità spiccatamente elettro-pop, a raggiungere l’ascoltatore in maniera diretta e senza alcun filtro. Nel mondo “Lyra”, infatti, ritmi D’nB, Jungle e synth fanno da sfondo a testi in cui le esperienze personali si intrecciano strettamente a temi sociali attuali come la discriminazione di genere, il rispetto delle diﬀerenze, l’uso distorto dei social media, la moderna frenetica routine che non lascia spazio alla singolarità che ogni essere umano rappresenta.</span>
+                                   <span class="lang-en">“Lyra” is an ultra-musical project, born in the fall of 2025 from the will of 5 musicians from Salerno to experiment with new communicative languages and to try, through the merger of personal and social narrative with distinctly electro-pop sounds, to reach the listener in a direct way without any filter. In the “Lyra” world, indeed, D’nB, Jungle and synth rhythms form the background to lyrics in which personal experiences are closely intertwined with current social themes such as gender discrimination, respect for differences, the distorted use of social media, and the modern frantic routine that leaves no space for the singularity that each human being represents.</span>
                                 </p>
                                 <p class="full-page-description">
-                                   La formazione è composta da Arianna Fortunato (voce), Enrico Di Marino (chitarra), Gerardo Zambrano (basso e synth), Federica Sergio (tastiere e programmazioni),
-                                   Federico Amato (batteria e programmazioni). Parallelamente al lavoro di produzione in studio che si tradurrà alla fine dell’estate nella pubblicazione del primo ep,
-                                   la band ha cercato di curare nei minimi dettagli anche l’aspetto live al fine di potersi esibire dal vivo nei mesi che precedono l’uscita del primo lavoro discografico. 
+                                   <span class="lang-it">La formazione è composta da Arianna Fortunato (voce), Enrico Di Marino (chitarra), Gerardo Zambrano (basso e synth), Federica Sergio (tastiere e programmazioni), Federico Amato (batteria e programmazioni). Parallelamente al lavoro di produzione in studio che si tradurrà alla fine dell’estate nella pubblicazione del primo ep, la band ha cercato di curare nei minimi dettagli anche l’aspetto live al fine di potersi esibire dal vivo nei mesi che precedono l’uscita del primo lavoro discografico.</span>
+                                   <span class="lang-en">The line-up is composed of Arianna Fortunato (vocals), Enrico Di Marino (guitar), Gerardo Zambrano (bass and synth), Federica Sergio (keyboards and programming), Federico Amato (drums and programming). Parallelly to the studio production work that will result at the end of summer in the release of the first EP, the band has tried to take care of the live performance aspects down to the smallest detail to perform live in the months leading up to the release of their first record.</span>
                                 </p>
                             </div>
 
                             <div class="brutalist-divider"></div>
 
-                            <div class="sunflower-player-section" style="width: 100%; margin-top: 1.5rem;">
-                                <div class="player-brutalist-container" style="border: 4px solid var(--text-black); box-shadow: 6px 6px 0px var(--text-black); border-radius: 12px; background-color: var(--text-black); overflow: hidden; display: flex; flex-direction: column;">
-                                    <!-- Header decoration bar -->
-                                    <div style="background: var(--primary-orange); border-bottom: 4px solid var(--text-black); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-black); letter-spacing: 1px;">
-                                        <span><i class="fa-solid fa-circle-play" style="margin-right: 0.5rem;"></i>SUNFLOWER MUSIC PLAYER</span>
-                                        <div style="display: flex; gap: 6px;">
-                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
-                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
-                                        </div>
+                            <div class="sf-music-player">
+                                <div class="sf-player-header">
+                                    <div class="sf-player-eq" aria-hidden="true">
+                                        <span></span><span></span><span></span><span></span><span></span>
                                     </div>
-                                    <div style="background-color: #E95027; color: var(--text-black); padding: 1.5rem; text-align: center; font-family: 'Outfit', sans-serif; font-weight: bold; text-transform: uppercase;">
-                                        <i class="fa-solid fa-compact-disc fa-spin" style="font-size: 2.5rem; margin-bottom: 0.75rem; color: var(--text-black);"></i>
-                                        <div style="font-size: 1.25rem; margin-bottom: 0.25rem;">EP d'esordio in arrivo!</div>
-                                        <div style="font-size: 0.9rem; font-weight: normal; text-transform: none; line-height: 1.4;">
-                                            Nuova musica in arrivo a fine estate. Segui i canali social per rimanere aggiornato.
-                                        </div>
+                                    <span class="sf-player-label">
+                                        <i class="fa-brands fa-spotify"></i> SUNFLOWER MUSIC
+                                    </span>
+                                    <div class="sf-player-dots" aria-hidden="true">
+                                        <span></span><span></span><span></span>
+                                    </div>
+                                </div>
+                                <div class="sf-player-coming-soon-body">
+                                    <i class="fa-solid fa-compact-disc fa-spin"></i>
+                                    <div class="sf-coming-soon-text">
+                                        <span>
+                                            <span class="lang-it">EP d'esordio in arrivo!</span>
+                                            <span class="lang-en">Debut EP coming soon!</span>
+                                        </span>
+                                        <p>
+                                            <span class="lang-it">Nuova musica in arrivo a fine estate. Segui i canali social per rimanere aggiornato.</span>
+                                            <span class="lang-en">New music coming at the end of summer. Follow social channels to stay updated.</span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -833,7 +996,10 @@
                             <div class="brutalist-divider"></div>
 
                             <div class="full-page-socials-container">
-                                <h2>SEGUI L'ARTISTA</h2>
+                                <h2>
+                                    <span class="lang-it">SEGUI L'ARTISTA</span>
+                                    <span class="lang-en">FOLLOW THE ARTIST</span>
+                                </h2>
                                 <div class="full-page-socials-grid">
                                     <a href="https://www.instagram.com/ly.ra.music/" target="_blank"
                                         class="brutalist-social-btn instagram">
@@ -855,9 +1021,10 @@
 
             <!-- Full-Screen Dinìche -->
             <div class="artist-full-page bg-blue" id="modal-Diniche">
+                <div class="fp-bg-deco" aria-hidden="true">#03</div>
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
-                        <i class="fa-solid fa-arrow-left"></i> <span class="close-btn-desktop-text">TORNA ALLA </span>HOME
+                        <i class="fa-solid fa-arrow-left"></i> <span class="close-btn-desktop-text"><span class="lang-it">TORNA ALLA </span><span class="lang-en">BACK TO </span></span>HOME
                     </button>
                     <div class="header-logo-container">
                         <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" loading="lazy" width="80" height="80">
@@ -876,40 +1043,45 @@
 
                         <div class="full-page-info-col">
                             <h1 class="full-page-title">Dinìche</h1>
-                            <p class="full-page-genre-tag">Cantautorato</p>
+                            <p class="full-page-genre-tag">
+                                <span class="lang-it">Cantautorato</span>
+                                <span class="lang-en">Songwriting</span>
+                            </p>
 
                             <div class="brutalist-divider"></div>
 
                             <div class="full-page-bio">
-                                <h2>LA BIOGRAFIA</h2>
+                                <h2>
+                                    <span class="lang-it">LA BIOGRAFIA</span>
+                                    <span class="lang-en">BIOGRAPHY</span>
+                                </h2>
                                 <p class="full-page-description">
-                                    DINìCHE ha all’attivo un progetto di musica elettronica, cantato in inglese/italiano/napoletano, dal titolo IN TIEMP’ (ON TIME).
-                                    Il singolo NISIDA, estratto dal suo EP d’esordio, si è posizionato in tre playlist editoriali Spotify: “New Music Friday”, “Nuovo Pop” e “Anima R&B”. Il 14 marzo è uscito il suo nuovo singolo FUOCHI AMMARE, inserito nelle principali playlist Apple: “Swipe Pop”, “Super Indie” e “New Music Daily”.
-                                    A giugno 2024 ha aperto il tour di Ermal Meta “Buona fortuna”, si è esibita al Meeting del Mare e in Piazza del Plebiscito per il Capodanno di Napoli, aprendo Loredana Bertè.
+                                    <span class="lang-it">DINìCHE ha all’attivo un progetto di musica elettronica, cantato in inglese/italiano/napoletano, dal titolo IN TIEMP’ (ON TIME). Il singolo NISIDA, estratto dal suo EP d’esordio, si è posizionato in tre playlist editoriali Spotify: “New Music Friday”, “Nuovo Pop” e “Anima R&B”. Il 14 marzo è uscito il suo nuovo singolo FUOCHI AMMARE, inserito nelle principali playlist Apple: “Swipe Pop”, “Super Indie” e “New Music Daily”. A giugno 2024 ha aperto il tour di Ermal Meta “Buona fortuna”, si è esibita al Meeting del Mare e in Piazza del Plebiscito per il Capodanno di Napoli, aprendo Loredana Bertè.</span>
+                                    <span class="lang-en">DINìCHE has an ongoing electronic music project, sung in English/Italian/Neapolitan, titled IN TIEMP’ (ON TIME). The single NISIDA, taken from her debut EP, has been placed in three Spotify editorial playlists: “New Music Friday”, “Nuovo Pop” and “Anima R&B”. On March 14, her new single FUOCHI AMMARE was released, featured in the main Apple playlists: “Swipe Pop”, “Super Indie” and “New Music Daily”. In June 2024 she opened Ermal Meta's “Buona fortuna” tour, performed at Meeting del Mare and in Piazza del Plebiscito for Naples' New Year's Eve, opening for Loredana Bertè.</span>
                                 </p>
                                 <p class="full-page-description">
-                                    I singoli NISIDA e FUOCHI AMMARE sono stati selezionati per diversi premi nazionali, come il Ciao-Rassegna Lucio Dalla (tra i 10 progetti finalisti), Musicultura (tra i 101
-                                    selezionati) e Music For Change (tra i 21 semifinalisti).
-                                    DINìCHE è la vincitrice assoluta dell’1MNEXT 2025 e si è esibita a Roma, in Piazza San Giovanni, per il Concertone del Primo Maggio. Grazie alla vittoria, nel 2026 ha
-                                    realizzato un tour di 5 date con il contributo del Nuovo IMAIE, esibendosi a Milano, Firenze, Roma, Modica e Catania. A marzo dello stesso anno, durante la finalissima del SanNolo 2026, si è posizionata nella cinquina dei vincitori.
+                                    <span class="lang-it">I singoli NISIDA e FUOCHI AMMARE sono stati selezionati per diversi premi nazionali, come il Ciao-Rassegna Lucio Dalla (tra i 10 progetti finalisti), Musicultura (tra i 101 selezionati) e Music For Change (tra i 21 semifinalisti). DINìCHE è la vincitrice assoluta dell’1MNEXT 2025 e si è esibita a Roma, in Piazza San Giovanni, per il Concertone del Primo Maggio. Grazie alla vittoria, nel 2026 ha realizzato un tour di 5 date con il contributo del Nuovo IMAIE, esibendosi a Milano, Firenze, Roma, Modica e Catania. A marzo dello stesso anno, durante la finalissima del SanNolo 2026, si è posizionata nella cinquina dei vincitori.</span>
+                                    <span class="lang-en">The singles NISIDA and FUOCHI AMMARE were selected for various national awards, such as Ciao-Rassegna Lucio Dalla (among the 10 finalist projects), Musicultura (among the 101 selected) and Music For Change (among the 21 semifinalists). DINìCHE is the absolute winner of 1MNEXT 2025 and performed in Rome, in Piazza San Giovanni, for the May Day Concert. Thanks to the victory, in 2026 she completed a 5-date tour with the contribution of Nuovo IMAIE, performing in Milan, Florence, Rome, Modica and Catania. In March of the same year, during the grand finale of SanNolo 2026, she placed in the top five winners.</span>
                                 </p>
                             </div>
 
                             <div class="brutalist-divider"></div>
 
-                            <div class="sunflower-player-section" style="width: 100%; margin-top: 1.5rem;">
-                                <div class="player-brutalist-container" style="border: 4px solid var(--text-black); box-shadow: 6px 6px 0px var(--text-black); border-radius: 12px; background-color: var(--text-black); overflow: hidden; display: flex; flex-direction: column;">
-                                    <!-- Header decoration bar -->
-                                    <div style="background: var(--primary-orange); border-bottom: 4px solid var(--text-black); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-black); letter-spacing: 1px;">
-                                        <span><i class="fa-solid fa-circle-play" style="margin-right: 0.5rem;"></i>SUNFLOWER MUSIC PLAYER</span>
-                                        <div style="display: flex; gap: 6px;">
-                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
-                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
+                            <div class="sf-music-player">
+                                <div class="sf-music-player">
+                                    <div class="sf-player-header">
+                                        <div class="sf-player-eq" aria-hidden="true">
+                                            <span></span><span></span><span></span><span></span><span></span>
+                                        </div>
+                                        <span class="sf-player-label">
+                                            <i class="fa-brands fa-spotify"></i> SUNFLOWER MUSIC
+                                        </span>
+                                        <div class="sf-player-dots" aria-hidden="true">
+                                            <span></span><span></span><span></span>
                                         </div>
                                     </div>
-                                    <!-- Iframe container -->
-                                    <div style="background-color: #121212; line-height: 0;">
-                                        <iframe style="border: none;" src="" data-src="https://open.spotify.com/embed/artist/4DRvk320Z8VrBjCnDRDwEM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    <div class="sf-player-body">
+                                        <iframe src="" data-src="https://open.spotify.com/embed/artist/4DRvk320Z8VrBjCnDRDwEM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -917,7 +1089,10 @@
                             <div class="brutalist-divider"></div>
 
                             <div class="full-page-socials-container">
-                                <h2>SEGUI L'ARTISTA</h2>
+                                <h2>
+                                    <span class="lang-it">SEGUI L'ARTISTA</span>
+                                    <span class="lang-en">FOLLOW THE ARTIST</span>
+                                </h2>
                                 <div class="full-page-socials-grid">
                                     <a href="https://www.instagram.com/ladiniche/" target="_blank"
                                         class="brutalist-social-btn instagram">
@@ -939,9 +1114,10 @@
 
             <!-- Full-Screen Antonio Calabrese -->
             <div class="artist-full-page bg-blue" id="modal-Antonio Calabrese">
+                <div class="fp-bg-deco" aria-hidden="true">#06</div>
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
-                        <i class="fa-solid fa-arrow-left"></i> <span class="close-btn-desktop-text">TORNA ALLA </span>HOME
+                        <i class="fa-solid fa-arrow-left"></i> <span class="close-btn-desktop-text"><span class="lang-it">TORNA ALLA </span><span class="lang-en">BACK TO </span></span>HOME
                     </button>
                     <div class="header-logo-container">
                         <img src="assets/loghi/logo-nobg.webp" alt="Sunflower Fest Logo" loading="lazy" width="80" height="80">
@@ -961,45 +1137,54 @@
                         <div class="full-page-info-col">
 
                             <h1 class="full-page-title">Antonio Calabrese</h1>
-                            <p class="full-page-genre-tag">Cantautorato</p>
+                            <p class="full-page-genre-tag">
+                                <span class="lang-it">Cantautorato</span>
+                                <span class="lang-en">Songwriting</span>
+                            </p>
 
                             <div class="brutalist-divider"></div>
 
                             <div class="full-page-bio">
-                                <h2>LA BIOGRAFIA</h2>
+                                <h2>
+                                    <span class="lang-it">LA BIOGRAFIA</span>
+                                    <span class="lang-en">BIOGRAPHY</span>
+                                </h2>
                                 <p class="full-page-description">
-                                    Antonio Calabrese è un cantautore salernitano, che fonde folk cinematico alla lingua italiana.
-                                    Ha condiviso il palco con artisti del calibro di Francesco Di Bella, Giovanni Block, Bobo Rondelli e Beppe Barra.
+                                    <span class="lang-it">Antonio Calabrese è un cantautore salernitano, che fonde folk cinematico alla lingua italiana. Ha condiviso il palco con artisti del calibro di Francesco Di Bella, Giovanni Block, Bobo Rondelli e Beppe Barra.</span>
+                                    <span class="lang-en">Antonio Calabrese is a singer-songwriter from Salerno, who blends cinematic folk with the Italian language. He has shared the stage with artists of the caliber of Francesco Di Bella, Giovanni Block, Bobo Rondelli and Beppe Barra.</span>
                                 </p>
                                 <p class="full-page-description">
-                                    Ha suonato in location prestigiose come il Teatro Trianon Viviani e all'estero, esibendosi in Uruguay per un tour di 10 date.
-                                    Vincitore di diversi riconoscimenti regionali e nazionali (tra cui il Premio della Critica Aniello De Vita 2025, Palco d'Autore 2023 e Cesare Filangieri 2024), ha all'attivo due singoli e un EP autoprodotti.
+                                    <span class="lang-it">Ha suonato in location prestigiose come il Teatro Trianon Viviani e all'estero, esibendosi in Uruguay per un tour di 10 date. Vincitore di diversi riconoscimenti regionali e nazionali (tra cui il Premio della Critica Aniello De Vita 2025, Palco d'Autore 2023 e Cesare Filangieri 2024), ha all'attivo due singoli e un EP autoprodotti.</span>
+                                    <span class="lang-en">He has performed in prestigious locations such as the Trianon Viviani Theater and abroad, performing in Uruguay for a 10-date tour. Winner of several regional and national awards (including the Aniello De Vita Critics Award 2025, Palco d'Autore 2023 and Cesare Filangieri 2024), he has two self-produced singles and one EP to his credit.</span>
                                 </p>
                             </div>
 
                             <div class="brutalist-divider"></div>
 
-                            <div class="sunflower-player-section" style="width: 100%; margin-top: 1.5rem;">
-                                <div class="player-brutalist-container" style="border: 4px solid var(--text-black); box-shadow: 6px 6px 0px var(--text-black); border-radius: 12px; background-color: var(--text-black); overflow: hidden; display: flex; flex-direction: column;">
-                                    <!-- Header decoration bar -->
-                                    <div style="background: var(--primary-orange); border-bottom: 4px solid var(--text-black); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; color: var(--text-black); letter-spacing: 1px;">
-                                        <span><i class="fa-solid fa-circle-play" style="margin-right: 0.5rem;"></i>SUNFLOWER MUSIC PLAYER</span>
-                                        <div style="display: flex; gap: 6px;">
-                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
-                                            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: var(--text-black); display: inline-block;"></span>
-                                        </div>
+                            <div class="sf-music-player">
+                                <div class="sf-player-header">
+                                    <div class="sf-player-eq" aria-hidden="true">
+                                        <span></span><span></span><span></span><span></span><span></span>
                                     </div>
-                                    <!-- Iframe container -->
-                                    <div style="background-color: #121212; line-height: 0;">
-                                        <iframe style="border: none;" src="" data-src="https://open.spotify.com/embed/artist/5QrRzAUU59Wf0mrzu3ZoX3?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    <span class="sf-player-label">
+                                        <i class="fa-brands fa-spotify"></i> SUNFLOWER MUSIC
+                                    </span>
+                                    <div class="sf-player-dots" aria-hidden="true">
+                                        <span></span><span></span><span></span>
                                     </div>
+                                </div>
+                                <div class="sf-player-body">
+                                    <iframe src="" data-src="https://open.spotify.com/embed/artist/5QrRzAUU59Wf0mrzu3ZoX3?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                                 </div>
                             </div>
 
                             <div class="brutalist-divider"></div>
 
                             <div class="full-page-socials-container">
-                                <h2>SEGUI L'ARTISTA</h2>
+                                <h2>
+                                    <span class="lang-it">SEGUI L'ARTISTA</span>
+                                    <span class="lang-en">FOLLOW THE ARTIST</span>
+                                </h2>
                                 <div class="full-page-socials-grid">
                                     <a href="https://www.instagram.com/iosono.antonio/" target="_blank"
                                         class="brutalist-social-btn instagram">
@@ -1028,8 +1213,8 @@
     <!-- Map Section Shaped Like a Sunflower -->
     <section class="home-map-section">
         <h2 class="home-map-title">
-            <span class="word-dove">DOVE</span>
-            <span class="word-trovarci">TROVARCI</span>
+            <span class="word-dove"><span class="lang-it">DOVE</span><span class="lang-en">WHERE</span></span>
+            <span class="word-trovarci"><span class="lang-it">TROVARCI</span><span class="lang-en">TO FIND US</span></span>
         </h2>
 
         <div class="map-section-grid reveal-up">
@@ -1060,9 +1245,16 @@
                                 <div class="widget-map-preview" style="flex-direction: column; justify-content: center; text-align: center; gap: 0.8rem;">
                                     <i class="fa-solid fa-map-location-dot widget-icon" style="font-size: 3.2rem; padding: 0.8rem; border-radius: 16px;"></i>
                                     <div class="widget-text" style="align-items: center;">
-                                        <span class="widget-title" style="font-size: 1.4rem;">Dove Trovarci</span>
+                                        <span class="widget-title" style="font-size: 1.4rem;">
+                                            <span class="lang-it">Dove Trovarci</span>
+                                            <span class="lang-en">Where to Find Us</span>
+                                        </span>
                                         <span class="widget-subtitle" style="font-size: 0.85rem; text-align: center; margin-top: 0.2rem;">Social Tennis Club<br>Cava de' Tirreni</span>
-                                        <span class="widget-click-info"><i class="fa-solid fa-hand-pointer"></i> Clicca per la mappa</span>
+                                        <span class="widget-click-info">
+                                            <i class="fa-solid fa-hand-pointer"></i> 
+                                            <span class="lang-it">Clicca per la mappa</span>
+                                            <span class="lang-en">Click for map</span>
+                                        </span>
                                     </div>
                                     <!-- Sunflower Logo inside the map widget as a background watermark -->
                                     <img src="assets/loghi/logo-nobg.webp" alt="Sunflower" class="widget-watermark-logo" loading="lazy" width="180" height="180">
@@ -1097,7 +1289,10 @@
                             <button class="map-back-btn" aria-label="Torna alla Home">
                                 <i class="fa-solid fa-chevron-left"></i> Home
                             </button>
-                            <span class="app-header-title">Mappa</span>
+                            <span class="app-header-title">
+                                <span class="lang-it">Mappa</span>
+                                <span class="lang-en">Map</span>
+                            </span>
                         </div>
                         
                         <div class="smartphone-map-frame">
@@ -1117,27 +1312,64 @@
         
         <!-- Right Side: Come Raggiungerci Accordion Menu -->
         <div class="how-to-reach-container">
-            <h3 class="reach-title">COME RAGGIUNGERCI</h3>
+            <h3 class="reach-title">
+                <span class="lang-it">COME RAGGIUNGERCI</span>
+                <span class="lang-en">HOW TO REACH US</span>
+            </h3>
             
             <!-- Brutalist ZTL Warning Banner -->
             <div class="brutalist-alert-banner" style="border: 4px solid var(--text-black); background-color: var(--c-pastel-orange); color: var(--text-black); font-weight: 900; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; padding: 0.8rem 1rem; border-radius: 12px; box-shadow: 4px 4px 0px var(--text-black); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; transform: rotate(-0.5deg);">
                 <i class="fa-solid fa-triangle-exclamation" style="font-size: 1.2rem; color: var(--c-red); margin-right: 0.2rem;"></i>
-                <span><strong>ATTENZIONE ZTL:</strong> Il centro storico ha varchi attivi. Consigliamo di parcheggiare fuori per evitare sanzioni!</span>
+                <span>
+                    <strong><span class="lang-it">ATTENZIONE ZTL:</span><span class="lang-en">ZTL WARNING:</span></strong> 
+                    <span class="lang-it">Il centro storico ha varchi attivi. Consigliamo di parcheggiare fuori per evitare sanzioni!</span>
+                    <span class="lang-en">The historical center has active cameras. We recommend parking outside to avoid fines!</span>
+                </span>
             </div>
 
             <div class="brutalist-accordion">
                 <!-- Item 1: Auto e Parcheggi -->
                 <div class="accordion-item">
                     <button class="accordion-header" aria-label="Espandi indicazioni auto e parcheggi">
-                        <span><i class="fa-solid fa-car"></i>In Auto e Parcheggi</span>
+                        <span><i class="fa-solid fa-car"></i><span class="lang-it">In Auto e Parcheggi</span><span class="lang-en">By Car & Parking</span></span>
                         <i class="fa-solid fa-chevron-down arrow-icon"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Il Social Tennis Club si trova in centro. Ecco dove parcheggiare senza pensieri (gestito da <strong>Metellia Servizi</strong>, pagabile anche con <strong>EasyPark</strong>):</p>
+                        <p>
+                            <span class="lang-it">Il Social Tennis Club si trova in centro. Ecco dove parcheggiare senza pensieri (gestito da <strong>Metellia Servizi</strong>, pagabile anche con <strong>EasyPark</strong>):</span>
+                            <span class="lang-en">The Social Tennis Club is located in the center. Here is where to park hassle-free (managed by <strong>Metellia Servizi</strong>, also payable with <strong>EasyPark</strong>):</span>
+                        </p>
                         <ul>
-                            <li><strong>Area Trincerone Coperto:</strong> Accesso da SS18. Parcheggio sotterraneo custodito e vicinissimo. <a href="https://www.google.com/maps/dir/?api=1&destination=Parcheggio+Trincerone+Cava+de+Tirreni" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;"><i class="fa-solid fa-route"></i> Naviga Qui</a></li>
-                            <li><strong>Piazza Amabile / Piazzale Europa:</strong> Ampie aree di sosta comunali all'aperto, ideali per la sera. <a href="https://www.google.com/maps/dir/?api=1&destination=Piazza+Amabile+Cava+de+Tirreni" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;"><i class="fa-solid fa-route"></i> Naviga Qui</a></li>
-                            <li><strong>Autorimessa Villa Comunale:</strong> Parcheggio privato custodito a pagamento, in Via Marcello Garzia. <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Marcello+Garzia+Cava+de+Tirreni" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;"><i class="fa-solid fa-route"></i> Naviga Qui</a></li>
+                            <li>
+                                <strong><span class="lang-it">Area Trincerone Coperto:</span><span class="lang-en">Covered Trincerone Area:</span></strong> 
+                                <span class="lang-it">Accesso da SS18. Parcheggio sotterraneo custodito e vicinissimo.</span>
+                                <span class="lang-en">Access from SS18. Guarded underground parking, very close.</span> 
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=Parcheggio+Trincerone+Cava+de+Tirreni" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;">
+                                    <i class="fa-solid fa-route"></i> 
+                                    <span class="lang-it">Naviga Qui</span>
+                                    <span class="lang-en">Navigate Here</span>
+                                </a>
+                            </li>
+                            <li>
+                                <strong>Piazza Amabile / Piazzale Europa:</strong> 
+                                <span class="lang-it">Ampie aree di sosta comunali all'aperto, ideali per la sera.</span>
+                                <span class="lang-en">Large outdoor municipal parking areas, ideal for the evening.</span> 
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=Piazza+Amabile+Cava+de+Tirreni" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;">
+                                    <i class="fa-solid fa-route"></i> 
+                                    <span class="lang-it">Naviga Qui</span>
+                                    <span class="lang-en">Navigate Here</span>
+                                </a>
+                            </li>
+                            <li>
+                                <strong><span class="lang-it">Autorimessa Villa Comunale:</span><span class="lang-en">Villa Comunale Garage:</span></strong> 
+                                <span class="lang-it">Parcheggio privato custodito a pagamento, in Via Marcello Garzia.</span>
+                                <span class="lang-en">Guarded private paid parking, in Via Marcello Garzia.</span> 
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Marcello+Garzia+Cava+de+Tirreni" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;">
+                                    <i class="fa-solid fa-route"></i> 
+                                    <span class="lang-it">Naviga Qui</span>
+                                    <span class="lang-en">Navigate Here</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -1145,14 +1377,30 @@
                 <!-- Item 2: Treno -->
                 <div class="accordion-item">
                     <button class="accordion-header" aria-label="Espandi indicazioni treno">
-                        <span><i class="fa-solid fa-train"></i>In Treno</span>
+                        <span><i class="fa-solid fa-train"></i><span class="lang-it">In Treno</span><span class="lang-en">By Train</span></span>
                         <i class="fa-solid fa-chevron-down arrow-icon"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Il treno è la scelta più comoda ed ecologica per raggiungere il festival:</p>
+                        <p>
+                            <span class="lang-it">Il treno è la scelta più comoda ed ecologica per raggiungere il festival:</span>
+                            <span class="lang-en">The train is the most convenient and ecological choice to reach the festival:</span>
+                        </p>
                         <ul>
-                            <li><strong>Stazione di Cava de' Tirreni:</strong> Fermata per treni regionali sulla tratta Napoli Campi Flegrei - Salerno.</li>
-                            <li><strong>Passeggiata a piedi:</strong> Dalla stazione dista solo <strong>400 metri</strong> (circa 5 minuti a piedi attraversando la Villa Comunale e Corso Umberto I). <a href="https://www.google.com/maps/dir/?api=1&origin=Stazione+Cava+de+Tirreni&destination=Social+Tennis+Club+Cava+de+Tirreni&travelmode=walking" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;"><i class="fa-solid fa-person-walking"></i> Mostra Percorso</a></li>
+                            <li>
+                                <strong><span class="lang-it">Stazione di Cava de' Tirreni:</span><span class="lang-en">Cava de' Tirreni Station:</span></strong> 
+                                <span class="lang-it">Fermata per treni regionali sulla tratta Napoli Campi Flegrei - Salerno.</span>
+                                <span class="lang-en">Stop for regional trains on the Naples Campi Flegrei - Salerno line.</span>
+                            </li>
+                            <li>
+                                <strong><span class="lang-it">Passeggiata a piedi:</span><span class="lang-en">Walking:</span></strong> 
+                                <span class="lang-it">Dalla stazione dista solo <strong>400 metri</strong> (circa 5 minuti a piedi attraversando la Villa Comunale e Corso Umberto I).</span>
+                                <span class="lang-en">Just <strong>400 meters</strong> from the station (about 5 minutes walk through the Villa Comunale and Corso Umberto I).</span> 
+                                <a href="https://www.google.com/maps/dir/?api=1&origin=Stazione+Cava+de+Tirreni&destination=Social+Tennis+Club+Cava+de+Tirreni&travelmode=walking" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;">
+                                    <i class="fa-solid fa-person-walking"></i> 
+                                    <span class="lang-it">Mostra Percorso</span>
+                                    <span class="lang-en">Show Route</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -1160,15 +1408,35 @@
                 <!-- Item 3: Pullman / Autobus -->
                 <div class="accordion-item">
                     <button class="accordion-header" aria-label="Espandi indicazioni autobus">
-                        <span><i class="fa-solid fa-bus"></i>In Pullman / Bus</span>
+                        <span><i class="fa-solid fa-bus"></i><span class="lang-it">In Pullman / Bus</span><span class="lang-en">By Bus</span></span>
                         <i class="fa-solid fa-chevron-down arrow-icon"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Collegamenti frequenti con mezzi regionali operati da <strong>Busitalia Campania</strong>:</p>
+                        <p>
+                            <span class="lang-it">Collegamenti frequenti con mezzi regionali operati da <strong>Busitalia Campania</strong>:</span>
+                            <span class="lang-en">Frequent connections with regional buses operated by <strong>Busitalia Campania</strong>:</span>
+                        </p>
                         <ul>
-                            <li><strong>Da Salerno:</strong> Linee urbane ed extraurbane (es. <strong>Linea 4</strong> e <strong>Linea 9</strong>).</li>
-                            <li><strong>Da Napoli e agro nocerino:</strong> Collegamenti diretti (es. <strong>Linea 84</strong>).</li>
-                            <li><strong>Fermate vicine:</strong> Scendi alla fermata principale di <strong>Viale Crispi</strong> (a 2 minuti a piedi dal club). <a href="https://www.google.com/maps/search/?api=1&query=Viale+Crispi+Cava+de+Tirreni" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;"><i class="fa-solid fa-location-dot"></i> Vedi Fermata</a></li>
+                            <li>
+                                <strong><span class="lang-it">Da Salerno:</span><span class="lang-en">From Salerno:</span></strong> 
+                                <span class="lang-it">Linee urbane ed extraurbane (es. <strong>Linea 4</strong> e <strong>Linea 9</strong>).</span>
+                                <span class="lang-en">Urban and suburban lines (e.g. <strong>Line 4</strong> and <strong>Line 9</strong>).</span>
+                            </li>
+                            <li>
+                                <strong><span class="lang-it">Da Napoli e agro nocerino:</span><span class="lang-en">From Naples and the Agro Nocerino area:</span></strong> 
+                                <span class="lang-it">Collegamenti diretti (es. <strong>Linea 84</strong>).</span>
+                                <span class="lang-en">Direct connections (e.g. <strong>Line 84</strong>).</span>
+                            </li>
+                            <li>
+                                <strong><span class="lang-it">Fermate vicine:</span><span class="lang-en">Nearby stops:</span></strong> 
+                                <span class="lang-it">Scendi alla fermata principale di <strong>Viale Crispi</strong> (a 2 minuti a piedi dal club).</span>
+                                <span class="lang-en">Get off at the main stop on <strong>Viale Crispi</strong> (2 minutes walk from the club).</span> 
+                                <a href="https://www.google.com/maps/search/?api=1&query=Viale+Crispi+Cava+de+Tirreni" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;">
+                                    <i class="fa-solid fa-location-dot"></i> 
+                                    <span class="lang-it">Vedi Fermata</span>
+                                    <span class="lang-en">See Stop</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -1176,14 +1444,28 @@
                 <!-- Item 4: Altre Info e ZTL -->
                 <div class="accordion-item">
                     <button class="accordion-header" aria-label="Espandi altre indicazioni">
-                        <span><i class="fa-solid fa-circle-info"></i>Altre Info</span>
+                        <span><i class="fa-solid fa-circle-info"></i><span class="lang-it">Altre Info</span><span class="lang-en">Other Info</span></span>
                         <i class="fa-solid fa-chevron-down arrow-icon"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Il Social Tennis Club si trova proprio a ridosso del famoso <strong>borgo porticato medievale</strong> di Cava de' Tirreni:</p>
+                        <p>
+                            <span class="lang-it">Il Social Tennis Club si trova proprio a ridosso del famoso <strong>borgo porticato medievale</strong> di Cava de' Tirreni:</span>
+                            <span class="lang-en">The Social Tennis Club is located right next to the famous medieval porticoed center of Cava de' Tirreni:</span>
+                        </p>
                         <ul>
-                            <li>Intorno all'area del festival sono presenti bar, pizzerie e locali storici convenzionati.</li>
-                            <li>L'ingresso del club si trova nei pressi di Viale Garibaldi, facilmente raggiungibile a piedi da qualsiasi punto del centro storico. <a href="https://www.google.com/maps/dir/?api=1&destination=Social+Tennis+Club+Cava+de+Tirreni" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;"><i class="fa-solid fa-map-location-dot"></i> Naviga al Club</a></li>
+                            <li>
+                                <span class="lang-it">Intorno all'area del festival sono presenti bar, pizzerie e locali storici convenzionati.</span>
+                                <span class="lang-en">Around the festival area there are bars, pizzerias and contracted historical venues.</span>
+                            </li>
+                            <li>
+                                <span class="lang-it">L'ingresso del club si trova nei pressi di Viale Garibaldi, facilmente raggiungibile a piedi da qualsiasi punto del centro storico.</span>
+                                <span class="lang-en">The entrance of the club is located near Viale Garibaldi, easily accessible on foot from any point of the historic center.</span> 
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=Social+Tennis+Club+Cava+de+Tirreni" target="_blank" class="mini-brutalist-btn" style="margin-top:0.3rem; margin-bottom:0.3rem;">
+                                    <i class="fa-solid fa-map-location-dot"></i> 
+                                    <span class="lang-it">Naviga al Club</span>
+                                    <span class="lang-en">Navigate to the Club</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -1200,10 +1482,14 @@
                 <a href="https://maps.google.com/?q=Social%20Tennis%20Club,%20Via%20Marcello%20Garzia,%202,%20Cava%20de%27%20Tirreni"
                     target="_blank" class="brutalist-button bg-green"
                     style="font-size: 1.1rem; font-weight: 900; padding: 0.8rem 1.8rem; cursor: pointer; text-decoration: none; border-radius: 8px; color: var(--text-black);">
-                    Apri su Google Maps</a>
+                    <span class="lang-it">Apri su Google Maps</span>
+                    <span class="lang-en">Open on Google Maps</span>
+                </a>
                 <button id="shrink-map" class="brutalist-button bg-blue"
                     style="font-size: 1.1rem; font-weight: 900; padding: 0.8rem 1.8rem; cursor: pointer; border-radius: 8px;">
-                    Chiudi Mappa</button>
+                    <span class="lang-it">Chiudi Mappa</span>
+                    <span class="lang-en">Close Map</span>
+                </button>
             </div>
         </div>
     </section>
@@ -1222,31 +1508,50 @@
 
             <!-- Left Column: Contacts -->
             <div class="footer-col footer-contacts">
-                <h3>Contatti</h3>
+                <h3>
+                    <span class="lang-it">Contatti</span>
+                    <span class="lang-en">Contact</span>
+                </h3>
                 <p class="association-name">Sunflowers Group</p>
                 <p>Piazza San Francesco, 22</p>
                 <p>84013 Cava de' Tirreni (SA)</p>
-                <p>Email festival: info@sunflowerfestival.it </p>
-                <P>Pec associazione: ass.sunflowergroup@pec.it </P>
-                <p>tel: +39 339 6816196</p>
+                <p>
+                    <span class="lang-it">Email festival: info@sunflowerfestival.it</span>
+                    <span class="lang-en">Festival Email: info@sunflowerfestival.it</span>
+                </p>
+                <p>
+                    <span class="lang-it">Pec associazione: ass.sunflowergroup@pec.it</span>
+                    <span class="lang-en">Association PEC: ass.sunflowergroup@pec.it</span>
+                </p>
+                <p>
+                    <span class="lang-it">tel: +39 339 6816196</span>
+                    <span class="lang-en">Tel: +39 339 6816196</span>
+                </p>
                 <p>C.F.: 06366340658</p>
                 <p>P. Iva: 06366340658</p>
             </div>
 
             <!-- Middle Column: Logo & Realization -->
             <div class="footer-col footer-brand">
-                <p class="realization-text">Il Sunflower Fest è realizzato dall'associazione
-                    culturale<br><strong>SUNFLOWERS GROUP APS</strong></p>
+                <p class="realization-text">
+                    <span class="lang-it">Il Sunflower Fest è realizzato dall'associazione culturale<br><strong>SUNFLOWERS GROUP APS</strong></span>
+                    <span class="lang-en">Sunflower Fest is organized by the cultural association<br><strong>SUNFLOWERS GROUP APS</strong></span>
+                </p>
                 <a href="associazione/index.html">
                     <img src="assets/loghi/logo_ass.webp" alt="Logo Associazione" class="footer-association-logo" loading="lazy" width="150" height="163">
                 </a>
                 <a href="https://www.paypal.com/donate" target="_blank"
                     class="brutalist-button bg-red donation-footer-btn"
                     style="text-decoration: none; font-size: 0.9rem; font-weight: 900; padding: 0.6rem 1.2rem; border-radius: 6px; color: var(--text-white); display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 3px 3px 0px var(--text-black); border: 2px solid var(--text-black); margin-top: 1rem;">
-                    <i class="fa-solid fa-heart" style="color: var(--c-yellow);"></i> Fai una Donazione
+                    <i class="fa-solid fa-heart" style="color: var(--c-yellow);"></i> 
+                    <span class="lang-it">Fai una Donazione</span>
+                    <span class="lang-en">Make a Donation</span>
                 </a>
                 <div class="edizioni-link-container" style="margin-top: 1.5rem;">
-                    <a href="#" class="edizioni-link">Storico Edizioni</a>
+                    <a href="#" class="edizioni-link">
+                        <span class="lang-it">Storico Edizioni</span>
+                        <span class="lang-en">Past Editions</span>
+                    </a>
                 </div>
             </div>
 
@@ -1289,7 +1594,7 @@
         <!-- Bottom Developer Credit -->
         <div class="footer-bottom">
             <div class="developer-credit">
-             Sito web a cura di <a href="https://ianyydevs.altervista.org/" target="_blank">IANYDEVS</a>
+             <span class="lang-it">Sito web a cura di</span><span class="lang-en">Website by</span> <a href="https://ianyydevs.altervista.org/" target="_blank">IANYDEVS</a>
             </div>
         </div>
     </footer>
