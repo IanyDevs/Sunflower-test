@@ -1835,8 +1835,8 @@ body.menu-open {
 
 @media (max-width: 768px) {
     /* Main Navigation Mobile Custom Overlay */
-    .main-nav { 
-        padding: 0 1.5rem; 
+    .main-nav {
+        padding: 0 1.5rem;
         height: 70px;
         justify-content: space-between;
     }
@@ -1875,14 +1875,14 @@ body.menu-open {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        gap: 1.5rem;
+        gap: clamp(0.6rem, 1.8vh, 1.5rem);
         z-index: 1000;
         transform: translateX(100%);
         transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s;
         border-left: 6px solid var(--text-black);
-        padding: 5.5rem 2rem max(3.5rem, env(safe-area-inset-bottom, 3.5rem)) 2rem;
+        padding: clamp(4.6rem, 10vh, 5.5rem) 2rem max(clamp(1.2rem, 3.5vh, 3.5rem), env(safe-area-inset-bottom, 1.2rem)) 2rem;
         overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
         visibility: hidden;
         will-change: transform;
     }
@@ -1892,8 +1892,8 @@ body.menu-open {
         display: block;
         text-align: center;
         width: 100%;
-        margin-top: 1.5rem;
-        margin-bottom: 2.5rem;
+        margin-top: clamp(0.6rem, 1.4vh, 1.5rem);
+        margin-bottom: clamp(0.8rem, 2vh, 2.5rem);
         font-family: 'Monument Extended', sans-serif;
         font-size: 0.58rem;
         color: var(--text-black);
@@ -2262,7 +2262,7 @@ body.menu-open {
     text-transform: uppercase;
 }
 
-.home-map-title span {
+.home-map-title > span {
     font-family: 'Monument Extended', sans-serif;
     font-weight: 400;
     -webkit-text-stroke: 2px var(--text-black);
@@ -2410,8 +2410,9 @@ body.menu-open {
 .widget-text {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     z-index: 2;
-    text-align: left;
 }
 
 .widget-title {
@@ -5704,12 +5705,47 @@ body:not(.lang-en-active) .lang-en {
 }
 
 @media (max-width: 768px) {
-    .lang-switcher {
-        margin: 1.5rem auto 0 auto;
-        display: flex;
+    .nav-links .lang-switcher {
+        margin: clamp(0.2rem, 0.8vh, 0.5rem) auto 0 auto;
         width: fit-content;
+        height: clamp(40px, 7vh, 54px);
+        display: flex;
+        background-color: var(--text-black);
+        border: 3px solid var(--text-black);
+        border-radius: 12px;
+        box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+    }
+
+    .nav-links .lang-switcher .lang-btn {
+        font-size: clamp(0.85rem, 1.6vh, 1.15rem);
+        font-weight: 900;
+        padding: 0 clamp(1.2rem, 3vw, 2rem);
+        color: var(--text-white);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        background: transparent;
+        border: none;
+    }
+
+    .nav-links .lang-switcher .lang-btn.active {
+        background-color: var(--c-yellow);
+        color: var(--text-black);
+    }
+
+    .nav-links .lang-switcher .lang-btn:not(.active):hover {
+        background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .nav-links .lang-switcher .lang-switcher-divider {
+        width: 2px;
+        height: 20px;
+        align-self: center;
+        background-color: rgba(255, 255, 255, 0.3);
     }
 }
+
 
 
 
