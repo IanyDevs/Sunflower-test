@@ -455,7 +455,7 @@ function initHeroSlider() {
     const sliderContainer = document.querySelector('.hero-slider');
     if (!sliderContainer) return;
 
-    // Keep only landscape images from assets/Foto-generali/
+    // Keep only landscape images from assets/Foto-generali/ (excluding foto1.webp which is static in HTML for LCP optimization)
     const carouselImages = [
         'assets/Foto-generali/Foto10.webp',
         'assets/Foto-generali/Foto11.webp',
@@ -470,7 +470,6 @@ function initHeroSlider() {
         'assets/Foto-generali/Foto20.webp',
         'assets/Foto-generali/Foto21.webp',
         'assets/Foto-generali/Foto22.webp',
-        'assets/Foto-generali/foto1.webp',
         'assets/Foto-generali/foto2.webp',
         'assets/Foto-generali/foto3.webp',
         'assets/Foto-generali/foto4.webp',
@@ -487,20 +486,12 @@ function initHeroSlider() {
         [carouselImages[i], carouselImages[j]] = [carouselImages[j], carouselImages[i]];
     }
 
-    // Clear static slides
-    sliderContainer.innerHTML = '';
-
-    // Create and append dynamic slides
-    carouselImages.forEach((src, index) => {
+    // Do NOT clear sliderContainer to preserve the static slide (LCP LCP LCP)
+    // Just append the rest of the slides as inactive, lazy-loadable elements
+    carouselImages.forEach((src) => {
         const slide = document.createElement('div');
-        slide.className = `slide${index === 0 ? ' active' : ''}`;
-        
-        // Load only the first image immediately. Other images will be lazy loaded.
-        if (index === 0) {
-            slide.style.backgroundImage = `linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('${src}')`;
-        } else {
-            slide.setAttribute('data-bg', src);
-        }
+        slide.className = 'slide';
+        slide.setAttribute('data-bg', src);
         
         // Custom vertical positioning to prevent heads/details from being cut off
         const filename = src.split('/').pop();
@@ -509,7 +500,6 @@ function initHeroSlider() {
             'Foto14.webp': 'center 22%', // Curly girl singing (chin and mic visible)
             'Foto19.webp': 'center 15%',
             'Foto22.webp': 'center 22%', // Guitar player with sunglasses (chin and mic visible)
-            'foto1.webp': 'center 10%',
             'foto2.webp': 'center 12%',
             'foto3.webp': 'center 15%',
             'foto4.webp': 'center 10%',
