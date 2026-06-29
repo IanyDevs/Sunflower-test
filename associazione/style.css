@@ -1492,12 +1492,27 @@ html.no-curtain .page-curtain {
 .count-box .num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 3.5rem; line-height: 1; display: block; }
 .count-box .label { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.2rem; text-transform: uppercase; color: white; }
 
-/* Expired Timer Message Styles */
+.countdown-container.fade-out {
+    animation: fade-scale-out 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+}
+
+@keyframes fade-scale-out {
+    0% { transform: scale(1); opacity: 1; filter: blur(0); }
+    100% { transform: scale(0.7) rotate(-4deg); opacity: 0; filter: blur(8px); display: none; }
+}
+
 .countdown-expired-message {
-    animation: pop-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-    padding: 2rem 1rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    animation: pop-in-bounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    padding: 3rem 2rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    background: var(--text-white);
+    border: 4px solid var(--text-black);
+    box-shadow: 10px 10px 0px var(--text-black);
+    border-radius: 16px;
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
 }
 
 .text-sunflower-imponente {
@@ -1511,6 +1526,7 @@ html.no-curtain .page-curtain {
     margin-bottom: 1.5rem;
     text-shadow: 4px 4px 0px var(--c-yellow);
     display: block;
+    animation: text-pulse-brutal 2s ease-in-out infinite alternate;
 }
 
 .expired-sub {
@@ -1524,9 +1540,331 @@ html.no-curtain .page-curtain {
     display: block;
 }
 
-@keyframes pop-in {
-    0% { transform: scale(0.9); opacity: 0; }
+.brutalist-ticket {
+    display: flex;
+    background: var(--c-yellow);
+    border: 4px solid var(--text-black);
+    box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.25), 10px 10px 0px var(--text-black);
+    border-radius: 16px;
+    margin: 2rem auto;
+    max-width: 750px;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-black);
+    transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.brutalist-ticket:hover {
+    box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.4), 12px 12px 0px var(--text-black);
+}
+
+.holo-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    background: linear-gradient(
+        115deg,
+        transparent 20%,
+        rgba(255, 0, 128, 0.25) 30%,
+        rgba(0, 255, 255, 0.25) 45%,
+        rgba(255, 255, 0, 0.25) 60%,
+        transparent 70%
+    );
+    background-size: 200% 200%;
+    background-position: 50% 50%;
+    mix-blend-mode: color-dodge;
+    transition: opacity 0.5s ease, background-position 0.15s ease-out;
+    opacity: 0.18;
+}
+
+.ticket-stub-left {
+    width: 80px;
+    background: var(--text-black);
+    color: var(--c-yellow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0.5rem;
+    border-right: 4px dashed var(--c-yellow);
+    position: relative;
+    transform: translateZ(20px);
+}
+
+.ticket-stub-left::before, .ticket-stub-left::after {
+    content: '';
+    position: absolute;
+    right: -12px;
+    width: 20px;
+    height: 20px;
+    background: var(--text-white);
+    border: 4px solid var(--text-black);
+    border-radius: 50%;
+    z-index: 2;
+}
+.ticket-stub-left::before { top: -12px; }
+.ticket-stub-left::after { bottom: -12px; }
+
+.stub-badge {
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    transform: rotate(180deg);
+}
+
+.stub-stars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.ticket-main-body {
+    flex: 1;
+    padding: 2rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    transform: translateZ(30px);
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.05) 10px,
+        rgba(255, 255, 255, 0) 10px,
+        rgba(255, 255, 255, 0) 20px
+    ), var(--c-yellow);
+}
+
+.ticket-tag {
+    font-weight: 900;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--c-red), #ff007f);
+    color: var(--text-white);
+    padding: 0.3rem 0.8rem;
+    align-self: flex-start;
+    border-radius: 4px;
+    letter-spacing: 0.1em;
+    border: 2px solid var(--text-black);
+    box-shadow: 2px 2px 0px var(--text-black);
+}
+
+.ticket-title-text {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 1.2rem 0;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: var(--text-black);
+    text-shadow: 4px 4px 0px #00ffff, -2px -2px 0px #ff00ff;
+    animation: neon-chromatic 2s infinite alternate;
+}
+
+@keyframes neon-chromatic {
+    0% { text-shadow: 4px 4px 0px #00ffff, -2px -2px 0px #ff00ff; }
+    50% { text-shadow: -3px 3px 0px #00ff00, 3px -3px 0px #ff007f; }
+    100% { text-shadow: 3px 3px 0px #ffff00, -3px -3px 0px #0000ff; }
+}
+
+.ticket-marquee {
+    background: var(--text-black);
+    color: var(--text-white);
+    padding: 0.4rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 2px solid var(--text-black);
+    margin: 0.8rem 0;
+    transform: rotate(-1deg) translateZ(10px);
+}
+
+.marquee-content {
+    display: inline-block;
+    padding-left: 100%;
+    animation: ticket-marquee-anim 15s linear infinite;
+    font-weight: 900;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@keyframes ticket-marquee-anim {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+.ticket-footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    border-top: 3px solid var(--text-black);
+    padding-top: 1rem;
+}
+
+.ticket-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    font-size: 0.75rem;
+    font-weight: 900;
+    color: rgba(0,0,0,0.6);
+    text-transform: uppercase;
+}
+
+.detail-val {
+    font-size: 1.3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.live-pulse {
+    color: var(--c-red);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+}
+
+.live-pulse::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: var(--c-red);
+    border-radius: 50%;
+    animation: live-blink 0.8s infinite alternate;
+}
+
+@keyframes live-blink {
+    0% { opacity: 0.3; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.3); }
+}
+
+.ticket-barcode-side {
+    width: 100px;
+    border-left: 4px solid var(--text-black);
+    background: var(--text-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+    transform: translateZ(15px);
+}
+
+.barcode-lines {
+    width: 100%;
+    height: 120px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--text-black),
+        var(--text-black) 2px,
+        transparent 2px,
+        transparent 6px,
+        var(--text-black) 6px,
+        var(--text-black) 7px,
+        transparent 7px,
+        transparent 12px
+    );
+}
+
+.barcode-num {
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    letter-spacing: 0.1em;
+}
+
+.ticket-barcode-side::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--c-red);
+    box-shadow: 0 0 8px var(--c-red);
+    animation: barcode-scan 3s ease-in-out infinite;
+}
+
+@keyframes barcode-scan {
+    0%, 100% { top: 10%; }
+    50% { top: 90%; }
+}
+
+@keyframes ticket-intro-3d {
+    0% { transform: scale(0.3) rotateX(-70deg) rotateY(-40deg) translateY(100px); opacity: 0; }
+    60% { transform: scale(1.05) rotateX(10deg) rotateY(10deg) translateY(-10px); }
+    80% { transform: scale(0.98) rotateX(-5deg) rotateY(-5deg); }
+    100% { transform: scale(1) rotateX(0) rotateY(0); opacity: 1; }
+}
+
+@keyframes pop-in-bounce {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
     100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .brutalist-ticket {
+        flex-direction: column;
+        max-width: 100%;
+    }
+    .ticket-stub-left {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        border-right: none;
+        border-bottom: 4px dashed var(--c-yellow);
+        padding: 0.8rem 1.5rem;
+    }
+    .ticket-stub-left::before, .ticket-stub-left::after {
+        display: none;
+    }
+    .stub-badge {
+        writing-mode: horizontal-tb;
+        transform: none;
+    }
+    .stub-stars {
+        flex-direction: row;
+    }
+    .ticket-barcode-side {
+        width: 100%;
+        border-left: none;
+        border-top: 4px solid var(--text-black);
+        padding: 0.8rem;
+    }
+    .barcode-lines {
+        height: 60px;
+    }
+    .ticket-title-text {
+        font-size: 1.8rem;
+    }
+}
+
+@keyframes text-pulse-brutal {
+    0% { text-shadow: 4px 4px 0px var(--c-yellow); }
+    50% { text-shadow: 5px 5px 0px var(--c-red); }
+    100% { text-shadow: 5px 5px 0px var(--c-blue); }
 }
 
 @media (max-width: 768px) {

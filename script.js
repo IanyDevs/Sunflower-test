@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initMobileMenu();
     initScrollSlide();
+    initMapFacade();
     initMapToggle();
     initHeroSlider();
     initNavbarScroll();
@@ -54,53 +55,250 @@ function initCountdown() {
     const minsEl = document.getElementById('mins-count');
     const secsEl = document.getElementById('secs-count');
 
+    const TWENTY_H = 20 * 60 * 60 * 1000;
+    let testingTodayMode = false;
+    let testStartTime    = 0;
+    let countdownInterval = null;
+
     function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
+        const now = Date.now();
+        const distance = testingTodayMode
+            ? TWENTY_H - (now - testStartTime)   // simulated: counts from 20h → 0
+            : targetDate - now;                   // real countdown
 
         if (distance < 0) {
+            clearInterval(countdownInterval);
             showExpiredMessage();
             return;
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        // Show "Oggi è il giorno" when 20 hours or less remain
+        const todayMsgEl = document.getElementById('today-festival-message');
+        if (todayMsgEl) {
+            todayMsgEl.style.display = (distance <= TWENTY_H) ? "block" : "none";
+        }
+
+        const days    = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours   = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        daysEl.innerText = days.toString().padStart(2, '0');
+        daysEl.innerText  = days.toString().padStart(2, '0');
         hoursEl.innerText = hours.toString().padStart(2, '0');
-        minsEl.innerText = minutes.toString().padStart(2, '0');
-        secsEl.innerText = seconds.toString().padStart(2, '0');
+        minsEl.innerText  = minutes.toString().padStart(2, '0');
+        secsEl.innerText  = seconds.toString().padStart(2, '0');
     }
 
     function showExpiredMessage() {
         const titleEl = document.querySelector('.countdown-title');
         const containerEl = document.querySelector('.countdown-container');
-        if (containerEl) {
-            containerEl.style.display = "none";
-        }
-
         const sectionEl = document.querySelector('.countdown-section');
-        if (sectionEl && !sectionEl.querySelector('.countdown-expired-message')) {
-            if (titleEl) {
-                titleEl.remove();
+        const messageDiv = document.querySelector('.countdown-expired-message');
+        const todayMsgEl = document.getElementById('today-festival-message');
+
+        if (todayMsgEl) {
+            todayMsgEl.style.display = "none";
+        }
+
+        if (containerEl) {
+            containerEl.classList.add('fade-out');
+            setTimeout(() => {
+                containerEl.style.display = "none";
+            }, 800);
+        }
+
+        if (titleEl) {
+            titleEl.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            titleEl.style.opacity = "0";
+            titleEl.style.transform = "translateY(-20px)";
+            setTimeout(() => titleEl.remove(), 600);
+        }
+
+        if (messageDiv) {
+            messageDiv.style.display = "block";
+
+            // Screen flash burst
+            const flash = document.createElement('div');
+            flash.className = 'sf-screen-flash';
+            document.body.appendChild(flash);
+            flash.addEventListener('animationend', () => flash.remove());
+
+            // Subtle 3D tilt on the celebration panel
+            const panel = messageDiv.querySelector('.sf-celebration');
+            if (panel && window.innerWidth > 768) {
+                let tiltRaf = null;
+                panel.addEventListener('mousemove', (e) => {
+                    if (tiltRaf) return;
+                    tiltRaf = requestAnimationFrame(() => {
+                        const rect = panel.getBoundingClientRect();
+                        const cx = rect.width  / 2;
+                        const cy = rect.height / 2;
+                        const rx = ((cy - (e.clientY - rect.top))  / cy) * 6;
+                        const ry = (((e.clientX - rect.left) - cx) / cx) * 6;
+                        panel.style.transform = `perspective(1400px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+                        tiltRaf = null;
+                    });
+                }, { passive: true });
+                panel.addEventListener('mouseleave', () => {
+                    panel.style.transition = 'transform 0.6s ease';
+                    panel.style.transform = '';
+                    setTimeout(() => panel.style.transition = '', 600);
+                });
             }
 
-            const messageDiv = document.createElement('div');
-            messageDiv.className = 'countdown-expired-message';
-            messageDiv.innerHTML = `
-                <h2 class="text-sunflower-imponente">HEY, IL SUNFLOWER È INIZIATO!</h2>
-                <p class="expired-sub">CHE CI FAI ANCORA LÌ? VIENICI A TROVARE!</p>
-            `;
+            // Sparkles
+            addTicketSparkles(messageDiv.querySelector('.sf-sparkles-container'));
 
-            const testBtn = document.getElementById('test-timer-end');
-            if (testBtn && testBtn.parentNode) {
-                sectionEl.insertBefore(messageDiv, testBtn.parentNode);
+            // Confetti Canvas Explosion
+            triggerConfetti(sectionEl);
+        }
+    }
+
+    function triggerConfetti(sectionEl) {
+        let canvas = document.getElementById('countdown-confetti');
+        if (!canvas) {
+            canvas = document.createElement('canvas');
+            canvas.id = 'countdown-confetti';
+            canvas.style.position = 'absolute';
+            canvas.style.top = '0';
+            canvas.style.left = '0';
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.style.pointerEvents = 'none';
+            canvas.style.zIndex = '50';
+            sectionEl.style.position = 'relative';
+            sectionEl.appendChild(canvas);
+        }
+        
+        const ctx = canvas.getContext('2d');
+        const dpr = window.devicePixelRatio || 1;
+        const width = sectionEl.offsetWidth;
+        const height = sectionEl.offsetHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.scale(dpr, dpr);
+
+        const particles = [];
+        const colors = ['#FFDE4D', '#FF4E4E', '#3D30A2', '#000000', '#F29C38'];
+
+        // Initial burst from center and top
+        for (let i = 0; i < 120; i++) {
+            particles.push({
+                x: width / 2 + (Math.random() - 0.5) * 100,
+                y: height / 3 + (Math.random() - 0.5) * 50,
+                radius: Math.random() * 8 + 4,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                type: Math.random() > 0.4 ? 'petal' : 'circle',
+                rotation: Math.random() * Math.PI * 2,
+                rotationSpeed: (Math.random() - 0.5) * 0.15,
+                vx: (Math.random() - 0.5) * 10,
+                vy: (Math.random() - 0.5) * 10 - 5
+            });
+        }
+
+        // Side fountains
+        for (let i = 0; i < 40; i++) {
+            // Left fountain
+            particles.push({
+                x: 30,
+                y: height - 40,
+                radius: Math.random() * 7 + 4,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                type: Math.random() > 0.5 ? 'petal' : 'square',
+                rotation: Math.random() * Math.PI * 2,
+                rotationSpeed: (Math.random() - 0.5) * 0.25,
+                vx: Math.random() * 8 + 3,
+                vy: -(Math.random() * 12 + 10)
+            });
+            // Right fountain
+            particles.push({
+                x: width - 30,
+                y: height - 40,
+                radius: Math.random() * 7 + 4,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                type: Math.random() > 0.5 ? 'petal' : 'square',
+                rotation: Math.random() * Math.PI * 2,
+                rotationSpeed: (Math.random() - 0.5) * 0.25,
+                vx: -(Math.random() * 8 + 3),
+                vy: -(Math.random() * 12 + 10)
+            });
+        }
+
+        let active = true;
+        setTimeout(() => { active = false; }, 6000);
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            let alive = false;
+
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.28; // gravity
+                p.vx *= 0.98; // air resistance
+                p.rotation += p.rotationSpeed;
+
+                if (p.y < height + 20 && p.x > -20 && p.x < width + 20) {
+                    alive = true;
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rotation);
+                    ctx.fillStyle = p.color;
+
+                    if (p.type === 'petal') {
+                        ctx.beginPath();
+                        // Petal shape using ellipse
+                        ctx.ellipse(0, 0, p.radius * 1.5, p.radius * 0.8, 0, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.strokeStyle = 'rgba(0,0,0,0.15)';
+                        ctx.beginPath();
+                        ctx.moveTo(-p.radius * 1.2, 0);
+                        ctx.lineTo(p.radius * 1.2, 0);
+                        ctx.stroke();
+                    } else if (p.type === 'square') {
+                        ctx.fillRect(-p.radius, -p.radius, p.radius * 2, p.radius * 2);
+                        ctx.strokeStyle = 'rgba(0,0,0,0.2)';
+                        ctx.strokeRect(-p.radius, -p.radius, p.radius * 2, p.radius * 2);
+                    } else {
+                        ctx.beginPath();
+                        ctx.arc(0, 0, p.radius, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    ctx.restore();
+                }
+            });
+
+            if (alive && active) {
+                requestAnimationFrame(animate);
             } else {
-                sectionEl.appendChild(messageDiv);
+                ctx.clearRect(0, 0, width, height);
+                if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
             }
         }
+        animate();
+    }
+
+    function addTicketSparkles(container) {
+        if (!container) return;
+        const colors = ['#FFDE4D', '#F5B027', '#FF4E4E', '#00eeff', '#ff00cc', '#ffffff', '#FFD700', '#80ff80'];
+
+        function createSparkle() {
+            if (!container.parentNode) return;
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sf-sparkle';
+            const size = 5 + Math.random() * 14;
+            const dur  = (1.0 + Math.random() * 1.7).toFixed(2);
+            sparkle.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${size}px;height:${size}px;background:${colors[Math.floor(Math.random()*colors.length)]};--sf-dur:${dur}s;`;
+            container.appendChild(sparkle);
+            setTimeout(() => { if (sparkle.parentNode) sparkle.remove(); }, dur * 1000 + 250);
+        }
+
+        const isMobile = window.innerWidth <= 768;
+        const burstCount  = isMobile ? 8  : 20;
+        const sparkleRate = isMobile ? 700 : 320;
+        for (let i = 0; i < burstCount; i++) setTimeout(createSparkle, i * 110);
+        const iv = setInterval(createSparkle, sparkleRate);
+        setTimeout(() => clearInterval(iv), 10000);
     }
 
     // Setup temporary test button click listener
@@ -112,18 +310,19 @@ function initCountdown() {
         });
     }
 
+    const testTodayBtn = document.getElementById('test-today-message');
+    if (testTodayBtn) {
+        testTodayBtn.addEventListener('click', () => {
+            testingTodayMode = true;
+            testStartTime    = Date.now();
+            testTodayBtn.style.display = 'none';
+            updateCountdown();
+        });
+    }
+
     // Update immediately, then every second
     updateCountdown();
-    const intervalId = setInterval(() => {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
-        if (distance < 0) {
-            clearInterval(intervalId);
-            showExpiredMessage();
-        } else {
-            updateCountdown();
-        }
-    }, 1000);
+    countdownInterval = setInterval(updateCountdown, 1000);
 }
 
 function initMobileMenu() {
@@ -170,19 +369,37 @@ function initScrollSlide() {
     
     if (!sunflowerText || !festivalText) return;
     
+    let scrollRafPending = false;
     window.addEventListener('scroll', () => {
-        if (window.innerWidth <= 768) {
-            sunflowerText.style.transform = '';
-            festivalText.style.transform = '';
-            return;
-        }
-        const scrolled = window.scrollY;
-        // Adjust scroll translation speed
-        const speed = 0.6; 
-        
-        sunflowerText.style.transform = `translateX(-${scrolled * speed}px)`;
-        festivalText.style.transform = `translateX(${scrolled * speed}px)`;
-    });
+        if (window.innerWidth <= 768) return;
+        if (scrollRafPending) return;
+        scrollRafPending = true;
+        requestAnimationFrame(() => {
+            const scrolled = window.scrollY;
+            sunflowerText.style.transform = `translateX(-${scrolled * 0.6}px)`;
+            festivalText.style.transform  = `translateX(${scrolled  * 0.6}px)`;
+            scrollRafPending = false;
+        });
+    }, { passive: true });
+}
+
+function initMapFacade() {
+    const facade = document.getElementById('map-facade');
+    if (!facade) return;
+    const activate = () => {
+        const src = facade.dataset.src;
+        if (!src) return;
+        const iframe = document.createElement('iframe');
+        iframe.src = src;
+        iframe.allowFullscreen = true;
+        iframe.loading = 'lazy';
+        iframe.referrerPolicy = 'no-referrer-when-downgrade';
+        iframe.title = "Mappa Social Tennis Club";
+        iframe.setAttribute('style', 'width:100%;height:100%;border:0;');
+        facade.parentElement.replaceChild(iframe, facade);
+    };
+    facade.addEventListener('click', activate);
+    facade.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') activate(); });
 }
 
 function initMapToggle() {
@@ -1000,7 +1217,10 @@ function init3DTilt() {
         const wrapper = card.querySelector('.card-img-wrapper') || card.querySelector('.card-full-photo');
         if (!wrapper) return;
         
+        let cardTiltRaf = null;
         card.addEventListener('mousemove', (e) => {
+            if (cardTiltRaf) return;
+            cardTiltRaf = requestAnimationFrame(() => {
             const rect = card.getBoundingClientRect();
             // Get mouse position relative to card
             const x = e.clientX - rect.left;
@@ -1028,7 +1248,9 @@ function init3DTilt() {
                 photo.style.transform = `scale(1.12) rotate(1.5deg) translateX(${transX}px) translateY(${transY}px)`;
                 photo.style.transition = 'transform 0.1s ease';
             }
-        });
+            cardTiltRaf = null;
+            }); // end rAF
+        }, { passive: true });
         
         card.addEventListener('mouseleave', () => {
             // Restore original styles with smooth transition

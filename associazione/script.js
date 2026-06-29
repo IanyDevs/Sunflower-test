@@ -77,21 +77,57 @@ function initCountdown() {
     function showExpiredMessage() {
         const titleEl = document.querySelector('.countdown-title');
         const containerEl = document.querySelector('.countdown-container');
+        const sectionEl = document.querySelector('.countdown-section');
+        
         if (containerEl) {
-            containerEl.style.display = "none";
+            containerEl.classList.add('fade-out');
+            setTimeout(() => {
+                containerEl.style.display = "none";
+            }, 800);
         }
 
-        const sectionEl = document.querySelector('.countdown-section');
         if (sectionEl && !sectionEl.querySelector('.countdown-expired-message')) {
             if (titleEl) {
-                titleEl.remove();
+                titleEl.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+                titleEl.style.opacity = "0";
+                titleEl.style.transform = "translateY(-20px)";
+                setTimeout(() => titleEl.remove(), 600);
             }
 
             const messageDiv = document.createElement('div');
             messageDiv.className = 'countdown-expired-message';
             messageDiv.innerHTML = `
-                <h2 class="text-sunflower-imponente">HEY, IL SUNFLOWER È INIZIATO!</h2>
-                <p class="expired-sub">CHE CI FAI ANCORA LÌ? VIENICI A TROVARE!</p>
+                <div class="brutalist-ticket">
+                    <div class="holo-layer"></div>
+                    <div class="ticket-main-body">
+                        <div class="ticket-tag">
+                            <span class="lang-it">TICKET D'INGRESSO</span>
+                            <span class="lang-en">ENTRY TICKET</span>
+                        </div>
+                        <h2 class="ticket-title-text">
+                            <span class="lang-it">IL FESTIVAL È INIZIATO!</span>
+                            <span class="lang-en">THE FESTIVAL HAS STARTED!</span>
+                        </h2>
+                        <div class="ticket-marquee">
+                            <div class="marquee-content">
+                                ★ SUNFLOWER FESTIVAL 2026 ★ ENTRA ORA ★ VIENICI A TROVARE ★ INGRESSO LIBERO ★ JOIN US NOW ★ FREE ENTRY ★ 
+                            </div>
+                        </div>
+                        <div class="ticket-footer-row">
+                            <div class="ticket-details">
+                                <span class="detail-label">DATE:</span>
+                                <span class="detail-val">
+                                    <span class="lang-it">11 LUGLIO</span>
+                                    <span class="lang-en">JULY 11</span>
+                                </span>
+                            </div>
+                            <div class="ticket-details">
+                                <span class="detail-label">STATUS:</span>
+                                <span class="detail-val live-pulse">ON AIR</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             `;
 
             const testBtn = document.getElementById('test-timer-end');
@@ -100,7 +136,168 @@ function initCountdown() {
             } else {
                 sectionEl.appendChild(messageDiv);
             }
+
+            // Interactive 3D perspective tilt & Holo shine movement
+            const ticket = messageDiv.querySelector('.brutalist-ticket');
+            if (ticket) {
+                const holo = ticket.querySelector('.holo-layer');
+                ticket.addEventListener('mousemove', (e) => {
+                    const rect = ticket.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    // Rotate based on mouse location
+                    const rotateX = ((centerY - y) / centerY) * 12; // tilt max 12deg
+                    const rotateY = ((x - centerX) / centerX) * 12;
+                    
+                    ticket.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                    
+                    if (holo) {
+                        const pctX = (x / rect.width) * 100;
+                        const pctY = (y / rect.height) * 100;
+                        holo.style.backgroundPosition = `${pctX}% ${pctY}%`;
+                        holo.style.opacity = '0.35';
+                    }
+                });
+                
+                ticket.addEventListener('mouseleave', () => {
+                    ticket.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+                    if (holo) {
+                        holo.style.backgroundPosition = '50% 50%';
+                        holo.style.opacity = '0.18';
+                    }
+                });
+            }
+
+            // Confetti Canvas Explosion
+            triggerConfetti(sectionEl);
         }
+    }
+
+    function triggerConfetti(sectionEl) {
+        let canvas = document.getElementById('countdown-confetti');
+        if (!canvas) {
+            canvas = document.createElement('canvas');
+            canvas.id = 'countdown-confetti';
+            canvas.style.position = 'absolute';
+            canvas.style.top = '0';
+            canvas.style.left = '0';
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.style.pointerEvents = 'none';
+            canvas.style.zIndex = '2';
+            sectionEl.style.position = 'relative';
+            sectionEl.appendChild(canvas);
+        }
+        
+        const ctx = canvas.getContext('2d');
+        const dpr = window.devicePixelRatio || 1;
+        const width = sectionEl.offsetWidth;
+        const height = sectionEl.offsetHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.scale(dpr, dpr);
+
+        const particles = [];
+        const colors = ['#FFDE4D', '#FF4E4E', '#3D30A2', '#000000', '#F29C38'];
+
+        // Initial burst from center and top
+        for (let i = 0; i < 120; i++) {
+            particles.push({
+                x: width / 2 + (Math.random() - 0.5) * 100,
+                y: height / 3 + (Math.random() - 0.5) * 50,
+                radius: Math.random() * 8 + 4,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                type: Math.random() > 0.4 ? 'petal' : 'circle',
+                rotation: Math.random() * Math.PI * 2,
+                rotationSpeed: (Math.random() - 0.5) * 0.15,
+                vx: (Math.random() - 0.5) * 10,
+                vy: (Math.random() - 0.5) * 10 - 5
+            });
+        }
+
+        // Side fountains
+        for (let i = 0; i < 40; i++) {
+            // Left fountain
+            particles.push({
+                x: 30,
+                y: height - 40,
+                radius: Math.random() * 7 + 4,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                type: Math.random() > 0.5 ? 'petal' : 'square',
+                rotation: Math.random() * Math.PI * 2,
+                rotationSpeed: (Math.random() - 0.5) * 0.25,
+                vx: Math.random() * 8 + 3,
+                vy: -(Math.random() * 12 + 10)
+            });
+            // Right fountain
+            particles.push({
+                x: width - 30,
+                y: height - 40,
+                radius: Math.random() * 7 + 4,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                type: Math.random() > 0.5 ? 'petal' : 'square',
+                rotation: Math.random() * Math.PI * 2,
+                rotationSpeed: (Math.random() - 0.5) * 0.25,
+                vx: -(Math.random() * 8 + 3),
+                vy: -(Math.random() * 12 + 10)
+            });
+        }
+
+        let active = true;
+        setTimeout(() => { active = false; }, 6000);
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            let alive = false;
+
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.28; // gravity
+                p.vx *= 0.98; // air resistance
+                p.rotation += p.rotationSpeed;
+
+                if (p.y < height + 20 && p.x > -20 && p.x < width + 20) {
+                    alive = true;
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rotation);
+                    ctx.fillStyle = p.color;
+
+                    if (p.type === 'petal') {
+                        ctx.beginPath();
+                        // Petal shape using ellipse
+                        ctx.ellipse(0, 0, p.radius * 1.5, p.radius * 0.8, 0, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.strokeStyle = 'rgba(0,0,0,0.15)';
+                        ctx.beginPath();
+                        ctx.moveTo(-p.radius * 1.2, 0);
+                        ctx.lineTo(p.radius * 1.2, 0);
+                        ctx.stroke();
+                    } else if (p.type === 'square') {
+                        ctx.fillRect(-p.radius, -p.radius, p.radius * 2, p.radius * 2);
+                        ctx.strokeStyle = 'rgba(0,0,0,0.2)';
+                        ctx.strokeRect(-p.radius, -p.radius, p.radius * 2, p.radius * 2);
+                    } else {
+                        ctx.beginPath();
+                        ctx.arc(0, 0, p.radius, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    ctx.restore();
+                }
+            });
+
+            if (alive && active) {
+                requestAnimationFrame(animate);
+            } else {
+                ctx.clearRect(0, 0, width, height);
+                if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
+            }
+        }
+        animate();
     }
 
     // Setup temporary test button click listener
