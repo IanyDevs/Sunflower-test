@@ -553,12 +553,14 @@ function initArtistModals() {
         targetModal.scrollTop = 0;
 
         document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
     }
 
     function closeModal() {
         overlay.classList.remove('active');
         fullPages.forEach(p => p.classList.remove('active'));
         document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
         stopAllCustomAudioPlayers();
     }
 
@@ -1348,6 +1350,7 @@ function initArchiveGallery() {
             // Show Modal and disable body scrolling
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
         });
     });
 
@@ -1357,6 +1360,7 @@ function initArchiveGallery() {
         // Only restore scroll if the lightbox isn't open
         if (!lightbox.classList.contains('active')) {
             document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
         }
     }
 
@@ -1373,11 +1377,13 @@ function initArchiveGallery() {
         lightbox.classList.add('active');
     }
 
+    // Close Lightbox
     function closeLightbox() {
         lightbox.classList.remove('active');
         // If gallery modal is also closed, restore body scrolling
         if (!modal.classList.contains('active')) {
             document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
         }
     }
 

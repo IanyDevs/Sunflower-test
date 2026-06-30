@@ -885,6 +885,7 @@
 
                     modal.classList.add("active");
                     document.body.style.overflow = "hidden"; // Prevent body scroll
+                    document.documentElement.style.overflow = "hidden";
                     document.body.classList.add("modal-open");
                 });
             });
@@ -893,6 +894,7 @@
             const closeModal = () => {
                 modal.classList.remove("active");
                 document.body.style.overflow = "";
+                document.documentElement.style.overflow = "";
                 document.body.classList.remove("modal-open");
             };
             modalClose.addEventListener("click", closeModal);

@@ -658,6 +658,7 @@ function initArtistModals() {
 
         // Prevent body scroll
         document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
     }
 
     function closeModal() {
@@ -671,6 +672,7 @@ function initArtistModals() {
             }
         });
         document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
         stopAllCustomAudioPlayers();
     }
 
