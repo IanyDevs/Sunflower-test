@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initScrollAnimations() {
-    const revealElements = document.querySelectorAll('.reveal-up');
+    const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
     
     const observerOptions = {
         root: null,
