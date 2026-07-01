@@ -22,17 +22,8 @@
            NEWS PAGE — SUNFLOWER NEO-BRUTALIST STYLE
         ═══════════════════════════════════════════════════ */
 
-        /* ── Page Header: bright festival yellow ── */
-        .page-header {
-            background: var(--c-yellow) !important;
-            border-bottom: 4px solid var(--text-black) !important;
-        }
-        .page-header::after { display: none !important; }
-        .page-header .page-title    { color: var(--text-black) !important; }
-        .page-header .page-subtitle { color: rgba(26,26,26,0.68) !important; }
-
-        /* ── Section: warm pastel background ── */
-        .full-width-wrapper { background: var(--c-pastel-yellow) !important; }
+        /* ── Section: white background ── */
+        .full-width-wrapper { background: var(--text-white) !important; }
         .deco-graphics-container { display: none !important; }
 
         /* ═══════════ TICKER: dark band with yellow text ═══════════ */
@@ -350,9 +341,13 @@
         }
 
         /* ═══════════ FILTERED STATE: uniform auto-flow grid ═══════════ */
+        /* auto-fit (not auto-fill) collapses empty phantom columns, so when
+           only 1-2 cards match a filter/search they expand to fill the row
+           instead of staying small and stuck to one side. */
         .news-grid--filtered {
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 420px)) !important;
             grid-auto-rows: auto !important;
+            justify-content: center !important;
         }
         .news-grid--filtered .news-card.featured,
         .news-grid--filtered .news-card.card-wide {
@@ -690,21 +685,21 @@
                     </div>
                 </div>
             </div>
-            <div class="lang-switcher">
-                <button class="lang-btn it" data-lang="it">IT</button>
-                <div class="lang-switcher-divider"></div>
-                <button class="lang-btn en" data-lang="en">EN</button>
-            </div>
+        </div>
+        <div class="lang-switcher">
+            <button class="lang-btn it" data-lang="it">IT</button>
+            <div class="lang-switcher-divider"></div>
+            <button class="lang-btn en" data-lang="en">EN</button>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <header class="page-header" style="padding: 4rem 2rem;">
-        <h1 class="page-title" style="font-size: clamp(2.4rem, 6vw, 4.2rem); animation: news-header-in 0.7s cubic-bezier(0.22,1,0.36,1) both;">
+    <header class="page-header" style="background-color: var(--c-pastel-yellow); border-bottom: 3px solid var(--text-black);">
+        <h1 class="page-title" style="color: var(--text-black); font-size: clamp(2.4rem, 6vw, 4.2rem); animation: news-header-in 0.7s cubic-bezier(0.22,1,0.36,1) both;">
             <span class="lang-it">NEWS & EVENTI</span>
             <span class="lang-en">NEWS & EVENTS</span>
         </h1>
-        <p class="page-subtitle" style="animation: news-header-in 0.7s cubic-bezier(0.22,1,0.36,1) 0.12s both;">
+        <p class="page-subtitle" style="color: var(--text-black); animation: news-header-in 0.7s cubic-bezier(0.22,1,0.36,1) 0.12s both;">
             <span class="lang-it">Tutte le novità e gli appuntamenti del Sunflower Festival</span>
             <span class="lang-en">All the latest news and events of the Sunflower Festival</span>
         </p>

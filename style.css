@@ -154,6 +154,7 @@ body {
 .nav-links {
     display: flex;
     gap: 2rem;
+    margin-left: auto;
 }
 
 .nav-links a {
@@ -2435,8 +2436,21 @@ body.menu-open {
         padding: 0 1.5rem;
         height: 70px;
         justify-content: space-between;
+        gap: 0.7rem;
     }
-    
+
+    /* Language switcher stays in the top navbar (not inside the hamburger
+       overlay), clustered next to the menu toggle at the right edge */
+    .menu-toggle {
+        order: 1;
+        margin-left: auto;
+    }
+
+    .lang-switcher {
+        order: 2;
+        margin-left: 0.4rem;
+    }
+
     body,
     .home-body {
         padding-top: 70px;
@@ -6641,22 +6655,23 @@ body:not(.lang-en-active) .lang-en {
 }
 
 @media (max-width: 768px) {
-    .nav-links .lang-switcher {
-        margin: clamp(0.2rem, 0.8vh, 0.5rem) auto 0 auto;
+    /* Compact pill that lives directly in the top navbar, next to the
+       hamburger toggle, instead of inside the fullscreen menu overlay */
+    .lang-switcher {
+        margin: 0;
         width: fit-content;
-        height: clamp(40px, 7vh, 54px);
+        height: 36px;
         display: flex;
         background-color: var(--text-black);
-        border: 3px solid var(--text-black);
-        border-radius: 12px;
-        box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
-        overflow: hidden;
+        border: 2.5px solid var(--text-black);
+        border-radius: 8px;
+        box-shadow: 2px 2px 0px var(--text-black);
     }
 
-    .nav-links .lang-switcher .lang-btn {
-        font-size: clamp(0.85rem, 1.6vh, 1.15rem);
+    .lang-switcher .lang-btn {
+        font-size: 0.75rem;
         font-weight: 900;
-        padding: 0 clamp(1.2rem, 3vw, 2rem);
+        padding: 0 0.7rem;
         color: var(--text-white);
         height: 100%;
         display: flex;
@@ -6665,20 +6680,32 @@ body:not(.lang-en-active) .lang-en {
         border: none;
     }
 
-    .nav-links .lang-switcher .lang-btn.active {
-        background-color: var(--c-yellow);
+    /* Round only the outer corners so they match the pill container
+       (fixes the grey anti-aliased corner artifact from overflow:hidden
+       clipping square button corners against the rounded pill edge) */
+    .lang-switcher .lang-btn:first-child {
+        border-radius: 5.5px 0 0 5.5px;
+    }
+    .lang-switcher .lang-btn:last-child {
+        border-radius: 0 5.5px 5.5px 0;
+    }
+
+    /* Selected language: white button. Not selected: black button. */
+    .lang-switcher .lang-btn.active {
+        background-color: var(--text-white);
         color: var(--text-black);
     }
 
-    .nav-links .lang-switcher .lang-btn:not(.active):hover {
+    .lang-switcher .lang-btn:not(.active):hover {
         background-color: rgba(255, 255, 255, 0.12);
     }
 
-    .nav-links .lang-switcher .lang-switcher-divider {
+    .lang-switcher .lang-switcher-divider {
         width: 2px;
-        height: 20px;
+        height: 16px;
         align-self: center;
-        background-color: rgba(255, 255, 255, 0.3);
+        background-color: var(--text-white);
+        opacity: 0.25;
     }
 }
 
