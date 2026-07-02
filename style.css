@@ -1363,12 +1363,19 @@ html.no-curtain .page-curtain {
 }
 
 
+.social-icons a svg {
+    overflow: visible;
+}
+
 .social-icons a[aria-label="TikTok"] {
     color: #ffffff;
-    filter: drop-shadow(-1px -1px 0px #ff0050) drop-shadow(1px 1px 0px #00f2fe);
 }
-.social-icons a[aria-label="TikTok"]:hover {
-    filter: drop-shadow(-2px -1.5px 0px #ff0050) drop-shadow(2px 1.5px 0px #00f2fe);
+.social-icons a[aria-label="TikTok"] svg {
+    filter: drop-shadow(-1px -1px 0px #ff0050) drop-shadow(1px 1px 0px #00f2fe);
+    transition: filter 0.2s ease;
+}
+.social-icons a[aria-label="TikTok"]:hover svg {
+    filter: drop-shadow(-2px -1.5px 0px #ff0050) drop-shadow(2px 1.5px 0px #00f2fe) !important;
 }
 
 .social-icons a[aria-label="Spotify"] {
@@ -6383,35 +6390,6 @@ body.menu-open {
     .sf-player-label {
         font-size: 0.62rem;
         letter-spacing: 1px;
-    }
-}
-
-/* ============================================================
-   FULLSCREEN ARTIST — Numero decorativo di sfondo (fp-bg-deco)
-   ============================================================ */
-
-.artist-full-page .fp-bg-deco {
-    position: fixed !important;
-    bottom: -2rem;
-    right: -1.5rem;
-    font-family: 'Monument Extended', sans-serif;
-    font-size: clamp(11rem, 28vw, 26rem);
-    font-weight: 400;
-    color: var(--text-black);
-    opacity: 0.04;
-    line-height: 1;
-    pointer-events: none;
-    user-select: none;
-    letter-spacing: -0.04em;
-    z-index: 0 !important;
-}
-
-@media (max-width: 768px) {
-    .artist-full-page .fp-bg-deco {
-        font-size: 42vw;
-        bottom: 0;
-        right: -2rem;
-        opacity: 0.035;
     }
 }
 

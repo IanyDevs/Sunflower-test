@@ -329,30 +329,67 @@
                 border-radius: 4px;
             }
 
+            /* "Muro fotografico" scrapbook: layout a colonne (masonry) con foto
+               dalla forma organica, ruotate e "attaccate" con nastro washi,
+               invece della griglia uniforme di prima. */
             .gallery-modal-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 2rem;
+                column-count: 3;
+                column-gap: 2.5rem;
             }
 
             .gallery-modal-item {
                 cursor: pointer;
-                transition: transform 0.2s ease;
+                break-inside: avoid;
+                margin-bottom: 2.5rem;
+                position: relative;
+                transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             }
-            
+
+            .gallery-modal-item:nth-child(6n+1) { transform: rotate(-3deg); }
+            .gallery-modal-item:nth-child(6n+2) { transform: rotate(2.5deg); }
+            .gallery-modal-item:nth-child(6n+3) { transform: rotate(-1.5deg); }
+            .gallery-modal-item:nth-child(6n+4) { transform: rotate(3deg); }
+            .gallery-modal-item:nth-child(6n+5) { transform: rotate(-2.5deg); }
+            .gallery-modal-item:nth-child(6n+6) { transform: rotate(1.5deg); }
+
             .gallery-modal-item:hover {
-                transform: scale(1.03);
+                transform: scale(1.06) rotate(0deg) !important;
+                z-index: 10;
+            }
+
+            .gallery-modal-item .torn-paper-frame {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1 / 1;
+                box-shadow: inset 0 0 0 10px white, inset 0 0 15px rgba(0,0,0,0.1), 8px 10px 18px rgba(0,0,0,0.35);
+            }
+            .gallery-modal-item .torn-paper-frame:hover { transform: none; }
+            .gallery-modal-item.ratio-tall .torn-paper-frame { aspect-ratio: 3 / 4; }
+            .gallery-modal-item.ratio-wide .torn-paper-frame { aspect-ratio: 4 / 3; }
+
+            .modal-photo-tape {
+                position: absolute;
+                top: -14px;
+                left: 50%;
+                width: 90px;
+                height: 30px;
+                transform: translateX(-50%) rotate(-4deg);
+                background: rgba(255, 216, 90, 0.85);
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                clip-path: polygon(0% 8%, 100% 0%, 96% 92%, 4% 100%);
+                z-index: 5;
+                pointer-events: none;
+            }
+            .gallery-modal-item:nth-child(3n+2) .modal-photo-tape {
+                transform: translateX(-50%) rotate(5deg);
+                background: rgba(255, 255, 255, 0.85);
             }
 
             .modal-gallery-img {
                 width: 100%;
-                height: auto;
-                display: block;
-                border-radius: 8px;
-                border: 2px solid var(--text-black);
-                aspect-ratio: 1 / 1;
+                height: 100%;
                 object-fit: cover;
-                box-shadow: 4px 4px 0px var(--text-black);
+                display: block;
             }
 
             /* --- LIGHTBOX STYLES --- */
@@ -499,8 +536,11 @@
                     padding: 1.5rem;
                 }
                 .gallery-modal-grid {
-                    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-                    gap: 1.2rem;
+                    column-count: 2;
+                    column-gap: 1.2rem;
+                }
+                .gallery-modal-item {
+                    margin-bottom: 1.5rem;
                 }
 
                 /* Lightbox Mobile Navigation Fix */
@@ -549,6 +589,9 @@
                     font-size: 0.75rem !important;
                     bottom: 8px !important;
                     padding: 2px 6px !important;
+                }
+                .gallery-modal-grid {
+                    column-count: 1;
                 }
             }
         </style>
@@ -880,11 +923,15 @@
                     modalGrid.innerHTML = "";
                     currentImages = data.images;
 
+                    const ratioClasses = ["", "ratio-tall", "ratio-wide"];
                     data.images.forEach((imgUrl, index) => {
                         const imgContainer = document.createElement("div");
-                        imgContainer.className = "gallery-modal-item";
+                        const shapeNum = (index % 5) + 2; // shape-2 .. shape-6, per varietà di forma
+                        const ratioClass = ratioClasses[index % ratioClasses.length];
+                        imgContainer.className = `gallery-modal-item ${ratioClass}`.trim();
                         imgContainer.innerHTML = `
-                            <div class="torn-paper-frame">
+                            <div class="modal-photo-tape" aria-hidden="true"></div>
+                            <div class="torn-paper-frame shape-${shapeNum}">
                                 <img src="${imgUrl}" alt="Immagine galleria" class="modal-gallery-img" data-index="${index}">
                             </div>
                         `;
