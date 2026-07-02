@@ -300,15 +300,6 @@ function initCountdown() {
         animate();
     }
 
-    // Setup temporary test button click listener
-    const testBtn = document.getElementById('test-timer-end');
-    if (testBtn) {
-        testBtn.addEventListener('click', () => {
-            showExpiredMessage();
-            testBtn.style.display = "none";
-        });
-    }
-
     // Update immediately, then every second
     updateCountdown();
     const intervalId = setInterval(() => {
@@ -546,6 +537,13 @@ function initArtistModals() {
 
         // Deactivate any currently active modals just in case
         fullPages.forEach(p => p.classList.remove('active'));
+
+        // Set progress for brutalist dividers based on artist index
+        const currentIndex = artistNames.indexOf(artistName);
+        if (currentIndex !== -1 && artistNames.length > 0) {
+            const progressPercent = ((currentIndex + 1) / artistNames.length) * 100;
+            targetModal.style.setProperty('--divider-progress', `${progressPercent}%`);
+        }
 
         // Show overlay & target modal
         overlay.classList.add('active');

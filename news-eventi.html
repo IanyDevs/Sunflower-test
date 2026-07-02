@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunflower Fest | News & Eventi</title>
+    <title>Sunflower Fest | News ed Eventi</title>
     <link rel="icon" type="image/png" href="assets/loghi/logo-nobg.png">
-    <meta name="description" content="News & Eventi - Rimani aggiornato su tutte le novità e gli appuntamenti del Sunflower Fest.">
+    <meta name="description" content="News ed Eventi - Rimani aggiornato su tutte le novità e gli appuntamenti del Sunflower Fest.">
     <link rel="stylesheet" href="style.css?v=32">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.cdnfonts.com">
@@ -98,9 +98,7 @@
             transform: translate(1px,1px) !important;
             box-shadow: 2px 2px 0 var(--text-black) !important;
         }
-        .filter-btn[data-filter="annuncio"].active    { background: var(--c-red) !important; color: white !important; }
-        .filter-btn[data-filter="contest"].active     { background: var(--c-pastel-blue) !important; color: var(--text-black) !important; }
-        .filter-btn[data-filter="collaborazione"].active { background: var(--c-purple) !important; color: var(--text-black) !important; }
+
         #news-count { color: rgba(26,26,26,0.42) !important; }
 
         /* ═══════════ GRID: 3-column asymmetric editorial ═══════════ */
@@ -156,9 +154,9 @@
 
         .news-card.hidden { display: none !important; }
 
-        /* Uniform orange shadow on all cards hover */
-        .news-card:hover         { box-shadow: 12px 12px 0 var(--c-yellow) !important; }
-        .news-card.featured:hover { box-shadow: 14px 14px 0 var(--c-yellow) !important; }
+        /* Solid black growing shadow on card hover */
+        .news-card:hover         { box-shadow: 14px 14px 0 var(--text-black) !important; transform: translate(-6px, -6px) !important; }
+        .news-card.featured:hover { box-shadow: 16px 16px 0 var(--text-black) !important; transform: translate(-8px, -8px) !important; }
 
         /* ── Image wrapper ── */
         .news-card-img-wrapper {
@@ -252,10 +250,7 @@
             transform: translate(-1px,-1px) !important;
             box-shadow: 3px 3px 0 var(--text-black) !important;
         }
-        .news-card[data-category="annuncio"] .news-badge    { background: var(--c-red) !important; color: white !important; }
-        .news-card[data-category="contest"] .news-badge     { background: var(--c-pastel-blue) !important; color: var(--text-black) !important; }
-        .news-card[data-category="line-up"] .news-badge     { background: var(--c-yellow) !important; color: var(--text-black) !important; }
-        .news-card[data-category="collaborazione"] .news-badge { background: var(--c-purple) !important; color: var(--text-black) !important; }
+
 
         /* ── Title ── */
         .news-title {
@@ -269,8 +264,6 @@
         .news-card.featured .news-title  { font-size: 1.5rem !important; }
         .news-card.card-wide .news-title { font-size: 1.25rem !important; }
         .news-card:hover .news-title   { color: var(--c-yellow) !important; }
-        .news-card:hover .news-date    { color: var(--c-yellow) !important; }
-        .news-card:hover .news-excerpt { color: var(--c-yellow) !important; }
 
         /* ── Date ── */
         .news-date {
@@ -460,6 +453,13 @@
         .news-modal-overlay[data-category="line-up"]        .news-modal-container { border-top-color: var(--c-yellow) !important; }
         .news-modal-overlay[data-category="collaborazione"] .news-modal-container { border-top-color: var(--c-purple) !important; }
 
+        /* Specific styling for line-up category modal image to prevent cropping */
+        .news-modal-overlay[data-category="line-up"] .news-modal-header-img {
+            background-size: contain !important;
+            background-color: #232323 !important;
+            background-repeat: no-repeat !important;
+        }
+
         /* LEFT: image panel — 45% width, full height */
         .news-modal-header-img {
             width: 45% !important;
@@ -510,13 +510,14 @@
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            box-shadow: 4px 4px 0 var(--c-red) !important;
+            box-shadow: 4px 4px 0 var(--c-yellow) !important;
             transition: background 0.2s ease,
                         transform 0.28s cubic-bezier(0.34,1.56,0.64,1),
                         box-shadow 0.2s ease !important;
         }
         .news-modal-close:hover {
-            background: var(--c-red) !important;
+            background: var(--c-yellow) !important;
+            color: var(--text-black) !important;
             transform: scale(1.13) !important;
             box-shadow: 5px 5px 0 var(--text-black) !important;
         }
@@ -618,15 +619,206 @@
                 border-right: none !important;
                 border-bottom: 4px solid var(--text-black) !important;
             }
+            .news-modal-header-img.has-video,
+            .news-modal-header-img.has-carousel {
+                height: 420px !important;
+                max-height: 480px !important;
+            }
+            .news-modal-header-img.has-video .custom-video-controls {
+                padding: 6px 10px !important;
+                gap: 8px !important;
+                bottom: 8px !important;
+                left: 8px !important;
+                right: 8px !important;
+                width: calc(100% - 16px) !important;
+            }
+            .news-modal-header-img.has-video .video-control-btn {
+                width: 32px !important;
+                height: 32px !important;
+                font-size: 0.85rem !important;
+                box-shadow: 2px 2px 0px var(--text-black) !important;
+            }
+            .news-modal-header-img.has-video .video-control-btn:hover {
+                box-shadow: 3px 3px 0px var(--text-black) !important;
+            }
+            .news-modal-header-img.has-video .video-time-display {
+                font-size: 0.65rem !important;
+                min-width: 70px !important;
+                padding: 2px 4px !important;
+            }
+            .news-modal-header-img.has-video .video-progress-container {
+                height: 8px !important;
+            }
             .news-modal-body { padding: 2rem 1.6rem 2.5rem !important; }
             #modal-title { font-size: clamp(1.4rem, 5.5vw, 1.9rem) !important; }
             .news-modal-close { top: 1rem !important; right: 1rem !important; width: 44px !important; height: 44px !important; }
             .news-controls-container { padding: 1rem !important; }
         }
 
-        @keyframes news-header-in {
-            from { opacity: 0; transform: translateY(22px); }
-            to   { opacity: 1; transform: translateY(0); }
+        /* Custom Video Player (Sunflower style) */
+        .custom-video-player {
+            position: relative !important;
+            width: 100% !important;
+            height: 100% !important;
+            background-color: #000 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            overflow: hidden !important;
+        }
+        .custom-video-player video {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
+            display: block !important;
+        }
+        .custom-video-controls {
+            position: absolute !important;
+            bottom: 12px !important;
+            left: 12px !important;
+            right: 12px !important;
+            width: calc(100% - 24px) !important;
+            background: rgba(26, 26, 26, 0.85) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            border: 3px solid var(--text-black) !important;
+            border-radius: 12px !important;
+            display: flex !important;
+            align-items: center !important;
+            padding: 10px 16px !important;
+            gap: 14px !important;
+            z-index: 10 !important;
+            opacity: 0 !important;
+            transform: translateY(10px) !important;
+            transition: opacity 0.3s ease, transform 0.3s ease !important;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.2) !important;
+        }
+        .custom-video-player:hover .custom-video-controls,
+        .custom-video-player.paused .custom-video-controls {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        .video-control-btn {
+            background: #FFC231 !important;
+            border: 2px solid var(--text-black) !important;
+            color: var(--text-black) !important;
+            width: 38px !important;
+            height: 38px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            cursor: pointer !important;
+            font-size: 0.95rem !important;
+            box-shadow: 3px 3px 0px var(--text-black) !important;
+            transition: all 0.15s ease !important;
+            border-radius: 6px !important;
+        }
+        .video-control-btn:hover {
+            background: #ffffff !important;
+            transform: translate(-1px, -1px) !important;
+            box-shadow: 4px 4px 0px var(--text-black) !important;
+        }
+        .video-control-btn:active {
+            transform: translate(1px, 1px) !important;
+            box-shadow: 1px 1px 0px var(--text-black) !important;
+        }
+        .video-progress-container {
+            flex: 1 !important;
+            height: 10px !important;
+            background: rgba(255, 255, 255, 0.2) !important;
+            border: 2px solid var(--text-black) !important;
+            position: relative !important;
+            cursor: pointer !important;
+            border-radius: 6px !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+        .video-progress-bar {
+            width: 0%;
+            height: 100% !important;
+            background: #FFC231 !important;
+            border-radius: 4px !important;
+            position: relative !important;
+        }
+        /* Scrubber Pin (sunflower symbol) */
+        .video-progress-bar::after {
+            content: '✿' !important;
+            position: absolute !important;
+            right: -8px !important;
+            top: 50% !important;
+            transform: translateY(-50%) rotate(0deg) !important;
+            font-size: 1.1rem !important;
+            color: #FFC231 !important;
+            text-shadow: 1.5px 1.5px 0px var(--text-black), -1px -1px 0px var(--text-black), 1px -1px 0px var(--text-black), -1px 1px 0px var(--text-black) !important;
+            transition: transform 0.2s ease !important;
+        }
+        .custom-video-player:not(.paused) .video-progress-bar::after {
+            animation: rotate-sunflower 8s linear infinite !important;
+        }
+        @keyframes rotate-sunflower {
+            from { transform: translateY(-50%) rotate(0deg); }
+            to { transform: translateY(-50%) rotate(360deg); }
+        }
+        .video-time-display {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: 0.75rem !important;
+            color: #ffffff !important;
+            min-width: 85px !important;
+            text-align: center !important;
+            background: rgba(0, 0, 0, 0.3) !important;
+            padding: 4px 8px !important;
+            border-radius: 4px !important;
+            border: 1px solid rgba(255,255,255,0.1) !important;
+        }
+        /* Floating Large Play Overlay */
+        .video-overlay-play {
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) scale(1) !important;
+            width: 80px !important;
+            height: 80px !important;
+            background: #FFC231 !important;
+            border: 4px solid var(--text-black) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 2.2rem !important;
+            color: var(--text-black) !important;
+            cursor: pointer !important;
+            box-shadow: 6px 6px 0px var(--text-black) !important;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+            z-index: 5 !important;
+            pointer-events: none !important;
+            opacity: 1 !important;
+        }
+        .custom-video-player:not(.paused) .video-overlay-play {
+            opacity: 0 !important;
+            transform: translate(-50%, -50%) scale(0.7) !important;
+            pointer-events: none !important;
+        }
+        /* Volume Slider styling */
+        .video-volume-slider::-webkit-slider-runnable-track {
+            background: rgba(255, 255, 255, 0.2) !important;
+            height: 6px !important;
+            border-radius: 3px !important;
+        }
+        .video-volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none !important;
+            width: 12px !important;
+            height: 12px !important;
+            border-radius: 50% !important;
+            background: var(--c-yellow) !important;
+            border: 1.5px solid var(--text-black) !important;
+            margin-top: -3px !important;
+            box-shadow: 1px 1px 0px var(--text-black) !important;
+            transition: transform 0.1s ease !important;
+        }
+        .video-volume-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2) !important;
         }
     </style>
 
@@ -661,7 +853,7 @@
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="chi-siamo.html"><span class="lang-it">Chi Siamo</span><span class="lang-en">About Us</span></a>
-            <a href="news-eventi.html" class="active"><span class="lang-it">News & Eventi</span><span class="lang-en">News & Events</span></a>
+            <a href="news-eventi.html" class="active"><span class="lang-it">News ed Eventi</span><span class="lang-en">News and Events</span></a>
             <a href="galleria.html"><span class="lang-it">Galleria</span><span class="lang-en">Gallery</span></a>
             <a href="contatti.html"><span class="lang-it">Contatti</span><span class="lang-en">Contact</span></a>
             <div class="nav-dropdown">
@@ -678,9 +870,9 @@
                     </div>
                     <div class="dropdown-divider"></div>
                     <div class="dropdown-item">
-                        <h4><span class="lang-it">SALI SUL PALCO</span><span class="lang-en">JOIN THE STAGE</span></h4>
+                        <h4><span class="lang-it">SALI SUL PALCO</span><span class="lang-en">TAKE THE STAGE</span></h4>
                         <p><span class="lang-it">Sei un artista o una band emergente? Mostraci il tuo talento!</span><span class="lang-en">Are you an emerging artist or band? Show us your talent!</span></p>
-                        <a href="sali-sul-palco.html" class="dropdown-btn bg-red"><span class="lang-it">Sali sul palco</span><span class="lang-en">Join the stage</span></a>
+                        <a href="sali-sul-palco.html" class="dropdown-btn bg-red"><span class="lang-it">Sali sul palco</span><span class="lang-en">Take the stage</span></a>
                     </div>
                 </div>
             </div>
@@ -695,12 +887,12 @@
     <!-- Page Header -->
     <header class="page-header" style="background-color: var(--c-pastel-yellow); border-bottom: 3px solid var(--text-black);">
         <h1 class="page-title" style="color: var(--text-black); font-size: clamp(2.4rem, 6vw, 4.2rem); animation: news-header-in 0.7s cubic-bezier(0.22,1,0.36,1) both;">
-            <span class="lang-it">NEWS & EVENTI</span>
-            <span class="lang-en">NEWS & EVENTS</span>
+            <span class="lang-it">NEWS ED EVENTI</span>
+            <span class="lang-en">NEWS AND EVENTS</span>
         </h1>
         <p class="page-subtitle" style="color: var(--text-black); animation: news-header-in 0.7s cubic-bezier(0.22,1,0.36,1) 0.12s both;">
             <span class="lang-it">Tutte le novità e gli appuntamenti del Sunflower Festival</span>
-            <span class="lang-en">All the latest news and events of the Sunflower Festival</span>
+            <span class="lang-en">All the latest news and events from the Sunflower Festival</span>
         </p>
     </header>
 
@@ -762,9 +954,9 @@
         <main class="news-grid" id="news-grid-container">
 
             <!-- News Card 1 (Collaborazione — FEATURED) -->
-            <article class="news-card featured reveal-up" data-category="collaborazione">
+            <article class="news-card featured reveal-up" data-category="collaborazione" data-modal-img="assets/hat-music-collab-vertical.webp">
                 <div class="news-card-img-wrapper">
-                    <div class="news-card-img" style="background-image: url('assets/hat-music-collab.png');"></div>
+                    <div class="news-card-img" style="background-image: url('assets/hat-music-collab.webp');"></div>
                 </div>
                 <div class="news-card-content">
                     <span class="news-badge">
@@ -780,17 +972,17 @@
                         <span class="lang-it">Giugno 2026</span><span class="lang-en">June 2026</span>
                     </p>
                     <p class="news-excerpt">
-                        <span class="lang-it">Siamo entusiasti di annunciare la nostra partnership ufficiale con HAT Music! Esplora la piattaforma, ascolta le playlist dedicate e scarica l'app.</span>
-                        <span class="lang-en">We're thrilled to announce our official partnership with HAT Music! Explore the platform, listen to dedicated playlists and download the app.</span>
+                        <span class="lang-it">Annunciamo la collaborazione con HAT Music, la piattaforma che supporta la musica indipendente. Trovi le nostre playlist dedicate nell'app.</span>
+                        <span class="lang-en">We've teamed up with HAT Music, the platform championing independent artists — you'll find our dedicated playlists right there in the app.</span>
                     </p>
                     <div class="news-full-content hidden">
-                        <span class="lang-it">Questa partnership porterà una serie di vantaggi esclusivi per tutti i partecipanti del Sunflower Fest. HAT Music è l'applicazione definitiva per supportare la musica indipendente ed emergente, consentendo agli artisti di condividere i propri brani e connettersi con una fanbase attiva. Durante il festival, potrai accedere a playlist speciali create in collaborazione con gli artisti della line-up e scoprire musica esclusiva. Scarica subito l'applicazione su App Store o visita il sito ufficiale per unirti alla community!</span>
-                        <span class="lang-en">This partnership will bring a series of exclusive benefits to all Sunflower Fest attendees. HAT Music is the ultimate application to support independent and emerging music, allowing artists to share their tracks and connect with an active fanbase. During the festival, you will be able to access special playlists created in collaboration with the line-up artists and discover exclusive music. Download the app now on the App Store or visit the official website to join the community!</span>
+                        <span class="lang-it">Quest'anno collaboriamo con HAT Music per promuovere gli artisti emergenti. Sull'app potrai ascoltare le playlist speciali del festival con i brani dei cantanti in line-up. Scarica l'applicazione per entrare nella community e scoprire musica nuova.</span>
+                        <span class="lang-en">This year, we've teamed up with HAT Music to help emerging artists reach new ears. On the app, you'll find special festival playlists packed with tracks from our line-up. Download it, join the community, and discover your next favorite sound.</span>
                     </div>
                     <div data-links="external" style="display: flex; flex-wrap: wrap; flex-direction: column; gap: 0.5rem; width: 100%; margin-top: auto;">
                         <a href="#" class="news-link modal-trigger">
                             <span class="lang-it">Leggi l'articolo</span>
-                            <span class="lang-en">Read article</span>
+                            <span class="lang-en">Read Full Story</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
                         <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
@@ -799,7 +991,7 @@
                                 <span class="lang-it">Sito Web</span>
                                 <span class="lang-en">Website</span>
                             </a>
-                            <a href="https://www.instagram.com/hat.music/" target="_blank" class="news-link external-btn" style="background-color: var(--c-purple); color: var(--text-white) !important; box-shadow: 2px 2px 0px var(--text-black);">
+                            <a href="https://www.instagram.com/hat.music/" target="_blank" class="news-link external-btn" style="background-color: var(--c-purple); color: var(--text-black) !important; box-shadow: 2px 2px 0px var(--text-black);">
                                 <i class="fa-brands fa-instagram"></i>
                                 <span>Instagram</span>
                             </a>
@@ -814,9 +1006,9 @@
             </article>
 
             <!-- News Card 2 (Contest) -->
-            <article class="news-card reveal-left delay-1" data-category="contest">
+            <article class="news-card reveal-left delay-1" data-category="contest" data-modal-img="assets/sunflower-vi-ringrazia.webp">
                 <div class="news-card-img-wrapper">
-                    <div class="news-card-img" style="background-image: url('assets/slide2.png');"></div>
+                    <div class="news-card-img" style="background-image: url('assets/sunflower-vi-ringrazia.webp'); background-size: contain !important; background-repeat: no-repeat !important; background-color: #030303 !important; background-position: center !important;"></div>
                 </div>
                 <div class="news-card-content">
                     <span class="news-badge">
@@ -825,30 +1017,30 @@
                     </span>
                     <h2 class="news-title">
                         <span class="lang-it">Sali sul Palco: Candidature Chiuse</span>
-                        <span class="lang-en">Join the Stage: Applications Closed</span>
+                        <span class="lang-en">Take the Stage: Applications Closed</span>
                     </h2>
                     <p class="news-date">
                         <i class="fa-solid fa-calendar-days"></i>
                         <span class="lang-it">Maggio 2026</span><span class="lang-en">May 2026</span>
                     </p>
                     <p class="news-excerpt">
-                        <span class="lang-it">Sei un artista o fai parte di una band emergente? Le iscrizioni per esibirsi al festival sono chiuse.</span>
-                        <span class="lang-en">Are you an artist or part of an emerging band? Registration to perform at the festival is closed.</span>
+                        <span class="lang-it">Le candidature per il contest "Sali sul Palco" si sono chiuse. Grazie a tutti gli artisti e le band che hanno inviato la propria musica.</span>
+                        <span class="lang-en">Applications for the "Take the Stage" contest are now closed — thank you to every artist and band who sent in their music!</span>
                     </p>
                     <div class="news-full-content hidden">
-                        <span class="lang-it">Le selezioni degli artisti emergenti si sono ufficialmente concluse. Ringraziamo le centinaia di band e cantautori che hanno inviato la propria candidatura da tutta Italia. La qualità delle proposte di quest'anno è stata straordinaria, rendendo la scelta della giuria estremamente difficile. Gli artisti selezionati che saliranno sul palco principale del Sunflower Fest saranno annunciati a breve sui nostri canali social ufficiali. Continuate a seguirci!</span>
-                        <span class="lang-en">Emerging artists selections have officially closed. We thank the hundreds of bands and songwriters who sent their application from all over Italy. The quality of this year's proposals was extraordinary, making the jury's choice extremely difficult. The selected artists who will perform on the main stage of the Sunflower Fest will be announced shortly on our official social media channels. Keep following us!</span>
+                        <span class="lang-it">Le iscrizioni per suonare al Sunflower Fest 2026 sono terminate. Grazie 316! Quest'anno le candidature per il sunflower festival sono state numerosissime, in netta crescita rispetto alle 50-60 candidature delle scorse edizioni. Segno che il Festival sta crescendo acquisendo sempre maggiore importanza per il territorio e per l3 artist3 che hanno desiderio di esibirsi</span>
+                        <span class="lang-en">Applications to perform at Sunflower Fest 2026 are officially closed — thank you to all 316 artists who applied this year! That's a huge leap from the 50-60 submissions we used to see in past editions: a clear sign the festival is growing, and means more every year to our local community and to every artist who dreams of taking the stage.</span>
                     </div>
                     <div data-links="external" style="display: flex; flex-wrap: wrap; gap: 0.8rem; width: 100%; margin-top: auto;">
                         <a href="#" class="news-link modal-trigger">
                             <span class="lang-it">Leggi l'articolo</span>
-                            <span class="lang-en">Read article</span>
+                            <span class="lang-en">Read Full Story</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
                         <a href="sali-sul-palco.html" class="news-link external-btn" style="background-color: var(--c-yellow); color: var(--text-black) !important; box-shadow: 2px 2px 0px var(--text-black);">
                             <i class="fa-solid fa-music"></i>
                             <span class="lang-it">Vedi il bando</span>
-                            <span class="lang-en">See stage info</span>
+                            <span class="lang-en">View the Open Call</span>
                         </a>
                     </div>
                 </div>
@@ -857,7 +1049,7 @@
             <!-- News Card 3 (Line-up) -->
             <article class="news-card reveal-right delay-2" data-category="line-up">
                 <div class="news-card-img-wrapper">
-                    <div class="news-card-img" style="background-image: url('assets/foto-artisti/foto-prova.jpeg');"></div>
+                    <div class="news-card-img" style="background-image: url('assets/foto-artisti/graficaartisti.webp'); background-size: contain; background-repeat: no-repeat; background-color: #232323;"></div>
                 </div>
                 <div class="news-card-content">
                     <span class="news-badge">
@@ -866,7 +1058,7 @@
                     </span>
                     <h2 class="news-title">
                         <span class="lang-it">Svelata la Line-up degli Ospiti 2026!</span>
-                        <span class="lang-en">2026 Guests Line-up Revealed!</span>
+                        <span class="lang-en">2026 Line-Up Revealed!</span>
                     </h2>
                     <p class="news-date">
                         <i class="fa-solid fa-calendar-days"></i>
@@ -874,23 +1066,63 @@
                         <span class="lang-en">April 24, 2026</span>
                     </p>
                     <p class="news-excerpt">
-                        <span class="lang-it">Scopri tutti gli artisti di quest'anno e chi salirà sui palchi del festival.</span>
-                        <span class="lang-en">Discover all the artists of this year and who will perform on the stages of the festival.</span>
+                        <span class="lang-it">Ecco la line-up ufficiale del Sunflower Fest 2026. Guarda tutti gli ospiti che si esibiranno quest'anno sul nostro palco.</span>
+                        <span class="lang-en">The official Sunflower Fest 2026 line-up is here — check out everyone taking our stage this year.</span>
                     </p>
+                    
+                    <!-- Hidden carousel source container for modal popup left panel -->
+                    <div class="card-carousel-source" style="display: none;">
+                        <div class="artist-carousel-wrapper" style="width: 100%; height: 100%; overflow: hidden; background: #232323; position: relative;">
+                            <div class="artist-carousel-track" style="display: flex; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); width: 100%; height: 100%;">
+                                <!-- First slide: the general lineup poster -->
+                                <div class="artist-carousel-slide" style="flex: 0 0 100%; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                                    <img src="assets/foto-artisti/graficaartisti.webp" alt="General Lineup" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                                </div>
+                                <div class="artist-carousel-slide" style="flex: 0 0 100%; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                                    <img src="assets/foto-artisti/Santachiara.webp" alt="Santachiara" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                                </div>
+                                <div class="artist-carousel-slide" style="flex: 0 0 100%; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                                    <img src="assets/foto-artisti/AntonioCalabrese.webp" alt="Antonio Calabrese" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                                </div>
+                                <div class="artist-carousel-slide" style="flex: 0 0 100%; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                                    <img src="assets/foto-artisti/Aria.webp" alt="Aria" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                                </div>
+                                <div class="artist-carousel-slide" style="flex: 0 0 100%; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                                    <img src="assets/foto-artisti/CarlaFucci.webp" alt="Carla Fucci" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                                </div>
+                                <div class="artist-carousel-slide" style="flex: 0 0 100%; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                                    <img src="assets/foto-artisti/DavideDeLuca.webp" alt="Davide De Luca" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                                </div>
+                                <div class="artist-carousel-slide" style="flex: 0 0 100%; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                                    <img src="assets/foto-artisti/Dinìche.webp" alt="Dinìche" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                                </div>
+                                <div class="artist-carousel-slide" style="flex: 0 0 100%; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                                    <img src="assets/foto-artisti/Lyra.webp" alt="Lyra" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                                </div>
+                                <div class="artist-carousel-slide" style="flex: 0 0 100%; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                                    <img src="assets/foto-artisti/Secondo.webp" alt="Secondo" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                                </div>
+                            </div>
+                            <div class="artist-carousel-indicator" style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); color: #fff; padding: 4px 10px; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; z-index: 5;">
+                                1 / 9
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="news-full-content hidden">
-                        <span class="lang-it">La line-up ufficiale degli ospiti del Sunflower Fest 2026 è stata svelata! Quest'anno il festival ospiterà una selezione eccezionale di artisti nazionali e internazionali, pronti a incendiare il palco del Social Tennis Club. Dai sound indie-pop più caldi alle vibrazioni dell'elettronica alternativa, ogni serata offrirà uno spettacolo unico. Scopri tutti i dettagli sui singoli ospiti visitando la sezione dedicata nella nostra homepage.</span>
-                        <span class="lang-en">The official guest line-up for Sunflower Fest 2026 has been revealed! This year the festival will host an exceptional selection of national and international artists, ready to set the stage of the Social Tennis Club on fire. From the warmest indie-pop sounds to alternative electronic vibes, each evening will offer a unique show. Discover all the details about individual guests by visiting the dedicated section on our homepage.</span>
+                        <span class="lang-it">La line-up completa degli ospiti di questa edizione è finalmente ufficiale. Sul palco si alterneranno artisti con sonorità che spaziano dall'indie pop all'elettronica. Puoi scoprire i dettagli sui singoli artisti e le date delle esibizioni nella sezione dedicata in homepage.</span>
+                        <span class="lang-en">The full line-up for this year's edition is finally official! Get ready for a stage packed with artists spanning everything from indie pop to electronic. You'll find details on each act and their set times in the dedicated section on the homepage.</span>
                     </div>
                     <div data-links="external" style="display: flex; flex-wrap: wrap; gap: 0.8rem; width: 100%; margin-top: auto;">
                         <a href="#" class="news-link modal-trigger">
                             <span class="lang-it">Leggi l'articolo</span>
-                            <span class="lang-en">Read article</span>
+                            <span class="lang-en">Read Full Story</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
                         <a href="index.html#ospiti-2026" class="news-link external-btn" style="background-color: var(--c-yellow); color: var(--text-black) !important; box-shadow: 2px 2px 0px var(--text-black);">
                             <i class="fa-solid fa-users"></i>
                             <span class="lang-it">Ospiti Home</span>
-                            <span class="lang-en">Guests Home</span>
+                            <span class="lang-en">View the Line-Up</span>
                         </a>
                     </div>
                 </div>
@@ -899,7 +1131,7 @@
             <!-- News Card 4 (Annuncio — WIDE, horizontal) -->
             <article class="news-card card-wide reveal-up delay-3" data-category="annuncio">
                 <div class="news-card-img-wrapper">
-                    <div class="news-card-img" style="background-image: url('assets/slide1.png'); background-position: center 30%;"></div>
+                    <div class="news-card-img" style="background-image: url('assets/loghi/logosocialtennisclub.webp'); background-size: contain !important; background-repeat: no-repeat !important; background-color: #ffffff !important; background-position: center !important;"></div>
                 </div>
                 <div class="news-card-content">
                     <span class="news-badge">
@@ -916,18 +1148,56 @@
                         <span class="lang-it">Maggio 2026</span><span class="lang-en">May 2026</span>
                     </p>
                     <p class="news-excerpt">
-                        <span class="lang-it">Il Sunflower Fest 2026 si terrà nella splendida cornice del Social Tennis Club a Cava de' Tirreni.</span>
-                        <span class="lang-en">Sunflower Fest 2026 will be held in the beautiful setting of the Social Tennis Club in Cava de' Tirreni.</span>
+                        <span class="lang-it">Il Sunflower Fest 2026 si terrà negli spazi all'aperto del Social Tennis Club a Cava de' Tirreni.</span>
+                        <span class="lang-en">Sunflower Fest 2026 is heading to the outdoor spaces of the Social Tennis Club in Cava de' Tirreni.</span>
                     </p>
+                    
+                    <!-- Hidden video source container for modal popup left panel -->
+                    <div class="card-video-source" style="display: none;">
+                        <div class="custom-video-player">
+                            <video poster="assets/loghi/logo-nobg.webp" playsinline>
+                                <source src="assets/video/videolocation_compressed.mp4" type="video/mp4">
+                                <source src="assets/video/videolocation_compressed.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay-play">
+                                <i class="fa-solid fa-play"></i>
+                            </div>
+                            <div class="custom-video-controls">
+                                <button class="video-control-btn play-btn" aria-label="Play/Pause">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                                <div class="video-progress-container">
+                                    <div class="video-progress-bar"></div>
+                                </div>
+                                <span class="video-time-display">0:00 / 0:00</span>
+                                <div class="video-volume-container" style="display: flex; align-items: center; gap: 6px; position: relative;">
+                                    <button class="video-control-btn mute-btn" aria-label="Mute/Unmute" style="margin: 0 !important;">
+                                        <i class="fa-solid fa-volume-high"></i>
+                                    </button>
+                                    <input type="range" class="video-volume-slider" min="0" max="1" step="0.05" value="1" style="-webkit-appearance: none; width: 50px; height: 6px; background: rgba(255,255,255,0.3); border: 1.5px solid var(--text-black); border-radius: 3px; cursor: pointer; outline: none; transition: width 0.2s ease;">
+                                </div>
+                                <button class="video-control-btn fullscreen-btn" aria-label="Fullscreen">
+                                    <i class="fa-solid fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="news-full-content hidden">
-                        <span class="lang-it">Il Sunflower Fest 2026 ha scelto la sua casa. Il Social Tennis Club di Cava de' Tirreni ospiterà le tre serate del festival in uno spazio all'aperto circondato dal verde e a pochi passi dal centro storico. Questa storica location offre un mix perfetto di acustica, spazi ricreativi, aree food & beverage d'eccellenza e una cornice naturale suggestiva per vivere appieno l'esperienza della musica live. Maggiori dettagli su orari, ingressi e parcheggi saranno rilasciati nelle prossime settimane.</span>
-                        <span class="lang-en">Sunflower Fest 2026 has chosen its home. The Social Tennis Club in Cava de' Tirreni will host the three nights of the festival in an outdoor space surrounded by greenery and a few steps from the historic center. This historic location offers a perfect mix of acoustics, recreational spaces, excellent food & beverage areas, and a suggestive natural setting to fully experience live music. More details on hours, entries, and parking will be released in the coming weeks.</span>
+                        <span class="lang-it">La location ufficiale del Sunflower Fest 2026 è il Social Tennis Club di Cava de' Tirreni. Il festival si svolgerà l'11 Luglio nell'area all'aperto, a pochi passi dal centro storico della città. Trovi tutte le indicazioni su come raggiungerci direttamente nella sezione dedicata in homepage.</span>
+                        <span class="lang-en">The official home of Sunflower Fest 2026 is the Social Tennis Club in Cava de' Tirreni. The festival takes place on July 11 in the open-air venue, just a few steps from the city's historic center. You'll find full directions on how to reach us in the dedicated section on the homepage.</span>
                     </div>
                     <div data-links="external" style="display: flex; flex-wrap: wrap; gap: 0.8rem; width: 100%; margin-top: auto;">
                         <a href="#" class="news-link modal-trigger">
                             <span class="lang-it">Leggi l'articolo</span>
-                            <span class="lang-en">Read article</span>
+                            <span class="lang-en">Read Full Story</span>
                             <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="index.html#dove-trovarci" class="news-link external-btn" style="background-color: var(--c-yellow); color: var(--text-black) !important; box-shadow: 2px 2px 0px var(--text-black);">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <span class="lang-it">Come Raggiungerci</span>
+                            <span class="lang-en">How to Reach Us</span>
                         </a>
                     </div>
                 </div>
@@ -962,7 +1232,7 @@
         <div class="footer-container">
             <!-- Left Column: Contacts -->
             <div class="footer-col footer-contacts">
-                <h3><span class="lang-it">Contatti</span><span class="lang-en">Contacts</span></h3>
+                <h3><span class="lang-it">Contatti</span><span class="lang-en">Contact</span></h3>
                 <p class="association-name">Sunflowers Group</p>
                 <p>Piazza San Francesco, 22</p>
                 <p>84013 Cava de' Tirreni (SA)</p>
@@ -986,7 +1256,7 @@
             <div class="footer-col footer-brand">
                 <p class="realization-text">
                     <span class="lang-it">Il Sunflower Fest è realizzato dall'associazione culturale<br><strong>SUNFLOWERS GROUP APS</strong></span>
-                    <span class="lang-en">Sunflower Fest is realized by the cultural association<br><strong>SUNFLOWERS GROUP APS</strong></span>
+                    <span class="lang-en">Sunflower Fest is organized by the cultural association<br><strong>SUNFLOWERS GROUP APS</strong></span>
                 </p>
                 <a href="associazione/index.html">
                     <img src="assets/loghi/logo_ass.webp" alt="Logo Associazione" class="footer-association-logo" loading="lazy" width="150" height="163">
@@ -1055,6 +1325,111 @@
     <!-- Search & Filter Logic -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            function initCustomVideoPlayer(player) {
+                const video = player.querySelector('video');
+                const playBtn = player.querySelector('.play-btn');
+                const muteBtn = player.querySelector('.mute-btn');
+                const progressBar = player.querySelector('.video-progress-bar');
+                const progressContainer = player.querySelector('.video-progress-container');
+                const timeDisplay = player.querySelector('.video-time-display');
+                const fullscreenBtn = player.querySelector('.fullscreen-btn');
+
+                if (!video || !playBtn) return;
+
+                function togglePlay() {
+                    if (video.paused) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
+                }
+
+                playBtn.addEventListener('click', togglePlay);
+                video.addEventListener('click', togglePlay);
+                
+                const overlayPlay = player.querySelector('.video-overlay-play');
+                if (overlayPlay) {
+                    overlayPlay.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        togglePlay();
+                    });
+                }
+
+                video.addEventListener('play', () => {
+                    playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+                    player.classList.remove('paused');
+                });
+
+                video.addEventListener('pause', () => {
+                    playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+                    player.classList.add('paused');
+                });
+
+                video.addEventListener('timeupdate', () => {
+                    const percentage = (video.currentTime / video.duration) * 100;
+                    progressBar.style.width = percentage + '%';
+
+                    const curMins = Math.floor(video.currentTime / 60);
+                    const curSecs = Math.floor(video.currentTime - curMins * 60);
+                    const durMins = Math.floor(video.duration / 60) || 0;
+                    const durSecs = Math.floor(video.duration - durMins * 60) || 0;
+
+                    const curSecsStr = curSecs < 10 ? '0' + curSecs : curSecs;
+                    const durSecsStr = durSecs < 10 ? '0' + durSecs : durSecs;
+
+                    timeDisplay.textContent = `${curMins}:${curSecsStr} / ${durMins}:${durSecsStr}`;
+                });
+
+                progressContainer.addEventListener('click', (e) => {
+                    const rect = progressContainer.getBoundingClientRect();
+                    const pos = (e.clientX - rect.left) / rect.width;
+                    video.currentTime = pos * video.duration;
+                });
+
+                const volumeSlider = player.querySelector('.video-volume-slider');
+                if (volumeSlider) {
+                    volumeSlider.addEventListener('input', (e) => {
+                        const val = parseFloat(e.target.value);
+                        video.volume = val;
+                        video.muted = (val === 0);
+                        if (video.muted) {
+                            muteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+                            muteBtn.style.backgroundColor = '#ccc !important';
+                        } else {
+                            muteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                            muteBtn.style.backgroundColor = '#FFC231 !important';
+                        }
+                    });
+                }
+
+                muteBtn.addEventListener('click', () => {
+                    video.muted = !video.muted;
+                    if (video.muted) {
+                        muteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+                        muteBtn.style.backgroundColor = '#ccc !important';
+                        if (volumeSlider) volumeSlider.value = 0;
+                    } else {
+                        muteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                        muteBtn.style.backgroundColor = '#FFC231 !important';
+                        if (volumeSlider) volumeSlider.value = video.volume || 1;
+                    }
+                });
+
+                if (fullscreenBtn) {
+                    fullscreenBtn.addEventListener('click', () => {
+                        if (!document.fullscreenElement) {
+                            player.requestFullscreen().catch(err => {
+                                console.log("Error attempting to enable full-screen:", err);
+                            });
+                        } else {
+                            document.exitFullscreen();
+                        }
+                    });
+                }
+                
+                player.classList.add('paused');
+            }
+
             const searchInput = document.getElementById('news-search');
             const filterBtns = document.querySelectorAll('.filter-btn');
             const cards = document.querySelectorAll('.news-card');
@@ -1068,7 +1443,7 @@
                 <h3 class="lang-it">Nessun risultato trovato</h3>
                 <h3 class="lang-en">No results found</h3>
                 <p class="lang-it">Prova a cercare qualcosa di diverso o cambia filtro.</p>
-                <p class="lang-en">Try searching for something else or change filter.</p>
+                <p class="lang-en">Try a different search term or change the filter.</p>
             `;
             container.appendChild(emptyState);
 
@@ -1156,11 +1531,76 @@
                 const fullTextEl = card.querySelector('.news-full-content');
                 const externalLinksEl = card.querySelector('[data-links="external"]');
 
-                if (imgEl) {
-                    modalHeaderImg.style.backgroundImage = imgEl.style.backgroundImage;
+                // Reset modal header image container
+                modalHeaderImg.innerHTML = '';
+                modalHeaderImg.style.backgroundImage = '';
+                modalHeaderImg.style.backgroundColor = '';
+                modalHeaderImg.style.backgroundSize = '';
+                modalHeaderImg.style.backgroundRepeat = '';
+                modalHeaderImg.style.backgroundPosition = '';
+
+                const cardPlayer = card.querySelector('.card-video-source .custom-video-player');
+                const cardCarousel = card.querySelector('.card-carousel-source .artist-carousel-wrapper');
+                
+                modalHeaderImg.classList.remove('has-carousel');
+                if (cardPlayer) {
+                    const playerClone = cardPlayer.cloneNode(true);
+                    modalHeaderImg.appendChild(playerClone);
+                    modalHeaderImg.style.backgroundColor = '#000';
                     modalHeaderImg.style.display = 'block';
+                    modalHeaderImg.classList.add('has-video');
+                    initCustomVideoPlayer(playerClone);
+                } else if (cardCarousel) {
+                    const carouselClone = cardCarousel.cloneNode(true);
+                    modalHeaderImg.appendChild(carouselClone);
+                    modalHeaderImg.style.backgroundColor = '#232323';
+                    modalHeaderImg.style.display = 'block';
+                    modalHeaderImg.classList.add('has-carousel');
+                    
+                    // Initialize the carousel track scrolling
+                    const track = carouselClone.querySelector('.artist-carousel-track');
+                    const slides = carouselClone.querySelectorAll('.artist-carousel-slide');
+                    const indicator = carouselClone.querySelector('.artist-carousel-indicator');
+                    
+                    if (track && slides.length > 0) {
+                        let currentIndex = 0;
+                        track.style.transform = 'translateX(0%)';
+                        if (indicator) indicator.textContent = `1 / ${slides.length}`;
+                        
+                        if (window.artistCarouselInterval) {
+                            clearInterval(window.artistCarouselInterval);
+                        }
+                        
+                        window.artistCarouselInterval = setInterval(() => {
+                            currentIndex = (currentIndex + 1) % slides.length;
+                            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                            if (indicator) {
+                                indicator.textContent = `${currentIndex + 1} / ${slides.length}`;
+                            }
+                        }, 3000);
+                    }
                 } else {
-                    modalHeaderImg.style.display = 'none';
+                    modalHeaderImg.classList.remove('has-video');
+                    const modalImgOverride = card.getAttribute('data-modal-img');
+                    if (modalImgOverride) {
+                        modalHeaderImg.style.backgroundImage = `url('${modalImgOverride}')`;
+                        modalHeaderImg.style.display = 'block';
+                        if (card.getAttribute('data-category') === 'contest') {
+                            modalHeaderImg.style.backgroundSize = 'contain';
+                            modalHeaderImg.style.backgroundRepeat = 'no-repeat';
+                            modalHeaderImg.style.backgroundPosition = 'center';
+                            modalHeaderImg.style.backgroundColor = '#030303';
+                        }
+                    } else if (imgEl) {
+                        modalHeaderImg.style.backgroundImage = imgEl.style.backgroundImage;
+                        if (imgEl.style.backgroundSize) modalHeaderImg.style.backgroundSize = imgEl.style.backgroundSize;
+                        if (imgEl.style.backgroundColor) modalHeaderImg.style.backgroundColor = imgEl.style.backgroundColor;
+                        if (imgEl.style.backgroundRepeat) modalHeaderImg.style.backgroundRepeat = imgEl.style.backgroundRepeat;
+                        if (imgEl.style.backgroundPosition) modalHeaderImg.style.backgroundPosition = imgEl.style.backgroundPosition;
+                        modalHeaderImg.style.display = 'block';
+                    } else {
+                        modalHeaderImg.style.display = 'none';
+                    }
                 }
 
                 modalBadge.innerHTML = badgeEl.innerHTML;
@@ -1173,6 +1613,8 @@
                 } else {
                     modalText.innerHTML = excerptEl.innerHTML;
                 }
+
+
 
                 modalLinks.innerHTML = '';
                 if (externalLinksEl) {
@@ -1199,6 +1641,13 @@
             }
 
             function closeModal() {
+                if (window.artistCarouselInterval) {
+                    clearInterval(window.artistCarouselInterval);
+                }
+                const modalVideo = modalHeaderImg.querySelector('video');
+                if (modalVideo) {
+                    modalVideo.pause();
+                }
                 document.body.style.overflow = '';
                 document.documentElement.style.overflow = '';
                 modal.classList.add('is-closing');

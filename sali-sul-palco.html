@@ -41,7 +41,7 @@
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="chi-siamo.html"><span class="lang-it">Chi Siamo</span><span class="lang-en">About Us</span></a>
-            <a href="news-eventi.html"><span class="lang-it">News & Eventi</span><span class="lang-en">News & Events</span></a>
+            <a href="news-eventi.html"><span class="lang-it">News ed Eventi</span><span class="lang-en">News and Events</span></a>
             <a href="galleria.html"><span class="lang-it">Galleria</span><span class="lang-en">Gallery</span></a>
             <a href="contatti.html"><span class="lang-it">Contatti</span><span class="lang-en">Contact</span></a>
             <div class="nav-dropdown">
@@ -58,9 +58,9 @@
                     </div>
                     <div class="dropdown-divider"></div>
                     <div class="dropdown-item">
-                        <h4><span class="lang-it">SALI SUL PALCO</span><span class="lang-en">JOIN THE STAGE</span></h4>
+                        <h4><span class="lang-it">SALI SUL PALCO</span><span class="lang-en">TAKE THE STAGE</span></h4>
                         <p><span class="lang-it">Sei un artista o una band emergente? Mostraci il tuo talento!</span><span class="lang-en">Are you an emerging artist or band? Show us your talent!</span></p>
-                        <a href="sali-sul-palco.html" class="dropdown-btn bg-red active"><span class="lang-it">Sali sul palco</span><span class="lang-en">Join the stage</span></a>
+                        <a href="sali-sul-palco.html" class="dropdown-btn bg-red active"><span class="lang-it">Sali sul palco</span><span class="lang-en">Take the stage</span></a>
                     </div>
                 </div>
             </div>
@@ -73,9 +73,9 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="page-header" style="background-color: var(--c-red); border-bottom: 3px solid var(--text-black);">
+    <header class="page-header" style="background-color: var(--c-red); border-bottom: 3px solid var(--text-black); position: relative; overflow: visible;">
         <svg class="bg-blob-yellow" viewBox="0 0 100 100" style="width: 150px; opacity: 0.8; left: 10%; top: 10%; color: var(--c-yellow);"><path d="M50,10 C80,0 100,30 90,60 C80,90 30,100 10,70 C-10,40 20,20 50,10 Z" fill="currentColor"/></svg>
-        <h1 class="page-title" style="color: var(--text-black);"><span class="lang-it">SALI SUL PALCO</span><span class="lang-en">JOIN THE STAGE</span></h1>
+        <h1 class="page-title" style="color: var(--text-black);"><span class="lang-it">SALI SUL PALCO</span><span class="lang-en">TAKE THE STAGE</span></h1>
         <p class="page-subtitle" style="color: var(--text-black);">
             <span class="lang-it">Candidature e opportunità musicali.</span>
             <span class="lang-en">Applications and musical opportunities.</span>
@@ -87,6 +87,12 @@
                 <span class="lang-en">SUPPORT US WITH A DONATION</span>
             </a>
         </div>
+        
+        <!-- Overlapping Status Badge -->
+        <div class="sticker badge-rect bg-red" style="position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%) rotate(-4deg); font-weight: 900; font-size: 1.15rem; color: var(--text-white); padding: 0.6rem 1.8rem; border: 3px solid var(--text-black); box-shadow: 4px 4px 0px var(--text-black); z-index: 10; white-space: nowrap;">
+            <span class="lang-it">CANDIDATURE CHIUSE</span>
+            <span class="lang-en">APPLICATIONS CLOSED</span>
+        </div>
     </header>
 
     <!-- Content Wrapper -->
@@ -95,19 +101,15 @@
         <main class="info-section" style="max-width: 900px; margin: 0 auto; padding: 4rem 2rem; text-align: center;">
             
             <article class="info-block reveal-up" style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
-                <div class="sticker badge-rect bg-red" style="transform: rotate(-1.5deg); font-weight: 900; font-size: 1.2rem; color: var(--text-white); padding: 0.8rem 2rem; border: 3px solid var(--text-black); box-shadow: 4px 4px 0px var(--text-black);">
-                    <span class="lang-it">CANDIDATURE CHIUSE</span>
-                    <span class="lang-en">APPLICATIONS CLOSED</span>
-                </div>
                 
-                <h2 style="font-family: 'Monument Extended', sans-serif; font-size: 2.2rem; text-transform: uppercase; line-height: 1.2; margin-top: 1rem; color: var(--text-black);">
+                <h2 style="font-family: 'Monument Extended', sans-serif; font-size: 2.6rem; text-transform: uppercase; line-height: 1.2; margin-top: 0.5rem; color: var(--text-black);">
                     <span class="lang-it">Il Festival è già iniziato!</span>
-                    <span class="lang-en">The Festival has already started!</span>
+                    <span class="lang-en">The festival has already started!</span>
                 </h2>
                 
-                <p style="font-size: 1.15rem; line-height: 1.7; color: var(--text-black); max-width: 700px; margin: 0 auto; font-weight: 500;">
+                <p style="font-size: 1.3rem; line-height: 1.7; color: var(--text-black); max-width: 700px; margin: 0 auto; font-weight: 700;">
                     <span class="lang-it">Le candidature per esibirsi al <strong>Sunflower Fest 2026</strong> sono attualmente chiuse, poiché la programmazione è già in corso.</span>
-                    <span class="lang-en">Applications to perform at the <strong>Sunflower Fest 2026</strong> are currently closed, as the scheduling is already underway.</span>
+                    <span class="lang-en">Applications to perform at <strong>Sunflower Fest 2026</strong> are currently closed, as this year's lineup is already underway.</span>
                 </p>
                 
                 <div class="brutalist-divider" style="width: 80px; height: 6px; background-color: var(--text-black); margin: 1.5rem 0;"></div>
@@ -119,7 +121,7 @@
                 
                 <p style="font-size: 1.05rem; line-height: 1.6; color: rgba(26, 26, 26, 0.8); max-width: 600px; margin-bottom: 2rem;">
                     <span class="lang-it">Non perdere l'occasione di candidarti per le prossime edizioni del festival o per partecipare ai nostri eventi futuri. Seguici per rimanere sempre aggiornato in tempo reale!</span>
-                    <span class="lang-en">Don't miss the chance to apply for future editions of the festival or to participate in our future events. Follow us to stay updated in real time!</span>
+                    <span class="lang-en">Don't miss your chance to apply for future editions of the festival or to join us at upcoming events. Follow us to stay updated in real time!</span>
                 </p>
 
                 <!-- Social Channels Grid -->
@@ -162,7 +164,7 @@
         <div class="footer-container">
             <!-- Left Column: Contacts -->
             <div class="footer-col footer-contacts">
-                <h3><span class="lang-it">Contatti</span><span class="lang-en">Contacts</span></h3>
+                <h3><span class="lang-it">Contatti</span><span class="lang-en">Contact</span></h3>
                 <p class="association-name">Sunflowers Group</p>
                 <p>Piazza San Francesco, 22</p>
                 <p>84013 Cava de' Tirreni (SA)</p>
@@ -186,7 +188,7 @@
             <div class="footer-col footer-brand">
                 <p class="realization-text">
                     <span class="lang-it">Il Sunflower Fest è realizzato dall'associazione culturale<br><strong>SUNFLOWERS GROUP APS</strong></span>
-                    <span class="lang-en">Sunflower Fest is realized by the cultural association<br><strong>SUNFLOWERS GROUP APS</strong></span>
+                    <span class="lang-en">Sunflower Fest is organized by the cultural association<br><strong>SUNFLOWERS GROUP APS</strong></span>
                 </p>
                 <a href="associazione/index.html">
                     <img src="assets/loghi/logo_ass.webp" alt="Logo Associazione" class="footer-association-logo" loading="lazy" width="150" height="163">

@@ -56,15 +56,11 @@ function initCountdown() {
     const secsEl = document.getElementById('secs-count');
 
     const TWENTY_H = 20 * 60 * 60 * 1000;
-    let testingTodayMode = false;
-    let testStartTime    = 0;
     let countdownInterval = null;
 
     function updateCountdown() {
         const now = Date.now();
-        const distance = testingTodayMode
-            ? TWENTY_H - (now - testStartTime)   // simulated: counts from 20h → 0
-            : targetDate - now;                   // real countdown
+        const distance = targetDate - now;                   // real countdown
 
         if (distance < 0) {
             clearInterval(countdownInterval);
@@ -299,25 +295,6 @@ function initCountdown() {
         for (let i = 0; i < burstCount; i++) setTimeout(createSparkle, i * 110);
         const iv = setInterval(createSparkle, sparkleRate);
         setTimeout(() => clearInterval(iv), 10000);
-    }
-
-    // Setup temporary test button click listener
-    const testBtn = document.getElementById('test-timer-end');
-    if (testBtn) {
-        testBtn.addEventListener('click', () => {
-            showExpiredMessage();
-            testBtn.style.display = "none";
-        });
-    }
-
-    const testTodayBtn = document.getElementById('test-today-message');
-    if (testTodayBtn) {
-        testTodayBtn.addEventListener('click', () => {
-            testingTodayMode = true;
-            testStartTime    = Date.now();
-            testTodayBtn.style.display = 'none';
-            updateCountdown();
-        });
     }
 
     // Update immediately, then every second
@@ -650,6 +627,13 @@ function initArtistModals() {
 
         // Deactivate any currently active modals just in case
         fullPages.forEach(p => p.classList.remove('active'));
+
+        // Set progress for brutalist dividers based on artist index
+        const currentIndex = artistNames.indexOf(artistName);
+        if (currentIndex !== -1 && artistNames.length > 0) {
+            const progressPercent = ((currentIndex + 1) / artistNames.length) * 100;
+            targetModal.style.setProperty('--divider-progress', `${progressPercent}%`);
+        }
 
         // Show overlay & target modal
         overlay.classList.add('active');

@@ -337,12 +337,12 @@ html.no-curtain .page-curtain {
 }
 
 .nav-links .nav-dropdown .dropdown-trigger {
-    background-color: var(--c-yellow);
+    background-color: #FFC231;
     color: var(--text-black);
     padding: 0.4rem 1.2rem;
     border-radius: 50px;
-    border: 3px solid var(--text-white);
-    box-shadow: 4px 4px 0px var(--text-white);
+    border: 3px solid var(--text-black);
+    box-shadow: 4px 4px 0px var(--text-black);
     font-size: 1rem;
     transform: rotate(-1deg);
     display: inline-flex;
@@ -364,8 +364,8 @@ html.no-curtain .page-curtain {
 .nav-links .nav-dropdown .dropdown-trigger:hover {
     background-color: var(--text-white);
     color: var(--text-black);
-    border-color: var(--text-white);
-    box-shadow: 4px 4px 0px var(--c-yellow);
+    border-color: var(--text-black);
+    box-shadow: 4px 4px 0px var(--text-black);
     transform: rotate(1deg) scale(1.05);
     text-decoration: none;
 }
@@ -387,10 +387,19 @@ html.no-curtain .page-curtain {
 
 /* Glassmorphism navbar trigger state */
 .main-nav.transparent-nav .nav-dropdown .dropdown-trigger {
-    background-color: var(--c-yellow);
+    background-color: #FFC231;
     color: var(--text-black);
     border-color: var(--text-black);
     box-shadow: 4px 4px 0px var(--text-black);
+}
+
+/* Clicked/open state: white with black outline, overrides hover and transparent-nav */
+.nav-links .nav-dropdown.active .dropdown-trigger,
+.main-nav.transparent-nav .nav-dropdown.active .dropdown-trigger {
+    background-color: var(--text-white) !important;
+    color: var(--text-black) !important;
+    border-color: var(--text-black) !important;
+    box-shadow: 4px 4px 0px var(--text-black) !important;
 }
 
 /* Dropdown Menu block */
@@ -1360,36 +1369,48 @@ html.no-curtain .page-curtain {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    color: #ffffff !important;
 }
-
 
 .social-icons a svg {
     overflow: visible;
 }
 
-.social-icons a[aria-label="TikTok"] {
-    color: #ffffff;
+.social-icons a svg path {
+    fill: currentColor !important;
+    transition: fill 0.2s ease;
 }
+
+/* Instagram */
+.social-icons a[aria-label="Instagram"]:hover svg path,
+.social-icons a[aria-label="Instagram"]:active svg path {
+    fill: url(#rgInstagram) !important;
+}
+
+/* TikTok */
 .social-icons a[aria-label="TikTok"] svg {
-    filter: drop-shadow(-1px -1px 0px #ff0050) drop-shadow(1px 1px 0px #00f2fe);
+    filter: none !important;
     transition: filter 0.2s ease;
 }
-.social-icons a[aria-label="TikTok"]:hover svg {
+.social-icons a[aria-label="TikTok"]:hover svg,
+.social-icons a[aria-label="TikTok"]:active svg {
     filter: drop-shadow(-2px -1.5px 0px #ff0050) drop-shadow(2px 1.5px 0px #00f2fe) !important;
 }
-
-.social-icons a[aria-label="Spotify"] {
-    color: #1DB954;
-}
-.social-icons a[aria-label="Spotify"]:hover {
-    color: #1ed760;
+.social-icons a[aria-label="TikTok"]:hover svg path,
+.social-icons a[aria-label="TikTok"]:active svg path {
+    fill: #ffffff !important;
 }
 
-.social-icons a[aria-label="Facebook"] {
-    color: #1877F2;
+/* Spotify */
+.social-icons a[aria-label="Spotify"]:hover svg path,
+.social-icons a[aria-label="Spotify"]:active svg path {
+    fill: #1DB954 !important;
 }
-.social-icons a[aria-label="Facebook"]:hover {
-    color: #4267B2;
+
+/* Facebook */
+.social-icons a[aria-label="Facebook"]:hover svg path,
+.social-icons a[aria-label="Facebook"]:active svg path {
+    fill: #1877F2 !important;
 }
 
 .social-icons a:hover {
@@ -2852,7 +2873,7 @@ body.menu-open {
 /* --- CONTACT INFO CARD --- */
 .contact-info-card {
     position: relative;
-    background-color: var(--c-peach);
+    background-color: var(--c-yellow);
     border: 4px solid var(--text-black);
     border-radius: 12px;
     padding: 2.5rem;
@@ -2871,8 +2892,8 @@ body.menu-open {
     position: absolute;
     top: -18px;
     left: 20px;
-    background-color: var(--c-yellow);
-    color: var(--text-black);
+    background-color: var(--text-black);
+    color: var(--c-yellow);
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
     font-size: 0.95rem;
@@ -2882,6 +2903,18 @@ body.menu-open {
     box-shadow: 2px 2px 0px var(--text-black);
     transform: rotate(-2deg);
     z-index: 10;
+}
+
+/* Contact Button Links inside Recapiti Card */
+.contact-btn-link:hover {
+    transform: translate(-3px, -3px) !important;
+    box-shadow: 6px 6px 0px var(--text-black) !important;
+    background: var(--c-yellow) !important;
+    color: var(--text-black) !important;
+}
+.contact-btn-link:active {
+    transform: translate(1px, 1px) !important;
+    box-shadow: 1px 1px 0px var(--text-black) !important;
 }
 
 /* --- SUNFLOWER MAP SECTION --- */
@@ -5505,6 +5538,7 @@ body.menu-open {
 .postcard-wrapper:hover .postcard-card {
     transform: translateY(-8px) rotate(-1deg);
     box-shadow: 14px 14px 0px var(--text-black);
+    background-color: var(--c-yellow) !important;
 }
 
 .postcard-header {
@@ -6520,9 +6554,10 @@ body.menu-open {
 
 /* Brutalist divider — accent giallo */
 .brutalist-divider {
-    background: linear-gradient(to right, var(--c-yellow) 40px, var(--text-black) 40px);
+    background: linear-gradient(to right, var(--c-yellow) var(--divider-progress, 40px), var(--text-black) var(--divider-progress, 40px));
     height: 5px;
     border-radius: 0;
+    transition: background 0.3s ease;
 }
 
 /* Sunflower player — striscia NOW PLAYING */
