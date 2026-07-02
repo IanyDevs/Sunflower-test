@@ -1,4 +1,5 @@
 # Regole di caching per ottimizzare la velocità del sito su Aruba / Apache
+# Force update
 <IfModule mod_expires.c>
   ExpiresActive On
   
