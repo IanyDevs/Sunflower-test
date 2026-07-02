@@ -1346,11 +1346,18 @@ html.no-curtain .page-curtain {
 }
 
 
+.social-icons a svg {
+    overflow: visible;
+}
+
 .social-icons a[aria-label="TikTok"] {
     color: #ffffff !important;
-    filter: drop-shadow(-1px -1px 0px #ff0050) drop-shadow(1px 1px 0px #00f2fe) !important;
 }
-.social-icons a[aria-label="TikTok"]:hover {
+.social-icons a[aria-label="TikTok"] svg {
+    filter: drop-shadow(-1px -1px 0px #ff0050) drop-shadow(1px 1px 0px #00f2fe) !important;
+    transition: filter 0.2s ease;
+}
+.social-icons a[aria-label="TikTok"]:hover svg {
     filter: drop-shadow(-2px -1.5px 0px #ff0050) drop-shadow(2px 1.5px 0px #00f2fe) !important;
 }
 
