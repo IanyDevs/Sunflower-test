@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunflower Fest | Vibes Archive</title>
+    <title>Sunflower Fest | Staff</title>
     <link rel="icon" type="image/png" href="assets/logo_ass.webp">
-    <meta name="description" content="L'Archivio delle Vibes - Galleria fotografica delle edizioni passate del Sunflower Fest.">
+    <meta name="description" content="Lo Staff - Le persone dietro le quinte del Sunflowers Group.">
     <link rel="stylesheet" href="style.css?v=30">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.cdnfonts.com">
@@ -24,7 +24,7 @@
         })();
     </script>
 </head>
-<body>
+<body style="background-color: #ffffff !important;">
     
     <!-- CURTAIN TRANSITION -->
     <div class="page-curtain">
@@ -46,7 +46,7 @@
         </button>
         <div class="nav-links">
             <a href="index.html"><span class="lang-it">L'Associazione</span><span class="lang-en">The Association</span></a>
-            <a href="gallery.html" class="active">Vibes Archive</a>
+            <a href="staff.html" class="active">Staff</a>
             <a href="../index.html" class="nav-btn-fest">Sunflower Fest</a>
             <div class="lang-switcher">
                 <button class="lang-btn it" data-lang="it">IT</button>
@@ -59,108 +59,71 @@
     <!-- Page Header -->
     <header class="page-header" style="background-color: var(--c-purple);">
         <svg class="bg-blob-yellow" viewBox="0 0 100 100" style="width: 150px; opacity: 0.8; right: 15%; top: 20%;"><path d="M50,10 C80,0 100,30 90,60 C80,90 30,100 10,70 C-10,40 20,20 50,10 Z" fill="currentColor"/></svg>
-        <h1 class="page-title" style="color: var(--text-black); font-size: 5rem;">L'ARCHIVIO DELLE VIBES</h1>
+        <h1 class="page-title" style="color: var(--text-black); font-size: 5rem;">
+            <span class="lang-it">LO STAFF</span>
+            <span class="lang-en">THE STAFF</span>
+        </h1>
         <p class="page-subtitle" style="color: var(--text-black);">
-            <span class="lang-it">I momenti più belli delle edizioni passate.</span>
-            <span class="lang-en">The most beautiful moments of past editions.</span>
+            <span class="lang-it">Le persone dietro le quinte del Sunflowers Group.</span>
+            <span class="lang-en">The people behind the scenes of Sunflowers Group.</span>
         </p>
     </header>
 
-    <!-- Masonry Gallery -->
-    <main class="gallery-container">
+    <!-- Staff Content Container -->
+    <main class="staff-container" style="max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;">
         
-        <!-- Gallery Item 1 -->
-        <div class="gallery-item reveal-up" data-gallery="art-day" style="cursor: pointer;">
-            <div class="torn-paper-frame shape-2">
-                <div class="placeholder-img" style="background-image: url('../assets/Foto-generali/Foto10.webp');"></div>
-            </div>
-            <p class="gallery-caption">Art Day</p>
-        </div>
-
-        <!-- Gallery Item 2 -->
-        <div class="gallery-item tall reveal-up delay-1" data-gallery="palco" style="cursor: pointer;">
-            <div class="torn-paper-frame shape-4">
-                <div class="placeholder-img" style="background-image: url('../assets/Foto-generali/Foto22.webp');"></div>
-            </div>
-            <p class="gallery-caption">
-                <span class="lang-it">Il Palco</span>
-                <span class="lang-en">The Stage</span>
-            </p>
-        </div>
-
-        <!-- Gallery Item 3 -->
-        <div class="gallery-item reveal-up delay-2" data-gallery="backstage" style="cursor: pointer;">
-            <div class="torn-paper-frame shape-5">
-                <div class="placeholder-img" style="background-image: url('../assets/Foto-generali/foto5.webp');"></div>
-            </div>
-            <p class="gallery-caption">Backstage</p>
-        </div>
-
-        <!-- Gallery Item 4 -->
-        <div class="gallery-item wide reveal-up" data-gallery="pubblico" style="cursor: pointer;">
-            <div class="torn-paper-frame shape-3">
-                <div class="placeholder-img" style="background-image: url('../assets/Foto-generali/Foto18.webp');"></div>
-            </div>
-            <p class="gallery-caption">
-                <span class="lang-it">Il Pubblico</span>
-                <span class="lang-en">The Audience</span>
-            </p>
-        </div>
-
-        <!-- Gallery Item 5 -->
-        <div class="gallery-item tall reveal-up delay-1" data-gallery="notte-magica" style="cursor: pointer;">
-            <div class="torn-paper-frame">
-                <div class="placeholder-img" style="background-image: url('../assets/Foto-generali/Foto19.webp');"></div>
-            </div>
-            <p class="gallery-caption">
-                <span class="lang-it">Notte Magica</span>
-                <span class="lang-en">Magical Night</span>
-            </p>
-        </div>
-
-        <!-- Gallery Item 6 -->
-        <div class="gallery-item reveal-up delay-2" data-gallery="artisti" style="cursor: pointer;">
-            <div class="torn-paper-frame shape-6">
-                <div class="placeholder-img" style="background-image: url('../assets/foto-artisti/Santachiara.jpeg');"></div>
-            </div>
-            <p class="gallery-caption">
-                <span class="lang-it">Artisti</span>
-                <span class="lang-en">Artists</span>
-            </p>
-        </div>
-
-    </main>
-
-    <!-- Gallery Modal Overlay -->
-    <div id="gallery-modal" class="gallery-modal">
-        <div class="gallery-modal-backdrop"></div>
-        <div class="gallery-modal-wrapper">
-            <button class="gallery-modal-close" aria-label="Chiudi galleria">&times;</button>
-            <div class="gallery-modal-header">
-                <h2 id="gallery-modal-title" class="gallery-modal-title">NOME SEZIONE</h2>
-                <p class="gallery-modal-subtitle">
-                    <span class="lang-it">Clicca su una foto per ingrandirla</span>
-                    <span class="lang-en">Click on a photo to enlarge it</span>
-                </p>
-            </div>
-            <div class="gallery-modal-body">
-                <div id="gallery-modal-grid" class="gallery-modal-grid">
-                    <!-- Dynamic images injected here -->
+        <!-- Central Team Photo (Rectangular brutalist style container with decorative polaroid frame) -->
+        <div class="team-photo-container reveal-up" style="display: flex; justify-content: center; margin-bottom: 4rem; width: 100%; position: relative; padding: 1.5rem 0;">
+            <div style="position: relative; max-width: 800px; width: 100%; display: flex; justify-content: center; align-items: center;">
+                <!-- Decorative background offset frame -->
+                <div style="position: absolute; width: 100%; height: 100%; background-color: var(--c-red); border: 4px solid var(--text-black); transform: rotate(-2deg); top: 8px; left: -8px; z-index: 1;"></div>
+                
+                <!-- Main Photo Polaroid Container -->
+                <div style="background-color: var(--c-yellow); width: 100%; border: 4px solid var(--text-black); overflow: hidden; position: relative; z-index: 2; box-shadow: 8px 8px 0px var(--text-black); padding: 1.2rem; display: flex; flex-direction: column;">
+                    <div style="background-image: url('assets/staff_generale.webp'); background-size: cover; background-position: center; height: 420px; border: 3px solid var(--text-black); transition: transform 2s ease;"></div>
+                    <div style="text-align: center; margin-top: 1rem; font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--text-black); line-height: 1; font-weight: normal;">
+                        <span class="lang-it">La Famiglia Sunflower</span>
+                        <span class="lang-en">The Sunflower Family</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Lightbox for individual image zoom -->
-    <div id="gallery-lightbox" class="gallery-lightbox">
-        <div class="lightbox-backdrop"></div>
-        <button class="lightbox-close" aria-label="Chiudi">&times;</button>
-        <button class="lightbox-nav lightbox-prev" aria-label="Precedente"><i class="fa-solid fa-chevron-left"></i></button>
-        <div class="lightbox-content">
-            <img id="lightbox-img" src="" alt="Zoom immagine">
+        <!-- Staff Description Paragraph -->
+        <div class="staff-description reveal-up delay-1" style="max-width: 800px; margin: 0 auto 4rem auto; text-align: center; font-size: 1.15rem; line-height: 1.8; font-weight: 700; color: var(--text-black);">
+            <p class="lang-it">
+                Lo staff del Sunflower Festival è composto da un gruppo unito e appassionato di giovani professionisti, artists e volontari che lavorano instancabilmente dietro le quinte. Dalla direzione artistica alla logistica, dalla comunicazione tecnica all'accoglienza, ogni membro mette in campo le proprie competenze per creare uno spazio inclusivo, sicuro e stimolante per la musica emergente. Crediamo nella forza della condivisione e dell'arte come motore di cambiamento sociale per il nostro territorio.
+            </p>
+            <p class="lang-en">
+                The Sunflower Festival staff consists of a united and passionate group of young professionals, artists, and volunteers working tirelessly behind the scenes. From artistic direction to logistics, from technical communication to hospitality, each member brings their skills to create an inclusive, safe, and stimulating space for emerging music. We believe in the power of sharing and art as a driver of social change for our territory.
+            </p>
         </div>
-        <button class="lightbox-nav lightbox-next" aria-label="Successiva"><i class="fa-solid fa-chevron-right"></i></button>
-    </div>
+
+        <!-- Membership Card / Call to Action (Volunteers Form) -->
+        <article class="reveal-up delay-2" style="width: 100%; display: flex; justify-content: center; margin-top: 2rem;">
+            <div class="contact-info-card" style="max-width: 800px; width: 100%; text-align: center;">
+                <h3 style="font-family: 'Monument Extended', sans-serif; font-size: 1.8rem; margin-bottom: 1.5rem; text-transform: uppercase;">
+                    <span class="lang-it">Unisciti alla nostra community</span>
+                    <span class="lang-en">Join our community</span>
+                </h3>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; font-weight: 700;">
+                    <span class="lang-it">Vuoi dare una mano concreta all'organizzazione degli eventi, proporre nuove idee o semplicemente sostenere la nostra causa? Entra a far parte del Sunflowers Group!</span>
+                    <span class="lang-en">Do you want to lend a hand in organizing events, propose new ideas, or simply support our cause? Join the Sunflowers Group!</span>
+                </p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSexlqiySbiXjuskMPaoTKAL4eFnGVCigT198Jx8wdQ3EUx08g/viewform" target="_blank" class="brutalist-button bg-yellow" style="font-size: 1.1rem; text-decoration: none;">
+                        <span class="lang-it">Diventa Volontario</span>
+                        <span class="lang-en">Become a Volunteer</span>
+                    </a>
+                    <a href="../contatti.html" class="brutalist-button bg-white" style="font-size: 1.1rem; text-decoration: none;">
+                        <span class="lang-it">Contattaci</span>
+                        <span class="lang-en">Contact Us</span>
+                    </a>
+                </div>
+            </div>
+        </article>
+
+    </main>
 
     <!-- Site Footer -->
     <footer class="site-footer">
@@ -203,7 +166,7 @@
                     <span class="lang-it">Sito ufficiale dell'associazione culturale<br><strong>SUNFLOWERS GROUP</strong></span>
                     <span class="lang-en">Official website of the cultural association<br><strong>SUNFLOWERS GROUP</strong></span>
                 </p>
-                <a href="https://www.paypal.com/donate" target="_blank" class="brutalist-button bg-red donation-footer-btn" style="text-decoration: none; font-size: 0.9rem; font-weight: 900; padding: 0.6rem 1.2rem; border-radius: 6px; color: var(--text-white); display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 3px 3px 0px var(--text-black); border: 2px solid var(--text-black); margin-top: 1rem;">
+                <a href="../assets/documenti/Donazione Sunflowers Group .pdf" target="_blank" class="brutalist-button bg-red donation-footer-btn" style="text-decoration: none; font-size: 0.9rem; font-weight: 900; padding: 0.6rem 1.2rem; border-radius: 6px; color: var(--text-white); display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 3px 3px 0px var(--text-black); border: 2px solid var(--text-black); margin-top: 1rem;">
                     <i class="fa-solid fa-heart" style="color: var(--c-yellow);"></i> 
                     <span class="lang-it">Sostieni l'Associazione</span>
                     <span class="lang-en">Support the Association</span>
