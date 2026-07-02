@@ -2165,9 +2165,9 @@ body.menu-open {
     }
     
     .nav-links a:hover, .nav-links a.active {
-        color: var(--text-white);
-        transform: scale(1.08) rotate(-3deg);
-        text-shadow: 3px 3px 0px var(--text-black);
+        color: var(--text-white) !important;
+        transform: scale(1.04) !important;
+        text-shadow: none !important;
         text-decoration: none;
     }
 
@@ -2178,8 +2178,8 @@ body.menu-open {
     
     .main-nav.transparent-nav .nav-links a:hover,
     .main-nav.transparent-nav .nav-links a.active {
-        color: var(--text-white);
-        text-shadow: 3px 3px 0px var(--text-black);
+        color: var(--text-white) !important;
+        text-shadow: none !important;
     }
 
     /* Mobile responsive styles for the button */
@@ -2438,6 +2438,7 @@ body.menu-open {
     box-shadow: 8px 8px 0px var(--text-black);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     margin-top: 1.5rem;
+    margin-bottom: 6rem;
 }
 
 .contact-info-card:hover {
@@ -4834,7 +4835,7 @@ body.menu-open {
     .main-nav.transparent-nav .nav-links a:hover,
     .main-nav.transparent-nav .nav-links a.active {
         color: var(--text-white) !important;
-        text-shadow: 3px 3px 0px var(--text-black) !important;
+        text-shadow: none !important;
     }
 }
 
@@ -5271,6 +5272,12 @@ body.menu-open {
         width: 100% !important;
         max-width: 320px !important;
         height: 520px !important;
+    }
+
+    /* Contact card responsive overrides */
+    .contact-info-card {
+        padding: 1.5rem 1rem !important;
+        margin-bottom: 5rem !important;
     }
 
     /* Footer styling fix */

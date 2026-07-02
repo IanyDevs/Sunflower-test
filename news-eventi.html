@@ -607,6 +607,9 @@
             .news-card-img-wrapper,
             .news-card.featured .news-card-img-wrapper { width: 100% !important; height: 200px !important; border-right: none !important; border-bottom: 3px solid var(--text-black) !important; }
             .news-card.card-wide .news-card-img-wrapper { width: 100% !important; height: 200px !important; border-right: none !important; border-bottom: 3px solid var(--text-black) !important; }
+            /* Square announcement graphics: show them fully instead of squeezed into a short band */
+            .news-card-img-wrapper--square,
+            .news-card.featured .news-card-img-wrapper--square { height: auto !important; aspect-ratio: 1 / 1 !important; }
             .news-card.featured .news-title  { font-size: 1.2rem !important; }
             .news-card.card-wide .news-title { font-size: 1.05rem !important; }
             /* Modal: stacked layout on mobile */
@@ -623,6 +626,12 @@
             .news-modal-header-img.has-carousel {
                 height: 420px !important;
                 max-height: 480px !important;
+            }
+            /* Square announcement graphics: show them fully instead of squeezed into a short band */
+            .news-modal-header-img.square-fit {
+                height: auto !important;
+                max-height: none !important;
+                aspect-ratio: 1 / 1 !important;
             }
             .news-modal-header-img.has-video .custom-video-controls {
                 padding: 6px 10px !important;
@@ -955,8 +964,8 @@
 
             <!-- News Card 1 (Collaborazione — FEATURED) -->
             <article class="news-card featured reveal-up" data-category="collaborazione" data-modal-img="assets/hat-music-collab-vertical.webp">
-                <div class="news-card-img-wrapper">
-                    <div class="news-card-img" style="background-image: url('assets/hat-music-collab.webp');"></div>
+                <div class="news-card-img-wrapper news-card-img-wrapper--square">
+                    <div class="news-card-img hat-music-img" style="background-image: url('assets/hat-music-collab-vertical.webp'); background-size: contain !important; background-repeat: no-repeat !important; background-position: center !important; background-color: #030303 !important;"></div>
                 </div>
                 <div class="news-card-content">
                     <span class="news-badge">
@@ -1007,8 +1016,8 @@
 
             <!-- News Card 2 (Contest) -->
             <article class="news-card reveal-left delay-1" data-category="contest" data-modal-img="assets/sunflower-vi-ringrazia.webp">
-                <div class="news-card-img-wrapper">
-                    <div class="news-card-img" style="background-image: url('assets/sunflower-vi-ringrazia.webp'); background-size: contain !important; background-repeat: no-repeat !important; background-color: #030303 !important; background-position: center !important;"></div>
+                <div class="news-card-img-wrapper news-card-img-wrapper--square">
+                    <div class="news-card-img" style="background-image: url('assets/sunflower-vi-ringrazia.webp'); background-size: contain !important; background-repeat: no-repeat !important; background-position: center !important; background-color: #030303 !important;"></div>
                 </div>
                 <div class="news-card-content">
                     <span class="news-badge">
@@ -1261,7 +1270,7 @@
                 <a href="associazione/index.html">
                     <img src="assets/loghi/logo_ass.webp" alt="Logo Associazione" class="footer-association-logo" loading="lazy" width="150" height="163">
                 </a>
-                <a href="assets/documenti/Donazione Sunflowers Group .pdf" target="_blank" class="brutalist-button bg-red donation-footer-btn" style="text-decoration: none; font-size: 0.9rem; font-weight: 900; padding: 0.6rem 1.2rem; border-radius: 6px; color: var(--text-white); display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 3px 3px 0px var(--text-black); border: 2px solid var(--text-black); margin-top: 1rem;">
+                <a href="associazione/assets/documenti/DonazioneSunflowersGroup.pdf" target="_blank" class="brutalist-button bg-red donation-footer-btn" style="text-decoration: none; font-size: 0.9rem; font-weight: 900; padding: 0.6rem 1.2rem; border-radius: 6px; color: var(--text-white); display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 3px 3px 0px var(--text-black); border: 2px solid var(--text-black); margin-top: 1rem;">
                     <i class="fa-solid fa-heart" style="color: var(--c-yellow);"></i> 
                     <span class="lang-it">Fai una Donazione</span>
                     <span class="lang-en">Make a Donation</span>
@@ -1543,6 +1552,7 @@
                 const cardCarousel = card.querySelector('.card-carousel-source .artist-carousel-wrapper');
                 
                 modalHeaderImg.classList.remove('has-carousel');
+                modalHeaderImg.classList.remove('square-fit');
                 if (cardPlayer) {
                     const playerClone = cardPlayer.cloneNode(true);
                     modalHeaderImg.appendChild(playerClone);
@@ -1585,11 +1595,12 @@
                     if (modalImgOverride) {
                         modalHeaderImg.style.backgroundImage = `url('${modalImgOverride}')`;
                         modalHeaderImg.style.display = 'block';
-                        if (card.getAttribute('data-category') === 'contest') {
+                        if (card.getAttribute('data-category') === 'contest' || card.getAttribute('data-category') === 'collaborazione') {
                             modalHeaderImg.style.backgroundSize = 'contain';
                             modalHeaderImg.style.backgroundRepeat = 'no-repeat';
                             modalHeaderImg.style.backgroundPosition = 'center';
                             modalHeaderImg.style.backgroundColor = '#030303';
+                            modalHeaderImg.classList.add('square-fit');
                         }
                     } else if (imgEl) {
                         modalHeaderImg.style.backgroundImage = imgEl.style.backgroundImage;
