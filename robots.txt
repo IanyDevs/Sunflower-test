@@ -1,3 +1,4 @@
 User-agent: *
-Disallow: /
-# Force update
+Allow: /
+
+Sitemap: https://www.sunflowerfestival.it/sitemap.xml

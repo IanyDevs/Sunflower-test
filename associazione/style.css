@@ -2164,8 +2164,8 @@ body.menu-open {
         display: inline-block;
     }
     
-    .nav-links a:hover, .nav-links a.active {
-        color: var(--text-white) !important;
+    .nav-links a:hover, .nav-links a.active, .nav-links a:active {
+        color: var(--c-red) !important;
         transform: scale(1.04) !important;
         text-shadow: none !important;
         text-decoration: none;
@@ -2177,8 +2177,9 @@ body.menu-open {
     }
     
     .main-nav.transparent-nav .nav-links a:hover,
-    .main-nav.transparent-nav .nav-links a.active {
-        color: var(--text-white) !important;
+    .main-nav.transparent-nav .nav-links a.active,
+    .main-nav.transparent-nav .nav-links a:active {
+        color: var(--c-red) !important;
         text-shadow: none !important;
     }
 
@@ -4832,9 +4833,11 @@ body.menu-open {
     
     .nav-links a:hover, 
     .nav-links a.active,
+    .nav-links a:active,
     .main-nav.transparent-nav .nav-links a:hover,
-    .main-nav.transparent-nav .nav-links a.active {
-        color: var(--text-white) !important;
+    .main-nav.transparent-nav .nav-links a.active,
+    .main-nav.transparent-nav .nav-links a:active {
+        color: var(--c-red) !important;
         text-shadow: none !important;
     }
 }
