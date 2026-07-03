@@ -1692,7 +1692,7 @@
 
             // Sync language changes with dynamically created/rendered elements
             const observer = new MutationObserver(() => {
-                const htmlLang = document.body.classList.contains('lang-en-active') ? 'en' : (document.documentElement.getAttribute('lang') || 'it');
+                const htmlLang = document.body.classList.contains('lang-en-active') ? 'en' : 'it';
                 document.querySelectorAll('.news-empty-state .lang-it, .news-empty-state .lang-en').forEach(el => {
                     el.style.display = el.classList.contains('lang-' + htmlLang) ? '' : 'none';
                 });
@@ -1702,10 +1702,10 @@
                     });
                 }
             });
-            observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+            observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
         });
     </script>
 
-    <script src="script.js?v=1.0.3"></script>
+    <script src="script.js?v=1.0.4"></script>
 </body>
 </html>
