@@ -240,10 +240,6 @@
             transition: transform 0.38s cubic-bezier(0.34,1.56,0.64,1) !important;
         }
         .news-card:hover .news-card-content::after { transform: scaleX(1) !important; }
-        .news-card[data-category="annuncio"] .news-card-content::after      { background: var(--c-red) !important; }
-        .news-card[data-category="contest"] .news-card-content::after        { background: var(--c-pastel-blue) !important; }
-        .news-card[data-category="line-up"] .news-card-content::after        { background: var(--c-yellow) !important; }
-        .news-card[data-category="collaborazione"] .news-card-content::after { background: var(--c-purple) !important; }
 
         /* ── Badge ── */
         .news-badge {
@@ -443,7 +439,7 @@
             background: white !important;
             background-image: none !important;
             border: none !important;
-            border-top: 7px solid var(--c-yellow) !important;
+            border-top: none !important;
             border-radius: 0 !important;
             box-shadow: none !important;
             overflow: hidden !important;
@@ -464,12 +460,6 @@
             transform: translateY(100vh) !important;
             transition: transform 0.38s cubic-bezier(0.45,0,0.9,0.55) !important;
         }
-
-        /* Category top-border accent */
-        .news-modal-overlay[data-category="annuncio"]       .news-modal-container { border-top-color: var(--c-red) !important; }
-        .news-modal-overlay[data-category="contest"]        .news-modal-container { border-top-color: var(--c-pastel-blue) !important; }
-        .news-modal-overlay[data-category="line-up"]        .news-modal-container { border-top-color: var(--c-yellow) !important; }
-        .news-modal-overlay[data-category="collaborazione"] .news-modal-container { border-top-color: var(--c-purple) !important; }
 
         /* Specific styling for line-up category modal image to prevent cropping */
         .news-modal-overlay[data-category="line-up"] .news-modal-header-img {
@@ -577,9 +567,6 @@
             border-radius: 3px !important;
             margin-top: 1rem !important;
         }
-        .news-modal-overlay[data-category="annuncio"]       #modal-title::after { background: var(--c-red) !important; }
-        .news-modal-overlay[data-category="contest"]        #modal-title::after { background: var(--c-pastel-blue) !important; }
-        .news-modal-overlay[data-category="collaborazione"] #modal-title::after { background: var(--c-purple) !important; }
 
         /* Body text */
         .news-modal-text {
