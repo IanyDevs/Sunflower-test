@@ -1503,7 +1503,7 @@
                 }
 
                 // Handle language switches on dynamic content
-                const currentLang = document.documentElement.getAttribute('lang') || 'it';
+                const currentLang = document.body.classList.contains('lang-en-active') ? 'en' : (document.documentElement.getAttribute('lang') || 'it');
                 document.querySelectorAll('.news-empty-state .lang-it, .news-empty-state .lang-en').forEach(el => {
                     el.style.display = el.classList.contains('lang-' + currentLang) ? '' : 'none';
                 });
@@ -1649,7 +1649,7 @@
                 document.documentElement.style.overflow = 'hidden';
                 
                 // Keep dynamic language sync inside modal
-                const currentLang = document.documentElement.getAttribute('lang') || 'it';
+                const currentLang = document.body.classList.contains('lang-en-active') ? 'en' : (document.documentElement.getAttribute('lang') || 'it');
                 modal.querySelectorAll('.lang-it, .lang-en').forEach(el => {
                     el.style.display = el.classList.contains('lang-' + currentLang) ? '' : 'none';
                 });
@@ -1692,7 +1692,7 @@
 
             // Sync language changes with dynamically created/rendered elements
             const observer = new MutationObserver(() => {
-                const htmlLang = document.documentElement.getAttribute('lang') || 'it';
+                const htmlLang = document.body.classList.contains('lang-en-active') ? 'en' : (document.documentElement.getAttribute('lang') || 'it');
                 document.querySelectorAll('.news-empty-state .lang-it, .news-empty-state .lang-en').forEach(el => {
                     el.style.display = el.classList.contains('lang-' + htmlLang) ? '' : 'none';
                 });

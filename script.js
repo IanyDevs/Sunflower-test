@@ -1374,6 +1374,7 @@ function setLanguage(lang) {
     } else {
         document.body.classList.remove('lang-en-active');
     }
+    document.documentElement.setAttribute('lang', lang);
     localStorage.setItem('preferred-lang', lang);
 
     // Update active class on all buttons matching data-lang
