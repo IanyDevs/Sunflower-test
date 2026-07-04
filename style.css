@@ -583,6 +583,32 @@ html.no-curtain .page-curtain {
         border: none;
         box-shadow: none;
     }
+
+    /* Evita che il trigger del dropdown diventi bianco/invisibile al focus/hover su mobile */
+    .nav-links .nav-dropdown .dropdown-trigger:hover,
+    .nav-links .nav-dropdown .dropdown-trigger:focus,
+    .main-nav.transparent-nav .nav-dropdown .dropdown-trigger:hover,
+    .main-nav.transparent-nav .nav-dropdown .dropdown-trigger:focus {
+        color: var(--text-black) !important;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        transform: none !important;
+    }
+
+    /* Ripristina lo stato attivo corretto anche se con focus o hover */
+    .nav-links .nav-dropdown.active .dropdown-trigger:hover,
+    .nav-links .nav-dropdown.active .dropdown-trigger:focus,
+    .main-nav.transparent-nav .nav-dropdown.active .dropdown-trigger:hover,
+    .main-nav.transparent-nav .nav-dropdown.active .dropdown-trigger:focus {
+        background-color: var(--text-white) !important;
+        color: var(--text-black) !important;
+        border-radius: 50px !important;
+        padding: 0.5rem 1.5rem !important;
+        box-shadow: 4px 4px 0px var(--text-black) !important;
+        transform: rotate(-2deg) scale(1.05) !important;
+        text-shadow: none !important;
+    }
     
     .dropdown-content {
         position: relative;
