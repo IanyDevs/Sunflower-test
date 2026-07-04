@@ -721,10 +721,15 @@ function initArtistModals() {
         }
     });
 
-    // Chiude alla pressione del tasto ESC
+    // Chiude alla pressione del tasto ESC, naviga tra gli artisti con le frecce della tastiera
     document.addEventListener('keydown', (e) => {
+        if (!overlay.classList.contains('active')) return;
         if (e.key === 'Escape') {
             closeModal();
+        } else if (e.key === 'ArrowRight') {
+            navigateModal('next');
+        } else if (e.key === 'ArrowLeft') {
+            navigateModal('prev');
         }
     });
 
