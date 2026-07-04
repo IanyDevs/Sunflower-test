@@ -728,6 +728,32 @@ function initArtistModals() {
         }
     });
 
+    // Swipe da mobile per passare da un artista all'altro nella pagina a schermo intero
+    let modalTouchStartX = 0;
+    let modalTouchStartY = 0;
+    let modalTouchTracking = false;
+
+    overlay.addEventListener('touchstart', (e) => {
+        if (!overlay.classList.contains('active')) return;
+        modalTouchStartX = e.touches[0].clientX;
+        modalTouchStartY = e.touches[0].clientY;
+        modalTouchTracking = true;
+    }, { passive: true });
+
+    overlay.addEventListener('touchend', (e) => {
+        if (!modalTouchTracking) return;
+        modalTouchTracking = false;
+
+        const deltaX = e.changedTouches[0].clientX - modalTouchStartX;
+        const deltaY = e.changedTouches[0].clientY - modalTouchStartY;
+        const SWIPE_THRESHOLD = 50;
+
+        // Considera lo swipe solo se il movimento e' prevalentemente orizzontale, per non interferire con lo scroll verticale della bio
+        if (Math.abs(deltaX) > SWIPE_THRESHOLD && Math.abs(deltaX) > Math.abs(deltaY) * 1.5) {
+            navigateModal(deltaX < 0 ? 'next' : 'prev');
+        }
+    }, { passive: true });
+
     // Logica di scroll dello slider
     const prevBtn = document.getElementById('slider-prev');
     const nextBtn = document.getElementById('slider-next');
