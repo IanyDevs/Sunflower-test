@@ -11,12 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
     initIframePlaceholders();
     initArtistModals();
     initCustomAudioPlayers();
-    
-    // Initialize countdown only if the container exists on the page
+
+    // Inizializza il countdown solo se il contenitore esiste nella pagina
     if (document.getElementById('days-count')) {
         initCountdown();
     }
-    
+
     initScrollToLineup();
     init3DTilt();
     initEmailObfuscation();
@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initScrollAnimations() {
     const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
-    
+
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.1 // Trigger when 10% visible
+        threshold: 0.1 // Si attiva quando è visibile al 10%
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -47,7 +47,7 @@ function initScrollAnimations() {
 
 
 function initCountdown() {
-    // Target date: July 11, 2026, 20:00:00
+    // Data obiettivo: 11 luglio 2026, ore 20:00:00
     const targetDate = new Date("July 11, 2026 20:00:00").getTime();
 
     const daysEl = document.getElementById('days-count');
@@ -60,7 +60,7 @@ function initCountdown() {
 
     function updateCountdown() {
         const now = Date.now();
-        const distance = targetDate - now;                   // real countdown
+        const distance = targetDate - now;                   // countdown reale
 
         if (distance < 0) {
             clearInterval(countdownInterval);
@@ -68,7 +68,7 @@ function initCountdown() {
             return;
         }
 
-        // Show "Oggi è il giorno" when 20 hours or less remain
+        // Mostra "Oggi è il giorno" quando mancano 20 ore o meno
         const todayMsgEl = document.getElementById('today-festival-message');
         if (todayMsgEl) {
             todayMsgEl.style.display = (distance <= TWENTY_H) ? "block" : "none";
@@ -113,13 +113,13 @@ function initCountdown() {
         if (messageDiv) {
             messageDiv.style.display = "block";
 
-            // Screen flash burst
+            // Lampo bianco a schermo intero
             const flash = document.createElement('div');
             flash.className = 'sf-screen-flash';
             document.body.appendChild(flash);
             flash.addEventListener('animationend', () => flash.remove());
 
-            // Subtle 3D tilt on the celebration panel
+            // Leggera inclinazione 3D sul pannello di celebrazione
             const panel = messageDiv.querySelector('.sf-celebration');
             if (panel && window.innerWidth > 768) {
                 let tiltRaf = null;
@@ -142,10 +142,10 @@ function initCountdown() {
                 });
             }
 
-            // Sparkles
+            // Scintille
             addTicketSparkles(messageDiv.querySelector('.sf-sparkles-container'));
 
-            // Confetti Canvas Explosion
+            // Esplosione di coriandoli su canvas
             triggerConfetti(sectionEl);
         }
     }
@@ -165,7 +165,7 @@ function initCountdown() {
             sectionEl.style.position = 'relative';
             sectionEl.appendChild(canvas);
         }
-        
+
         const ctx = canvas.getContext('2d');
         const dpr = window.devicePixelRatio || 1;
         const width = sectionEl.offsetWidth;
@@ -177,7 +177,7 @@ function initCountdown() {
         const particles = [];
         const colors = ['#FFDE4D', '#FF4E4E', '#3D30A2', '#000000', '#F29C38'];
 
-        // Initial burst from center and top
+        // Esplosione iniziale dal centro e dall'alto
         for (let i = 0; i < 120; i++) {
             particles.push({
                 x: width / 2 + (Math.random() - 0.5) * 100,
@@ -192,9 +192,9 @@ function initCountdown() {
             });
         }
 
-        // Side fountains
+        // Fontane laterali
         for (let i = 0; i < 40; i++) {
-            // Left fountain
+            // Fontana sinistra
             particles.push({
                 x: 30,
                 y: height - 40,
@@ -206,7 +206,7 @@ function initCountdown() {
                 vx: Math.random() * 8 + 3,
                 vy: -(Math.random() * 12 + 10)
             });
-            // Right fountain
+            // Fontana destra
             particles.push({
                 x: width - 30,
                 y: height - 40,
@@ -230,8 +230,8 @@ function initCountdown() {
             particles.forEach(p => {
                 p.x += p.vx;
                 p.y += p.vy;
-                p.vy += 0.28; // gravity
-                p.vx *= 0.98; // air resistance
+                p.vy += 0.28; // gravità
+                p.vx *= 0.98; // resistenza dell'aria
                 p.rotation += p.rotationSpeed;
 
                 if (p.y < height + 20 && p.x > -20 && p.x < width + 20) {
@@ -243,7 +243,7 @@ function initCountdown() {
 
                     if (p.type === 'petal') {
                         ctx.beginPath();
-                        // Petal shape using ellipse
+                        // Forma di petalo tramite ellisse
                         ctx.ellipse(0, 0, p.radius * 1.5, p.radius * 0.8, 0, 0, Math.PI * 2);
                         ctx.fill();
                         ctx.strokeStyle = 'rgba(0,0,0,0.15)';
@@ -297,7 +297,7 @@ function initCountdown() {
         setTimeout(() => clearInterval(iv), 10000);
     }
 
-    // Update immediately, then every second
+    // Aggiorna subito, poi ogni secondo
     updateCountdown();
     countdownInterval = setInterval(updateCountdown, 1000);
 }
@@ -343,9 +343,9 @@ function initMobileMenu() {
 function initScrollSlide() {
     const sunflowerText = document.querySelector('.giant-title .text-sunflower');
     const festivalText = document.querySelector('.giant-title .text-festival');
-    
+
     if (!sunflowerText || !festivalText) return;
-    
+
     let scrollRafPending = false;
     window.addEventListener('scroll', () => {
         if (window.innerWidth <= 768) return;
@@ -385,9 +385,9 @@ function initMapToggle() {
     const appTrigger = document.querySelector('.map-app-trigger');
     const backBtn = document.querySelector('.map-back-btn');
     const shrinkBtn = document.getElementById('shrink-map');
-    
+
     if (!mapContainer) return;
-    
+
     function openMap() {
         mapContainer.classList.add('map-active');
         const iframe = mapContainer.querySelector('iframe');
@@ -395,32 +395,32 @@ function initMapToggle() {
             iframe.src = iframe.src;
         }
     }
-    
+
     function closeMap() {
         mapContainer.classList.remove('map-active');
     }
-    
+
     if (mapLink) {
         mapLink.addEventListener('click', (e) => {
             e.preventDefault();
             openMap();
         });
     }
-    
+
     if (appTrigger) {
         appTrigger.addEventListener('click', (e) => {
             e.preventDefault();
             openMap();
         });
     }
-    
+
     if (backBtn) {
         backBtn.addEventListener('click', (e) => {
             e.preventDefault();
             closeMap();
         });
     }
-    
+
     if (shrinkBtn) {
         shrinkBtn.addEventListener('click', () => {
             closeMap();
@@ -432,7 +432,7 @@ function initHeroSlider() {
     const sliderContainer = document.querySelector('.hero-slider');
     if (!sliderContainer) return;
 
-    // Keep only landscape images from assets/Foto-generali/ (excluding foto1.webp which is static in HTML for LCP optimization)
+    // Mantiene solo le immagini orizzontali da assets/Foto-generali/ (esclusa foto1.webp, statica nell'HTML per l'ottimizzazione LCP)
     const carouselImages = [
         'assets/Foto-generali/Foto10.webp',
         'assets/Foto-generali/Foto11.webp',
@@ -457,48 +457,48 @@ function initHeroSlider() {
         'assets/Foto-generali/foto9.webp'
     ];
 
-    // Fisher-Yates Shuffle
+    // Mescolamento Fisher-Yates
     for (let i = carouselImages.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [carouselImages[i], carouselImages[j]] = [carouselImages[j], carouselImages[i]];
     }
 
-    // Do NOT clear sliderContainer to preserve the static slide (LCP LCP LCP)
-    // Just append the rest of the slides as inactive, lazy-loadable elements
+    // NON svuotare sliderContainer, per preservare la slide statica (LCP LCP LCP)
+    // Aggiunge solo le altre slide come elementi inattivi e caricabili in lazy loading
     carouselImages.forEach((src) => {
         const slide = document.createElement('div');
         slide.className = 'slide';
         slide.setAttribute('data-bg', src);
-        
-        // Custom vertical positioning to prevent heads/details from being cut off
+
+        // Posizionamento verticale personalizzato per evitare che teste/dettagli vengano tagliati
         const filename = src.split('/').pop();
         const customPositions = {
-            'Foto10.webp': 'center 10%', // Black & White signs / girl with phone
-            'Foto14.webp': 'center 22%', // Curly girl singing (chin and mic visible)
+            'Foto10.webp': 'center 10%', // Cartelli bianco e nero / ragazza con telefono
+            'Foto14.webp': 'center 22%', // Ragazza riccia che canta (mento e microfono visibili)
             'Foto19.webp': 'center 15%',
-            'Foto22.webp': 'center 22%', // Guitar player with sunglasses (chin and mic visible)
+            'Foto22.webp': 'center 22%', // Chitarrista con occhiali da sole (mento e microfono visibili)
             'foto2.webp': 'center 12%',
             'foto3.webp': 'center 15%',
             'foto4.webp': 'center 10%',
             'foto5.webp': 'center 15%',
             'foto6.webp': 'center 12%',
             'foto7.webp': 'center 10%',
-            'foto8.webp': 'center 32%', // Singer with cap and sunglasses (chin/mic visible)
-            'foto9.webp': 'center 32%'  // Curly hair singer close up (chin/mic visible)
+            'foto8.webp': 'center 32%', // Cantante con cappellino e occhiali da sole (mento/microfono visibili)
+            'foto9.webp': 'center 32%'  // Primo piano cantante con capelli ricci (mento/microfono visibili)
         };
         if (customPositions[filename]) {
             slide.style.backgroundPosition = customPositions[filename];
         } else {
-            slide.style.backgroundPosition = 'center 15%'; // Default clean vertical alignment for landscape images
+            slide.style.backgroundPosition = 'center 15%'; // Allineamento verticale predefinito per le immagini orizzontali
         }
-        
+
         sliderContainer.appendChild(slide);
     });
 
     const slides = sliderContainer.querySelectorAll('.slide');
     if (slides.length <= 1) return;
 
-    // Helper to load a slide's background image on demand
+    // Funzione di supporto per caricare l'immagine di sfondo di una slide su richiesta
     function loadSlideImage(slideEl) {
         if (!slideEl) return;
         const bgSrc = slideEl.getAttribute('data-bg');
@@ -508,7 +508,7 @@ function initHeroSlider() {
         }
     }
 
-    // Preload the second slide after a short delay so it's ready for the first transition
+    // Precarica la seconda slide dopo un breve ritardo, così è pronta per la prima transizione
     setTimeout(() => {
         if (slides[1]) loadSlideImage(slides[1]);
     }, 1500);
@@ -517,12 +517,12 @@ function initHeroSlider() {
     setInterval(() => {
         slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % slides.length;
-        
-        // Ensure active slide is loaded
+
+        // Assicura che la slide attiva sia caricata
         loadSlideImage(slides[currentSlide]);
         slides[currentSlide].classList.add('active');
-        
-        // Preload the next slide in sequence so it's cached before the next transition
+
+        // Precarica la slide successiva in sequenza, così è già in cache prima della prossima transizione
         const nextSlideIdx = (currentSlide + 1) % slides.length;
         loadSlideImage(slides[nextSlideIdx]);
     }, 4500);
@@ -532,30 +532,30 @@ function initNavbarScroll() {
     const hero = document.querySelector('.home-hero');
     const nav = document.querySelector('.main-nav');
     if (!hero || !nav) return;
-    
+
     function handleScroll() {
         const scrollY = window.scrollY;
         const heroTop = hero.offsetTop;
         const heroHeight = hero.offsetHeight;
-        
-        // The navbar is fixed at viewport top (0 to 80px).
-        // It overlaps the hero slides (images) if:
-        // hero viewport top <= 80 (since navbar height is 80px)
-        // AND
-        // hero viewport bottom >= 0
+
+        // La navbar è fissata in cima al viewport (da 0 a 80px).
+        // Si sovrappone alle slide dell'hero (immagini) se:
+        // il top dell'hero nel viewport è <= 80 (l'altezza della navbar è 80px)
+        // E
+        // il bottom dell'hero nel viewport è >= 0
         const isOverHero = (heroTop - scrollY <= 80) && (heroTop + heroHeight - scrollY >= 0);
-        
+
         if (isOverHero) {
             nav.classList.add('transparent-nav');
         } else {
             nav.classList.remove('transparent-nav');
         }
     }
-    
-    // Set initial state
+
+    // Imposta lo stato iniziale
     handleScroll();
-    
-    // Listen for scroll and resize events
+
+    // Ascolta gli eventi di scroll e resize
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleScroll, { passive: true });
 }
@@ -566,21 +566,21 @@ function initIframePlaceholders() {
         const iframe = wrapper.querySelector('iframe');
         const placeholder = wrapper.querySelector('.iframe-placeholder');
         if (iframe && placeholder) {
-            // Check if iframe is already loaded (e.g. from cache)
+            // Controlla se l'iframe è già caricato (es. dalla cache)
             try {
                 if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
                     placeholder.classList.add('fade-out');
                     return;
                 }
             } catch (e) {
-                // Cross-origin browser safety block is expected, continue with load event listener
+                // Il blocco di sicurezza cross-origin del browser è previsto, si prosegue con il listener dell'evento load
             }
-            
+
             iframe.addEventListener('load', () => {
                 placeholder.classList.add('fade-out');
             });
-            
-            // Fallback: fade out placeholder after 6.5s in case tracking blocker prevents load event
+
+            // Fallback: dissolve il placeholder dopo 6.5s nel caso un blocco di tracciamento impedisca l'evento load
             setTimeout(() => {
                 placeholder.classList.add('fade-out');
             }, 6500);
@@ -591,33 +591,33 @@ function initIframePlaceholders() {
 function initArtistModals() {
     const overlay = document.getElementById('modals-overlay');
     if (!overlay) return;
-    
+
     const cards = document.querySelectorAll('.artist-slider-card');
     const fullPages = overlay.querySelectorAll('.artist-full-page');
     const closeBtns = overlay.querySelectorAll('.full-page-close-btn');
 
-    // Global Floating Navigation Arrows inside the overlay
+    // Frecce di navigazione fluttuanti globali dentro l'overlay
     const prevModalBtn = overlay.querySelector('.global-modal-nav-btn.prev-btn');
     const nextModalBtn = overlay.querySelector('.global-modal-nav-btn.next-btn');
 
-    // Get array of all artist names in slide order
+    // Ottiene l'array di tutti i nomi degli artisti nell'ordine delle slide
     const artistNames = Array.from(cards).map(c => c.getAttribute('data-artist')).filter(Boolean);
 
     function openModal(artistName) {
-        // Stop any currently playing audio from another artist modal
+        // Ferma qualsiasi audio in riproduzione da un'altra modale artista
         stopAllCustomAudioPlayers();
 
-        // Find modal
+        // Trova la modale
         const targetModal = document.getElementById(`modal-${artistName}`);
         if (!targetModal) return;
 
-        // Load Spotify iframe dynamically
+        // Carica dinamicamente l'iframe di Spotify
         const iframe = targetModal.querySelector('iframe[data-src]');
         if (iframe) {
             iframe.src = iframe.getAttribute('data-src');
         }
 
-        // Load artist photo lazily (hidden via opacity so IntersectionObserver never fires)
+        // Carica la foto dell'artista in lazy loading (nascosta con opacity per non far scattare IntersectionObserver)
         const artistPhoto = targetModal.querySelector('.placeholder-img[data-bg]');
         if (artistPhoto) {
             artistPhoto.style.backgroundImage = `url('${artistPhoto.dataset.bg}')`;
@@ -625,22 +625,22 @@ function initArtistModals() {
             artistPhoto.classList.remove('lazy-bg');
         }
 
-        // Deactivate any currently active modals just in case
+        // Disattiva eventuali modali attualmente attive per sicurezza
         fullPages.forEach(p => p.classList.remove('active'));
 
-        // Set progress for brutalist dividers based on artist index
+        // Imposta il progresso dei divisori in stile brutalist in base all'indice dell'artista
         const currentIndex = artistNames.indexOf(artistName);
         if (currentIndex !== -1 && artistNames.length > 0) {
             const progressPercent = ((currentIndex + 1) / artistNames.length) * 100;
             targetModal.style.setProperty('--divider-progress', `${progressPercent}%`);
         }
 
-        // Show overlay & target modal
+        // Mostra l'overlay e la modale target
         overlay.classList.add('active');
         targetModal.classList.add('active');
         targetModal.scrollTop = 0;
 
-        // Prevent body scroll
+        // Impedisce lo scroll del body
         document.body.style.overflow = 'hidden';
         document.documentElement.style.overflow = 'hidden';
     }
@@ -649,7 +649,7 @@ function initArtistModals() {
         overlay.classList.remove('active');
         fullPages.forEach(p => {
             p.classList.remove('active');
-            // Unload Spotify iframe to free up memory and stop background execution
+            // Scarica l'iframe di Spotify per liberare memoria e fermare l'esecuzione in background
             const iframe = p.querySelector('iframe[data-src]');
             if (iframe) {
                 iframe.src = "about:blank";
@@ -684,7 +684,7 @@ function initArtistModals() {
         openModal(nextArtist);
     }
 
-    // Attach click listeners to the next/prev buttons
+    // Collega i listener di click ai pulsanti next/prev
     if (prevModalBtn && nextModalBtn) {
         prevModalBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -696,7 +696,7 @@ function initArtistModals() {
         });
     }
 
-    // Attach click event to slider cards
+    // Collega l'evento click alle card dello slider
     cards.forEach(card => {
         const artist = card.getAttribute('data-artist');
         if (artist) {
@@ -706,35 +706,35 @@ function initArtistModals() {
         }
     });
 
-    // Close on clicking close button
+    // Chiude al click sul pulsante di chiusura
     closeBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Stop propagation
+            e.stopPropagation(); // Ferma la propagazione
             closeModal();
         });
     });
 
-    // Close on clicking outside the modal content (the overlay background)
+    // Chiude cliccando fuori dal contenuto della modale (lo sfondo dell'overlay)
     overlay.addEventListener('click', (e) => {
         if (e.target === overlay) {
             closeModal();
         }
     });
 
-    // Close on ESC key press
+    // Chiude alla pressione del tasto ESC
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeModal();
         }
     });
 
-    // Slider Scroll logic
+    // Logica di scroll dello slider
     const prevBtn = document.getElementById('slider-prev');
     const nextBtn = document.getElementById('slider-next');
     const sliderContainer = document.querySelector('.artists-slider-container');
 
     if (sliderContainer) {
-        const gap = 40; // 2.5rem gap is 40px in 16px font-size
+        const gap = 40; // uno spazio di 2.5rem corrisponde a 40px con font-size 16px
         if (nextBtn) {
             nextBtn.addEventListener('click', () => {
                 const firstCard = sliderContainer.querySelector('.artist-slider-card');
@@ -759,7 +759,7 @@ function initArtistModals() {
      }
 }
 
-// Array to keep track of active audio elements for pausing on close
+// Array per tenere traccia degli elementi audio attivi da mettere in pausa alla chiusura
 let activeAudioInstances = [];
 
 function stopAllCustomAudioPlayers() {
@@ -782,15 +782,15 @@ function initCustomAudioPlayers() {
     players.forEach(player => {
         let tracks = [];
         let trackNames = [];
-        
+
         let idx = 1;
         while (player.getAttribute(`data-track-${idx}`)) {
             tracks.push(player.getAttribute(`data-track-${idx}`));
             trackNames.push(player.getAttribute(`data-name-${idx}`) || `Traccia ${idx}`);
             idx++;
         }
-        
-        // Fallback to single track if no numbered tracks found
+
+        // Fallback a una singola traccia se non vengono trovate tracce numerate
         if (tracks.length === 0) {
             const singleTrack = player.getAttribute('data-track');
             if (singleTrack) {
@@ -798,14 +798,14 @@ function initCustomAudioPlayers() {
                 trackNames.push(player.getAttribute('data-name') || 'Traccia 1');
             }
         }
-        
+
         if (tracks.length === 0) return;
-        
+
         let currentTrackIdx = 0;
         const audios = tracks.map(src => {
             const a = new Audio();
             a.src = src;
-            a.preload = 'auto'; // Force buffer preload
+            a.preload = 'auto'; // Forza il precaricamento del buffer
             return a;
         });
         let audio = audios[currentTrackIdx];
@@ -818,13 +818,13 @@ function initCustomAudioPlayers() {
         const statusMsg = player.querySelector('.player-status-msg');
         const trackNameEl = player.querySelector('.player-track-name');
 
-        // Track active audio instances
+        // Tiene traccia delle istanze audio attive
         activeAudioInstances.push({
             getCurrentAudio: () => audio,
             playerEl: player
         });
 
-        // 1. Build and Inject Track Selector dynamically if there is more than 1 track
+        // 1. Crea e inserisce dinamicamente il selettore di tracce se ce n'è più di una
         if (tracks.length > 1) {
             let selectorContainer = player.querySelector('.player-track-selector');
             if (!selectorContainer) {
@@ -832,8 +832,8 @@ function initCustomAudioPlayers() {
                 selectorContainer.className = 'player-track-selector';
                 player.insertBefore(selectorContainer, player.firstChild);
             }
-            
-            // Build the selector buttons
+
+            // Crea i pulsanti del selettore
             selectorContainer.innerHTML = '';
             tracks.forEach((trackSrc, i) => {
                 const btn = document.createElement('button');
@@ -847,7 +847,7 @@ function initCustomAudioPlayers() {
                 selectorContainer.appendChild(btn);
             });
 
-            // 2. Build and Inject Skip Button dynamically next to the Play button
+            // 2. Crea e inserisce dinamicamente il pulsante Skip accanto al pulsante Play
             let skipBtn = player.querySelector('.player-skip-btn');
             if (!skipBtn) {
                 skipBtn = document.createElement('button');
@@ -856,8 +856,8 @@ function initCustomAudioPlayers() {
                 skipBtn.setAttribute('aria-label', 'Prossima Canzone');
                 skipBtn.setAttribute('title', 'Skip Traccia');
                 skipBtn.innerHTML = '<i class="fa-solid fa-forward-step"></i>';
-                
-                // Wrap playBtn and skipBtn in a group wrapper if not already grouped
+
+                // Racchiude playBtn e skipBtn in un contenitore di gruppo se non già raggruppati
                 let btnGroup = player.querySelector('.player-btn-group');
                 if (!btnGroup && playBtn && playBtn.parentNode) {
                     btnGroup = document.createElement('div');
@@ -869,7 +869,7 @@ function initCustomAudioPlayers() {
                     btnGroup.appendChild(skipBtn);
                 }
             }
-            
+
             if (skipBtn) {
                 skipBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -879,30 +879,30 @@ function initCustomAudioPlayers() {
             }
         }
 
-        // Function to switch tracks
+        // Funzione per cambiare traccia
         function switchTrack(newIdx) {
             const wasPlaying = !audio.paused;
             audio.pause();
-            
+
             currentTrackIdx = newIdx;
             audio = audios[currentTrackIdx];
             audio.currentTime = 0;
             progressBar.style.width = '0%';
-            
-            // Update Track name text
+
+            // Aggiorna il testo del nome della traccia
             if (trackNameEl) {
                 trackNameEl.textContent = trackNames[currentTrackIdx];
             }
-            
-            // Update time display immediately if metadata is already loaded
+
+            // Aggiorna subito la visualizzazione del tempo se i metadati sono già caricati
             if (!isNaN(audio.duration)) {
                 timeDuration.textContent = formatTime(audio.duration);
             } else {
                 timeDuration.textContent = '0:00';
             }
             timeCurrent.textContent = '0:00';
-            
-            // Update Active Select buttons class
+
+            // Aggiorna la classe active dei pulsanti di selezione
             const selectBtns = player.querySelectorAll('.track-select-btn');
             selectBtns.forEach((btn, i) => {
                 if (i === currentTrackIdx) {
@@ -912,7 +912,7 @@ function initCustomAudioPlayers() {
                 }
             });
 
-            // Clear status message
+            // Cancella il messaggio di stato
             if (statusMsg) {
                 statusMsg.style.display = 'none';
                 statusMsg.textContent = '';
@@ -923,7 +923,7 @@ function initCustomAudioPlayers() {
                     const icon = playBtn.querySelector('i');
                     if (icon) icon.className = 'fa-solid fa-pause';
                 }).catch(err => {
-                    console.warn("Autoplay/load failed:", err);
+                    console.warn("Autoplay/caricamento fallito:", err);
                     const icon = playBtn.querySelector('i');
                     if (icon) icon.className = 'fa-solid fa-play';
                 });
@@ -933,19 +933,19 @@ function initCustomAudioPlayers() {
             }
         }
 
-        // Create volume controls dynamically
+        // Crea dinamicamente i controlli del volume
         const volumeContainer = document.createElement('div');
         volumeContainer.className = 'player-volume-container';
-        
+
         const volumeBtn = document.createElement('button');
         volumeBtn.className = 'player-volume-btn';
         volumeBtn.type = 'button';
         volumeBtn.setAttribute('aria-label', 'Regola volume');
         volumeBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-        
+
         const sliderWrapper = document.createElement('div');
         sliderWrapper.className = 'volume-slider-wrapper';
-        
+
         const volumeSlider = document.createElement('input');
         volumeSlider.type = 'range';
         volumeSlider.className = 'player-volume-slider';
@@ -954,20 +954,20 @@ function initCustomAudioPlayers() {
         volumeSlider.step = '0.05';
         volumeSlider.value = '1';
         volumeSlider.setAttribute('aria-label', 'Volume');
-        
+
         sliderWrapper.appendChild(volumeSlider);
         volumeContainer.appendChild(volumeBtn);
         volumeContainer.appendChild(sliderWrapper);
-        
-        // Insert volumeContainer right after playBtn or after its wrapper
+
+        // Inserisce volumeContainer subito dopo playBtn o dopo il suo contenitore
         const insertTarget = player.querySelector('.player-btn-group') || playBtn;
         if (insertTarget && insertTarget.parentNode) {
             insertTarget.parentNode.insertBefore(volumeContainer, insertTarget.nextSibling);
         }
 
-        // Volume Control logic
+        // Logica di controllo del volume
         let previousVolume = 1;
-        
+
         function updateVolumeIcon(vol) {
             const icon = volumeBtn.querySelector('i');
             if (!icon) return;
@@ -999,7 +999,7 @@ function initCustomAudioPlayers() {
             updateVolumeIcon(audio.volume);
         });
 
-        // Format time in seconds to mm:ss
+        // Formatta il tempo in secondi nel formato mm:ss
         function formatTime(secs) {
             if (isNaN(secs)) return '0:00';
             const m = Math.floor(secs / 60);
@@ -1007,7 +1007,7 @@ function initCustomAudioPlayers() {
             return `${m}:${s}`;
         }
 
-        // Setup event listeners for each Audio instance
+        // Imposta i listener degli eventi per ogni istanza Audio
         function bindAudioEvents(a, idx) {
             a.addEventListener('loadedmetadata', () => {
                 if (idx === currentTrackIdx) {
@@ -1059,15 +1059,15 @@ function initCustomAudioPlayers() {
 
         audios.forEach((a, idx) => bindAudioEvents(a, idx));
 
-        // Play/Pause button click
+        // Click sul pulsante Play/Pause
         playBtn.addEventListener('click', () => {
             const icon = playBtn.querySelector('i');
-            
+
             if (icon && icon.classList.contains('fa-rotate-right')) {
                 audio.currentTime = 0;
                 progressBar.style.width = '0%';
             }
-            
+
             if (audio.paused) {
                 activeAudioInstances.forEach(inst => {
                     const instAudio = inst.getCurrentAudio ? inst.getCurrentAudio() : inst.audio;
@@ -1092,7 +1092,7 @@ function initCustomAudioPlayers() {
                 audio.play().then(() => {
                     if (icon) icon.className = 'fa-solid fa-pause';
                 }).catch(err => {
-                    console.warn("Local audio playback failed:", err);
+                    console.warn("Riproduzione audio locale fallita:", err);
                     if (statusMsg) {
                         statusMsg.textContent = `Copia il file "${tracks[currentTrackIdx]}" in "audios/" per sbloccare la riproduzione.`;
                         statusMsg.style.display = 'block';
@@ -1105,7 +1105,7 @@ function initCustomAudioPlayers() {
             }
         });
 
-        // Click on progress bar for seeking
+        // Click sulla barra di avanzamento per spostarsi nella traccia
         if (progressBarContainer) {
             progressBarContainer.addEventListener('click', (e) => {
                 const rect = progressBarContainer.getBoundingClientRect();
@@ -1135,14 +1135,14 @@ function initDropdowns() {
     const trigger = document.querySelector('.nav-dropdown .dropdown-trigger');
     if (!dropdown || !trigger) return;
 
-    // Click logic to toggle dropdown and prevent page scroll jumps
+    // Logica di click per aprire/chiudere il menu a tendina ed evitare salti di scroll della pagina
     trigger.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
         dropdown.classList.toggle('active');
     });
 
-    // Close dropdown on click outside
+    // Chiude il menu a tendina cliccando fuori
     document.addEventListener('click', (e) => {
         if (!dropdown.contains(e.target)) {
             dropdown.classList.remove('active');
@@ -1153,31 +1153,31 @@ function initDropdowns() {
 function initScrollToLineup() {
     const btn = document.getElementById('scopri-lineup-btn');
     if (!btn) return;
-    
+
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         const target = document.getElementById('ospiti-2026');
         if (!target) return;
-        
-        // Calculate offset (fixed navbar is 80px)
+
+        // Calcola l'offset (la navbar fissa è alta 80px)
         const offset = 80;
         const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-        
-        // Custom smooth scroll animation
+
+        // Animazione di scroll fluido personalizzata
         window.scrollTo({
             top: targetPosition,
             behavior: 'smooth'
         });
-        
-        // Add a temporary pulse animation to the guests section title
+
+        // Aggiunge un'animazione di pulsazione temporanea al titolo della sezione ospiti
         const title = target.querySelector('.slider-title');
         if (title) {
             title.classList.remove('highlight-pulse');
-            // trigger reflow
+            // forza il reflow
             void title.offsetWidth;
             title.classList.add('highlight-pulse');
-            
-            // Remove the class after the animation completes
+
+            // Rimuove la classe al termine dell'animazione
             setTimeout(() => {
                 title.classList.remove('highlight-pulse');
             }, 1000);
@@ -1188,48 +1188,48 @@ function initScrollToLineup() {
 function init3DTilt() {
     if (window.innerWidth <= 768) return;
     const cards = document.querySelectorAll('.artist-slider-card');
-    
+
     cards.forEach(card => {
         const wrapper = card.querySelector('.card-img-wrapper') || card.querySelector('.card-full-photo');
         if (!wrapper) return;
-        
+
         let cardTiltRaf = null;
         card.addEventListener('mousemove', (e) => {
             if (cardTiltRaf) return;
             cardTiltRaf = requestAnimationFrame(() => {
             const rect = card.getBoundingClientRect();
-            // Get mouse position relative to card
+            // Ottiene la posizione del mouse relativa alla card
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
-            // Calculate normalized coordinates (-1 to 1)
+
+            // Calcola le coordinate normalizzate (da -1 a 1)
             const xc = ((x / rect.width) - 0.5) * 2;
-            const yc = ((y / rect.height) - 0.5) * -2; // Invert Y axis
-            
-            // Maximum tilt angle in degrees
+            const yc = ((y / rect.height) - 0.5) * -2; // Inverte l'asse Y
+
+            // Angolo massimo di inclinazione in gradi
             const maxTilt = 15;
             const rotateX = yc * maxTilt;
             const rotateY = xc * maxTilt;
-            
-            // Apply 3D rotation and dynamic shadow rotation
+
+            // Applica la rotazione 3D e l'ombra dinamica
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
             card.style.transition = 'transform 0.1s ease, box-shadow 0.1s ease';
             card.style.boxShadow = `${14 + xc * 6}px ${14 + yc * -6}px 0px var(--text-black)`;
 
-            // Parallax movement for the background photo
+            // Movimento parallasse per la foto di sfondo
             const photo = card.querySelector('.card-full-photo');
             if (photo) {
-                const transX = xc * 12; // translate image horizontally up to 12px
-                const transY = yc * -12; // translate image vertically up to 12px
+                const transX = xc * 12; // sposta l'immagine orizzontalmente fino a 12px
+                const transY = yc * -12; // sposta l'immagine verticalmente fino a 12px
                 photo.style.transform = `scale(1.12) rotate(1.5deg) translateX(${transX}px) translateY(${transY}px)`;
                 photo.style.transition = 'transform 0.1s ease';
             }
             cardTiltRaf = null;
-            }); // end rAF
+            }); // fine rAF
         }, { passive: true });
-        
+
         card.addEventListener('mouseleave', () => {
-            // Restore original styles with smooth transition
+            // Ripristina gli stili originali con una transizione fluida
             card.style.transform = '';
             card.style.transition = 'transform 2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease';
             card.style.boxShadow = '';
@@ -1244,7 +1244,7 @@ function init3DTilt() {
 }
 
 function initEmailObfuscation() {
-    // Reconstruct and display emails dynamically
+    // Ricostruisce e mostra dinamicamente gli indirizzi email
     const emailDisplays = document.querySelectorAll('.secure-email-display');
     emailDisplays.forEach(el => {
         const user = el.getAttribute('data-user');
@@ -1254,7 +1254,7 @@ function initEmailObfuscation() {
         }
     });
 
-    // Handle click redirect safely with a rate-limit cooldown
+    // Gestisce il redirect al click in modo sicuro con un cooldown anti-spam
     const emailLinks = document.querySelectorAll('.secure-email-link');
     emailLinks.forEach(link => {
         let isCooldown = false;
@@ -1273,8 +1273,8 @@ function initEmailObfuscation() {
                 if (subject) {
                     mailtoUrl += `?subject=${encodeURIComponent(subject)}`;
                 }
-                
-                // Active cooldown state
+
+                // Attiva lo stato di cooldown
                 isCooldown = true;
                 if (btn) {
                     btn.innerHTML = `<i class="fa-solid fa-check"></i> Email aperta!`;
@@ -1283,10 +1283,10 @@ function initEmailObfuscation() {
                     btn.style.boxShadow = '3px 3px 0px #d15654';
                 }
 
-                // Redirect to mail client
+                // Reindirizza al client di posta
                 window.location.href = mailtoUrl;
 
-                // Reset after 6 seconds
+                // Ripristina dopo 6 secondi
                 setTimeout(() => {
                     isCooldown = false;
                     if (btn) {
@@ -1309,26 +1309,26 @@ function initLazyLoading() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const target = entry.target;
-                
-                // If it's a background image
+
+                // Se è un'immagine di sfondo
                 if (target.dataset.bg) {
                     target.style.backgroundImage = `url('${target.dataset.bg}')`;
                     target.classList.remove('lazy-bg');
                 }
-                
-                // If it's a standard img tag
+
+                // Se è un normale tag img
                 if (target.dataset.src) {
                     target.src = target.dataset.src;
                     if (target.dataset.srcset) {
                         target.srcset = target.dataset.srcset;
                     }
                 }
-                
+
                 observer.unobserve(target);
             }
         });
     }, {
-        rootMargin: '150px 0px', // Preload images 150px before they enter viewport
+        rootMargin: '150px 0px', // Precarica le immagini 150px prima che entrino nel viewport
         threshold: 0.01
     });
 
@@ -1342,11 +1342,11 @@ function initAccordion() {
         header.addEventListener('click', () => {
             const item = header.parentElement;
             const isActive = item.classList.contains('active');
-            
+
             document.querySelectorAll('.accordion-item').forEach(el => {
                 el.classList.remove('active');
             });
-            
+
             if (!isActive) {
                 item.classList.add('active');
             }
@@ -1358,7 +1358,7 @@ function initLanguageSwitcher() {
     const preferredLang = localStorage.getItem('preferred-lang') || 'it';
     setLanguage(preferredLang);
 
-    // Listen for language selector button clicks
+    // Ascolta i click sui pulsanti del selettore di lingua
     document.addEventListener('click', (e) => {
         const btn = e.target.closest('.lang-btn');
         if (btn) {
@@ -1377,7 +1377,7 @@ function setLanguage(lang) {
     document.documentElement.setAttribute('lang', lang);
     localStorage.setItem('preferred-lang', lang);
 
-    // Update active class on all buttons matching data-lang
+    // Aggiorna la classe active su tutti i pulsanti corrispondenti a data-lang
     document.querySelectorAll('.lang-btn').forEach(btn => {
         if (btn.getAttribute('data-lang') === lang) {
             btn.classList.add('active');
@@ -1386,11 +1386,3 @@ function setLanguage(lang) {
         }
     });
 }
-
-
-
-
-
-
-
-

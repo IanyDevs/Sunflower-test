@@ -30,15 +30,15 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.cdnfonts.com">
     <link rel="stylesheet" href="style.css?v=30">
-    <!-- Preload hero LCP image -->
+    <!-- Precarica immagine LCP dell'hero -->
     <link rel="preload" as="image" href="assets/Foto-generali/foto1.webp" fetchpriority="high">
-    <!-- Font Awesome: non-blocking -->
+    <!-- Font Awesome: non bloccante -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-    <!-- Google Fonts: non-blocking -->
+    <!-- Google Fonts: non bloccante -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;900&family=Great+Vibes&family=Dancing+Script&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;900&family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet"></noscript>
-    <!-- Monument Extended: non-blocking -->
+    <!-- Monument Extended: non bloccante -->
     <link rel="preload" href="https://fonts.cdnfonts.com/css/monument-extended" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.cdnfonts.com/css/monument-extended" rel="stylesheet"></noscript>
 
@@ -99,9 +99,9 @@
 
 
 
-    <!-- Hero Section (Clean Brutalist Style) -->
+    <!-- Sezione hero (stile brutalist pulito) -->
     <header class="home-hero">
-        <!-- Background Slider Carousel -->
+        <!-- Carosello slider di sfondo -->
         <div class="hero-slider">
             <div class="slide active"
                 style="background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('assets/Foto-generali/foto1.webp'); background-position: center 10%;">
@@ -123,7 +123,7 @@
             </a>
         </div>
 
-        <!-- Wavy Divider -->
+        <!-- Divisore ondulato -->
         <svg class="wave-divider" viewBox="0 0 1000 100" preserveAspectRatio="none">
             <path d="M0,100 C300,0 700,0 1000,100 L1000,150 L0,150 Z" fill="var(--text-white)"></path>
         </svg>
@@ -314,13 +314,13 @@
                 <span class="lang-en">SUNFLOWER IN NUMBERS</span>
             </h2>
             <div class="stats-container">
-                <!-- Stat 1: Followers -->
+                <!-- Statistica 1: Follower -->
                 <div class="stat-box bg-yellow">
                     <div class="stat-icon"><i class="fa-brands fa-instagram"></i></div>
                     <span class="stat-num">1K+</span>
                     <span class="stat-label">Followers IG</span>
                 </div>
-                 <!-- Stat 2: Visual TIKTOK -->
+                 <!-- Statistica 2: Visual TikTok -->
                 <div class="stat-box bg-blue">
                     <div class="stat-icon"><i class="fa-brands fa-tiktok"></i></div>
                     <span class="stat-num">100k+</span>
@@ -329,7 +329,7 @@
                         <span class="lang-en">TikTok Views</span>
                     </span>
                 </div>
-                <!-- Stat 3: Spettatori Live -->
+                <!-- Statistica 3: Spettatori Live -->
                 <div class="stat-box bg-orange">
                     <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
                     <span class="stat-num">600+</span>
@@ -338,7 +338,7 @@
                         <span class="lang-en">Live Attendees</span>
                     </span>
                 </div>
-                <!-- Stat 4: Artisti -->
+                <!-- Statistica 4: Artisti -->
                 <div class="stat-box bg-green">
                     <div class="stat-icon"><i class="fa-solid fa-music"></i></div>
                     <span class="stat-num">30+</span>
@@ -353,12 +353,12 @@
         <!-- Divisore Brutalista per separare le sezioni -->
         <div class="section-divider-line"></div>
 
-        <!-- Animated Background Text (Brutalist style) -->
+        <!-- Testo di sfondo animato (stile brutalist) -->
         <div class="bg-massive-text bg-text-anim">
             <span class="text-sunflower">SUNFLOWERS</span> GROUP
         </div>
 
-        <!-- Line-Up Artists Slider Section -->
+        <!-- Sezione slider artisti line-up -->
 <main id="ospiti-2026" class="artists-slider-section reveal-up">
     <div class="artists-slider-header">
         <div class="artists-title-group" style="position: relative;">
@@ -644,16 +644,16 @@
     </div>
 </main>
 
-        <!-- Modals Container (Global Overlays for Artist Info - Full-screen layout) -->
+        <!-- Contenitore modali (overlay globali per le info artista - layout a schermo intero) -->
         <div class="artist-modals-overlay" id="modals-overlay">
-            <!-- Global Floating Navigation Arrows -->
+            <!-- Frecce di navigazione fluttuanti globali -->
             <button class="global-modal-nav-btn prev-btn" aria-label="Artista precedente">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
             <button class="global-modal-nav-btn next-btn" aria-label="Artista successivo">
                 <i class="fa-solid fa-chevron-right"></i>
             </button>
-            <!-- Full-Screen ARIA -->
+            <!-- Pagina a schermo intero: ARIA -->
             <div class="artist-full-page bg-blue" id="modal-ARIA">
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
@@ -671,7 +671,7 @@
                                 <div class="placeholder-img"
                                     data-bg="assets/foto-artisti/Aria.webp"></div>
                             </div>
-                            <!-- Cute sticker details inside the media column -->
+                            <!-- Adesivi decorativi dentro la colonna media -->
                             <div class="sticker-badge badge-circle badge-yellow float-anim-2">20:00</div>
                         </div>
 
@@ -743,7 +743,7 @@
                 </div>
             </div>
 
-            <!-- Full-Screen Davide De Luca -->
+            <!-- Pagina a schermo intero: Davide De Luca -->
             <div class="artist-full-page bg-blue" id="modal-Davide De Luca">
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
@@ -832,7 +832,7 @@
                 </div>
             </div>
 
-            <!-- Full-Screen Carla Fucci -->
+            <!-- Pagina a schermo intero: Carla Fucci -->
             <div class="artist-full-page bg-blue" id="modal-Carla Fucci">
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
@@ -923,7 +923,7 @@
                 </div>
             </div>
 
-            <!-- Full-Screen Santachiara -->
+            <!-- Pagina a schermo intero: Santachiara -->
             <div class="artist-full-page bg-blue" id="modal-Santachiara">
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
@@ -1009,7 +1009,7 @@
                 </div>
             </div>
 
-            <!-- Full-Screen Secondo -->
+            <!-- Pagina a schermo intero: Secondo -->
             <div class="artist-full-page bg-blue" id="modal-Secondo">
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
@@ -1100,7 +1100,7 @@
                 </div>
             </div>
 
-            <!-- Full-Screen Lyra -->
+            <!-- Pagina a schermo intero: Lyra -->
             <div class="artist-full-page bg-blue" id="modal-Lyra">
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
@@ -1200,7 +1200,7 @@
                 </div>
             </div>
 
-            <!-- Full-Screen Dinìche -->
+            <!-- Pagina a schermo intero: Dinìche -->
             <div class="artist-full-page bg-blue" id="modal-Diniche">
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
@@ -1290,7 +1290,7 @@
                 </div>
             </div>
 
-            <!-- Full-Screen Antonio Calabrese -->
+            <!-- Pagina a schermo intero: Antonio Calabrese -->
             <div class="artist-full-page bg-blue" id="modal-Antonio Calabrese">
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
@@ -1382,7 +1382,7 @@
                 </div>
             </div>
 
-            <!-- Full-Screen Fransì -->
+            <!-- Pagina a schermo intero: Fransì -->
             <div class="artist-full-page bg-blue" id="modal-Fransi">
                 <div class="full-page-header">
                     <button class="full-page-close-btn" aria-label="Chiudi e torna alla home">
@@ -1469,26 +1469,47 @@
 
 
 
-    <!-- Map Section Shaped Like a Sunflower -->
+    <!-- Sezione mappa a forma di girasole -->
     <section class="home-map-section" id="dove-trovarci">
         <h2 class="home-map-title">
             <span class="word-dove"><span class="lang-it">DOVE</span><span class="lang-en">WHERE</span></span>
             <span class="word-trovarci"><span class="lang-it">TROVARCI</span><span class="lang-en">TO FIND US</span></span>
         </h2>
 
+        <!-- Contenitore pulsanti interattivi e informazioni -->
+        <div class="map-buttons-container" style="flex-direction: column;">
+            <div class="badge-rect map-label-badge"
+                style="transform: rotate(1deg); position: relative; display: inline-block; background-color: var(--text-white); color: var(--text-black); font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.25rem; padding: 0.6rem 2.5rem; border-radius: 4px; border: 3px solid var(--text-black); box-shadow: 4px 4px 0px var(--text-black); margin-bottom: 1.5rem; pointer-events: none;">
+                <img src="assets/red-pushpin.svg" alt="Pin" class="map-pin-icon">
+                Social Tennis Club • Via Marcello Garzia, 2 • Cava de' Tirreni</div>
+            <div class="map-action-buttons">
+                <a href="https://maps.google.com/?q=Social%20Tennis%20Club,%20Via%20Marcello%20Garzia,%202,%20Cava%20de%27%20Tirreni"
+                    target="_blank" class="brutalist-button bg-green"
+                    style="font-size: 1.1rem; font-weight: 900; padding: 0.8rem 1.8rem; cursor: pointer; text-decoration: none; border-radius: 8px; color: var(--text-black);">
+                    <span class="lang-it">Apri su Google Maps</span>
+                    <span class="lang-en">Open on Google Maps</span>
+                </a>
+                <button id="shrink-map" class="brutalist-button bg-blue"
+                    style="font-size: 1.1rem; font-weight: 900; padding: 0.8rem 1.8rem; cursor: pointer; border-radius: 8px;">
+                    <span class="lang-it">Chiudi Mappa</span>
+                    <span class="lang-en">Close Map</span>
+                </button>
+            </div>
+        </div>
+
         <div class="map-section-grid reveal-up">
-            <!-- Left Side: Interactive Smartphone Map Container -->
+            <!-- Lato sinistro: contenitore mappa smartphone interattivo -->
             <div class="smartphone-map-container">
             <div class="smartphone-phone-wrapper">
-                <!-- Top Notch / Dynamic Island -->
+                <!-- Tacca superiore / Dynamic Island -->
                 <div class="smartphone-top-notch"></div>
                 
-                <!-- Phone Screen -->
+                <!-- Schermo del telefono -->
                 <div class="smartphone-inner-screen">
                     
-                    <!-- 1. Home Screen (Wallpaper & Apps) -->
+                    <!-- 1. Schermata Home (sfondo e app) -->
                     <div class="smartphone-home-screen">
-                        <!-- Status Bar -->
+                        <!-- Barra di stato -->
                         <div class="smartphone-status-bar">
                             <span class="status-time">20:00</span>
                             <div class="status-icons">
@@ -1498,7 +1519,7 @@
                             </div>
                         </div>
                         
-                        <!-- iOS Style Map Widget (Primary action - occupies most of the screen) -->
+                        <!-- Widget mappa in stile iOS (azione principale - occupa la maggior parte dello schermo) -->
                         <div class="smartphone-widget map-app-trigger" style="height: 280px;">
                             <a href="#" class="sunflower-map-link" style="margin: 0; width: 100%; height: 100%; display: block; text-decoration: none;">
                                 <div class="widget-map-preview" style="flex-direction: column; justify-content: center; text-align: center; gap: 0.8rem;">
@@ -1515,13 +1536,13 @@
                                             <span class="lang-en">Click for map</span>
                                         </span>
                                     </div>
-                                    <!-- Sunflower Logo inside the map widget as a background watermark -->
+                                    <!-- Logo Sunflower dentro il widget mappa come filigrana di sfondo -->
                                     <img src="assets/loghi/logo-nobg.webp" alt="Sunflower" class="widget-watermark-logo" loading="lazy" width="180" height="180">
                                 </div>
                             </a>
                         </div>
 
-                        <!-- Grid of Apps (Docked at the bottom) -->
+                        <!-- Griglia delle app (ancorata in basso) -->
                         <div class="smartphone-apps-grid" style="margin-top: auto; margin-bottom: 1.5rem;">
                             <a href="https://www.instagram.com/sun.flower.fest/" target="_blank" rel="noopener noreferrer" class="smartphone-app">
                                 <div class="app-icon-box bg-red" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white;"><i class="fa-brands fa-instagram"></i></div>
@@ -1542,7 +1563,7 @@
                         </div>
                     </div>
                     
-                    <!-- 2. Map Screen (Iframe & App Header) -->
+                    <!-- 2. Schermata mappa (iframe e intestazione app) -->
                     <div class="smartphone-map-screen">
                         <div class="smartphone-app-header">
                             <button class="map-back-btn" aria-label="Torna alla Home">
@@ -1569,19 +1590,19 @@
                     
                 </div>
                 
-                <!-- Bottom Home Bar -->
+                <!-- Barra Home inferiore -->
                 <div class="smartphone-bottom-bar"></div>
             </div>
         </div>
         
-        <!-- Right Side: Come Raggiungerci Accordion Menu -->
+        <!-- Lato destro: menu accordion Come Raggiungerci -->
         <div class="how-to-reach-container">
             <h3 class="reach-title">
                 <span class="lang-it">COME RAGGIUNGERCI</span>
                 <span class="lang-en">HOW TO REACH US</span>
             </h3>
             
-            <!-- Brutalist ZTL Warning Banner -->
+            <!-- Banner di avviso ZTL in stile brutalist -->
             <div class="brutalist-alert-banner" style="border: 4px solid var(--text-black); background-color: var(--c-pastel-orange); color: var(--text-black); font-weight: 900; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; padding: 0.8rem 1rem; border-radius: 12px; box-shadow: 4px 4px 0px var(--text-black); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; transform: rotate(-0.5deg);">
                 <i class="fa-solid fa-triangle-exclamation" style="font-size: 1.2rem; color: var(--c-red); margin-right: 0.2rem;"></i>
                 <span>
@@ -1592,7 +1613,7 @@
             </div>
 
             <div class="brutalist-accordion">
-                <!-- Item 1: Auto e Parcheggi -->
+                <!-- Elemento 1: Auto e Parcheggi -->
                 <div class="accordion-item">
                     <button class="accordion-header" aria-label="Espandi indicazioni auto e parcheggi">
                         <span><i class="fa-solid fa-car"></i><span class="lang-it">In Auto e Parcheggi</span><span class="lang-en">By Car & Parking</span></span>
@@ -1638,7 +1659,7 @@
                     </div>
                 </div>
                 
-                <!-- Item 2: Treno -->
+                <!-- Elemento 2: Treno -->
                 <div class="accordion-item">
                     <button class="accordion-header" aria-label="Espandi indicazioni treno">
                         <span><i class="fa-solid fa-train"></i><span class="lang-it">In Treno</span><span class="lang-en">By Train</span></span>
@@ -1669,7 +1690,7 @@
                     </div>
                 </div>
 
-                <!-- Item 3: Pullman / Autobus -->
+                <!-- Elemento 3: Pullman / Autobus -->
                 <div class="accordion-item">
                     <button class="accordion-header" aria-label="Espandi indicazioni autobus">
                         <span><i class="fa-solid fa-bus"></i><span class="lang-it">In Pullman / Bus</span><span class="lang-en">By Bus</span></span>
@@ -1705,7 +1726,7 @@
                     </div>
                 </div>
 
-                <!-- Item 4: Altre Info e ZTL -->
+                <!-- Elemento 4: Altre Info e ZTL -->
                 <div class="accordion-item">
                     <button class="accordion-header" aria-label="Espandi altre indicazioni">
                         <span><i class="fa-solid fa-circle-info"></i><span class="lang-it">Altre Info</span><span class="lang-en">Other Info</span></span>
@@ -1736,33 +1757,13 @@
             </div>
         </div>
     </div>
-
-        <!-- Interactive buttons and info wrapper -->
-        <div class="map-buttons-container" style="flex-direction: column;">
-            <div class="badge-rect map-label-badge"
-                style="transform: rotate(1deg); display: inline-block; background-color: var(--text-white); color: var(--text-black); font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.25rem; padding: 0.6rem 2.5rem; border-radius: 4px; border: 3px solid var(--text-black); box-shadow: 4px 4px 0px var(--text-black); margin-bottom: 1.5rem; pointer-events: none;">
-                Social Tennis Club • Cava de' Tirreni</div>
-            <div class="map-action-buttons">
-                <a href="https://maps.google.com/?q=Social%20Tennis%20Club,%20Via%20Marcello%20Garzia,%202,%20Cava%20de%27%20Tirreni"
-                    target="_blank" class="brutalist-button bg-green"
-                    style="font-size: 1.1rem; font-weight: 900; padding: 0.8rem 1.8rem; cursor: pointer; text-decoration: none; border-radius: 8px; color: var(--text-black);">
-                    <span class="lang-it">Apri su Google Maps</span>
-                    <span class="lang-en">Open on Google Maps</span>
-                </a>
-                <button id="shrink-map" class="brutalist-button bg-blue"
-                    style="font-size: 1.1rem; font-weight: 900; padding: 0.8rem 1.8rem; cursor: pointer; border-radius: 8px;">
-                    <span class="lang-it">Chiudi Mappa</span>
-                    <span class="lang-en">Close Map</span>
-                </button>
-            </div>
-        </div>
     </section>
 
 
 
-    <!-- Site Footer -->
+    <!-- Footer del sito -->
     <footer class="site-footer">
-        <!-- Wavy Divider at the top of the footer (concave valley style) -->
+        <!-- Divisore ondulato in cima al footer (stile valle concava) -->
         <svg class="footer-wave-divider" viewBox="0 0 1000 100" preserveAspectRatio="none">
             <path d="M0,0 C300,100 700,100 1000,0 L1000,100 L0,100 Z" fill="var(--c-yellow)"></path>
             <path d="M0,0 C300,100 700,100 1000,0" fill="none" stroke="var(--text-black)" stroke-width="8"></path>
@@ -1770,7 +1771,7 @@
 
         <div class="footer-container">
 
-            <!-- Left Column: Contacts -->
+            <!-- Colonna sinistra: contatti -->
             <div class="footer-col footer-contacts">
                 <h3>
                     <span class="lang-it">Contatti</span>
@@ -1795,7 +1796,7 @@
                 <p>P. Iva: 06366340658</p>
             </div>
 
-            <!-- Middle Column: Logo & Realization -->
+            <!-- Colonna centrale: logo e realizzazione -->
             <div class="footer-col footer-brand">
                 <p class="realization-text">
                     <span class="lang-it">Il Sunflower Fest è realizzato dall'associazione culturale<br><strong>SUNFLOWERS GROUP APS</strong></span>
@@ -1819,7 +1820,7 @@
                 </div>
             </div>
 
-            <!-- Right Column: Socials & Policies -->
+            <!-- Colonna destra: social e norme -->
             <div class="footer-col footer-socials">
                 <h3>SOCIAL</h3>
                 <div class="social-icons">
@@ -1863,7 +1864,7 @@
 
         </div>
 
-        <!-- Bottom Developer Credit -->
+        <!-- Credito sviluppatore in fondo -->
         <div class="footer-bottom">
             <div class="developer-credit">
             <span class="lang-it">Sito web a cura di</span><span class="lang-en">Website by</span> <a href="https://ianyydevs.altervista.org/" target="_blank">IANYDEVS</a>

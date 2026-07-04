@@ -1,26 +1,26 @@
 :root {
-    /* Earthy, warm palette matched to the logo's terracotta and cream colors */
-    --c-blue: #bcd4fc;      /* soft blue */
-    --c-grey: #cac3b0;      /* warm stone grey */
-    --c-red: #c84c2a;       /* terracotta/rust red */
-    --c-peach: #e6b68a;     /* warm sand peach */
-    --c-green: #a1b399;     /* olive/sage green */
-    --c-purple: #dfc0c0;    /* soft dusty rose */
-    --c-yellow: #e29b3a;    /* warm amber/sunflower yellow - matches logo accents */
+    /* Palette calda e terrosa abbinata ai colori terracotta e crema del logo */
+    --c-blue: #bcd4fc;      /* blu tenue */
+    --c-grey: #cac3b0;      /* grigio pietra caldo */
+    --c-red: #c84c2a;       /* rosso terracotta/ruggine */
+    --c-peach: #e6b68a;     /* pesca sabbia calda */
+    --c-green: #a1b399;     /* verde oliva/salvia */
+    --c-purple: #dfc0c0;    /* rosa antico tenue */
+    --c-yellow: #e29b3a;    /* ambra calda/giallo girasole - abbinato agli accenti del logo */
     
-    /* Pastel colors derived from user's image swatches */
+    /* Colori pastello derivati dai campioni immagine dell'utente */
     --c-pastel-orange: #f0cfb5;
     --c-pastel-yellow: #f2ddb6;
     --c-pastel-blue: #c4d6f2;
     --c-pastel-green: #d1e0cb;
     --c-pastel-brown: #c4aba1;
     --c-pastel-pink: #e3ccd5;
-    --c-pastel-cream: #f7f4e9;   /* warm cream */
+    --c-pastel-cream: #f7f4e9;   /* crema calda */
     --c-pastel-grey: #e0dbcd;
     
     --text-black: #1a1a1a;
     --text-white: #fdfdfd;
-    --bg-white: #f7f4e9;    /* Warm cream background instead of standard light grey! */
+    --bg-white: #f7f4e9;    /* Sfondo crema caldo invece del classico grigio chiaro! */
     --bg-brown: #997052;
 }
 
@@ -40,10 +40,10 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: var(--text-black);
     line-height: 1.4;
-    padding-top: 80px; /* Space for fixed navbar */
+    padding-top: 80px; /* Spazio per la navbar fissa */
 }
 
-/* --- BRAND TYPOGRAPHY UTILITIES --- */
+/* --- UTILITY TIPOGRAFICHE DEL BRAND --- */
 .text-sunflower {
     font-family: 'Monument Extended', sans-serif;
     font-weight: 400;
@@ -61,7 +61,7 @@ body {
     letter-spacing: 0.01em;
 }
 
-/* --- NAVIGATION BAR --- */
+/* --- BARRA DI NAVIGAZIONE --- */
 .main-nav {
     position: fixed;
     top: 0;
@@ -78,7 +78,7 @@ body {
     transition: background-color 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease;
 }
 
-/* Glassmorphism navbar state when over hero slide */
+/* Stato navbar in glassmorphism quando sovrapposta alla slide hero */
 .main-nav.transparent-nav {
     background-color: var(--text-black);
     backdrop-filter: none;
@@ -174,7 +174,7 @@ body {
     text-underline-offset: 4px;
 }
 
-/* Styled navbar button for Sunflower Fest */
+/* Pulsante navbar personalizzato per Sunflower Fest */
 .nav-links a.nav-btn-fest {
     background-color: var(--c-yellow);
     color: var(--text-black) !important;
@@ -199,15 +199,15 @@ body {
     text-shadow: none !important;
 }
 
-/* On transparent navbar state (if applicable) */
+/* Nello stato di navbar trasparente (se applicabile) */
 .main-nav.transparent-nav .nav-links a.nav-btn-fest {
     border-color: var(--text-white);
     box-shadow: 4px 4px 0px var(--text-white);
 }
 
 
-/* --- NAVBAR DROPDOWN & PAGE CURTAIN TRANSITIONS --- */
-/* Page Curtain style */
+/* --- TRANSIZIONI DROPDOWN NAVBAR E TENDINA DI PAGINA --- */
+/* Stile della tendina di pagina */
 .page-curtain {
     display: none !important;
     position: fixed;
@@ -216,7 +216,7 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: var(--text-black);
-    z-index: 100000; /* Must overlay everything, including navbar */
+    z-index: 100000; /* Deve sovrapporsi a tutto, inclusa la navbar */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -285,7 +285,7 @@ html.no-curtain .page-curtain {
 }
 
 
-/* --- CURTAIN CURSIVE TEXT TYPEWRITER EFFECT --- */
+/* --- EFFETTO MACCHINA DA SCRIVERE PER IL TESTO CORSIVO DELLA TENDINA --- */
 .curtain-cursive-text {
     font-family: 'Dancing Script', cursive;
     font-size: 8.5rem;
@@ -359,7 +359,7 @@ html.no-curtain .page-curtain {
     }
 }
 
-/* Dropdown style matching brutalist theme */
+/* Stile del dropdown coerente con il tema brutalist */
 .nav-dropdown {
     position: relative;
     display: inline-block;
@@ -399,13 +399,13 @@ html.no-curtain .page-curtain {
     text-decoration: none;
 }
 
-/* Navbar active hover Chevron rot */
+/* Rotazione dello chevron su hover/attivo della navbar */
 .nav-dropdown:hover .dropdown-trigger i,
 .nav-dropdown.active .dropdown-trigger i {
     transform: rotate(180deg);
 }
 
-/* Glassmorphism navbar trigger state */
+/* Stato del trigger navbar in glassmorphism */
 .main-nav.transparent-nav .nav-dropdown .dropdown-trigger {
     background-color: #FFC231;
     color: var(--text-black);
@@ -418,7 +418,7 @@ html.no-curtain .page-curtain {
     color: var(--text-black);
 }
 
-/* Clicked/open state: white with black outline, overrides hover and transparent-nav */
+/* Stato cliccato/aperto: bianco con contorno nero, sovrascrive hover e transparent-nav */
 .nav-links .nav-dropdown.active .dropdown-trigger,
 .main-nav.transparent-nav .nav-dropdown.active .dropdown-trigger {
     background-color: var(--text-white) !important;
@@ -427,7 +427,7 @@ html.no-curtain .page-curtain {
     box-shadow: 4px 4px 0px var(--text-black) !important;
 }
 
-/* Dropdown Menu block */
+/* Blocco del menu a tendina */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -444,7 +444,7 @@ html.no-curtain .page-curtain {
     text-align: left;
 }
 
-/* Bridge hover gap between trigger and content */
+/* Ponte per colmare lo spazio hover tra trigger e contenuto */
 .dropdown-content::before {
     content: '';
     position: absolute;
@@ -456,12 +456,12 @@ html.no-curtain .page-curtain {
     z-index: -1;
 }
 
-/* Support active state toggle on all screen sizes */
+/* Supporta il toggle dello stato attivo su tutte le dimensioni di schermo */
 .nav-dropdown.active .dropdown-content {
     display: block;
 }
 
-/* Hover on desktop */
+/* Hover su desktop */
 @media (min-width: 992px) {
     .nav-dropdown:hover .dropdown-content {
         display: block;
@@ -549,7 +549,7 @@ html.no-curtain .page-curtain {
     margin: 1.2rem 0;
 }
 
-/* Mobile Dropdown styles */
+/* Stili del dropdown su mobile */
 @media (max-width: 768px) {
     .nav-links .nav-dropdown {
         width: 100%;
@@ -559,7 +559,7 @@ html.no-curtain .page-curtain {
     }
     
     .nav-links .nav-dropdown .dropdown-trigger {
-        font-size: 2.2rem; /* Matches other links size in mobile nav */
+        font-size: 2.2rem; /* Corrisponde alla dimensione degli altri link nella nav mobile */
         width: auto;
         padding: 0.5rem 1.5rem;
         margin-bottom: 0.5rem;
@@ -584,7 +584,7 @@ html.no-curtain .page-curtain {
         text-shadow: 3px 3px 0px var(--text-black);
     }
     
-    /* Make transparent mobile menu trigger act correctly */
+    /* Fa comportare correttamente il trigger del menu mobile trasparente */
     .main-nav.transparent-nav .nav-dropdown .dropdown-trigger {
         background: none;
         color: var(--text-black);
@@ -616,7 +616,7 @@ html.no-curtain .page-curtain {
     }
 }
 
-/* --- COMMON PAGE HEADERS --- */
+/* --- INTESTAZIONI COMUNI DI PAGINA --- */
 .page-header {
     background-color: var(--text-black);
     padding: 3rem 2rem;
@@ -645,7 +645,7 @@ html.no-curtain .page-curtain {
     z-index: 2;
 }
 
-/* --- HOMEPAGE CONTENT --- */
+/* --- CONTENUTO HOMEPAGE --- */
 .full-width-wrapper {
     width: 100%;
     position: relative;
@@ -701,14 +701,14 @@ html.no-curtain .page-curtain {
 .torn-paper-large {
     width: 100%;
     aspect-ratio: 1;
-    background-color: var(--c-blue); /* Can be overridden inline */
+    background-color: var(--c-blue); /* Può essere sovrascritto inline */
     border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     box-shadow: inset 0 0 0 15px white;
-    padding: 15px; /* space for the white border */
+    padding: 15px; /* spazio per il bordo bianco */
 }
 
 .torn-paper-large.shape-2 { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
@@ -722,7 +722,7 @@ html.no-curtain .page-curtain {
     background-position: center;
 }
 
-/* --- GALLERY MASONRY --- */
+/* --- GALLERIA A MASONRY --- */
 .gallery-container {
     padding: 4rem 2rem;
     max-width: 1400px;
@@ -741,7 +741,7 @@ html.no-curtain .page-curtain {
     width: 100%;
     height: auto;
     aspect-ratio: auto;
-    padding-bottom: 100%; /* For some square ones */
+    padding-bottom: 100%; /* Per alcune versioni quadrate */
 }
 
 .gallery-item.tall .torn-paper-frame { padding-bottom: 150%; }
@@ -758,7 +758,7 @@ html.no-curtain .page-curtain {
 }
 
 
-/* --- GRID CONTAINER (EDIZIONE 2026) --- */
+/* --- CONTENITORE GRIGLIA (EDIZIONE 2026) --- */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -768,7 +768,7 @@ html.no-curtain .page-curtain {
     margin: 0 auto;
 }
 
-/* Base Card */
+/* Card base */
 .festival-card {
     position: relative;
     aspect-ratio: 4 / 5;
@@ -779,7 +779,7 @@ html.no-curtain .page-curtain {
     padding: 0;
 }
 
-/* Background Colors */
+/* Colori di sfondo */
 .bg-blue { background-color: var(--c-blue); }
 .bg-grey { background-color: var(--c-grey); }
 .bg-red { background-color: var(--c-red); }
@@ -787,7 +787,7 @@ html.no-curtain .page-curtain {
 .bg-green { background-color: var(--c-green); }
 .bg-purple { background-color: var(--c-purple); }
 
-/* Card Top Section */
+/* Sezione superiore della card */
 .card-top {
     display: flex;
     justify-content: space-between;
@@ -834,7 +834,7 @@ html.no-curtain .page-curtain {
     position: absolute; top: -2.5rem; right: -2.5rem; width: 120px; height: 120px; fill: var(--c-yellow); z-index: 1;
 }
 
-/* Image Section & Torn Paper Effect */
+/* Sezione immagine ed effetto carta strappata */
 .image-section {
     position: absolute;
     top: 15%; left: 0; width: 100%; height: 60%;
@@ -866,7 +866,7 @@ html.no-curtain .page-curtain {
 
 .torn-paper-frame:hover { transform: scale(1.05); }
 
-/* Scale frame when card is hovered */
+/* Scala il frame quando la card è in hover */
 .festival-card:hover .torn-paper-frame {
     transform: scale(1.05);
 }
@@ -880,7 +880,7 @@ html.no-curtain .page-curtain {
     transition: transform 2s ease;
 }
 
-/* Card Bottom Section (Yellow Wave + Text) */
+/* Sezione inferiore della card (onda gialla + testo) */
 .card-bottom {
     position: absolute; bottom: 0; width: 100%; height: 35%;
     z-index: 10; display: flex; flex-direction: column; justify-content: flex-end;
@@ -904,12 +904,12 @@ html.no-curtain .page-curtain {
 }
 .artist-date { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 900; }
 
-/* Placeholder Gradient Images */
+/* Immagini placeholder con gradiente */
 .img-angie { background: linear-gradient(45deg, #111, #333); }
 .img-daria { background: linear-gradient(135deg, #222, #444); }
 .img-mercanti { background: linear-gradient(225deg, #333, #555); }
 
-/* Animations */
+/* Animazioni */
 .reveal-up {
     opacity: 0;
     transform: translateY(40px);
@@ -941,7 +941,7 @@ html.no-curtain .page-curtain {
     50% { transform: translateY(-15px) rotate(5deg); }
 }
 
-/* --- MEGA HERO & HOMEPAGE ENHANCEMENTS --- */
+/* --- MEGA HERO E MIGLIORIE HOMEPAGE --- */
 .home-body { padding-top: 80px; }
 .home-hero {
     position: relative;
@@ -987,7 +987,7 @@ html.no-curtain .page-curtain {
 
 .hero-content {
     position: relative;
-    z-index: 20; /* Ensures the button floats above the wave if they overlap */
+    z-index: 20; /* Assicura che il pulsante resti sopra l'onda in caso di sovrapposizione */
     max-width: 800px;
 }
 
@@ -1038,7 +1038,7 @@ html.no-curtain .page-curtain {
     display: block;
 }
 
-/* Brutalist Button */
+/* Pulsante in stile brutalist */
 .brutalist-button {
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
@@ -1065,7 +1065,7 @@ html.no-curtain .page-curtain {
     box-shadow: 2px 2px 0px var(--text-black);
 }
 
-/* Stickers & Badges */
+/* Adesivi e badge */
 .sticker {
     position: absolute;
     z-index: 20;
@@ -1088,9 +1088,9 @@ html.no-curtain .page-curtain {
     line-height: 1;
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     transform: rotate(15deg);
-    border: 4px solid var(--text-black); /* Clip path doesn't support border well, but keeping for logic */
+    border: 4px solid var(--text-black); /* Il clip-path non gestisce bene il bordo, ma lo manteniamo per logica */
 }
-/* Simulate border for starburst using drop-shadow filter on parent if needed, for now just flat is fine */
+/* Simula un bordo per la stella usando il filtro drop-shadow sul parent se necessario, per ora va bene piatto */
 
 .badge-circle {
     width: 100px;
@@ -1122,7 +1122,7 @@ html.no-curtain .page-curtain {
     font-weight: 900;
     font-size: 1.1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    /* simulate torn tape edge */
+    /* simula il bordo di nastro strappato */
     clip-path: polygon(0% 5%, 100% 0%, 95% 95%, 5% 100%);
 }
 
@@ -1133,7 +1133,7 @@ html.no-curtain .page-curtain {
 .badge-yellow { background-color: var(--c-yellow); color: var(--text-black); }
 .badge-red { background-color: var(--c-red); color: var(--text-black); }
 
-/* Marquee */
+/* Testo scorrevole */
 .marquee {
     width: 100%;
     overflow: hidden;
@@ -1157,10 +1157,10 @@ html.no-curtain .page-curtain {
     padding: 0 2rem;
 }
 
-/* Wavy Divider */
+/* Divisore ondulato */
 .wave-divider {
     position: absolute;
-    bottom: -1px; /* fix subpixel rendering gap */
+    bottom: -1px; /* corregge il gap di rendering sui subpixel */
     left: 0;
     width: 100%;
     height: 55px;
@@ -1173,7 +1173,7 @@ html.no-curtain .page-curtain {
     transform: rotate(180deg);
 }
 
-/* Massive Background Text */
+/* Testo di sfondo enorme */
 .bg-massive-text {
     position: absolute;
     top: 50%;
@@ -1193,7 +1193,7 @@ html.no-curtain .page-curtain {
     color: transparent;
 }
 
-/* Helpers */
+/* Classi di supporto */
 .bg-yellow { background-color: var(--c-yellow); }
 
 @keyframes marquee-scroll {
@@ -1205,7 +1205,7 @@ html.no-curtain .page-curtain {
     100% { transform: rotate(360deg); }
 }
 
-/* --- SITE FOOTER --- */
+/* --- FOOTER DEL SITO --- */
 .site-footer {
     background-color: var(--text-black);
     color: var(--text-white);
@@ -1214,7 +1214,7 @@ html.no-curtain .page-curtain {
     position: relative;
 }
 
-/* Footer Wave Divider SVG */
+/* SVG divisore ondulato del footer */
 .footer-wave-divider {
     position: absolute;
     top: -79px;
@@ -1473,7 +1473,7 @@ html.no-curtain .page-curtain {
 
 
 
-/* --- COUNTDOWN --- */
+/* --- CONTO ALLA ROVESCIA --- */
 .countdown-section {
     background-color: var(--text-white);
     padding: 6rem 2rem 2rem 2rem;
@@ -1926,12 +1926,12 @@ html.no-curtain .page-curtain {
     }
 }
 
-/* --- SPOTIFY MINI PLAYER --- */
+/* --- MINI PLAYER SPOTIFY --- */
 .spotify-player-container {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 380px; /* Increased to 380px to prevent control squeezing */
+    width: 380px; /* Aumentato a 380px per evitare che i controlli si schiaccino */
     height: 90px;
     z-index: 10000;
     border-radius: 12px;
@@ -1982,7 +1982,7 @@ html.no-curtain .page-curtain {
 
 
 
-/* --- MAP SECTION --- */
+/* --- SEZIONE MAPPA --- */
 .map-section {
     background-color: var(--c-peach);
     padding: 6rem 2rem;
@@ -2019,9 +2019,9 @@ html.no-curtain .page-curtain {
     display: block;
 }
 
-/* Responsive Styles */
+/* Stili responsive */
 
-/* Menu Toggle Button (hidden on desktop) */
+/* Pulsante toggle menu (nascosto su desktop) */
 .menu-toggle {
     display: none;
     width: 44px;
@@ -2065,7 +2065,7 @@ html.no-curtain .page-curtain {
         background-color 0.3s ease;
 }
 
-/* Morph hamburger → X */
+/* Trasforma l'hamburger in una X */
 .menu-toggle.active span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
 }
@@ -2077,7 +2077,7 @@ html.no-curtain .page-curtain {
     transform: translateY(-9px) rotate(-45deg);
 }
 
-/* Scroll lock when mobile menu is open */
+/* Blocco dello scroll quando il menu mobile è aperto */
 body.menu-open {
     overflow: hidden;
 }
@@ -2102,7 +2102,7 @@ body.menu-open {
 }
 
 @media (max-width: 768px) {
-    /* Main Navigation Mobile Custom Overlay */
+    /* Overlay personalizzato della navigazione mobile */
     .main-nav { 
         padding: 0 1.5rem; 
         height: 70px;
@@ -2123,7 +2123,7 @@ body.menu-open {
     }
     
     .menu-toggle {
-        display: flex; /* Show menu toggle on mobile */
+        display: flex; /* Mostra il pulsante menu su mobile */
     }
     
     .nav-links { 
@@ -2171,7 +2171,7 @@ body.menu-open {
         text-decoration: none;
     }
 
-    /* Force mobile menu overlay links to be black even if parent navbar is transparent */
+    /* Forza i link del menu mobile a essere neri anche se la navbar madre è trasparente */
     .main-nav.transparent-nav .nav-links a {
         color: var(--text-black);
     }
@@ -2183,7 +2183,7 @@ body.menu-open {
         text-shadow: none !important;
     }
 
-    /* Mobile responsive styles for the button */
+    /* Stili responsive mobile per il pulsante */
     .nav-links a.nav-btn-fest {
         font-size: 1.6rem;
         width: auto;
@@ -2208,7 +2208,7 @@ body.menu-open {
         text-decoration: none !important;
     }
     
-    /* Hero Section Mobile Improvements */
+    /* Miglioramenti mobile della sezione hero */
     .home-hero .sticker {
         font-size: 0.8rem;
     }
@@ -2257,7 +2257,7 @@ body.menu-open {
         box-shadow: 4px 4px 0px var(--text-black);
     }
     
-    /* Countdown Mobile Adjustments */
+    /* Adattamenti mobile del conto alla rovescia */
     .countdown-section {
         padding: 4rem 1rem 2rem 1rem;
     }
@@ -2285,7 +2285,7 @@ body.menu-open {
         font-size: 0.8rem;
     }
     
-    /* Info Blocks Mobile Layout */
+    /* Layout mobile dei blocchi informativi */
     .info-section {
         padding: 3rem 1rem;
         gap: 3rem;
@@ -2311,7 +2311,7 @@ body.menu-open {
         padding: 0.2rem 1.2rem;
     }
     
-    /* Line-up Grid Mobile Adjustments */
+    /* Adattamenti mobile della griglia line-up */
     .grid-container { 
         grid-template-columns: 1fr; 
         gap: 2rem;
@@ -2330,21 +2330,21 @@ body.menu-open {
         font-size: 0.95rem;
     }
     .artist-name { 
-        font-size: 2.6rem; /* Avoid text wrapping / clipping issues on mobile */
+        font-size: 2.6rem; /* Evita problemi di a-capo/taglio del testo su mobile */
     }
     
-    /* Vibes Archive Gallery */
+    /* Galleria archivio vibes */
     .gallery-container { 
         column-count: 1; 
         padding: 2rem 1rem;
     }
     
-    /* Footer logo adjustments on Mobile */
+    /* Adattamenti del logo footer su mobile */
     .footer-logo {
         font-size: 3.5rem;
     }
     
-    /* Map Container */
+    /* Contenitore mappa */
     .map-section {
         padding: 4rem 1rem;
     }
@@ -2372,7 +2372,7 @@ body.menu-open {
         height: 350px;
     }
     
-    /* Collapsible Spotify Player on Mobile */
+    /* Player Spotify richiudibile su mobile */
     .spotify-player-container {
         right: 15px;
         bottom: 15px;
@@ -2381,7 +2381,7 @@ body.menu-open {
         width: calc(100% - 30px);
     }
     
-    /* Footer Mobile Layout */
+    /* Layout mobile del footer */
     .footer-container {
         flex-direction: column;
         align-items: center;
@@ -2395,7 +2395,7 @@ body.menu-open {
     }
 }
 
-/* --- INTERACTIVE PHOTO (VIBRANT HOVER EFFECT) --- */
+/* --- FOTO INTERATTIVA (EFFETTO HOVER VIVACE) --- */
 .interactive-photo {
     position: relative;
     cursor: pointer;
@@ -2418,7 +2418,7 @@ body.menu-open {
     filter: brightness(1.05) contrast(1.1) saturate(1.2);
 }
 
-/* --- VIGNETTE PLACEHOLDERS FOR USER IMAGES --- */
+/* --- PLACEHOLDER CON VIGNETTATURA PER IMMAGINI UTENTE --- */
 .img-association {
     background-color: var(--c-peach);
     background-image: url('assets/logo_ass.png'), linear-gradient(45deg, #ffa270, #f5b027);
@@ -2429,7 +2429,7 @@ body.menu-open {
     background-image: url('../assets/slide3.png'), linear-gradient(135deg, #d15654, #ff6b6b);
 }
 
-/* --- CONTACT INFO CARD --- */
+/* --- CARD INFORMAZIONI DI CONTATTO --- */
 .contact-info-card {
     position: relative;
     background-color: var(--c-peach);
@@ -2465,7 +2465,7 @@ body.menu-open {
     z-index: 10;
 }
 
-/* --- SUNFLOWER MAP SECTION --- */
+/* --- SEZIONE MAPPA SUNFLOWER --- */
 .home-map-section {
     background-color: var(--bg-white);
     padding: 6rem 2rem 8rem 2rem;
@@ -2571,7 +2571,7 @@ body.menu-open {
     transform: scale(1);
 }
 
-/* --- SUNFLOWER STEM & LEAF GRAPHICS --- */
+/* --- GRAFICHE STELO E FOGLIA SUNFLOWER --- */
 .sunflower-stem-container {
     position: absolute;
     top: 90%;
@@ -2590,14 +2590,14 @@ body.menu-open {
     overflow: visible;
 }
 
-/* Hide stem and leaf when map is expanded */
+/* Nasconde stelo e foglia quando la mappa è espansa */
 .sunflower-map-container.expanded-rect .sunflower-stem-container {
     opacity: 0;
     transform: translate(-50%, -20px) scale(0.2);
     visibility: hidden;
 }
 
-/* --- DOUBLE LAYER YELLOW BACK PETALS --- */
+/* --- PETALI GIALLI POSTERIORI A DOPPIO STRATO --- */
 .sunflower-back-petals {
     position: absolute;
     top: -5%;
@@ -2611,20 +2611,20 @@ body.menu-open {
     opacity: 1;
 }
 
-/* Playful spinning and scaling on hover */
+/* Rotazione e ingrandimento giocoso su hover */
 .sunflower-map-container:hover .sunflower-back-petals {
     transform: rotate(30deg) scale(1.04);
 }
 
-/* Hide back petals when map is expanded to rectangle */
+/* Nasconde i petali posteriori quando la mappa si espande a rettangolo */
 .sunflower-map-container.expanded-rect .sunflower-back-petals {
     opacity: 0;
     transform: rotate(15deg) scale(0.5);
 }
 
-/* Spacing and transitions for map buttons */
+/* Spaziatura e transizioni per i pulsanti della mappa */
 .map-buttons-container {
-    margin-top: 10.5rem; /* Large margin to fit the stem on desktop */
+    margin-top: 10.5rem; /* Margine ampio per adattarsi allo stelo su desktop */
     display: flex;
     gap: 1.5rem;
     justify-content: center;
@@ -2635,16 +2635,16 @@ body.menu-open {
     transition: margin-top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Slide buttons up when stem is hidden */
+/* Sposta in alto i pulsanti quando lo stelo è nascosto */
 .sunflower-map-container.expanded-rect + .map-buttons-container,
 .sunflower-map-container.expanded-rect ~ .map-buttons-container {
     margin-top: 2.5rem;
 }
 
-/* Responsive spacing on mobile devices */
+/* Spaziatura responsive sui dispositivi mobili */
 @media (max-width: 768px) {
     .map-buttons-container {
-        margin-top: 7.5rem; /* Adjusted for smaller stem on mobile */
+        margin-top: 7.5rem; /* Adattato per uno stelo più piccolo su mobile */
     }
     .sunflower-map-container.expanded-rect + .map-buttons-container,
     .sunflower-map-container.expanded-rect ~ .map-buttons-container {
@@ -2675,10 +2675,10 @@ body.menu-open {
     pointer-events: none;
 }
 
-/* Custom map marker styles removed to restore standard Google Map pin */
+/* Stili personalizzati del marker rimossi per ripristinare il pin standard di Google Maps */
 
 
-/* --- SOCIAL FEEDS SECTION --- */
+/* --- SEZIONE FEED SOCIAL --- */
 .social-feeds-section {
     margin-top: 5rem;
     width: 100%;
@@ -2711,7 +2711,7 @@ body.menu-open {
     max-width: 800px;
 }
 
-/* Social Brutalist Cards */
+/* Card social in stile brutalist */
 .social-cards-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -2772,7 +2772,7 @@ body.menu-open {
     transform: scale(1.1) rotate(5deg);
 }
 
-/* Live Feeds Grid using Iframe Wrapper & Placeholders */
+/* Griglia feed live con wrapper iframe e placeholder */
 .iframe-container {
     width: 100%;
     max-width: 1200px;
@@ -2804,7 +2804,7 @@ body.menu-open {
     margin: 0 auto;
 }
 
-/* Smartphone Top Notch / Dynamic Island */
+/* Tacca superiore smartphone / Dynamic Island */
 .iframe-wrapper::before {
     content: "";
     position: absolute;
@@ -2819,7 +2819,7 @@ body.menu-open {
     pointer-events: none;
 }
 
-/* Smartphone Bottom Home Bar */
+/* Barra Home inferiore smartphone */
 .iframe-wrapper::after {
     content: "";
     position: absolute;
@@ -2855,7 +2855,7 @@ body.menu-open {
     background-color: #121212 !important;
 }
 
-/* Placeholders for load screens */
+/* Placeholder per le schermate di caricamento */
 .iframe-placeholder {
     position: absolute;
     top: 40px;
@@ -2892,7 +2892,7 @@ body.menu-open {
     margin: 0;
 }
 
-/* Custom background themes for placeholders to match Sunflower Fest */
+/* Temi di sfondo personalizzati per i placeholder in stile Sunflower Fest */
 .instagram-wrapper .iframe-placeholder {
     background-color: var(--c-peach);
 }
@@ -2915,13 +2915,13 @@ body.menu-open {
     color: #1ed760;
 }
 
-/* Fade out loader when iframe is loaded */
+/* Dissolvenza del loader al caricamento dell'iframe */
 .iframe-placeholder.fade-out {
     opacity: 0;
     visibility: hidden;
 }
 
-/* Responsive adjustments for the new social sections */
+/* Adattamenti responsive per le nuove sezioni social */
 @media (max-width: 1024px) {
     .social-cards-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -2945,7 +2945,7 @@ body.menu-open {
     }
 }
 
-/* TikTok chromatic aberration hover effect */
+/* Effetto hover con aberrazione cromatica per TikTok */
 .social-brutalist-card.tiktok:hover svg {
     filter: drop-shadow(-2px -1.5px 0px #ff0050) drop-shadow(2px 1.5px 0px #00f2fe);
 }
@@ -2954,7 +2954,7 @@ body.menu-open {
     filter: drop-shadow(-2px -1.5px 0px #ff0050) drop-shadow(2px 1.5px 0px #00f2fe);
 }
 
-/* --- LINE-UP ARTISTS SLIDER SYSTEM --- */
+/* --- SISTEMA SLIDER ARTISTI LINE-UP --- */
 .artists-slider-section {
     padding: 6rem 3rem;
     position: relative;
@@ -3034,12 +3034,12 @@ body.menu-open {
     margin: 0 auto;
     overflow-x: auto;
     padding: 2.5rem 1rem 4.5rem 1rem;
-    scrollbar-width: none; /* Hide scrollbar Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+    scrollbar-width: none; /* Nasconde la scrollbar su Firefox */
+    -ms-overflow-style: none; /* Nasconde la scrollbar su IE/Edge */
 }
 
 .artists-slider-container::-webkit-scrollbar {
-    display: none; /* Hide scrollbar Chrome/Safari */
+    display: none; /* Nasconde la scrollbar su Chrome/Safari */
 }
 
 .artists-slider-track {
@@ -3048,15 +3048,15 @@ body.menu-open {
     width: max-content;
 }
 
-/* Brutalist Slider Card */
+/* Card slider in stile brutalist */
 .artist-slider-card {
     width: 320px;
-    height: 465px; /* Increased height to prevent text from being cut off */
+    height: 465px; /* Altezza aumentata per evitare che il testo venga tagliato */
     border: 4px solid var(--text-black);
     border-radius: 20px;
     box-shadow: 8px 8px 0px var(--text-black);
     background-color: var(--text-white);
-    overflow: hidden; /* Clips expanding image wrapper to the card's rounded borders */
+    overflow: hidden; /* Ritaglia il contenitore immagine in espansione sui bordi arrotondati della card */
     display: flex;
     flex-direction: column;
     cursor: pointer;
@@ -3066,7 +3066,7 @@ body.menu-open {
     position: relative;
 }
 
-/* Cleaner, modern card styling (removed retro ticket punches) */
+/* Stile card più pulito e moderno (rimossi i fori stile biglietto retrò) */
 .artist-slider-card.bg-peach { background-color: var(--c-pastel-orange); }
 .artist-slider-card.bg-blue { background-color: var(--c-pastel-blue); }
 .artist-slider-card.bg-yellow { background-color: var(--c-pastel-yellow); }
@@ -3078,7 +3078,7 @@ body.menu-open {
 .artist-slider-card.bg-cream { background-color: var(--c-pastel-cream); }
 
 .artist-slider-card:hover {
-    /* Removed translate/rotate since they are controlled in JS with real-time cursor tracking */
+    /* Rimossi translate/rotate perché controllati via JS con tracking del cursore in tempo reale */
     box-shadow: 14px 14px 0px var(--text-black);
     z-index: 50;
 }
@@ -3095,12 +3095,12 @@ body.menu-open {
     width: 100%;
     height: 260px;
     border-bottom: 4px solid var(--text-black);
-    overflow: hidden; /* Prevent image from overflowing or zooming out of the card */
+    overflow: hidden; /* Evita che l'immagine fuoriesca o si rimpicciolisca fuori dalla card */
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     z-index: 5;
     transition: height 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-bottom-color 0.4s ease;
-    transition-delay: 0s; /* Shrink back instantly on mouse leave */
+    transition-delay: 0s; /* Si restringe istantaneamente all'uscita del mouse */
 }
 
 .card-img-wrapper .placeholder-img {
@@ -3118,20 +3118,20 @@ body.menu-open {
     transition-delay: 0s;
 }
 
-/* Hover effect: the image wrapper expands to 100% height to cover the card after 1.5 seconds of continuous hover over the image */
+/* Effetto hover: il contenitore immagine si espande al 100% dell'altezza per coprire la card dopo 1.5 secondi di hover continuo sull'immagine */
 .card-img-wrapper:hover {
     height: 100%;
     border-bottom-color: transparent;
-    transition-delay: 1s; /* Delay expansion by 1 second */
+    transition-delay: 1s; /* Ritarda l'espansione di 1 secondo */
 }
 
 .card-img-wrapper:hover .placeholder-img {
     border-radius: 16px;
-    transition-delay: 1s; /* Delay image zoom by 1 second */
+    transition-delay: 1s; /* Ritarda lo zoom dell'immagine di 1 secondo */
 }
 
 .card-time-badge {
-    display: none; /* Hidden since we use the vertical side texts now */
+    display: none; /* Nascosto perché ora si usano i testi laterali verticali */
     position: absolute;
     bottom: 1rem;
     left: 1rem;
@@ -3148,16 +3148,16 @@ body.menu-open {
     transform-style: preserve-3d;
 }
 
-/* Vertical side texts inside card image wrappers to fill empty space */
+/* Testi laterali verticali dentro i contenitori immagine della card per riempire lo spazio vuoto */
 .card-img-side-text {
     position: absolute;
     top: 50%;
     font-family: 'Monument Extended', sans-serif;
-    font-size: 2.2rem; /* Increased size to fill the empty space more prominently */
+    font-size: 2.2rem; /* Dimensione aumentata per riempire lo spazio vuoto in modo più evidente */
     font-weight: 900;
-    color: var(--text-white); /* White text to stand out on the dark grey padding of the photos */
+    color: var(--text-white); /* Testo bianco per risaltare sul padding grigio scuro delle foto */
     letter-spacing: 2px;
-    z-index: 10; /* Set above the image layer */
+    z-index: 10; /* Impostato sopra il livello dell'immagine */
     pointer-events: none;
     user-select: none;
     transition: transform 0.3s ease, color 0.3s ease;
@@ -3177,16 +3177,16 @@ body.menu-open {
     transform-style: preserve-3d;
 }
 
-/* 3D Parallax effect on hover for the side texts */
+/* Effetto parallasse 3D su hover per i testi laterali */
 .artist-slider-card:hover .card-img-side-text.left-text {
     transform: translateY(-50%) rotate(180deg) translateZ(45px);
-    color: var(--c-yellow); /* Yellow color highlight on hover */
+    color: var(--c-yellow); /* Evidenziazione gialla su hover */
     text-shadow: 2px -2px 0px var(--text-black), 4px -4px 0px rgba(0, 0, 0, 0.4);
 }
 
 .artist-slider-card:hover .card-img-side-text.right-text {
     transform: translateY(-50%) translateZ(45px);
-    color: var(--c-yellow); /* Yellow color highlight on hover */
+    color: var(--c-yellow); /* Evidenziazione gialla su hover */
     text-shadow: -2px 2px 0px var(--text-black), -4px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
@@ -3196,7 +3196,7 @@ body.menu-open {
 }
 
 .card-info-box {
-    margin-top: 260px; /* Pushes the text below the absolute-positioned default image wrapper */
+    margin-top: 260px; /* Spinge il testo sotto il contenitore immagine predefinito posizionato in absolute */
     padding: 1.3rem 1.6rem;
     display: flex;
     flex-direction: column;
@@ -3205,18 +3205,18 @@ body.menu-open {
     flex-grow: 1;
     transform-style: preserve-3d;
     position: relative;
-    z-index: 2; /* Below the z-index of the expanding image wrapper */
+    z-index: 2; /* Sotto lo z-index del contenitore immagine in espansione */
     transition: opacity 0.4s ease, transform 0.4s ease;
-    transition-delay: 0s; /* Instant return on leave */
+    transition-delay: 0s; /* Ritorno istantaneo all'uscita */
     opacity: 1;
 }
 
-/* Fade out the text smoothly after 1 second of hover on the image wrapper */
+/* Dissolve il testo dopo 1 secondo di hover sul contenitore immagine */
 .card-img-wrapper:hover + .card-info-box {
     opacity: 0;
     transform: translateY(15px);
     pointer-events: none;
-    transition-delay: 1s; /* Sync with the image wrapper delay */
+    transition-delay: 1s; /* Sincronizzato con il ritardo del contenitore immagine */
 }
 
 .artist-card-name {
@@ -3280,7 +3280,7 @@ body.menu-open {
 }
 
 
-/* --- FULL-SCREEN ARTIST PAGES SYSTEM --- */
+/* --- SISTEMA PAGINE ARTISTA A SCHERMO INTERO --- */
 .artist-modals-overlay {
     position: fixed;
     top: 0;
@@ -3314,7 +3314,7 @@ body.menu-open {
     z-index: 10;
 }
 
-/* Slightly stronger/richer versions of card pastel colors for the full-screen modals */
+/* Versioni leggermente più intense dei colori pastello delle card per le modali a schermo intero */
 .artist-full-page.bg-orange { background-color: #f39f86; color: var(--text-black) !important; }
 .artist-full-page.bg-peach  { background-color: #f39f86; color: var(--text-black) !important; }
 .artist-full-page.bg-yellow { background-color: #ffd073; color: var(--text-black) !important; }
@@ -3406,7 +3406,7 @@ body.menu-open {
     text-transform: uppercase;
 }
 
-/* Full Page Content grid */
+/* Griglia contenuto pagina intera */
 .full-page-content {
     flex-grow: 1;
     display: flex;
@@ -3459,7 +3459,7 @@ body.menu-open {
     transform: scale(1.05) !important;
 }
 
-/* Starburst/Circle Stickers inside media column */
+/* Adesivi stella/cerchio dentro la colonna media */
 .sticker-badge {
     position: absolute;
     bottom: -1rem;
@@ -3489,7 +3489,7 @@ body.menu-open {
     box-shadow: 4px 4px 0px var(--text-black);
 }
 
-/* Text details column */
+/* Colonna testo dettagli */
 .full-page-info-col {
     display: flex;
     flex-direction: column;
@@ -3626,7 +3626,7 @@ body.menu-open {
 }
 
 
-/* RESPONSIVE DESIGN ADJUSTMENTS */
+/* ADATTAMENTI RESPONSIVE DESIGN */
 @media (max-width: 1024px) {
     .artists-slider-section {
         padding: 5rem 2rem;
@@ -3759,7 +3759,7 @@ body.menu-open {
     }
 }
 
-/* --- SUNFLOWER CUSTOM AUDIO PLAYER --- */
+/* --- PLAYER AUDIO PERSONALIZZATO SUNFLOWER --- */
 .sunflower-player {
     width: 100%;
     margin-top: 1.5rem;
@@ -3778,7 +3778,7 @@ body.menu-open {
     box-shadow: 8px 8px 0px var(--text-black);
 }
 
-/* Ensure background styling behaves on red background via-mercanti details */
+/* Assicura che lo stile di sfondo si comporti bene sui dettagli con sfondo rosso "via-mercanti" */
 .artist-full-page.bg-red .sunflower-player {
     border-color: var(--text-black);
 }
@@ -3872,10 +3872,10 @@ body.menu-open {
 }
 
 .artist-full-page.bg-red .player-status-msg {
-    color: #ffd2d2; /* Better visibility on red background */
+    color: #ffd2d2; /* Migliore visibilità su sfondo rosso */
 }
 
-/* --- SUNFLOWER PLAYER VOLUME CONTROL STYLING --- */
+/* --- STILE CONTROLLO VOLUME PLAYER SUNFLOWER --- */
 .player-volume-container {
     display: flex;
     align-items: center;
@@ -3912,7 +3912,7 @@ body.menu-open {
     box-shadow: 1px 1px 0px var(--text-black);
 }
 
-/* Volume Slider Wrapper */
+/* Contenitore dello slider del volume */
 .volume-slider-wrapper {
     width: 0;
     overflow: hidden;
@@ -3921,7 +3921,7 @@ body.menu-open {
     align-items: center;
 }
 
-/* Hover/Focus behaviors on desktop */
+/* Comportamenti hover/focus su desktop */
 .player-volume-container:hover .volume-slider-wrapper,
 .player-volume-container:focus-within .volume-slider-wrapper {
     width: 80px;
@@ -3969,14 +3969,14 @@ body.menu-open {
     transform: scale(1.25);
 }
 
-/* Mobile responsive layout: keep volume slider open */
+/* Layout responsive mobile: mantiene aperto lo slider del volume */
 @media (max-width: 768px) {
     .volume-slider-wrapper {
         width: 70px;
     }
 }
 
-/* Custom Pulse Animation on Title to draw attention after smooth scrolling */
+/* Animazione di pulsazione personalizzata sul titolo per attirare l'attenzione dopo lo scroll fluido */
 .highlight-pulse {
     animation: pulseHighlight 1s ease-in-out;
 }
@@ -3994,7 +3994,7 @@ body.menu-open {
     }
 }
 
-/* --- NEWS & EVENTS PAGE CARD SYSTEM --- */
+/* --- SISTEMA CARD PAGINA NEWS ED EVENTI --- */
 .news-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -4125,7 +4125,7 @@ body.menu-open {
     }
 }
 
-/* --- DECORATIVE HOMEPAGE GRAPHICS --- */
+/* --- GRAFICHE DECORATIVE HOMEPAGE --- */
 .deco-graphics-container {
     position: absolute;
     top: 0;
@@ -4185,7 +4185,7 @@ body.menu-open {
     background-size: 15px 15px;
 }
 
-/* --- GLOBAL MODAL NAVIGATION ARROWS --- */
+/* --- FRECCE DI NAVIGAZIONE GLOBALI DELLA MODALE --- */
 .global-modal-nav-btn {
     position: fixed;
     top: 50%;
@@ -4202,7 +4202,7 @@ body.menu-open {
     justify-content: center;
     align-items: center;
     box-shadow: 4px 4px 0px var(--text-black);
-    z-index: 2100; /* Above the active modal page */
+    z-index: 2100; /* Sopra la pagina modale attiva */
     transition: all 0.2s ease;
 }
 
@@ -4241,7 +4241,7 @@ body.menu-open {
     }
 }
 
-/* Position them at the bottom on mobile to avoid covering bio content */
+/* Le posiziona in basso su mobile per non coprire la bio */
 @media (max-width: 576px) {
     .global-modal-nav-btn {
         top: auto;
@@ -4265,7 +4265,7 @@ body.menu-open {
     }
 }
 
-/* --- SLIDER CURSIVE TEXT --- */
+/* --- TESTO CORSIVO DELLO SLIDER --- */
 .slider-cursive-text {
     position: absolute;
     top: 55%;
@@ -4283,7 +4283,7 @@ body.menu-open {
 }
 
 
-/* --- GLASS CARDS EFFECT --- */
+/* --- EFFETTO CARD IN VETRO --- */
 .artists-slider-track.glass-cards-active .artist-slider-card {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.0) 100%) !important;
     backdrop-filter: blur(16px) saturate(220%) !important;
@@ -4297,7 +4297,7 @@ body.menu-open {
     color: var(--text-black) !important;
 }
 
-/* Tinted glass reflections for each color class */
+/* Riflessi vetro colorato per ogni classe colore */
 .artists-slider-track.glass-cards-active .artist-slider-card.bg-peach { 
     background: linear-gradient(135deg, rgba(255, 162, 112, 0.35) 0%, rgba(255, 162, 112, 0.05) 60%, rgba(255, 162, 112, 0.0) 100%) !important; 
 }
@@ -4320,24 +4320,24 @@ body.menu-open {
     background: linear-gradient(135deg, rgba(160, 166, 169, 0.35) 0%, rgba(160, 166, 169, 0.05) 60%, rgba(160, 166, 169, 0.0) 100%) !important; 
 }
 
-/* Glass adjustments for card headers, badges, and text overrides */
+/* Adattamenti vetro per intestazioni card, badge e override del testo */
 .artists-slider-track.glass-cards-active .artist-slider-card .card-img-wrapper {
     border-bottom: 2px solid rgba(255, 255, 255, 0.25) !important;
 }
 
-/* Keep text elements clean and readable on glass cards */
+/* Mantiene gli elementi di testo puliti e leggibili sulle card in vetro */
 .artists-slider-track.glass-cards-active .artist-slider-card .artist-card-name { color: var(--text-black) !important; }
 .artists-slider-track.glass-cards-active .artist-slider-card .artist-card-time { color: rgba(26, 26, 26, 0.65) !important; }
 .artists-slider-track.glass-cards-active .artist-slider-card .artist-card-genre { color: var(--text-black) !important; }
 .artists-slider-track.glass-cards-active .artist-slider-card .card-action-link { color: var(--text-black) !important; }
 
-/* Keep name text visible for red card overrides */
+/* Mantiene visibile il testo del nome per gli override della card rossa */
 .artists-slider-track.glass-cards-active .artist-slider-card.bg-red .artist-card-name { color: var(--text-black) !important; }
 .artists-slider-track.glass-cards-active .artist-slider-card.bg-red .artist-card-time { color: rgba(26, 26, 26, 0.6) !important; }
 .artists-slider-track.glass-cards-active .artist-slider-card.bg-red .artist-card-genre { color: var(--text-black) !important; }
 .artists-slider-track.glass-cards-active .artist-slider-card.bg-red .card-action-link { color: var(--text-black) !important; }
 
-/* Dynamic active states for glass button */
+/* Stati attivi dinamici per il pulsante in vetro */
 .slider-control-btn.glass-toggle {
     margin-right: 0.5rem;
     font-size: 1.3rem;
@@ -4348,7 +4348,7 @@ body.menu-open {
     transform: translate(2px, 2px);
 }
 
-/* --- MULTI-TRACK CUSTOM PLAYER STYLES --- */
+/* --- STILI PLAYER PERSONALIZZATO MULTI-TRACCIA --- */
 .sunflower-player {
     display: flex;
     flex-direction: column;
@@ -4448,7 +4448,7 @@ body.menu-open {
     }
 }
 
-/* --- HOME PAGE BACKGROUND ENHANCEMENTS --- */
+/* --- MIGLIORIE SFONDO HOMEPAGE --- */
 .home-body {
     background-color: #FFC231 !important;
 }
@@ -4469,7 +4469,7 @@ body.menu-open {
     background-color: rgba(26, 26, 26, 0.05);
 }
 
-/* --- POSTCARD STYLE FOR CANDIDATURES --- */
+/* --- STILE CARTOLINA PER LE CANDIDATURE --- */
 .postcard-wrapper {
     perspective: 1000px;
 }
@@ -4513,7 +4513,7 @@ body.menu-open {
     box-shadow: 2px 2px 0px var(--text-black);
 }
 
-/* Stamp Illustration */
+/* Illustrazione francobollo */
 .postcard-stamp {
     width: 80px;
     height: 100px;
@@ -4551,7 +4551,7 @@ body.menu-open {
     border-radius: 50%;
 }
 
-/* Postcard Body Split */
+/* Divisione del corpo della cartolina */
 .postcard-body {
     display: flex;
     gap: 1.8rem;
@@ -4610,7 +4610,7 @@ body.menu-open {
     font-family: 'Dancing Script', cursive !important;
     font-size: 1.5rem !important;
     line-height: 1.3 !important;
-    color: #2b3a8c !important; /* Classic blue pen ink color */
+    color: #2b3a8c !important; /* Colore inchiostro blu penna classico */
 }
 
 .postcard-message {
@@ -4662,7 +4662,7 @@ body.menu-open {
     }
 }
 
-/* Custom player mobile styling */
+/* Stile mobile del player personalizzato */
 @media (max-width: 768px) {
     .sunflower-player {
         padding: 1.2rem 1.2rem;
@@ -4675,7 +4675,7 @@ body.menu-open {
     }
 
     .player-track-info {
-        order: -1; /* Pushes track name and progress bar to the top */
+        order: -1; /* Spinge il nome della traccia e la barra di avanzamento in alto */
         width: 100%;
     }
 
@@ -4693,11 +4693,11 @@ body.menu-open {
     }
 
     .volume-slider-wrapper {
-        width: 100px !important; /* Make volume slider a bit larger and fully visible on mobile */
+        width: 100px !important; /* Rende lo slider del volume un po' più grande e completamente visibile su mobile */
     }
 }
 
-/* --- LAZY LOADING PLACEHOLDER STYLE --- */
+/* --- STILE PLACEHOLDER LAZY LOADING --- */
 .lazy-bg {
     background-image: none !important;
     background-color: rgba(26, 26, 26, 0.08);
@@ -4721,7 +4721,7 @@ body.menu-open {
     100% { transform: translateX(100%); }
 }
 
-/* --- CUSTOM ASSOCIAZIONE SUBDOMAIN OVERRIDES --- */
+/* --- OVERRIDE PERSONALIZZATI PER IL SOTTODOMINIO ASSOCIAZIONE --- */
 .main-nav {
     background-color: var(--c-pastel-cream);
     border-bottom: 4px solid var(--text-black);
@@ -4760,7 +4760,7 @@ body.menu-open {
     background-color: var(--text-black);
 }
 
-/* Footer overrides */
+/* Override del footer */
 .site-footer {
     background-color: #C16445;
     color: var(--text-black);
@@ -4819,7 +4819,7 @@ body.menu-open {
     background-color: var(--text-black);
 }
 
-/* Mobile navbar overrides to match association colors and rules */
+/* Override navbar mobile per adattarsi ai colori e alle regole dell'associazione */
 @media (max-width: 768px) {
     .nav-links {
         background-color: var(--c-pastel-cream) !important;
@@ -4842,11 +4842,11 @@ body.menu-open {
     }
 }
 
-/* Mobile Fixes for Modal Content and Player */
+/* Correzioni mobile per contenuto modale e player */
 @media (max-width: 768px) {
     .full-page-content {
-        display: block !important; /* Prevents flex centering from causing horizontal overflow */
-        padding: 2rem 1.2rem 120px 1.2rem !important; /* Extra bottom padding so elements don't get covered by fixed navigation buttons */
+        display: block !important; /* Evita che il centraggio flex causi overflow orizzontale */
+        padding: 2rem 1.2rem 120px 1.2rem !important; /* Padding inferiore extra per evitare che gli elementi siano coperti dai pulsanti di navigazione fissi */
     }
     
     .full-page-grid {
@@ -4862,9 +4862,9 @@ body.menu-open {
         overflow: hidden !important;
     }
 
-    /* Ensure navigation buttons don't block the player or overlap awkwardly */
+    /* Assicura che i pulsanti di navigazione non blocchino il player o si sovrappongano in modo scorretto */
     .global-modal-nav-btn {
-        z-index: 2200 !important; /* Keep above players */
+        z-index: 2200 !important; /* Resta sopra i player */
     }
 
     .player-track-name {
@@ -4878,7 +4878,7 @@ body.menu-open {
     }
 }
 
-/* --- VIBES ARCHIVE EXPANSION GALLERY MODAL (BRUTALIST STYLE) --- */
+/* --- MODALE GALLERIA ARCHIVIO VIBES ESPANSA (STILE BRUTALIST) --- */
 .gallery-modal {
     display: none;
     position: fixed;
@@ -4994,7 +4994,7 @@ body.menu-open {
     flex-grow: 1;
 }
 
-/* Scrollbar styling for modal body */
+/* Stile scrollbar per il corpo della modale */
 .gallery-modal-body::-webkit-scrollbar {
     width: 10px;
 }
@@ -5012,7 +5012,7 @@ body.menu-open {
     gap: 2rem;
 }
 
-/* Polaroid-Style Photo Cards */
+/* Card fotografiche in stile polaroid */
 .gallery-photo-card {
     background-color: var(--text-white);
     border: 3px solid var(--text-black);
@@ -5027,7 +5027,7 @@ body.menu-open {
 }
 
 .gallery-photo-card:hover {
-    transform: translateY(-8px) scale(1.03) !important; /* Overrides random javascript rotation scaling slightly */
+    transform: translateY(-8px) scale(1.03) !important; /* Sovrascrive leggermente la rotazione casuale impostata da JavaScript */
     box-shadow: 8px 8px 0px var(--text-black);
     z-index: 5;
 }
@@ -5040,7 +5040,7 @@ body.menu-open {
 }
 
 
-/* --- LIGHTBOX (FULL IMAGE ZOOM VIEW) --- */
+/* --- LIGHTBOX (VISUALIZZAZIONE IMMAGINE A SCHERMO INTERO) --- */
 .gallery-lightbox {
     display: none;
     position: fixed;
@@ -5148,7 +5148,7 @@ body.menu-open {
     right: 40px;
 }
 
-/* RESPONSIVE DESIGN ADJUSTMENTS */
+/* ADATTAMENTI RESPONSIVE DESIGN */
 @media (max-width: 768px) {
     .gallery-modal {
         padding: 1rem;
@@ -5207,22 +5207,22 @@ body.menu-open {
     }
 }
 
-/* --- COMPREHENSIVE RESPONSIVENESS OVERRIDES --- */
+/* --- OVERRIDE COMPLETI DI RESPONSIVITÀ --- */
 @media (max-width: 1024px) {
-    /* Let's make stats 2 columns instead of stacking immediately */
+    /* Rendiamo le statistiche a 2 colonne invece di impilarle subito */
     .stats-container {
         grid-template-columns: repeat(2, 1fr) !important;
     }
 }
 
 @media (max-width: 768px) {
-    /* Safe viewport constraints */
+    /* Vincoli di sicurezza per il viewport */
     html, body {
         max-width: 100% !important;
         overflow-x: hidden !important;
     }
 
-    /* Fluid typography for main titles */
+    /* Tipografia fluida per i titoli principali */
     .page-title {
         font-size: clamp(2rem, 8vw, 3.5rem) !important;
     }
@@ -5235,7 +5235,7 @@ body.menu-open {
         font-size: clamp(3rem, 12vw, 5.5rem) !important;
     }
     
-    /* Countdown fixes */
+    /* Correzioni al conto alla rovescia */
     .countdown-container {
         grid-template-columns: repeat(4, 1fr) !important;
         gap: 0.5rem !important;
@@ -5252,38 +5252,38 @@ body.menu-open {
         font-size: clamp(0.6rem, 2vw, 0.9rem) !important;
     }
 
-    /* Form and button scaling */
+    /* Ridimensionamento di form e pulsanti */
     input, textarea, select, button, .brutalist-button {
-        min-height: 44px; /* Touch target height rule */
+        min-height: 44px; /* Regola altezza area di tocco */
     }
 
-    /* Info blocks responsive adjustment */
+    /* Adattamento responsive dei blocchi informativi */
     .info-block {
         padding: 2rem 1rem !important;
         gap: 1.5rem !important;
     }
     
-    /* Social networks alignment fixing */
+    /* Correzione allineamento social network */
     .social-channels-grid {
         grid-template-columns: 1fr !important;
         gap: 1rem !important;
         padding: 0 1rem;
     }
 
-    /* Map responsive sizing */
+    /* Dimensionamento responsive della mappa */
     .smartphone-map-container {
         width: 100% !important;
         max-width: 320px !important;
         height: 520px !important;
     }
 
-    /* Contact card responsive overrides */
+    /* Override responsive della card contatti */
     .contact-info-card {
         padding: 1.5rem 1rem !important;
         margin-bottom: 5rem !important;
     }
 
-    /* Footer styling fix */
+    /* Correzione stile footer */
     .site-footer {
         padding: 3rem 1rem 1.5rem 1rem !important;
     }
@@ -5303,7 +5303,7 @@ body.menu-open {
 }
 
 @media (max-width: 480px) {
-    /* Stats stacking on very small screens */
+    /* Impilamento statistiche su schermi molto piccoli */
     .stats-container {
         grid-template-columns: 1fr !important;
     }
@@ -5311,24 +5311,24 @@ body.menu-open {
         padding: 1.5rem 1rem !important;
     }
 
-    /* Countdown layout on tiny screens to avoid squishing numbers */
+    /* Layout del conto alla rovescia su schermi minuscoli per evitare di schiacciare i numeri */
     .countdown-container {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 0.8rem !important;
     }
 
-    /* Adjust page-header padding */
+    /* Adatta il padding dell'header di pagina */
     .page-header {
         padding: 3rem 1rem !important;
     }
 
-    /* Text block sizes */
+    /* Dimensioni dei blocchi di testo */
     .info-text p {
         font-size: 0.95rem !important;
         line-height: 1.6 !important;
     }
     
-    /* Iframe elements width reset */
+    /* Reset larghezza elementi iframe */
     iframe, video, img {
         max-width: 100% !important;
     }

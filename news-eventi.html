@@ -846,7 +846,7 @@
 </head>
 <body>
     
-    <!-- CURTAIN TRANSITION -->
+    <!-- TRANSIZIONE TENDINA -->
     <div class="page-curtain">
         <div class="curtain-content">
             <img src="assets/loghi/logo-nobg.png" alt="Logo Sunflower Fest" class="curtain-logo">
@@ -898,7 +898,7 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
+    <!-- Intestazione di pagina -->
     <header class="page-header" style="background-color: var(--c-pastel-yellow); border-bottom: 3px solid var(--text-black);">
         <h1 class="page-title" style="color: var(--text-black); font-size: clamp(2.4rem, 6vw, 4.2rem); animation: news-header-in 0.7s cubic-bezier(0.22,1,0.36,1) both;">
             <span class="lang-it">NEWS ED EVENTI</span>
@@ -911,25 +911,25 @@
     </header>
 
 
-    <!-- Content Wrapper -->
+    <!-- Contenitore del contenuto -->
     <div class="full-width-wrapper bg-white" style="position: relative; overflow: hidden;">
         
-        <!-- Floating Neo-Brutalist decorative shapes -->
+        <!-- Forme decorative fluttuanti in stile neo-brutalist -->
         <div class="deco-graphics-container">
             <span class="floating-deco deco-flower" style="top: 15%; left: 4%; opacity: 0.08; font-size: 7rem;">✿</span>
             <span class="floating-deco deco-starburst" style="top: 45%; right: 4%; opacity: 0.08; font-size: 6rem; color: var(--c-red);">★</span>
             <span class="floating-deco deco-cross-1" style="top: 75%; left: 8%; opacity: 0.06; font-size: 4rem; color: var(--c-yellow);">✦</span>
         </div>
 
-        <!-- Search & Filter Controls -->
+        <!-- Controlli di ricerca e filtro -->
         <div class="news-controls-container">
-            <!-- Search bar -->
+            <!-- Barra di ricerca -->
             <div class="news-search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" id="news-search" class="news-search-input" placeholder="Cerca tra news ed eventi... / Search news and events...">
             </div>
 
-            <!-- Filters + count row -->
+            <!-- Riga filtri + conteggio -->
             <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.8rem;">
                 <div class="news-filters">
                     <button class="filter-btn active" data-filter="all">
@@ -958,7 +958,7 @@
                         <span class="lang-en">Collaborations</span>
                     </button>
                 </div>
-                <!-- Results count -->
+                <!-- Conteggio risultati -->
                 <div id="news-count" style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:rgba(26,26,26,0.45); white-space:nowrap;">
                     <span id="news-count-num">4</span> <span class="lang-it">risultati</span><span class="lang-en">results</span>
                 </div>
@@ -967,7 +967,7 @@
         
         <main class="news-grid" id="news-grid-container">
 
-            <!-- News Card 1 (Collaborazione — FEATURED) -->
+            <!-- Card news 1 (Collaborazione — IN EVIDENZA) -->
             <article class="news-card featured reveal-up" data-category="collaborazione" data-modal-img="assets/hat-music-collab-vertical.webp">
                 <div class="news-card-img-wrapper news-card-img-wrapper--square">
                     <div class="news-card-img hat-music-img" style="background-image: url('assets/hat-music-collab.webp'); background-size: contain !important; background-repeat: no-repeat !important; background-position: center !important; background-color: #030303 !important;"></div>
@@ -1019,7 +1019,7 @@
                 </div>
             </article>
 
-            <!-- News Card 2 (Contest) -->
+            <!-- Card news 2 (Contest) -->
             <article class="news-card reveal-left delay-1" data-category="contest" data-modal-img="assets/sunflower-vi-ringrazia.webp">
                 <div class="news-card-img-wrapper news-card-img-wrapper--square">
                     <div class="news-card-img" style="background-image: url('assets/sunflower-vi-ringrazia.webp'); background-size: contain !important; background-repeat: no-repeat !important; background-position: center !important; background-color: #030303 !important;"></div>
@@ -1060,7 +1060,7 @@
                 </div>
             </article>
 
-            <!-- News Card 3 (Line-up) -->
+            <!-- Card news 3 (Line-up) -->
             <article class="news-card reveal-right delay-2" data-category="line-up">
                 <div class="news-card-img-wrapper">
                     <div class="news-card-img" style="background-image: url('assets/foto-artisti/graficaartisti.webp'); background-size: contain; background-repeat: no-repeat; background-color: #232323;"></div>
@@ -1084,11 +1084,11 @@
                         <span class="lang-en">The official Sunflower Fest 2026 line-up is here — check out everyone taking our stage this year.</span>
                     </p>
                     
-                    <!-- Hidden carousel source container for modal popup left panel -->
+                    <!-- Contenitore sorgente del carosello nascosto per il pannello sinistro del popup modale -->
                     <div class="card-carousel-source" style="display: none;">
                         <div class="artist-carousel-wrapper" style="width: 100%; height: 100%; overflow: hidden; background: #232323; position: relative;">
                             <div class="artist-carousel-track" style="display: flex; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); width: 100%; height: 100%;">
-                                <!-- First slide: the general lineup poster -->
+                                <!-- Prima slide: il poster generale del line-up -->
                                 <div class="artist-carousel-slide" style="flex: 0 0 100%; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; overflow: hidden;">
                                     <img src="assets/foto-artisti/graficaartisti.webp" alt="General Lineup" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                                 </div>
@@ -1142,7 +1142,7 @@
                 </div>
             </article>
 
-            <!-- News Card 4 (Annuncio — WIDE, horizontal) -->
+            <!-- Card news 4 (Annuncio — LARGA, orizzontale) -->
             <article class="news-card card-wide reveal-up delay-3" data-category="annuncio">
                 <div class="news-card-img-wrapper">
                     <div class="news-card-img" style="background-image: url('assets/loghi/logosocialtennisclub.webp'); background-size: contain !important; background-repeat: no-repeat !important; background-color: #ffffff !important; background-position: center !important;"></div>
@@ -1166,7 +1166,7 @@
                         <span class="lang-en">Sunflower Fest 2026 is heading to the outdoor spaces of the Social Tennis Club in Cava de' Tirreni.</span>
                     </p>
                     
-                    <!-- Hidden video source container for modal popup left panel -->
+                    <!-- Contenitore sorgente video nascosto per il pannello sinistro del popup modale -->
                     <div class="card-video-source" style="display: none;">
                         <div class="custom-video-player">
                             <video poster="assets/loghi/logo-nobg.webp" playsinline>
@@ -1219,7 +1219,7 @@
         </main>
     </div>
 
-    <!-- News Detail Modal -->
+    <!-- Modale dettaglio news -->
     <div id="news-modal" class="news-modal-overlay">
         <div class="news-modal-container">
             <button class="news-modal-close" id="news-modal-close-btn">&times;</button>
@@ -1234,16 +1234,16 @@
         </div>
     </div>
 
-    <!-- Site Footer -->
+    <!-- Footer del sito -->
     <footer class="site-footer">
-        <!-- Wavy Divider at the top of the footer -->
+        <!-- Divisore ondulato in cima al footer -->
         <svg class="footer-wave-divider" viewBox="0 0 1000 100" preserveAspectRatio="none">
             <path d="M0,0 C300,100 700,100 1000,0 L1000,100 L0,100 Z" fill="var(--c-yellow)"></path>
             <path d="M0,0 C300,100 700,100 1000,0" fill="none" stroke="var(--text-black)" stroke-width="8"></path>
         </svg>
 
         <div class="footer-container">
-            <!-- Left Column: Contacts -->
+            <!-- Colonna sinistra: contatti -->
             <div class="footer-col footer-contacts">
                 <h3><span class="lang-it">Contatti</span><span class="lang-en">Contact</span></h3>
                 <p class="association-name">Sunflowers Group</p>
@@ -1265,7 +1265,7 @@
                 <p>P. Iva: 06366340658</p>
             </div>
             
-            <!-- Middle Column: Logo & Realization -->
+            <!-- Colonna centrale: logo e realizzazione -->
             <div class="footer-col footer-brand">
                 <p class="realization-text">
                     <span class="lang-it">Il Sunflower Fest è realizzato dall'associazione culturale<br><strong>SUNFLOWERS GROUP APS</strong></span>
@@ -1287,7 +1287,7 @@
                 </div>
             </div>
             
-            <!-- Right Column: Socials & Policies -->
+            <!-- Colonna destra: social e norme -->
             <div class="footer-col footer-socials">
                 <h3>SOCIAL</h3>
                 <div class="social-icons">
@@ -1327,7 +1327,7 @@
             </div>
         </div>
 
-        <!-- Bottom Developer Credit -->
+        <!-- Credito sviluppatore in fondo -->
         <div class="footer-bottom">
             <div class="developer-credit">
                <span class="lang-it">Sito web a cura di</span><span class="lang-en">Website by</span> <a href="https://ianyydevs.altervista.org/" target="_blank">IANYDEVS</a>
@@ -1335,7 +1335,7 @@
         </div>
     </footer>
 
-    <!-- Search & Filter Logic -->
+    <!-- Logica di ricerca e filtro -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             function initCustomVideoPlayer(player) {
@@ -1709,4 +1709,3 @@
     <script src="script.js?v=1.0.4"></script>
 </body>
 </html>
-<!-- trigger deploy -->
