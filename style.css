@@ -361,17 +361,16 @@ html.no-curtain .page-curtain {
     transition: transform 0.3s ease;
 }
 
-.nav-links .nav-dropdown .dropdown-trigger:hover {
-    background-color: var(--text-white);
-    color: var(--text-black);
-    border-color: var(--text-black);
-    box-shadow: 4px 4px 0px var(--text-black);
-    transform: rotate(1deg) scale(1.05);
-    text-decoration: none;
-}
-
 /* Rotazione dello chevron su hover/attivo della navbar */
 @media (hover: hover) {
+    .nav-links .nav-dropdown .dropdown-trigger:hover {
+        background-color: var(--text-white);
+        color: var(--text-black);
+        border-color: var(--text-black);
+        box-shadow: 4px 4px 0px var(--text-black);
+        transform: rotate(1deg) scale(1.05);
+        text-decoration: none;
+    }
     .nav-dropdown:hover .dropdown-trigger i {
         transform: rotate(180deg);
     }
@@ -2581,7 +2580,7 @@ body.menu-open {
         -webkit-tap-highlight-color: transparent;
     }
 
-    .nav-links a:hover, .nav-links a.active {
+    .nav-links a:not(.dropdown-trigger):hover, .nav-links a:not(.dropdown-trigger).active {
         color: var(--text-white) !important;
         transform: scale(1.04) !important;
         text-shadow: none !important;
@@ -2615,8 +2614,8 @@ body.menu-open {
         color: var(--text-black);
     }
 
-    .main-nav.transparent-nav .nav-links a:hover,
-    .main-nav.transparent-nav .nav-links a.active {
+    .main-nav.transparent-nav .nav-links a:not(.dropdown-trigger):hover,
+    .main-nav.transparent-nav .nav-links a:not(.dropdown-trigger).active {
         color: var(--text-white) !important;
         text-shadow: none !important;
     }
