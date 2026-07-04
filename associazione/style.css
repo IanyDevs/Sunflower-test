@@ -390,25 +390,17 @@ html.no-curtain .page-curtain {
     transition: transform 0.3s ease;
 }
 
-/* Rotazione dello chevron su hover/attivo della navbar */
-@media (hover: hover) {
-    .nav-links .nav-dropdown .dropdown-trigger:hover {
-        background-color: var(--text-white);
-        color: var(--text-black);
-        border-color: var(--text-black);
-        box-shadow: 4px 4px 0px var(--text-black);
-        transform: rotate(1deg) scale(1.05);
-        text-decoration: none;
-    }
-    .nav-dropdown:hover .dropdown-trigger i {
-        transform: rotate(180deg);
-    }
-    .main-nav.transparent-nav .nav-dropdown .dropdown-trigger:hover {
-        background-color: var(--text-white);
-        color: var(--text-black);
-    }
+.nav-links .nav-dropdown .dropdown-trigger:hover {
+    background-color: var(--text-white);
+    color: var(--text-black);
+    border-color: var(--text-black);
+    box-shadow: 4px 4px 0px var(--text-black);
+    transform: rotate(1deg) scale(1.05);
+    text-decoration: none;
 }
 
+/* Rotazione dello chevron su hover/attivo della navbar */
+.nav-dropdown:hover .dropdown-trigger i,
 .nav-dropdown.active .dropdown-trigger i {
     transform: rotate(180deg);
 }
@@ -419,6 +411,11 @@ html.no-curtain .page-curtain {
     color: var(--text-black);
     border-color: var(--text-black);
     box-shadow: 4px 4px 0px var(--text-black);
+}
+
+.main-nav.transparent-nav .nav-dropdown .dropdown-trigger:hover {
+    background-color: var(--text-white);
+    color: var(--text-black);
 }
 
 /* Stato cliccato/aperto: bianco con contorno nero, sovrascrive hover e transparent-nav */
@@ -2167,9 +2164,7 @@ body.menu-open {
         display: inline-block;
     }
     
-    .nav-links a:not(.dropdown-trigger):hover, 
-    .nav-links a:not(.dropdown-trigger).active, 
-    .nav-links a:not(.dropdown-trigger):active {
+    .nav-links a:hover, .nav-links a.active, .nav-links a:active {
         color: var(--c-red) !important;
         transform: scale(1.04) !important;
         text-shadow: none !important;
@@ -2181,9 +2176,9 @@ body.menu-open {
         color: var(--text-black);
     }
     
-    .main-nav.transparent-nav .nav-links a:not(.dropdown-trigger):hover,
-    .main-nav.transparent-nav .nav-links a:not(.dropdown-trigger).active,
-    .main-nav.transparent-nav .nav-links a:not(.dropdown-trigger):active {
+    .main-nav.transparent-nav .nav-links a:hover,
+    .main-nav.transparent-nav .nav-links a.active,
+    .main-nav.transparent-nav .nav-links a:active {
         color: var(--c-red) !important;
         text-shadow: none !important;
     }
