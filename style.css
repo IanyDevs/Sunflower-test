@@ -560,6 +560,7 @@ html.no-curtain .page-curtain {
             text-shadow: 3px 3px 0px var(--text-black);
         }
         .main-nav.transparent-nav .nav-dropdown .dropdown-trigger:hover {
+            background: none;
             color: var(--text-white);
         }
     }
