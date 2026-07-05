@@ -447,6 +447,22 @@ function initHeroSlider() {
         'assets/Foto-generali/Foto20.webp',
         'assets/Foto-generali/Foto21.webp',
         'assets/Foto-generali/Foto22.webp',
+        'assets/Foto-generali/Foto38.webp',
+        'assets/Foto-generali/Foto39.webp',
+        'assets/Foto-generali/Foto40.webp',
+        'assets/Foto-generali/Foto41.webp',
+        'assets/Foto-generali/Foto42.webp',
+        'assets/Foto-generali/Foto43.webp',
+        'assets/Foto-generali/Foto44.webp',
+        'assets/Foto-generali/Foto45.webp',
+        'assets/Foto-generali/Foto46.webp',
+        'assets/Foto-generali/Foto47.webp',
+        'assets/Foto-generali/Foto48.webp',
+        'assets/Foto-generali/Foto49.webp',
+        'assets/Foto-generali/Foto50.webp',
+        'assets/Foto-generali/Foto51.webp',
+        'assets/Foto-generali/Foto52.webp',
+        'assets/Foto-generali/Foto53.webp',
         'assets/Foto-generali/foto2.webp',
         'assets/Foto-generali/foto3.webp',
         'assets/Foto-generali/foto4.webp',
@@ -457,11 +473,61 @@ function initHeroSlider() {
         'assets/Foto-generali/foto9.webp'
     ];
 
-    // Mescolamento Fisher-Yates
-    for (let i = carouselImages.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [carouselImages[i], carouselImages[j]] = [carouselImages[j], carouselImages[i]];
+    // Identifichiamo i file verticali per ottimizzazione responsive del carosello
+    const verticalFilenames = [
+        'Foto23.webp', 'Foto24.webp', 'Foto28.webp', 'Foto29.webp', 'Foto32.webp',
+        'Foto33.webp', 'Foto34.webp', 'Foto38.webp', 'Foto39.webp', 'Foto40.webp',
+        'Foto41.webp', 'Foto43.webp', 'Foto44.webp', 'Foto45.webp', 'Foto46.webp',
+        'Foto47.webp', 'Foto48.webp', 'Foto49.webp', 'Foto50.webp', 'Foto52.webp',
+        'Foto53.webp'
+    ];
+
+    const isMobile = window.innerWidth <= 768;
+    const vertical = [];
+    const horizontal = [];
+
+    carouselImages.forEach(img => {
+        const filename = img.split('/').pop();
+        if (verticalFilenames.includes(filename)) {
+            vertical.push(img);
+        } else {
+            horizontal.push(img);
+        }
+    });
+
+    const shuffle = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    };
+    shuffle(vertical);
+    shuffle(horizontal);
+
+    let finalImages = [];
+    if (isMobile) {
+        // Su mobile diamo la precedenza e maggior frequenza alle foto verticali (3 verticali per ogni orizzontale)
+        let vIdx = 0, hIdx = 0;
+        while (vIdx < vertical.length || hIdx < horizontal.length) {
+            if (vIdx < vertical.length) finalImages.push(vertical[vIdx++]);
+            if (vIdx < vertical.length) finalImages.push(vertical[vIdx++]);
+            if (vIdx < vertical.length) finalImages.push(vertical[vIdx++]);
+            if (hIdx < horizontal.length) finalImages.push(horizontal[hIdx++]);
+        }
+    } else {
+        // Su desktop preferiamo le foto orizzontali (3 orizzontali per ogni verticale)
+        let vIdx = 0, hIdx = 0;
+        while (vIdx < vertical.length || hIdx < horizontal.length) {
+            if (hIdx < horizontal.length) finalImages.push(horizontal[hIdx++]);
+            if (hIdx < horizontal.length) finalImages.push(horizontal[hIdx++]);
+            if (hIdx < horizontal.length) finalImages.push(horizontal[hIdx++]);
+            if (vIdx < vertical.length) finalImages.push(vertical[vIdx++]);
+        }
     }
+
+    // Aggiorna l'array in-place
+    carouselImages.length = 0;
+    carouselImages.push(...finalImages);
 
     // NON svuotare sliderContainer, per preservare la slide statica (LCP LCP LCP)
     // Aggiunge solo le altre slide come elementi inattivi e caricabili in lazy loading
