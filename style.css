@@ -7077,8 +7077,7 @@ footer {
        layout di .artists-slider-section e viceversa.       */
     .countdown-section,
     .artists-slider-section,
-    .gallery-container,
-    .social-feeds-section {
+    .gallery-container {
         contain: paint;
     }
 
