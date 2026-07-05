@@ -3571,12 +3571,11 @@ body.menu-open {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-    width: calc(100% + 20px);
+    width: 100%;
     max-width: 1220px;
-    margin-left: -10px;
-    margin-right: -10px;
     margin-bottom: 4rem;
-    padding: 10px;
+    padding: 12px;
+    box-sizing: border-box;
     overflow: visible !important;
 }
 

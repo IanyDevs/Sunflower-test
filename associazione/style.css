@@ -2885,6 +2885,9 @@ body.menu-open {
     width: 100%;
     max-width: 1200px;
     margin-bottom: 4rem;
+    padding: 12px;
+    box-sizing: border-box;
+    overflow: visible !important;
 }
 
 .social-brutalist-card {
