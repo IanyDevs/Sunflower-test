@@ -624,9 +624,6 @@ html.no-curtain .page-curtain {
         padding: 0 !important;
         width: 100% !important;
         max-width: none !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
     }
     
     .dropdown-content.simple .dropdown-link {
