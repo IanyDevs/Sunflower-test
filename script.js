@@ -1228,22 +1228,36 @@ function initPageTransitions() {
 }
 
 function initDropdowns() {
-    const dropdown = document.querySelector('.nav-dropdown');
-    const trigger = document.querySelector('.nav-dropdown .dropdown-trigger');
-    if (!dropdown || !trigger) return;
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    if (dropdowns.length === 0) return;
 
-    // Logica di click per aprire/chiudere il menu a tendina ed evitare salti di scroll della pagina
-    trigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        dropdown.classList.toggle('active');
+    dropdowns.forEach(dropdown => {
+        const trigger = dropdown.querySelector('.dropdown-trigger');
+        if (!trigger) return;
+
+        // Logica di click per aprire/chiudere il menu a tendina ed evitare salti di scroll della pagina
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Chiude gli altri dropdown attivi
+            dropdowns.forEach(other => {
+                if (other !== dropdown) {
+                    other.classList.remove('active');
+                }
+            });
+            
+            dropdown.classList.toggle('active');
+        });
     });
 
-    // Chiude il menu a tendina cliccando fuori
+    // Chiude tutti i menu a tendina cliccando fuori
     document.addEventListener('click', (e) => {
-        if (!dropdown.contains(e.target)) {
-            dropdown.classList.remove('active');
-        }
+        dropdowns.forEach(dropdown => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
     });
 }
 
