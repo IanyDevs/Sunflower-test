@@ -944,6 +944,7 @@
             const lightboxPrev = lightbox.querySelector(".lightbox-prev");
             const lightboxNext = lightbox.querySelector(".lightbox-next");
 
+            let scrollPosition = 0;
             let currentImages = [];
             let currentImageIndex = 0;
 
@@ -953,6 +954,9 @@
                     const category = card.getAttribute("data-gallery");
                     const data = galleryData[category];
                     if (!data) return;
+
+                    // Salva la posizione di scorrimento corrente
+                    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
                     const isEn = document.body.classList.contains("lang-en-active");
                     modalTitle.textContent = isEn ? data.titleEn : data.titleIt;
@@ -987,6 +991,8 @@
                 document.body.style.overflow = "";
                 document.documentElement.style.overflow = "";
                 document.body.classList.remove("modal-open");
+                // Ripristina la posizione di scorrimento salvata
+                window.scrollTo(0, scrollPosition);
             };
             modalClose.addEventListener("click", closeModal);
             modalBackdrop.addEventListener("click", closeModal);
