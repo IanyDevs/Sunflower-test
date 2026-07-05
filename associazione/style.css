@@ -642,14 +642,28 @@ html.no-curtain .page-curtain {
     }
     
     .dropdown-content.simple {
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 12px !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        width: 90% !important;
+        max-width: 260px !important;
+        max-height: 0 !important;
+        opacity: 0 !important;
+        overflow: hidden !important;
+        transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease, padding 0.3s ease, margin 0.3s ease !important;
+    }
+    
+    .nav-dropdown.simple-dropdown.active .dropdown-content.simple {
         background-color: var(--bg-white, #f4f4f4) !important;
         border: 3px solid var(--text-black) !important;
         box-shadow: 4px 4px 0px var(--text-black) !important;
-        border-radius: 12px !important;
         padding: 0.8rem !important;
         margin: 0.5rem auto 0 auto !important;
-        width: 90% !important;
-        max-width: 260px !important;
+        max-height: 500px !important;
+        opacity: 1 !important;
     }
     
     .dropdown-content.simple .dropdown-link {
